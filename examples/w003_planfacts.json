@@ -1,5 +1,5 @@
 {
-  "engine_version": "0.1.0",
+  "engine_version": "0.2.0",
   "document_fingerprint": "1482121177c3ef34cdb9ce6936ff014c0bebb72700ab95899f94f035e6c2f328",
   "pages": [
     {
@@ -49989,14 +49989,3907 @@
       "components_acyclic": 129
     }
   },
+  "component_facts": {
+    "facts": [
+      {
+        "component_fact_id": "CF0105ad9d8ddf7f4cf490",
+        "kind": "UNRESOLVED",
+        "page": 1,
+        "bbox": [
+          1268.52001953125,
+          1224.3599853515625,
+          1284.0,
+          1224.3599853515625
+        ],
+        "centroid": [
+          1276.260009765625,
+          1224.3599853515625
+        ],
+        "symbol_type": null,
+        "symbol_name": null,
+        "recognition_method": "classical_cv_template_match_rotation_invariant",
+        "confidence": 0.25497758388519287,
+        "graph_association": {
+          "relation": "on_edge",
+          "node_ids": [],
+          "edge_ids": [
+            "e0"
+          ]
+        },
+        "supporting_evidence": {
+          "best_score": 0.255,
+          "second_best_score": 0.2014,
+          "margin": 0.0536,
+          "rotation_degrees": 90
+        },
+        "ambiguity_candidates": [
+          {
+            "symbol_id": "SYM-029",
+            "name": "Rückflussverhinderer – kontrollierbar",
+            "score": 0.255
+          },
+          {
+            "symbol_id": "SYM-024",
+            "name": "Auslaufventil mit Sicherungsarmatur und",
+            "score": 0.2014
+          },
+          {
+            "symbol_id": "SYM-008",
+            "name": "Absperrarmatur",
+            "score": 0.1973
+          }
+        ],
+        "corroboration_status": "insufficient_shape_evidence"
+      },
+      {
+        "component_fact_id": "CF290d0e792824274996c7",
+        "kind": "UNRESOLVED",
+        "page": 1,
+        "bbox": [
+          1260.719970703125,
+          1819.56005859375,
+          1284.0,
+          1819.56005859375
+        ],
+        "centroid": [
+          1272.3599853515625,
+          1819.56005859375
+        ],
+        "symbol_type": null,
+        "symbol_name": null,
+        "recognition_method": "classical_cv_template_match_rotation_invariant",
+        "confidence": 0.24976718425750732,
+        "graph_association": {
+          "relation": "on_edge",
+          "node_ids": [],
+          "edge_ids": [
+            "e0"
+          ]
+        },
+        "supporting_evidence": {
+          "best_score": 0.2498,
+          "second_best_score": 0.186,
+          "margin": 0.0637,
+          "rotation_degrees": 90
+        },
+        "ambiguity_candidates": [
+          {
+            "symbol_id": "SYM-029",
+            "name": "Rückflussverhinderer – kontrollierbar",
+            "score": 0.2498
+          },
+          {
+            "symbol_id": "SYM-008",
+            "name": "Absperrarmatur",
+            "score": 0.186
+          },
+          {
+            "symbol_id": "SYM-014",
+            "name": "Absperrklappe",
+            "score": 0.1712
+          }
+        ],
+        "corroboration_status": "insufficient_shape_evidence"
+      },
+      {
+        "component_fact_id": "CF9204d66ae44594249745",
+        "kind": "UNRESOLVED",
+        "page": 1,
+        "bbox": [
+          1268.52001953125,
+          2414.760009765625,
+          1284.0,
+          2414.760009765625
+        ],
+        "centroid": [
+          1276.260009765625,
+          2414.760009765625
+        ],
+        "symbol_type": null,
+        "symbol_name": null,
+        "recognition_method": "classical_cv_template_match_rotation_invariant",
+        "confidence": 0.25497758388519287,
+        "graph_association": {
+          "relation": "on_edge",
+          "node_ids": [],
+          "edge_ids": [
+            "e0"
+          ]
+        },
+        "supporting_evidence": {
+          "best_score": 0.255,
+          "second_best_score": 0.2014,
+          "margin": 0.0536,
+          "rotation_degrees": 90
+        },
+        "ambiguity_candidates": [
+          {
+            "symbol_id": "SYM-029",
+            "name": "Rückflussverhinderer – kontrollierbar",
+            "score": 0.255
+          },
+          {
+            "symbol_id": "SYM-024",
+            "name": "Auslaufventil mit Sicherungsarmatur und",
+            "score": 0.2014
+          },
+          {
+            "symbol_id": "SYM-008",
+            "name": "Absperrarmatur",
+            "score": 0.1973
+          }
+        ],
+        "corroboration_status": "insufficient_shape_evidence"
+      },
+      {
+        "component_fact_id": "CFa0ec25b9df604bdb752a",
+        "kind": "UNRESOLVED",
+        "page": 1,
+        "bbox": [
+          21.239999771118164,
+          1224.3599853515625,
+          36.71999740600586,
+          1224.3599853515625
+        ],
+        "centroid": [
+          28.97999858856201,
+          1224.3599853515625
+        ],
+        "symbol_type": null,
+        "symbol_name": null,
+        "recognition_method": "classical_cv_template_match_rotation_invariant",
+        "confidence": 0.24282096326351166,
+        "graph_association": {
+          "relation": "on_edge",
+          "node_ids": [],
+          "edge_ids": [
+            "e1"
+          ]
+        },
+        "supporting_evidence": {
+          "best_score": 0.2428,
+          "second_best_score": 0.2219,
+          "margin": 0.0209,
+          "rotation_degrees": 90
+        },
+        "ambiguity_candidates": [
+          {
+            "symbol_id": "SYM-029",
+            "name": "Rückflussverhinderer – kontrollierbar",
+            "score": 0.2428
+          },
+          {
+            "symbol_id": "SYM-024",
+            "name": "Auslaufventil mit Sicherungsarmatur und",
+            "score": 0.2219
+          },
+          {
+            "symbol_id": "SYM-008",
+            "name": "Absperrarmatur",
+            "score": 0.1821
+          }
+        ],
+        "corroboration_status": "insufficient_shape_evidence"
+      },
+      {
+        "component_fact_id": "CFfb61692b4c59df8d4f3d",
+        "kind": "UNRESOLVED",
+        "page": 1,
+        "bbox": [
+          21.239999771118164,
+          1819.56005859375,
+          44.52000045776367,
+          1819.56005859375
+        ],
+        "centroid": [
+          32.88000011444092,
+          1819.56005859375
+        ],
+        "symbol_type": null,
+        "symbol_name": null,
+        "recognition_method": "classical_cv_template_match_rotation_invariant",
+        "confidence": 0.23850874602794647,
+        "graph_association": {
+          "relation": "on_edge",
+          "node_ids": [],
+          "edge_ids": [
+            "e1"
+          ]
+        },
+        "supporting_evidence": {
+          "best_score": 0.2385,
+          "second_best_score": 0.1721,
+          "margin": 0.0665,
+          "rotation_degrees": 90
+        },
+        "ambiguity_candidates": [
+          {
+            "symbol_id": "SYM-029",
+            "name": "Rückflussverhinderer – kontrollierbar",
+            "score": 0.2385
+          },
+          {
+            "symbol_id": "SYM-008",
+            "name": "Absperrarmatur",
+            "score": 0.1721
+          },
+          {
+            "symbol_id": "SYM-024",
+            "name": "Auslaufventil mit Sicherungsarmatur und",
+            "score": 0.169
+          }
+        ],
+        "corroboration_status": "insufficient_shape_evidence"
+      },
+      {
+        "component_fact_id": "CFe62c2123423d345a9330",
+        "kind": "UNRESOLVED",
+        "page": 1,
+        "bbox": [
+          21.239999771118164,
+          2414.760009765625,
+          36.71999740600586,
+          2414.760009765625
+        ],
+        "centroid": [
+          28.97999858856201,
+          2414.760009765625
+        ],
+        "symbol_type": null,
+        "symbol_name": null,
+        "recognition_method": "classical_cv_template_match_rotation_invariant",
+        "confidence": 0.24282096326351166,
+        "graph_association": {
+          "relation": "at_endpoint",
+          "node_ids": [
+            "n152"
+          ],
+          "edge_ids": []
+        },
+        "supporting_evidence": {
+          "best_score": 0.2428,
+          "second_best_score": 0.2219,
+          "margin": 0.0209,
+          "rotation_degrees": 90
+        },
+        "ambiguity_candidates": [
+          {
+            "symbol_id": "SYM-029",
+            "name": "Rückflussverhinderer – kontrollierbar",
+            "score": 0.2428
+          },
+          {
+            "symbol_id": "SYM-024",
+            "name": "Auslaufventil mit Sicherungsarmatur und",
+            "score": 0.2219
+          },
+          {
+            "symbol_id": "SYM-008",
+            "name": "Absperrarmatur",
+            "score": 0.1821
+          }
+        ],
+        "corroboration_status": "insufficient_shape_evidence"
+      },
+      {
+        "component_fact_id": "CF8f5fba233df9f3f0ef68",
+        "kind": "UNRESOLVED",
+        "page": 1,
+        "bbox": [
+          402.7200012207031,
+          2364.840087890625,
+          419.3999938964844,
+          2364.840087890625
+        ],
+        "centroid": [
+          411.05999755859375,
+          2364.840087890625
+        ],
+        "symbol_type": null,
+        "symbol_name": null,
+        "recognition_method": "classical_cv_template_match_rotation_invariant",
+        "confidence": 0.5806691646575928,
+        "graph_association": {
+          "relation": "at_branch",
+          "node_ids": [
+            "n19",
+            "n83",
+            "n84"
+          ],
+          "edge_ids": []
+        },
+        "supporting_evidence": {
+          "best_score": 0.5807,
+          "second_best_score": 0.5383,
+          "margin": 0.0424,
+          "rotation_degrees": 270
+        },
+        "ambiguity_candidates": [
+          {
+            "symbol_id": "SYM-027",
+            "name": "Rohrbelüfter",
+            "score": 0.5807
+          },
+          {
+            "symbol_id": "SYM-058",
+            "name": "Belüfter – Bauart LB",
+            "score": 0.5383
+          },
+          {
+            "symbol_id": "SYM-007",
+            "name": "Übergang im Werkstoff",
+            "score": 0.3606
+          }
+        ],
+        "corroboration_status": "insufficient_shape_evidence"
+      },
+      {
+        "component_fact_id": "CF1e2071779655a5d73bbf",
+        "kind": "UNRESOLVED",
+        "page": 1,
+        "bbox": [
+          506.7599792480469,
+          1378.080078125,
+          665.1599731445312,
+          1466.280029296875
+        ],
+        "centroid": [
+          585.9599761962891,
+          1422.1800537109375
+        ],
+        "symbol_type": null,
+        "symbol_name": null,
+        "recognition_method": "classical_cv_template_match_rotation_invariant",
+        "confidence": 0.24148017168045044,
+        "graph_association": {
+          "relation": "at_branch",
+          "node_ids": [
+            "n195",
+            "n196",
+            "n254",
+            "n256",
+            "n322",
+            "n323",
+            "n337"
+          ],
+          "edge_ids": []
+        },
+        "supporting_evidence": {
+          "best_score": 0.2415,
+          "second_best_score": 0.2346,
+          "margin": 0.0068,
+          "rotation_degrees": 0
+        },
+        "ambiguity_candidates": [
+          {
+            "symbol_id": "SYM-046",
+            "name": "Thermostatischer Mischer",
+            "score": 0.2415
+          },
+          {
+            "symbol_id": "SYM-057",
+            "name": "Belüfter – Bauart LA",
+            "score": 0.2346
+          },
+          {
+            "symbol_id": "SYM-028",
+            "name": "Rückflussverhinderer – nicht kontrollierbar",
+            "score": 0.2337
+          }
+        ],
+        "corroboration_status": "insufficient_shape_evidence"
+      },
+      {
+        "component_fact_id": "CF81cb8110b686902b81b3",
+        "kind": "UNRESOLVED",
+        "page": 1,
+        "bbox": [
+          578.1599731445312,
+          1386.840087890625,
+          617.3999633789062,
+          1431.0
+        ],
+        "centroid": [
+          597.7799682617188,
+          1408.9200439453125
+        ],
+        "symbol_type": null,
+        "symbol_name": null,
+        "recognition_method": "classical_cv_template_match_rotation_invariant",
+        "confidence": 0.24235433340072632,
+        "graph_association": {
+          "relation": "on_edge",
+          "node_ids": [],
+          "edge_ids": [
+            "e227"
+          ]
+        },
+        "supporting_evidence": {
+          "best_score": 0.2424,
+          "second_best_score": 0.219,
+          "margin": 0.0233,
+          "rotation_degrees": 0
+        },
+        "ambiguity_candidates": [
+          {
+            "symbol_id": "SYM-046",
+            "name": "Thermostatischer Mischer",
+            "score": 0.2424
+          },
+          {
+            "symbol_id": "SYM-057",
+            "name": "Belüfter – Bauart LA",
+            "score": 0.219
+          },
+          {
+            "symbol_id": "SYM-027",
+            "name": "Rohrbelüfter",
+            "score": 0.2184
+          }
+        ],
+        "corroboration_status": "insufficient_shape_evidence"
+      },
+      {
+        "component_fact_id": "CF3483726f0f11dc2ffac8",
+        "kind": "UNRESOLVED",
+        "page": 1,
+        "bbox": [
+          506.7599792480469,
+          1331.280029296875,
+          617.3999633789062,
+          1361.4000244140625
+        ],
+        "centroid": [
+          562.0799713134766,
+          1346.3400268554688
+        ],
+        "symbol_type": null,
+        "symbol_name": null,
+        "recognition_method": "classical_cv_template_match_rotation_invariant",
+        "confidence": 0.18446537852287292,
+        "graph_association": {
+          "relation": "at_branch",
+          "node_ids": [
+            "n197",
+            "n198",
+            "n255",
+            "n332"
+          ],
+          "edge_ids": []
+        },
+        "supporting_evidence": {
+          "best_score": 0.1845,
+          "second_best_score": 0.1713,
+          "margin": 0.0131,
+          "rotation_degrees": 270
+        },
+        "ambiguity_candidates": [
+          {
+            "symbol_id": "SYM-014",
+            "name": "Absperrklappe",
+            "score": 0.1845
+          },
+          {
+            "symbol_id": "SYM-058",
+            "name": "Belüfter – Bauart LB",
+            "score": 0.1713
+          },
+          {
+            "symbol_id": "SYM-013",
+            "name": "Schieber",
+            "score": 0.1651
+          }
+        ],
+        "corroboration_status": "insufficient_shape_evidence"
+      },
+      {
+        "component_fact_id": "CFaaf0be890ae3f71fd45d",
+        "kind": "UNRESOLVED",
+        "page": 1,
+        "bbox": [
+          591.9599609375,
+          1273.080078125,
+          659.5199584960938,
+          1325.0400390625
+        ],
+        "centroid": [
+          625.7399597167969,
+          1299.06005859375
+        ],
+        "symbol_type": null,
+        "symbol_name": null,
+        "recognition_method": "classical_cv_template_match_rotation_invariant",
+        "confidence": 0.1457541137933731,
+        "graph_association": {
+          "relation": "at_branch",
+          "node_ids": [
+            "n91",
+            "n211",
+            "n324",
+            "n325",
+            "n335",
+            "n336",
+            "n347"
+          ],
+          "edge_ids": []
+        },
+        "supporting_evidence": {
+          "best_score": 0.1458,
+          "second_best_score": 0.1347,
+          "margin": 0.011,
+          "rotation_degrees": 180
+        },
+        "ambiguity_candidates": [
+          {
+            "symbol_id": "SYM-030",
+            "name": "Absperrventil mit integriertem",
+            "score": 0.1458
+          },
+          {
+            "symbol_id": "SYM-026",
+            "name": "Rohrunterbrecher",
+            "score": 0.1347
+          },
+          {
+            "symbol_id": "SYM-027",
+            "name": "Rohrbelüfter",
+            "score": 0.1187
+          }
+        ],
+        "corroboration_status": "insufficient_shape_evidence"
+      },
+      {
+        "component_fact_id": "CFde6b7c18fa4776fc9c11",
+        "kind": "UNRESOLVED",
+        "page": 1,
+        "bbox": [
+          546.3599853515625,
+          1205.1600341796875,
+          615.8399658203125,
+          1285.2000732421875
+        ],
+        "centroid": [
+          581.0999755859375,
+          1245.1800537109375
+        ],
+        "symbol_type": null,
+        "symbol_name": null,
+        "recognition_method": "classical_cv_template_match_rotation_invariant",
+        "confidence": 0.13749755918979645,
+        "graph_association": {
+          "relation": "at_branch",
+          "node_ids": [
+            "n199",
+            "n200",
+            "n333",
+            "n348"
+          ],
+          "edge_ids": []
+        },
+        "supporting_evidence": {
+          "best_score": 0.1375,
+          "second_best_score": 0.1168,
+          "margin": 0.0207,
+          "rotation_degrees": 90
+        },
+        "ambiguity_candidates": [
+          {
+            "symbol_id": "SYM-034",
+            "name": "Mechanischer Filter",
+            "score": 0.1375
+          },
+          {
+            "symbol_id": "SYM-031",
+            "name": "Rohrbelüfter in Durchflussform",
+            "score": 0.1168
+          },
+          {
+            "symbol_id": "SYM-008",
+            "name": "Absperrarmatur",
+            "score": 0.1137
+          }
+        ],
+        "corroboration_status": "insufficient_shape_evidence"
+      },
+      {
+        "component_fact_id": "CF4552d76fe07e9f5ec659",
+        "kind": "UNRESOLVED",
+        "page": 1,
+        "bbox": [
+          747.9599609375,
+          1541.0400390625,
+          868.9199829101562,
+          1577.0400390625
+        ],
+        "centroid": [
+          808.4399719238281,
+          1559.0400390625
+        ],
+        "symbol_type": null,
+        "symbol_name": null,
+        "recognition_method": "classical_cv_template_match_rotation_invariant",
+        "confidence": 0.15079057216644287,
+        "graph_association": {
+          "relation": "at_branch",
+          "node_ids": [
+            "n103",
+            "n104",
+            "n201",
+            "n202",
+            "n257",
+            "n258"
+          ],
+          "edge_ids": []
+        },
+        "supporting_evidence": {
+          "best_score": 0.1508,
+          "second_best_score": 0.1468,
+          "margin": 0.004,
+          "rotation_degrees": 270
+        },
+        "ambiguity_candidates": [
+          {
+            "symbol_id": "SYM-013",
+            "name": "Schieber",
+            "score": 0.1508
+          },
+          {
+            "symbol_id": "SYM-050",
+            "name": "Flexible Verbindung",
+            "score": 0.1468
+          },
+          {
+            "symbol_id": "SYM-014",
+            "name": "Absperrklappe",
+            "score": 0.1431
+          }
+        ],
+        "corroboration_status": "insufficient_shape_evidence"
+      },
+      {
+        "component_fact_id": "CF537741fcac226f7f9059",
+        "kind": "UNRESOLVED",
+        "page": 1,
+        "bbox": [
+          363.1199951171875,
+          1382.280029296875,
+          377.2799987792969,
+          1396.4400634765625
+        ],
+        "centroid": [
+          370.1999969482422,
+          1389.3600463867188
+        ],
+        "symbol_type": null,
+        "symbol_name": null,
+        "recognition_method": "classical_cv_template_match_rotation_invariant",
+        "confidence": 0.2246401160955429,
+        "graph_association": {
+          "relation": "at_branch",
+          "node_ids": [
+            "n169",
+            "n321"
+          ],
+          "edge_ids": []
+        },
+        "supporting_evidence": {
+          "best_score": 0.2246,
+          "second_best_score": 0.1698,
+          "margin": 0.0549,
+          "rotation_degrees": 180
+        },
+        "ambiguity_candidates": [
+          {
+            "symbol_id": "SYM-013",
+            "name": "Schieber",
+            "score": 0.2246
+          },
+          {
+            "symbol_id": "SYM-014",
+            "name": "Absperrklappe",
+            "score": 0.1698
+          },
+          {
+            "symbol_id": "SYM-008",
+            "name": "Absperrarmatur",
+            "score": 0.1102
+          }
+        ],
+        "corroboration_status": "insufficient_shape_evidence"
+      },
+      {
+        "component_fact_id": "CFc7218ab29d18daba512b",
+        "kind": "UNRESOLVED",
+        "page": 1,
+        "bbox": [
+          363.1199951171875,
+          355.199951171875,
+          377.2799987792969,
+          369.360107421875
+        ],
+        "centroid": [
+          370.1999969482422,
+          362.280029296875
+        ],
+        "symbol_type": null,
+        "symbol_name": null,
+        "recognition_method": "classical_cv_template_match_rotation_invariant",
+        "confidence": 0.16120879352092743,
+        "graph_association": {
+          "relation": "at_branch",
+          "node_ids": [
+            "n65",
+            "n329"
+          ],
+          "edge_ids": []
+        },
+        "supporting_evidence": {
+          "best_score": 0.1612,
+          "second_best_score": 0.1404,
+          "margin": 0.0208,
+          "rotation_degrees": 0
+        },
+        "ambiguity_candidates": [
+          {
+            "symbol_id": "SYM-013",
+            "name": "Schieber",
+            "score": 0.1612
+          },
+          {
+            "symbol_id": "SYM-008",
+            "name": "Absperrarmatur",
+            "score": 0.1404
+          },
+          {
+            "symbol_id": "SYM-014",
+            "name": "Absperrklappe",
+            "score": 0.1368
+          }
+        ],
+        "corroboration_status": "insufficient_shape_evidence"
+      },
+      {
+        "component_fact_id": "CF65b2b1a4f419e1033506",
+        "kind": "UNRESOLVED",
+        "page": 1,
+        "bbox": [
+          410.03997802734375,
+          1388.760009765625,
+          428.7599792480469,
+          1398.1199951171875
+        ],
+        "centroid": [
+          419.3999786376953,
+          1393.4400024414062
+        ],
+        "symbol_type": null,
+        "symbol_name": null,
+        "recognition_method": "classical_cv_template_match_rotation_invariant",
+        "confidence": 0.44899457693099976,
+        "graph_association": {
+          "relation": "at_endpoint",
+          "node_ids": [
+            "n171"
+          ],
+          "edge_ids": []
+        },
+        "supporting_evidence": {
+          "best_score": 0.449,
+          "second_best_score": 0.4192,
+          "margin": 0.0298,
+          "rotation_degrees": 90
+        },
+        "ambiguity_candidates": [
+          {
+            "symbol_id": "SYM-041",
+            "name": "Trichter",
+            "score": 0.449
+          },
+          {
+            "symbol_id": "SYM-056",
+            "name": "Rohrbelüfter – Bauart HD",
+            "score": 0.4192
+          },
+          {
+            "symbol_id": "SYM-038",
+            "name": "Wasserzähler",
+            "score": 0.4024
+          }
+        ],
+        "corroboration_status": "insufficient_shape_evidence"
+      },
+      {
+        "component_fact_id": "CFa2bf805b9b5957996d59",
+        "kind": "UNRESOLVED",
+        "page": 1,
+        "bbox": [
+          410.03997802734375,
+          361.68017578125,
+          428.7599792480469,
+          371.0400390625
+        ],
+        "centroid": [
+          419.3999786376953,
+          366.360107421875
+        ],
+        "symbol_type": null,
+        "symbol_name": null,
+        "recognition_method": "classical_cv_template_match_rotation_invariant",
+        "confidence": 0.4298872649669647,
+        "graph_association": {
+          "relation": "at_endpoint",
+          "node_ids": [
+            "n67"
+          ],
+          "edge_ids": []
+        },
+        "supporting_evidence": {
+          "best_score": 0.4299,
+          "second_best_score": 0.4067,
+          "margin": 0.0232,
+          "rotation_degrees": 90
+        },
+        "ambiguity_candidates": [
+          {
+            "symbol_id": "SYM-056",
+            "name": "Rohrbelüfter – Bauart HD",
+            "score": 0.4299
+          },
+          {
+            "symbol_id": "SYM-038",
+            "name": "Wasserzähler",
+            "score": 0.4067
+          },
+          {
+            "symbol_id": "SYM-054",
+            "name": "Rohrbelüfter – Bauart HB",
+            "score": 0.3909
+          }
+        ],
+        "corroboration_status": "insufficient_shape_evidence"
+      },
+      {
+        "component_fact_id": "CFed6e0483156eeababacc",
+        "kind": "UNRESOLVED",
+        "page": 1,
+        "bbox": [
+          793.3200073242188,
+          1355.52001953125,
+          858.5999755859375,
+          1389.5999755859375
+        ],
+        "centroid": [
+          825.9599914550781,
+          1372.5599975585938
+        ],
+        "symbol_type": null,
+        "symbol_name": null,
+        "recognition_method": "classical_cv_template_match_rotation_invariant",
+        "confidence": 0.2644793391227722,
+        "graph_association": {
+          "relation": "on_edge",
+          "node_ids": [],
+          "edge_ids": [
+            "e10"
+          ]
+        },
+        "supporting_evidence": {
+          "best_score": 0.2645,
+          "second_best_score": 0.2324,
+          "margin": 0.0321,
+          "rotation_degrees": 90
+        },
+        "ambiguity_candidates": [
+          {
+            "symbol_id": "SYM-046",
+            "name": "Thermostatischer Mischer",
+            "score": 0.2645
+          },
+          {
+            "symbol_id": "SYM-048",
+            "name": "Anschlussstelle für Mess- oder Reguliereinrichtung",
+            "score": 0.2324
+          },
+          {
+            "symbol_id": "SYM-011",
+            "name": "Geradsitzventil / Schrägsitzventil",
+            "score": 0.2237
+          }
+        ],
+        "corroboration_status": "insufficient_shape_evidence"
+      },
+      {
+        "component_fact_id": "CF9abaa84c4ba92c04402d",
+        "kind": "UNRESOLVED",
+        "page": 1,
+        "bbox": [
+          832.0799560546875,
+          2184.60009765625,
+          858.8399658203125,
+          2323.800048828125
+        ],
+        "centroid": [
+          845.4599609375,
+          2254.2000732421875
+        ],
+        "symbol_type": null,
+        "symbol_name": null,
+        "recognition_method": "classical_cv_template_match_rotation_invariant",
+        "confidence": 0.20462733507156372,
+        "graph_association": {
+          "relation": "at_branch",
+          "node_ids": [
+            "n70",
+            "n71",
+            "n72",
+            "n73",
+            "n214"
+          ],
+          "edge_ids": []
+        },
+        "supporting_evidence": {
+          "best_score": 0.2046,
+          "second_best_score": 0.1929,
+          "margin": 0.0117,
+          "rotation_degrees": 180
+        },
+        "ambiguity_candidates": [
+          {
+            "symbol_id": "SYM-046",
+            "name": "Thermostatischer Mischer",
+            "score": 0.2046
+          },
+          {
+            "symbol_id": "SYM-007",
+            "name": "Übergang im Werkstoff",
+            "score": 0.1929
+          },
+          {
+            "symbol_id": "SYM-014",
+            "name": "Absperrklappe",
+            "score": 0.1879
+          }
+        ],
+        "corroboration_status": "insufficient_shape_evidence"
+      },
+      {
+        "component_fact_id": "CFcd9df4361f0f26dcc477",
+        "kind": "UNRESOLVED",
+        "page": 1,
+        "bbox": [
+          811.0799560546875,
+          2260.080078125,
+          815.8800048828125,
+          2267.0400390625
+        ],
+        "centroid": [
+          813.47998046875,
+          2263.56005859375
+        ],
+        "symbol_type": null,
+        "symbol_name": null,
+        "recognition_method": "classical_cv_template_match_rotation_invariant",
+        "confidence": 0.24743005633354187,
+        "graph_association": {
+          "relation": "on_edge",
+          "node_ids": [],
+          "edge_ids": [
+            "e47"
+          ]
+        },
+        "supporting_evidence": {
+          "best_score": 0.2474,
+          "second_best_score": 0.2403,
+          "margin": 0.0071,
+          "rotation_degrees": 180
+        },
+        "ambiguity_candidates": [
+          {
+            "symbol_id": "SYM-013",
+            "name": "Schieber",
+            "score": 0.2474
+          },
+          {
+            "symbol_id": "SYM-014",
+            "name": "Absperrklappe",
+            "score": 0.2403
+          },
+          {
+            "symbol_id": "SYM-051",
+            "name": "Zirkulationsregelventil",
+            "score": 0.2326
+          }
+        ],
+        "corroboration_status": "insufficient_shape_evidence"
+      },
+      {
+        "component_fact_id": "CFda7cae458fd55df4d906",
+        "kind": "UNRESOLVED",
+        "page": 1,
+        "bbox": [
+          762.239990234375,
+          597.360107421875,
+          858.5999755859375,
+          680.400146484375
+        ],
+        "centroid": [
+          810.4199829101562,
+          638.880126953125
+        ],
+        "symbol_type": null,
+        "symbol_name": null,
+        "recognition_method": "classical_cv_template_match_rotation_invariant",
+        "confidence": 0.15394501388072968,
+        "graph_association": {
+          "relation": "at_branch",
+          "node_ids": [
+            "n180",
+            "n181",
+            "n259",
+            "n262",
+            "n263",
+            "n264",
+            "n331",
+            "n339"
+          ],
+          "edge_ids": []
+        },
+        "supporting_evidence": {
+          "best_score": 0.1539,
+          "second_best_score": 0.1535,
+          "margin": 0.0004,
+          "rotation_degrees": 270
+        },
+        "ambiguity_candidates": [
+          {
+            "symbol_id": "SYM-056",
+            "name": "Rohrbelüfter – Bauart HD",
+            "score": 0.1539
+          },
+          {
+            "symbol_id": "SYM-041",
+            "name": "Trichter",
+            "score": 0.1535
+          },
+          {
+            "symbol_id": "SYM-038",
+            "name": "Wasserzähler",
+            "score": 0.136
+          }
+        ],
+        "corroboration_status": "insufficient_shape_evidence"
+      },
+      {
+        "component_fact_id": "CF048ea5aacf402a00d527",
+        "kind": "UNRESOLVED",
+        "page": 1,
+        "bbox": [
+          819.3599853515625,
+          359.16015625,
+          858.5999755859375,
+          365.280029296875
+        ],
+        "centroid": [
+          838.97998046875,
+          362.2200927734375
+        ],
+        "symbol_type": null,
+        "symbol_name": null,
+        "recognition_method": "classical_cv_template_match_rotation_invariant",
+        "confidence": 0.1776772141456604,
+        "graph_association": {
+          "relation": "at_endpoint",
+          "node_ids": [
+            "n330"
+          ],
+          "edge_ids": []
+        },
+        "supporting_evidence": {
+          "best_score": 0.1777,
+          "second_best_score": 0.157,
+          "margin": 0.0207,
+          "rotation_degrees": 270
+        },
+        "ambiguity_candidates": [
+          {
+            "symbol_id": "SYM-008",
+            "name": "Absperrarmatur",
+            "score": 0.1777
+          },
+          {
+            "symbol_id": "SYM-024",
+            "name": "Auslaufventil mit Sicherungsarmatur und",
+            "score": 0.157
+          },
+          {
+            "symbol_id": "SYM-014",
+            "name": "Absperrklappe",
+            "score": 0.15
+          }
+        ],
+        "corroboration_status": "insufficient_shape_evidence"
+      },
+      {
+        "component_fact_id": "CF2ece3179fa0e3850a859",
+        "kind": "UNRESOLVED",
+        "page": 1,
+        "bbox": [
+          639.5999755859375,
+          1206.239990234375,
+          673.6799926757812,
+          1217.52001953125
+        ],
+        "centroid": [
+          656.6399841308594,
+          1211.8800048828125
+        ],
+        "symbol_type": null,
+        "symbol_name": null,
+        "recognition_method": "classical_cv_template_match_rotation_invariant",
+        "confidence": 0.136909618973732,
+        "graph_association": {
+          "relation": "at_branch",
+          "node_ids": [
+            "n90",
+            "n92",
+            "n334"
+          ],
+          "edge_ids": []
+        },
+        "supporting_evidence": {
+          "best_score": 0.1369,
+          "second_best_score": 0.1321,
+          "margin": 0.0048,
+          "rotation_degrees": 90
+        },
+        "ambiguity_candidates": [
+          {
+            "symbol_id": "SYM-039",
+            "name": "Antrieb durch Elektromotor",
+            "score": 0.1369
+          },
+          {
+            "symbol_id": "SYM-044",
+            "name": "Apparate- und Armaturenanschluss",
+            "score": 0.1321
+          },
+          {
+            "symbol_id": "SYM-057",
+            "name": "Belüfter – Bauart LA",
+            "score": 0.1215
+          }
+        ],
+        "corroboration_status": "insufficient_shape_evidence"
+      },
+      {
+        "component_fact_id": "CFb4bd9dec785cb402c9cd",
+        "kind": "UNRESOLVED",
+        "page": 1,
+        "bbox": [
+          819.3599853515625,
+          1270.080078125,
+          858.5999755859375,
+          1280.760009765625
+        ],
+        "centroid": [
+          838.97998046875,
+          1275.4200439453125
+        ],
+        "symbol_type": null,
+        "symbol_name": null,
+        "recognition_method": "classical_cv_template_match_rotation_invariant",
+        "confidence": 0.1955178678035736,
+        "graph_association": {
+          "relation": "at_endpoint",
+          "node_ids": [
+            "n326"
+          ],
+          "edge_ids": []
+        },
+        "supporting_evidence": {
+          "best_score": 0.1955,
+          "second_best_score": 0.1954,
+          "margin": 0.0001,
+          "rotation_degrees": 0
+        },
+        "ambiguity_candidates": [
+          {
+            "symbol_id": "SYM-024",
+            "name": "Auslaufventil mit Sicherungsarmatur und",
+            "score": 0.1955
+          },
+          {
+            "symbol_id": "SYM-014",
+            "name": "Absperrklappe",
+            "score": 0.1954
+          },
+          {
+            "symbol_id": "SYM-037",
+            "name": "Manometer",
+            "score": 0.1853
+          }
+        ],
+        "corroboration_status": "insufficient_shape_evidence"
+      },
+      {
+        "component_fact_id": "CF78cf02fead4723b1af03",
+        "kind": "UNRESOLVED",
+        "page": 1,
+        "bbox": [
+          673.0799560546875,
+          1259.1600341796875,
+          709.7999877929688,
+          1273.6800537109375
+        ],
+        "centroid": [
+          691.4399719238281,
+          1266.4200439453125
+        ],
+        "symbol_type": null,
+        "symbol_name": null,
+        "recognition_method": "classical_cv_template_match_rotation_invariant",
+        "confidence": 0.3527240753173828,
+        "graph_association": {
+          "relation": "at_endpoint",
+          "node_ids": [
+            "n93"
+          ],
+          "edge_ids": []
+        },
+        "supporting_evidence": {
+          "best_score": 0.3527,
+          "second_best_score": 0.341,
+          "margin": 0.0117,
+          "rotation_degrees": 270
+        },
+        "ambiguity_candidates": [
+          {
+            "symbol_id": "SYM-031",
+            "name": "Rohrbelüfter in Durchflussform",
+            "score": 0.3527
+          },
+          {
+            "symbol_id": "SYM-055",
+            "name": "Automatischer Umsteller – Bauart HC",
+            "score": 0.341
+          },
+          {
+            "symbol_id": "SYM-051",
+            "name": "Zirkulationsregelventil",
+            "score": 0.3396
+          }
+        ],
+        "corroboration_status": "insufficient_shape_evidence"
+      },
+      {
+        "component_fact_id": "CF8c46a7aa4c0d732bba6f",
+        "kind": "UNRESOLVED",
+        "page": 1,
+        "bbox": [
+          591.9599609375,
+          1480.6800537109375,
+          600.9599609375,
+          1481.760009765625
+        ],
+        "centroid": [
+          596.4599609375,
+          1481.2200317382812
+        ],
+        "symbol_type": null,
+        "symbol_name": null,
+        "recognition_method": "classical_cv_template_match_rotation_invariant",
+        "confidence": 0.2709258496761322,
+        "graph_association": {
+          "relation": "on_edge",
+          "node_ids": [],
+          "edge_ids": [
+            "e227"
+          ]
+        },
+        "supporting_evidence": {
+          "best_score": 0.2709,
+          "second_best_score": 0.2513,
+          "margin": 0.0196,
+          "rotation_degrees": 90
+        },
+        "ambiguity_candidates": [
+          {
+            "symbol_id": "SYM-029",
+            "name": "Rückflussverhinderer – kontrollierbar",
+            "score": 0.2709
+          },
+          {
+            "symbol_id": "SYM-024",
+            "name": "Auslaufventil mit Sicherungsarmatur und",
+            "score": 0.2513
+          },
+          {
+            "symbol_id": "SYM-015",
+            "name": "Druckminderer",
+            "score": 0.243
+          }
+        ],
+        "corroboration_status": "insufficient_shape_evidence"
+      },
+      {
+        "component_fact_id": "CFf8baeda42a15dbc0b005",
+        "kind": "UNRESOLVED",
+        "page": 1,
+        "bbox": [
+          800.3999633789062,
+          1149.9600830078125,
+          858.5999755859375,
+          1191.0
+        ],
+        "centroid": [
+          829.4999694824219,
+          1170.4800415039062
+        ],
+        "symbol_type": null,
+        "symbol_name": null,
+        "recognition_method": "classical_cv_template_match_rotation_invariant",
+        "confidence": 0.15763221681118011,
+        "graph_association": {
+          "relation": "at_endpoint",
+          "node_ids": [
+            "n266"
+          ],
+          "edge_ids": []
+        },
+        "supporting_evidence": {
+          "best_score": 0.1576,
+          "second_best_score": 0.1529,
+          "margin": 0.0047,
+          "rotation_degrees": 90
+        },
+        "ambiguity_candidates": [
+          {
+            "symbol_id": "SYM-041",
+            "name": "Trichter",
+            "score": 0.1576
+          },
+          {
+            "symbol_id": "SYM-049",
+            "name": "Kompensator",
+            "score": 0.1529
+          },
+          {
+            "symbol_id": "SYM-056",
+            "name": "Rohrbelüfter – Bauart HD",
+            "score": 0.1334
+          }
+        ],
+        "corroboration_status": "insufficient_shape_evidence"
+      },
+      {
+        "component_fact_id": "CF566bfec48719986d87ac",
+        "kind": "UNRESOLVED",
+        "page": 1,
+        "bbox": [
+          807.5999755859375,
+          1107.4801025390625,
+          810.47998046875,
+          1141.4400634765625
+        ],
+        "centroid": [
+          809.0399780273438,
+          1124.4600830078125
+        ],
+        "symbol_type": null,
+        "symbol_name": null,
+        "recognition_method": "classical_cv_template_match_rotation_invariant",
+        "confidence": 0.2612326145172119,
+        "graph_association": {
+          "relation": "at_endpoint",
+          "node_ids": [
+            "n265"
+          ],
+          "edge_ids": []
+        },
+        "supporting_evidence": {
+          "best_score": 0.2612,
+          "second_best_score": 0.2375,
+          "margin": 0.0237,
+          "rotation_degrees": 270
+        },
+        "ambiguity_candidates": [
+          {
+            "symbol_id": "SYM-024",
+            "name": "Auslaufventil mit Sicherungsarmatur und",
+            "score": 0.2612
+          },
+          {
+            "symbol_id": "SYM-028",
+            "name": "Rückflussverhinderer – nicht kontrollierbar",
+            "score": 0.2375
+          },
+          {
+            "symbol_id": "SYM-027",
+            "name": "Rohrbelüfter",
+            "score": 0.2098
+          }
+        ],
+        "corroboration_status": "insufficient_shape_evidence"
+      },
+      {
+        "component_fact_id": "CF279908972d530099c56f",
+        "kind": "UNRESOLVED",
+        "page": 1,
+        "bbox": [
+          747.9599609375,
+          1015.320068359375,
+          858.5999755859375,
+          1040.52001953125
+        ],
+        "centroid": [
+          803.2799682617188,
+          1027.9200439453125
+        ],
+        "symbol_type": null,
+        "symbol_name": null,
+        "recognition_method": "classical_cv_template_match_rotation_invariant",
+        "confidence": 0.21282616257667542,
+        "graph_association": {
+          "relation": "at_endpoint",
+          "node_ids": [
+            "n88"
+          ],
+          "edge_ids": []
+        },
+        "supporting_evidence": {
+          "best_score": 0.2128,
+          "second_best_score": 0.1923,
+          "margin": 0.0206,
+          "rotation_degrees": 90
+        },
+        "ambiguity_candidates": [
+          {
+            "symbol_id": "SYM-014",
+            "name": "Absperrklappe",
+            "score": 0.2128
+          },
+          {
+            "symbol_id": "SYM-008",
+            "name": "Absperrarmatur",
+            "score": 0.1923
+          },
+          {
+            "symbol_id": "SYM-013",
+            "name": "Schieber",
+            "score": 0.192
+          }
+        ],
+        "corroboration_status": "insufficient_shape_evidence"
+      },
+      {
+        "component_fact_id": "CF59a4e0034adc8931aba2",
+        "kind": "UNRESOLVED",
+        "page": 1,
+        "bbox": [
+          760.9199829101562,
+          509.0400390625,
+          858.5999755859375,
+          554.880126953125
+        ],
+        "centroid": [
+          809.7599792480469,
+          531.9600830078125
+        ],
+        "symbol_type": null,
+        "symbol_name": null,
+        "recognition_method": "classical_cv_template_match_rotation_invariant",
+        "confidence": 0.3368244171142578,
+        "graph_association": {
+          "relation": "at_branch",
+          "node_ids": [
+            "n306",
+            "n307",
+            "n309",
+            "n310"
+          ],
+          "edge_ids": []
+        },
+        "supporting_evidence": {
+          "best_score": 0.3368,
+          "second_best_score": 0.3158,
+          "margin": 0.0211,
+          "rotation_degrees": 270
+        },
+        "ambiguity_candidates": [
+          {
+            "symbol_id": "SYM-029",
+            "name": "Rückflussverhinderer – kontrollierbar",
+            "score": 0.3368
+          },
+          {
+            "symbol_id": "SYM-045",
+            "name": "Systemtrenngerät nicht kontrollierbar",
+            "score": 0.3158
+          },
+          {
+            "symbol_id": "SYM-047",
+            "name": "Druckminderer mit Filter",
+            "score": 0.3037
+          }
+        ],
+        "corroboration_status": "insufficient_shape_evidence"
+      },
+      {
+        "component_fact_id": "CFf7f09c77b37ba7398a3f",
+        "kind": "UNRESOLVED",
+        "page": 1,
+        "bbox": [
+          819.5999755859375,
+          887.280029296875,
+          858.8399658203125,
+          893.400146484375
+        ],
+        "centroid": [
+          839.219970703125,
+          890.340087890625
+        ],
+        "symbol_type": null,
+        "symbol_name": null,
+        "recognition_method": "classical_cv_template_match_rotation_invariant",
+        "confidence": 0.18039172887802124,
+        "graph_association": {
+          "relation": "at_endpoint",
+          "node_ids": [
+            "n360"
+          ],
+          "edge_ids": []
+        },
+        "supporting_evidence": {
+          "best_score": 0.1804,
+          "second_best_score": 0.1576,
+          "margin": 0.0228,
+          "rotation_degrees": 270
+        },
+        "ambiguity_candidates": [
+          {
+            "symbol_id": "SYM-008",
+            "name": "Absperrarmatur",
+            "score": 0.1804
+          },
+          {
+            "symbol_id": "SYM-014",
+            "name": "Absperrklappe",
+            "score": 0.1576
+          },
+          {
+            "symbol_id": "SYM-024",
+            "name": "Auslaufventil mit Sicherungsarmatur und",
+            "score": 0.1447
+          }
+        ],
+        "corroboration_status": "insufficient_shape_evidence"
+      },
+      {
+        "component_fact_id": "CF0e3a379dc11c0f92e3a0",
+        "kind": "UNRESOLVED",
+        "page": 1,
+        "bbox": [
+          363.1199951171875,
+          933.60009765625,
+          377.2799987792969,
+          947.760009765625
+        ],
+        "centroid": [
+          370.1999969482422,
+          940.6800537109375
+        ],
+        "symbol_type": null,
+        "symbol_name": null,
+        "recognition_method": "classical_cv_template_match_rotation_invariant",
+        "confidence": 0.12604403495788574,
+        "graph_association": {
+          "relation": "on_edge",
+          "node_ids": [],
+          "edge_ids": [
+            "e53"
+          ]
+        },
+        "supporting_evidence": {
+          "best_score": 0.126,
+          "second_best_score": 0.1213,
+          "margin": 0.0048,
+          "rotation_degrees": 0
+        },
+        "ambiguity_candidates": [
+          {
+            "symbol_id": "SYM-028",
+            "name": "Rückflussverhinderer – nicht kontrollierbar",
+            "score": 0.126
+          },
+          {
+            "symbol_id": "SYM-043",
+            "name": "Apparate- und Armaturenanschluss mit",
+            "score": 0.1213
+          },
+          {
+            "symbol_id": "SYM-029",
+            "name": "Rückflussverhinderer – kontrollierbar",
+            "score": 0.1184
+          }
+        ],
+        "corroboration_status": "insufficient_shape_evidence"
+      },
+      {
+        "component_fact_id": "CFd91e8c3ad8d18e6b3b15",
+        "kind": "UNRESOLVED",
+        "page": 1,
+        "bbox": [
+          709.5599975585938,
+          539.52001953125,
+          717.8399658203125,
+          552.60009765625
+        ],
+        "centroid": [
+          713.6999816894531,
+          546.06005859375
+        ],
+        "symbol_type": null,
+        "symbol_name": null,
+        "recognition_method": "classical_cv_template_match_rotation_invariant",
+        "confidence": 0.20616888999938965,
+        "graph_association": {
+          "relation": "at_endpoint",
+          "node_ids": [
+            "n105"
+          ],
+          "edge_ids": []
+        },
+        "supporting_evidence": {
+          "best_score": 0.2062,
+          "second_best_score": 0.191,
+          "margin": 0.0152,
+          "rotation_degrees": 90
+        },
+        "ambiguity_candidates": [
+          {
+            "symbol_id": "SYM-031",
+            "name": "Rohrbelüfter in Durchflussform",
+            "score": 0.2062
+          },
+          {
+            "symbol_id": "SYM-037",
+            "name": "Manometer",
+            "score": 0.191
+          },
+          {
+            "symbol_id": "SYM-026",
+            "name": "Rohrunterbrecher",
+            "score": 0.1761
+          }
+        ],
+        "corroboration_status": "insufficient_shape_evidence"
+      },
+      {
+        "component_fact_id": "CFd13bb4a64fb8e82c90fc",
+        "kind": "UNRESOLVED",
+        "page": 1,
+        "bbox": [
+          638.0399780273438,
+          2033.6400146484375,
+          648.1199951171875,
+          2065.320068359375
+        ],
+        "centroid": [
+          643.0799865722656,
+          2049.4800415039062
+        ],
+        "symbol_type": null,
+        "symbol_name": null,
+        "recognition_method": "classical_cv_template_match_rotation_invariant",
+        "confidence": 0.30764687061309814,
+        "graph_association": {
+          "relation": "at_endpoint",
+          "node_ids": [
+            "n236"
+          ],
+          "edge_ids": []
+        },
+        "supporting_evidence": {
+          "best_score": 0.3076,
+          "second_best_score": 0.2871,
+          "margin": 0.0206,
+          "rotation_degrees": 0
+        },
+        "ambiguity_candidates": [
+          {
+            "symbol_id": "SYM-014",
+            "name": "Absperrklappe",
+            "score": 0.3076
+          },
+          {
+            "symbol_id": "SYM-013",
+            "name": "Schieber",
+            "score": 0.2871
+          },
+          {
+            "symbol_id": "SYM-008",
+            "name": "Absperrarmatur",
+            "score": 0.268
+          }
+        ],
+        "corroboration_status": "insufficient_shape_evidence"
+      },
+      {
+        "component_fact_id": "CF31b974a9cbcd963715f8",
+        "kind": "UNRESOLVED",
+        "page": 1,
+        "bbox": [
+          941.7599487304688,
+          1877.760009765625,
+          1021.5599975585938,
+          1877.760009765625
+        ],
+        "centroid": [
+          981.6599731445312,
+          1877.760009765625
+        ],
+        "symbol_type": null,
+        "symbol_name": null,
+        "recognition_method": "classical_cv_template_match_rotation_invariant",
+        "confidence": 0.044246748089790344,
+        "graph_association": {
+          "relation": "on_edge",
+          "node_ids": [],
+          "edge_ids": [
+            "e170"
+          ]
+        },
+        "supporting_evidence": {
+          "best_score": 0.0442,
+          "second_best_score": 0.044,
+          "margin": 0.0002,
+          "rotation_degrees": 270
+        },
+        "ambiguity_candidates": [
+          {
+            "symbol_id": "SYM-026",
+            "name": "Rohrunterbrecher",
+            "score": 0.0442
+          },
+          {
+            "symbol_id": "SYM-027",
+            "name": "Rohrbelüfter",
+            "score": 0.044
+          },
+          {
+            "symbol_id": "SYM-037",
+            "name": "Manometer",
+            "score": 0.0379
+          }
+        ],
+        "corroboration_status": "insufficient_shape_evidence"
+      },
+      {
+        "component_fact_id": "CF9c4f31782a9c72d87e82",
+        "kind": "UNRESOLVED",
+        "page": 1,
+        "bbox": [
+          941.7599487304688,
+          2053.919921875,
+          1021.5599975585938,
+          2053.919921875
+        ],
+        "centroid": [
+          981.6599731445312,
+          2053.919921875
+        ],
+        "symbol_type": null,
+        "symbol_name": null,
+        "recognition_method": "classical_cv_template_match_rotation_invariant",
+        "confidence": 0.31467729806900024,
+        "graph_association": {
+          "relation": "on_edge",
+          "node_ids": [],
+          "edge_ids": [
+            "e172"
+          ]
+        },
+        "supporting_evidence": {
+          "best_score": 0.3147,
+          "second_best_score": 0.2925,
+          "margin": 0.0222,
+          "rotation_degrees": 270
+        },
+        "ambiguity_candidates": [
+          {
+            "symbol_id": "SYM-030",
+            "name": "Absperrventil mit integriertem",
+            "score": 0.3147
+          },
+          {
+            "symbol_id": "SYM-029",
+            "name": "Rückflussverhinderer – kontrollierbar",
+            "score": 0.2925
+          },
+          {
+            "symbol_id": "SYM-026",
+            "name": "Rohrunterbrecher",
+            "score": 0.2886
+          }
+        ],
+        "corroboration_status": "insufficient_shape_evidence"
+      },
+      {
+        "component_fact_id": "CFccaf70bbb5621c0734e4",
+        "kind": "UNRESOLVED",
+        "page": 1,
+        "bbox": [
+          941.7599487304688,
+          1641.5999755859375,
+          1021.5599975585938,
+          1641.5999755859375
+        ],
+        "centroid": [
+          981.6599731445312,
+          1641.5999755859375
+        ],
+        "symbol_type": null,
+        "symbol_name": null,
+        "recognition_method": "classical_cv_template_match_rotation_invariant",
+        "confidence": 0.37559664249420166,
+        "graph_association": {
+          "relation": "on_edge",
+          "node_ids": [],
+          "edge_ids": [
+            "e174"
+          ]
+        },
+        "supporting_evidence": {
+          "best_score": 0.3756,
+          "second_best_score": 0.3177,
+          "margin": 0.0579,
+          "rotation_degrees": 90
+        },
+        "ambiguity_candidates": [
+          {
+            "symbol_id": "SYM-044",
+            "name": "Apparate- und Armaturenanschluss",
+            "score": 0.3756
+          },
+          {
+            "symbol_id": "SYM-039",
+            "name": "Antrieb durch Elektromotor",
+            "score": 0.3177
+          },
+          {
+            "symbol_id": "SYM-043",
+            "name": "Apparate- und Armaturenanschluss mit",
+            "score": 0.2678
+          }
+        ],
+        "corroboration_status": "insufficient_shape_evidence"
+      },
+      {
+        "component_fact_id": "CF8c4e0cca36238afb44a8",
+        "kind": "UNRESOLVED",
+        "page": 1,
+        "bbox": [
+          941.7599487304688,
+          1838.52001953125,
+          1021.5599975585938,
+          1838.52001953125
+        ],
+        "centroid": [
+          981.6599731445312,
+          1838.52001953125
+        ],
+        "symbol_type": null,
+        "symbol_name": null,
+        "recognition_method": "classical_cv_template_match_rotation_invariant",
+        "confidence": 0.311105340719223,
+        "graph_association": {
+          "relation": "on_edge",
+          "node_ids": [],
+          "edge_ids": [
+            "e176"
+          ]
+        },
+        "supporting_evidence": {
+          "best_score": 0.3111,
+          "second_best_score": 0.2783,
+          "margin": 0.0328,
+          "rotation_degrees": 270
+        },
+        "ambiguity_candidates": [
+          {
+            "symbol_id": "SYM-030",
+            "name": "Absperrventil mit integriertem",
+            "score": 0.3111
+          },
+          {
+            "symbol_id": "SYM-029",
+            "name": "Rückflussverhinderer – kontrollierbar",
+            "score": 0.2783
+          },
+          {
+            "symbol_id": "SYM-050",
+            "name": "Flexible Verbindung",
+            "score": 0.2716
+          }
+        ],
+        "corroboration_status": "insufficient_shape_evidence"
+      },
+      {
+        "component_fact_id": "CFe626afd767f4f4b2d3b9",
+        "kind": "UNRESOLVED",
+        "page": 1,
+        "bbox": [
+          941.7599487304688,
+          1483.800048828125,
+          1001.6399536132812,
+          1483.800048828125
+        ],
+        "centroid": [
+          971.699951171875,
+          1483.800048828125
+        ],
+        "symbol_type": null,
+        "symbol_name": null,
+        "recognition_method": "classical_cv_template_match_rotation_invariant",
+        "confidence": 0.1695476770401001,
+        "graph_association": {
+          "relation": "on_edge",
+          "node_ids": [],
+          "edge_ids": [
+            "e177"
+          ]
+        },
+        "supporting_evidence": {
+          "best_score": 0.1695,
+          "second_best_score": 0.1568,
+          "margin": 0.0127,
+          "rotation_degrees": 0
+        },
+        "ambiguity_candidates": [
+          {
+            "symbol_id": "SYM-029",
+            "name": "Rückflussverhinderer – kontrollierbar",
+            "score": 0.1695
+          },
+          {
+            "symbol_id": "SYM-008",
+            "name": "Absperrarmatur",
+            "score": 0.1568
+          },
+          {
+            "symbol_id": "SYM-014",
+            "name": "Absperrklappe",
+            "score": 0.1512
+          }
+        ],
+        "corroboration_status": "insufficient_shape_evidence"
+      },
+      {
+        "component_fact_id": "CFb4f901e92523f3a550eb",
+        "kind": "UNRESOLVED",
+        "page": 1,
+        "bbox": [
+          941.7599487304688,
+          1622.8800048828125,
+          1001.6399536132812,
+          1622.8800048828125
+        ],
+        "centroid": [
+          971.699951171875,
+          1622.8800048828125
+        ],
+        "symbol_type": null,
+        "symbol_name": null,
+        "recognition_method": "classical_cv_template_match_rotation_invariant",
+        "confidence": 0.23459473252296448,
+        "graph_association": {
+          "relation": "on_edge",
+          "node_ids": [],
+          "edge_ids": [
+            "e180"
+          ]
+        },
+        "supporting_evidence": {
+          "best_score": 0.2346,
+          "second_best_score": 0.1713,
+          "margin": 0.0632,
+          "rotation_degrees": 270
+        },
+        "ambiguity_candidates": [
+          {
+            "symbol_id": "SYM-007",
+            "name": "Übergang im Werkstoff",
+            "score": 0.2346
+          },
+          {
+            "symbol_id": "SYM-014",
+            "name": "Absperrklappe",
+            "score": 0.1713
+          },
+          {
+            "symbol_id": "SYM-058",
+            "name": "Belüfter – Bauart LB",
+            "score": 0.1698
+          }
+        ],
+        "corroboration_status": "insufficient_shape_evidence"
+      },
+      {
+        "component_fact_id": "CFa765aeef77d6e2765262",
+        "kind": "UNRESOLVED",
+        "page": 1,
+        "bbox": [
+          941.7599487304688,
+          1371.3599853515625,
+          991.6799926757812,
+          1411.2000732421875
+        ],
+        "centroid": [
+          966.719970703125,
+          1391.280029296875
+        ],
+        "symbol_type": null,
+        "symbol_name": null,
+        "recognition_method": "classical_cv_template_match_rotation_invariant",
+        "confidence": 0.19691769778728485,
+        "graph_association": {
+          "relation": "at_branch",
+          "node_ids": [
+            "n285",
+            "n286"
+          ],
+          "edge_ids": []
+        },
+        "supporting_evidence": {
+          "best_score": 0.1969,
+          "second_best_score": 0.1954,
+          "margin": 0.0015,
+          "rotation_degrees": 90
+        },
+        "ambiguity_candidates": [
+          {
+            "symbol_id": "SYM-026",
+            "name": "Rohrunterbrecher",
+            "score": 0.1969
+          },
+          {
+            "symbol_id": "SYM-045",
+            "name": "Systemtrenngerät nicht kontrollierbar",
+            "score": 0.1954
+          },
+          {
+            "symbol_id": "SYM-037",
+            "name": "Manometer",
+            "score": 0.1947
+          }
+        ],
+        "corroboration_status": "insufficient_shape_evidence"
+      },
+      {
+        "component_fact_id": "CF083d4871606b79de053d",
+        "kind": "UNRESOLVED",
+        "page": 1,
+        "bbox": [
+          941.7599487304688,
+          1172.8800048828125,
+          991.6799926757812,
+          1172.8800048828125
+        ],
+        "centroid": [
+          966.719970703125,
+          1172.8800048828125
+        ],
+        "symbol_type": null,
+        "symbol_name": null,
+        "recognition_method": "classical_cv_template_match_rotation_invariant",
+        "confidence": 0.41233280301094055,
+        "graph_association": {
+          "relation": "on_edge",
+          "node_ids": [],
+          "edge_ids": [
+            "e183"
+          ]
+        },
+        "supporting_evidence": {
+          "best_score": 0.4123,
+          "second_best_score": 0.2436,
+          "margin": 0.1687,
+          "rotation_degrees": 90
+        },
+        "ambiguity_candidates": [
+          {
+            "symbol_id": "SYM-007",
+            "name": "Übergang im Werkstoff",
+            "score": 0.4123
+          },
+          {
+            "symbol_id": "SYM-046",
+            "name": "Thermostatischer Mischer",
+            "score": 0.2436
+          },
+          {
+            "symbol_id": "SYM-032",
+            "name": "Systemtrenngerät mit kontrollierbaren",
+            "score": 0.1552
+          }
+        ],
+        "corroboration_status": "insufficient_shape_evidence"
+      },
+      {
+        "component_fact_id": "CFa4db60fc7a7d18f72170",
+        "kind": "UNRESOLVED",
+        "page": 1,
+        "bbox": [
+          693.9599609375,
+          889.800048828125,
+          712.6799926757812,
+          899.16015625
+        ],
+        "centroid": [
+          703.3199768066406,
+          894.4801025390625
+        ],
+        "symbol_type": null,
+        "symbol_name": null,
+        "recognition_method": "classical_cv_template_match_rotation_invariant",
+        "confidence": 0.4398580491542816,
+        "graph_association": {
+          "relation": "at_branch",
+          "node_ids": [
+            "n87",
+            "n89"
+          ],
+          "edge_ids": []
+        },
+        "supporting_evidence": {
+          "best_score": 0.4399,
+          "second_best_score": 0.4105,
+          "margin": 0.0293,
+          "rotation_degrees": 90
+        },
+        "ambiguity_candidates": [
+          {
+            "symbol_id": "SYM-041",
+            "name": "Trichter",
+            "score": 0.4399
+          },
+          {
+            "symbol_id": "SYM-056",
+            "name": "Rohrbelüfter – Bauart HD",
+            "score": 0.4105
+          },
+          {
+            "symbol_id": "SYM-038",
+            "name": "Wasserzähler",
+            "score": 0.4009
+          }
+        ],
+        "corroboration_status": "insufficient_shape_evidence"
+      },
+      {
+        "component_fact_id": "CFb05f3825e6abc65d83c0",
+        "kind": "UNRESOLVED",
+        "page": 1,
+        "bbox": [
+          21.239999771118164,
+          629.16015625,
+          36.71999740600586,
+          629.16015625
+        ],
+        "centroid": [
+          28.97999858856201,
+          629.16015625
+        ],
+        "symbol_type": null,
+        "symbol_name": null,
+        "recognition_method": "classical_cv_template_match_rotation_invariant",
+        "confidence": 0.24282096326351166,
+        "graph_association": {
+          "relation": "on_edge",
+          "node_ids": [],
+          "edge_ids": [
+            "e1"
+          ]
+        },
+        "supporting_evidence": {
+          "best_score": 0.2428,
+          "second_best_score": 0.2219,
+          "margin": 0.0209,
+          "rotation_degrees": 90
+        },
+        "ambiguity_candidates": [
+          {
+            "symbol_id": "SYM-029",
+            "name": "Rückflussverhinderer – kontrollierbar",
+            "score": 0.2428
+          },
+          {
+            "symbol_id": "SYM-024",
+            "name": "Auslaufventil mit Sicherungsarmatur und",
+            "score": 0.2219
+          },
+          {
+            "symbol_id": "SYM-008",
+            "name": "Absperrarmatur",
+            "score": 0.1821
+          }
+        ],
+        "corroboration_status": "insufficient_shape_evidence"
+      },
+      {
+        "component_fact_id": "CF3a11b45d25c86267167e",
+        "kind": "UNRESOLVED",
+        "page": 1,
+        "bbox": [
+          1268.52001953125,
+          629.16015625,
+          1284.0,
+          629.16015625
+        ],
+        "centroid": [
+          1276.260009765625,
+          629.16015625
+        ],
+        "symbol_type": null,
+        "symbol_name": null,
+        "recognition_method": "classical_cv_template_match_rotation_invariant",
+        "confidence": 0.25497758388519287,
+        "graph_association": {
+          "relation": "on_edge",
+          "node_ids": [],
+          "edge_ids": [
+            "e0"
+          ]
+        },
+        "supporting_evidence": {
+          "best_score": 0.255,
+          "second_best_score": 0.2014,
+          "margin": 0.0536,
+          "rotation_degrees": 90
+        },
+        "ambiguity_candidates": [
+          {
+            "symbol_id": "SYM-029",
+            "name": "Rückflussverhinderer – kontrollierbar",
+            "score": 0.255
+          },
+          {
+            "symbol_id": "SYM-024",
+            "name": "Auslaufventil mit Sicherungsarmatur und",
+            "score": 0.2014
+          },
+          {
+            "symbol_id": "SYM-008",
+            "name": "Absperrarmatur",
+            "score": 0.1973
+          }
+        ],
+        "corroboration_status": "insufficient_shape_evidence"
+      },
+      {
+        "component_fact_id": "CFe394dbbdb1ac35e4342c",
+        "kind": "UNRESOLVED",
+        "page": 1,
+        "bbox": [
+          394.3199768066406,
+          936.360107421875,
+          428.7599792480469,
+          949.800048828125
+        ],
+        "centroid": [
+          411.53997802734375,
+          943.080078125
+        ],
+        "symbol_type": null,
+        "symbol_name": null,
+        "recognition_method": "classical_cv_template_match_rotation_invariant",
+        "confidence": 0.23468971252441406,
+        "graph_association": {
+          "relation": "at_endpoint",
+          "node_ids": [
+            "n97"
+          ],
+          "edge_ids": []
+        },
+        "supporting_evidence": {
+          "best_score": 0.2347,
+          "second_best_score": 0.224,
+          "margin": 0.0107,
+          "rotation_degrees": 270
+        },
+        "ambiguity_candidates": [
+          {
+            "symbol_id": "SYM-039",
+            "name": "Antrieb durch Elektromotor",
+            "score": 0.2347
+          },
+          {
+            "symbol_id": "SYM-049",
+            "name": "Kompensator",
+            "score": 0.224
+          },
+          {
+            "symbol_id": "SYM-045",
+            "name": "Systemtrenngerät nicht kontrollierbar",
+            "score": 0.2154
+          }
+        ],
+        "corroboration_status": "insufficient_shape_evidence"
+      },
+      {
+        "component_fact_id": "CF46c618ea770a435fdaa4",
+        "kind": "UNRESOLVED",
+        "page": 1,
+        "bbox": [
+          579.719970703125,
+          938.0400390625,
+          588.8399658203125,
+          943.199951171875
+        ],
+        "centroid": [
+          584.2799682617188,
+          940.6199951171875
+        ],
+        "symbol_type": null,
+        "symbol_name": null,
+        "recognition_method": "classical_cv_template_match_rotation_invariant",
+        "confidence": 0.3092281222343445,
+        "graph_association": {
+          "relation": "on_edge",
+          "node_ids": [],
+          "edge_ids": [
+            "e236"
+          ]
+        },
+        "supporting_evidence": {
+          "best_score": 0.3092,
+          "second_best_score": 0.3079,
+          "margin": 0.0013,
+          "rotation_degrees": 270
+        },
+        "ambiguity_candidates": [
+          {
+            "symbol_id": "SYM-008",
+            "name": "Absperrarmatur",
+            "score": 0.3092
+          },
+          {
+            "symbol_id": "SYM-013",
+            "name": "Schieber",
+            "score": 0.3079
+          },
+          {
+            "symbol_id": "SYM-029",
+            "name": "Rückflussverhinderer – kontrollierbar",
+            "score": 0.2912
+          }
+        ],
+        "corroboration_status": "insufficient_shape_evidence"
+      },
+      {
+        "component_fact_id": "CF3529b0abec4cf6f4c172",
+        "kind": "UNRESOLVED",
+        "page": 1,
+        "bbox": [
+          898.0799560546875,
+          2792.52001953125,
+          1013.7599487304688,
+          2936.52001953125
+        ],
+        "centroid": [
+          955.9199523925781,
+          2864.52001953125
+        ],
+        "symbol_type": null,
+        "symbol_name": null,
+        "recognition_method": "classical_cv_template_match_rotation_invariant",
+        "confidence": 0.2265782505273819,
+        "graph_association": {
+          "relation": "at_branch",
+          "node_ids": [
+            "n25",
+            "n31",
+            "n98",
+            "n99"
+          ],
+          "edge_ids": []
+        },
+        "supporting_evidence": {
+          "best_score": 0.2266,
+          "second_best_score": 0.2084,
+          "margin": 0.0182,
+          "rotation_degrees": 270
+        },
+        "ambiguity_candidates": [
+          {
+            "symbol_id": "SYM-046",
+            "name": "Thermostatischer Mischer",
+            "score": 0.2266
+          },
+          {
+            "symbol_id": "SYM-051",
+            "name": "Zirkulationsregelventil",
+            "score": 0.2084
+          },
+          {
+            "symbol_id": "SYM-058",
+            "name": "Belüfter – Bauart LB",
+            "score": 0.1985
+          }
+        ],
+        "corroboration_status": "insufficient_shape_evidence"
+      },
+      {
+        "component_fact_id": "CF044c49fd9c0cc5393106",
+        "kind": "UNRESOLVED",
+        "page": 1,
+        "bbox": [
+          519.5999755859375,
+          1045.4400634765625,
+          617.3999633789062,
+          1081.56005859375
+        ],
+        "centroid": [
+          568.4999694824219,
+          1063.5000610351562
+        ],
+        "symbol_type": null,
+        "symbol_name": null,
+        "recognition_method": "classical_cv_template_match_rotation_invariant",
+        "confidence": 0.4144306778907776,
+        "graph_association": {
+          "relation": "at_branch",
+          "node_ids": [
+            "n115",
+            "n316",
+            "n318",
+            "n319"
+          ],
+          "edge_ids": []
+        },
+        "supporting_evidence": {
+          "best_score": 0.4144,
+          "second_best_score": 0.3561,
+          "margin": 0.0584,
+          "rotation_degrees": 90
+        },
+        "ambiguity_candidates": [
+          {
+            "symbol_id": "SYM-058",
+            "name": "Belüfter – Bauart LB",
+            "score": 0.4144
+          },
+          {
+            "symbol_id": "SYM-046",
+            "name": "Thermostatischer Mischer",
+            "score": 0.3561
+          },
+          {
+            "symbol_id": "SYM-014",
+            "name": "Absperrklappe",
+            "score": 0.2924
+          }
+        ],
+        "corroboration_status": "insufficient_shape_evidence"
+      },
+      {
+        "component_fact_id": "CFab7974af27e5ead1412c",
+        "kind": "UNRESOLVED",
+        "page": 1,
+        "bbox": [
+          786.239990234375,
+          65.52001953125,
+          796.0799560546875,
+          143.400146484375
+        ],
+        "centroid": [
+          791.1599731445312,
+          104.4600830078125
+        ],
+        "symbol_type": null,
+        "symbol_name": null,
+        "recognition_method": "classical_cv_template_match_rotation_invariant",
+        "confidence": 0.19154003262519836,
+        "graph_association": {
+          "relation": "at_branch",
+          "node_ids": [
+            "n341",
+            "n342"
+          ],
+          "edge_ids": []
+        },
+        "supporting_evidence": {
+          "best_score": 0.1915,
+          "second_best_score": 0.1662,
+          "margin": 0.0253,
+          "rotation_degrees": 90
+        },
+        "ambiguity_candidates": [
+          {
+            "symbol_id": "SYM-027",
+            "name": "Rohrbelüfter",
+            "score": 0.1915
+          },
+          {
+            "symbol_id": "SYM-014",
+            "name": "Absperrklappe",
+            "score": 0.1662
+          },
+          {
+            "symbol_id": "SYM-008",
+            "name": "Absperrarmatur",
+            "score": 0.1652
+          }
+        ],
+        "corroboration_status": "insufficient_shape_evidence"
+      },
+      {
+        "component_fact_id": "CFe122e57fe554f050b319",
+        "kind": "UNRESOLVED",
+        "page": 1,
+        "bbox": [
+          852.5999755859375,
+          62.52001953125,
+          858.5999755859375,
+          68.64013671875
+        ],
+        "centroid": [
+          855.5999755859375,
+          65.580078125
+        ],
+        "symbol_type": null,
+        "symbol_name": null,
+        "recognition_method": "classical_cv_template_match_rotation_invariant",
+        "confidence": 0.33056360483169556,
+        "graph_association": {
+          "relation": "at_branch",
+          "node_ids": [
+            "n12",
+            "n340"
+          ],
+          "edge_ids": []
+        },
+        "supporting_evidence": {
+          "best_score": 0.3306,
+          "second_best_score": 0.3011,
+          "margin": 0.0295,
+          "rotation_degrees": 270
+        },
+        "ambiguity_candidates": [
+          {
+            "symbol_id": "SYM-014",
+            "name": "Absperrklappe",
+            "score": 0.3306
+          },
+          {
+            "symbol_id": "SYM-013",
+            "name": "Schieber",
+            "score": 0.3011
+          },
+          {
+            "symbol_id": "SYM-046",
+            "name": "Thermostatischer Mischer",
+            "score": 0.2957
+          }
+        ],
+        "corroboration_status": "insufficient_shape_evidence"
+      },
+      {
+        "component_fact_id": "CFe1fff29e25b01ae3030d",
+        "kind": "UNRESOLVED",
+        "page": 1,
+        "bbox": [
+          617.3999633789062,
+          39.360107421875,
+          656.6400146484375,
+          81.360107421875
+        ],
+        "centroid": [
+          637.0199890136719,
+          60.360107421875
+        ],
+        "symbol_type": null,
+        "symbol_name": null,
+        "recognition_method": "classical_cv_template_match_rotation_invariant",
+        "confidence": 0.0904064029455185,
+        "graph_association": {
+          "relation": "at_branch",
+          "node_ids": [
+            "n14",
+            "n21"
+          ],
+          "edge_ids": []
+        },
+        "supporting_evidence": {
+          "best_score": 0.0904,
+          "second_best_score": 0.0832,
+          "margin": 0.0072,
+          "rotation_degrees": 90
+        },
+        "ambiguity_candidates": [
+          {
+            "symbol_id": "SYM-008",
+            "name": "Absperrarmatur",
+            "score": 0.0904
+          },
+          {
+            "symbol_id": "SYM-030",
+            "name": "Absperrventil mit integriertem",
+            "score": 0.0832
+          },
+          {
+            "symbol_id": "SYM-014",
+            "name": "Absperrklappe",
+            "score": 0.0708
+          }
+        ],
+        "corroboration_status": "insufficient_shape_evidence"
+      },
+      {
+        "component_fact_id": "CF2b84197ef9450e83203d",
+        "kind": "UNRESOLVED",
+        "page": 1,
+        "bbox": [
+          693.9599609375,
+          76.320068359375,
+          712.6799926757812,
+          102.719970703125
+        ],
+        "centroid": [
+          703.3199768066406,
+          89.52001953125
+        ],
+        "symbol_type": null,
+        "symbol_name": null,
+        "recognition_method": "classical_cv_template_match_rotation_invariant",
+        "confidence": 0.2882026433944702,
+        "graph_association": {
+          "relation": "at_branch",
+          "node_ids": [
+            "n117",
+            "n119"
+          ],
+          "edge_ids": []
+        },
+        "supporting_evidence": {
+          "best_score": 0.2882,
+          "second_best_score": 0.2439,
+          "margin": 0.0443,
+          "rotation_degrees": 270
+        },
+        "ambiguity_candidates": [
+          {
+            "symbol_id": "SYM-026",
+            "name": "Rohrunterbrecher",
+            "score": 0.2882
+          },
+          {
+            "symbol_id": "SYM-029",
+            "name": "Rückflussverhinderer – kontrollierbar",
+            "score": 0.2439
+          },
+          {
+            "symbol_id": "SYM-037",
+            "name": "Manometer",
+            "score": 0.2356
+          }
+        ],
+        "corroboration_status": "insufficient_shape_evidence"
+      },
+      {
+        "component_fact_id": "CF499b4f3877ca972f94b9",
+        "kind": "UNRESOLVED",
+        "page": 1,
+        "bbox": [
+          786.239990234375,
+          2316.840087890625,
+          796.0799560546875,
+          2396.52001953125
+        ],
+        "centroid": [
+          791.1599731445312,
+          2356.6800537109375
+        ],
+        "symbol_type": null,
+        "symbol_name": null,
+        "recognition_method": "classical_cv_template_match_rotation_invariant",
+        "confidence": 0.1854703277349472,
+        "graph_association": {
+          "relation": "at_branch",
+          "node_ids": [
+            "n142",
+            "n344",
+            "n346"
+          ],
+          "edge_ids": []
+        },
+        "supporting_evidence": {
+          "best_score": 0.1855,
+          "second_best_score": 0.1803,
+          "margin": 0.0052,
+          "rotation_degrees": 180
+        },
+        "ambiguity_candidates": [
+          {
+            "symbol_id": "SYM-058",
+            "name": "Belüfter – Bauart LB",
+            "score": 0.1855
+          },
+          {
+            "symbol_id": "SYM-014",
+            "name": "Absperrklappe",
+            "score": 0.1803
+          },
+          {
+            "symbol_id": "SYM-013",
+            "name": "Schieber",
+            "score": 0.1659
+          }
+        ],
+        "corroboration_status": "insufficient_shape_evidence"
+      },
+      {
+        "component_fact_id": "CF5f34cb98d2f5f7e1a93f",
+        "kind": "UNRESOLVED",
+        "page": 1,
+        "bbox": [
+          852.5999755859375,
+          2393.52001953125,
+          858.5999755859375,
+          2399.64013671875
+        ],
+        "centroid": [
+          855.5999755859375,
+          2396.580078125
+        ],
+        "symbol_type": null,
+        "symbol_name": null,
+        "recognition_method": "classical_cv_template_match_rotation_invariant",
+        "confidence": 0.32759371399879456,
+        "graph_association": {
+          "relation": "at_branch",
+          "node_ids": [
+            "n13",
+            "n343"
+          ],
+          "edge_ids": []
+        },
+        "supporting_evidence": {
+          "best_score": 0.3276,
+          "second_best_score": 0.303,
+          "margin": 0.0246,
+          "rotation_degrees": 270
+        },
+        "ambiguity_candidates": [
+          {
+            "symbol_id": "SYM-014",
+            "name": "Absperrklappe",
+            "score": 0.3276
+          },
+          {
+            "symbol_id": "SYM-046",
+            "name": "Thermostatischer Mischer",
+            "score": 0.303
+          },
+          {
+            "symbol_id": "SYM-013",
+            "name": "Schieber",
+            "score": 0.2964
+          }
+        ],
+        "corroboration_status": "insufficient_shape_evidence"
+      },
+      {
+        "component_fact_id": "CF56fc4e077ce2973fb0f3",
+        "kind": "UNRESOLVED",
+        "page": 1,
+        "bbox": [
+          637.3200073242188,
+          2381.64013671875,
+          651.47998046875,
+          2395.800048828125
+        ],
+        "centroid": [
+          644.3999938964844,
+          2388.7200927734375
+        ],
+        "symbol_type": null,
+        "symbol_name": null,
+        "recognition_method": "classical_cv_template_match_rotation_invariant",
+        "confidence": 0.25562232732772827,
+        "graph_association": {
+          "relation": "at_branch",
+          "node_ids": [
+            "n8",
+            "n15",
+            "n17",
+            "n121",
+            "n345"
+          ],
+          "edge_ids": []
+        },
+        "supporting_evidence": {
+          "best_score": 0.2556,
+          "second_best_score": 0.2521,
+          "margin": 0.0035,
+          "rotation_degrees": 180
+        },
+        "ambiguity_candidates": [
+          {
+            "symbol_id": "SYM-013",
+            "name": "Schieber",
+            "score": 0.2556
+          },
+          {
+            "symbol_id": "SYM-014",
+            "name": "Absperrklappe",
+            "score": 0.2521
+          },
+          {
+            "symbol_id": "SYM-008",
+            "name": "Absperrarmatur",
+            "score": 0.2205
+          }
+        ],
+        "corroboration_status": "insufficient_shape_evidence"
+      },
+      {
+        "component_fact_id": "CF833ddc64605857a799fa",
+        "kind": "UNRESOLVED",
+        "page": 1,
+        "bbox": [
+          672.8399658203125,
+          2357.52001953125,
+          691.5599975585938,
+          2385.840087890625
+        ],
+        "centroid": [
+          682.1999816894531,
+          2371.6800537109375
+        ],
+        "symbol_type": null,
+        "symbol_name": null,
+        "recognition_method": "classical_cv_template_match_rotation_invariant",
+        "confidence": 0.1953054964542389,
+        "graph_association": {
+          "relation": "at_endpoint",
+          "node_ids": [
+            "n123"
+          ],
+          "edge_ids": []
+        },
+        "supporting_evidence": {
+          "best_score": 0.1953,
+          "second_best_score": 0.183,
+          "margin": 0.0123,
+          "rotation_degrees": 270
+        },
+        "ambiguity_candidates": [
+          {
+            "symbol_id": "SYM-024",
+            "name": "Auslaufventil mit Sicherungsarmatur und",
+            "score": 0.1953
+          },
+          {
+            "symbol_id": "SYM-046",
+            "name": "Thermostatischer Mischer",
+            "score": 0.183
+          },
+          {
+            "symbol_id": "SYM-007",
+            "name": "Übergang im Werkstoff",
+            "score": 0.1778
+          }
+        ],
+        "corroboration_status": "insufficient_shape_evidence"
+      },
+      {
+        "component_fact_id": "CF53f6511ed2b2dae3d2c6",
+        "kind": "UNRESOLVED",
+        "page": 1,
+        "bbox": [
+          324.1199951171875,
+          2759.64013671875,
+          498.1199951171875,
+          2796.9599609375
+        ],
+        "centroid": [
+          411.1199951171875,
+          2778.300048828125
+        ],
+        "symbol_type": null,
+        "symbol_name": null,
+        "recognition_method": "classical_cv_template_match_rotation_invariant",
+        "confidence": 0.2456551194190979,
+        "graph_association": {
+          "relation": "near_not_connected",
+          "node_ids": [],
+          "edge_ids": []
+        },
+        "supporting_evidence": {
+          "best_score": 0.2457,
+          "second_best_score": 0.1926,
+          "margin": 0.053,
+          "rotation_degrees": 90
+        },
+        "ambiguity_candidates": [
+          {
+            "symbol_id": "SYM-029",
+            "name": "Rückflussverhinderer – kontrollierbar",
+            "score": 0.2457
+          },
+          {
+            "symbol_id": "SYM-035",
+            "name": "Flüssigkeitspumpe mit mechanischem Antrieb",
+            "score": 0.1926
+          },
+          {
+            "symbol_id": "SYM-047",
+            "name": "Druckminderer mit Filter",
+            "score": 0.1835
+          }
+        ],
+        "corroboration_status": "insufficient_shape_evidence"
+      },
+      {
+        "component_fact_id": "CF35fecf6369dec4dffb27",
+        "kind": "UNRESOLVED",
+        "page": 1,
+        "bbox": [
+          450.9599914550781,
+          2943.47998046875,
+          498.5999755859375,
+          2980.919921875
+        ],
+        "centroid": [
+          474.7799835205078,
+          2962.199951171875
+        ],
+        "symbol_type": null,
+        "symbol_name": null,
+        "recognition_method": "classical_cv_template_match_rotation_invariant",
+        "confidence": 0.229661226272583,
+        "graph_association": {
+          "relation": "on_edge",
+          "node_ids": [],
+          "edge_ids": [
+            "e78"
+          ]
+        },
+        "supporting_evidence": {
+          "best_score": 0.2297,
+          "second_best_score": 0.1956,
+          "margin": 0.034,
+          "rotation_degrees": 270
+        },
+        "ambiguity_candidates": [
+          {
+            "symbol_id": "SYM-051",
+            "name": "Zirkulationsregelventil",
+            "score": 0.2297
+          },
+          {
+            "symbol_id": "SYM-058",
+            "name": "Belüfter – Bauart LB",
+            "score": 0.1956
+          },
+          {
+            "symbol_id": "SYM-027",
+            "name": "Rohrbelüfter",
+            "score": 0.1866
+          }
+        ],
+        "corroboration_status": "insufficient_shape_evidence"
+      },
+      {
+        "component_fact_id": "CF5c6dde9b015974b68557",
+        "kind": "UNRESOLVED",
+        "page": 1,
+        "bbox": [
+          319.67999267578125,
+          2585.39990234375,
+          447.0,
+          2622.9599609375
+        ],
+        "centroid": [
+          383.3399963378906,
+          2604.179931640625
+        ],
+        "symbol_type": null,
+        "symbol_name": null,
+        "recognition_method": "classical_cv_template_match_rotation_invariant",
+        "confidence": 0.14899158477783203,
+        "graph_association": {
+          "relation": "near_not_connected",
+          "node_ids": [],
+          "edge_ids": []
+        },
+        "supporting_evidence": {
+          "best_score": 0.149,
+          "second_best_score": 0.1482,
+          "margin": 0.0008,
+          "rotation_degrees": 90
+        },
+        "ambiguity_candidates": [
+          {
+            "symbol_id": "SYM-038",
+            "name": "Wasserzähler",
+            "score": 0.149
+          },
+          {
+            "symbol_id": "SYM-035",
+            "name": "Flüssigkeitspumpe mit mechanischem Antrieb",
+            "score": 0.1482
+          },
+          {
+            "symbol_id": "SYM-014",
+            "name": "Absperrklappe",
+            "score": 0.1439
+          }
+        ],
+        "corroboration_status": "insufficient_shape_evidence"
+      },
+      {
+        "component_fact_id": "CF11b3753c3636e22bdcf3",
+        "kind": "UNRESOLVED",
+        "page": 1,
+        "bbox": [
+          301.79998779296875,
+          2943.239990234375,
+          429.47998046875,
+          2980.919921875
+        ],
+        "centroid": [
+          365.6399841308594,
+          2962.0799560546875
+        ],
+        "symbol_type": null,
+        "symbol_name": null,
+        "recognition_method": "classical_cv_template_match_rotation_invariant",
+        "confidence": 0.2235332578420639,
+        "graph_association": {
+          "relation": "at_endpoint",
+          "node_ids": [
+            "n124"
+          ],
+          "edge_ids": []
+        },
+        "supporting_evidence": {
+          "best_score": 0.2235,
+          "second_best_score": 0.183,
+          "margin": 0.0406,
+          "rotation_degrees": 270
+        },
+        "ambiguity_candidates": [
+          {
+            "symbol_id": "SYM-056",
+            "name": "Rohrbelüfter – Bauart HD",
+            "score": 0.2235
+          },
+          {
+            "symbol_id": "SYM-041",
+            "name": "Trichter",
+            "score": 0.183
+          },
+          {
+            "symbol_id": "SYM-034",
+            "name": "Mechanischer Filter",
+            "score": 0.1819
+          }
+        ],
+        "corroboration_status": "insufficient_shape_evidence"
+      },
+      {
+        "component_fact_id": "CFda84b1356222ccdaa33a",
+        "kind": "UNRESOLVED",
+        "page": 1,
+        "bbox": [
+          116.27999877929688,
+          2907.360107421875,
+          150.83999633789062,
+          2985.9599609375
+        ],
+        "centroid": [
+          133.55999755859375,
+          2946.6600341796875
+        ],
+        "symbol_type": null,
+        "symbol_name": null,
+        "recognition_method": "classical_cv_template_match_rotation_invariant",
+        "confidence": 0.3133774995803833,
+        "graph_association": {
+          "relation": "at_endpoint",
+          "node_ids": [
+            "n145"
+          ],
+          "edge_ids": []
+        },
+        "supporting_evidence": {
+          "best_score": 0.3134,
+          "second_best_score": 0.3109,
+          "margin": 0.0025,
+          "rotation_degrees": 0
+        },
+        "ambiguity_candidates": [
+          {
+            "symbol_id": "SYM-057",
+            "name": "Belüfter – Bauart LA",
+            "score": 0.3134
+          },
+          {
+            "symbol_id": "SYM-028",
+            "name": "Rückflussverhinderer – nicht kontrollierbar",
+            "score": 0.3109
+          },
+          {
+            "symbol_id": "SYM-033",
+            "name": "Sicherheitsventil, federbelastet",
+            "score": 0.3048
+          }
+        ],
+        "corroboration_status": "insufficient_shape_evidence"
+      },
+      {
+        "component_fact_id": "CF0b289a1067c1554eb5a8",
+        "kind": "UNRESOLVED",
+        "page": 1,
+        "bbox": [
+          637.9199829101562,
+          1999.6800537109375,
+          648.1199951171875,
+          2009.760009765625
+        ],
+        "centroid": [
+          643.0199890136719,
+          2004.7200317382812
+        ],
+        "symbol_type": null,
+        "symbol_name": null,
+        "recognition_method": "classical_cv_template_match_rotation_invariant",
+        "confidence": 0.11613068729639053,
+        "graph_association": {
+          "relation": "on_edge",
+          "node_ids": [],
+          "edge_ids": [
+            "e8"
+          ]
+        },
+        "supporting_evidence": {
+          "best_score": 0.1161,
+          "second_best_score": 0.1036,
+          "margin": 0.0125,
+          "rotation_degrees": 90
+        },
+        "ambiguity_candidates": [
+          {
+            "symbol_id": "SYM-011",
+            "name": "Geradsitzventil / Schrägsitzventil",
+            "score": 0.1161
+          },
+          {
+            "symbol_id": "SYM-012",
+            "name": "Kugelhahn",
+            "score": 0.1036
+          },
+          {
+            "symbol_id": "SYM-041",
+            "name": "Trichter",
+            "score": 0.0795
+          }
+        ],
+        "corroboration_status": "insufficient_shape_evidence"
+      },
+      {
+        "component_fact_id": "CFbd88b816ddfd18f15241",
+        "kind": "UNRESOLVED",
+        "page": 1,
+        "bbox": [
+          637.9199829101562,
+          1957.56005859375,
+          648.1199951171875,
+          1967.6400146484375
+        ],
+        "centroid": [
+          643.0199890136719,
+          1962.6000366210938
+        ],
+        "symbol_type": null,
+        "symbol_name": null,
+        "recognition_method": "classical_cv_template_match_rotation_invariant",
+        "confidence": 0.10619091987609863,
+        "graph_association": {
+          "relation": "at_endpoint",
+          "node_ids": [
+            "n238"
+          ],
+          "edge_ids": []
+        },
+        "supporting_evidence": {
+          "best_score": 0.1062,
+          "second_best_score": 0.0933,
+          "margin": 0.0129,
+          "rotation_degrees": 0
+        },
+        "ambiguity_candidates": [
+          {
+            "symbol_id": "SYM-056",
+            "name": "Rohrbelüfter – Bauart HD",
+            "score": 0.1062
+          },
+          {
+            "symbol_id": "SYM-028",
+            "name": "Rückflussverhinderer – nicht kontrollierbar",
+            "score": 0.0933
+          },
+          {
+            "symbol_id": "SYM-041",
+            "name": "Trichter",
+            "score": 0.082
+          }
+        ],
+        "corroboration_status": "insufficient_shape_evidence"
+      },
+      {
+        "component_fact_id": "CFe8cec10bb9a1712355ef",
+        "kind": "UNRESOLVED",
+        "page": 1,
+        "bbox": [
+          591.8399658203125,
+          524.52001953125,
+          617.3999633789062,
+          548.64013671875
+        ],
+        "centroid": [
+          604.6199645996094,
+          536.580078125
+        ],
+        "symbol_type": null,
+        "symbol_name": null,
+        "recognition_method": "classical_cv_template_match_rotation_invariant",
+        "confidence": 0.21065840125083923,
+        "graph_association": {
+          "relation": "at_branch",
+          "node_ids": [
+            "n296",
+            "n298"
+          ],
+          "edge_ids": []
+        },
+        "supporting_evidence": {
+          "best_score": 0.2107,
+          "second_best_score": 0.1531,
+          "margin": 0.0576,
+          "rotation_degrees": 90
+        },
+        "ambiguity_candidates": [
+          {
+            "symbol_id": "SYM-013",
+            "name": "Schieber",
+            "score": 0.2107
+          },
+          {
+            "symbol_id": "SYM-014",
+            "name": "Absperrklappe",
+            "score": 0.1531
+          },
+          {
+            "symbol_id": "SYM-015",
+            "name": "Druckminderer",
+            "score": 0.1212
+          }
+        ],
+        "corroboration_status": "insufficient_shape_evidence"
+      },
+      {
+        "component_fact_id": "CFe7b54bd1ad010d7a5018",
+        "kind": "UNRESOLVED",
+        "page": 1,
+        "bbox": [
+          557.760009765625,
+          239.400146484375,
+          615.8399658203125,
+          273.47998046875
+        ],
+        "centroid": [
+          586.7999877929688,
+          256.4400634765625
+        ],
+        "symbol_type": null,
+        "symbol_name": null,
+        "recognition_method": "classical_cv_template_match_rotation_invariant",
+        "confidence": 0.22969383001327515,
+        "graph_association": {
+          "relation": "at_branch",
+          "node_ids": [
+            "n244",
+            "n245",
+            "n352"
+          ],
+          "edge_ids": []
+        },
+        "supporting_evidence": {
+          "best_score": 0.2297,
+          "second_best_score": 0.2091,
+          "margin": 0.0206,
+          "rotation_degrees": 270
+        },
+        "ambiguity_candidates": [
+          {
+            "symbol_id": "SYM-014",
+            "name": "Absperrklappe",
+            "score": 0.2297
+          },
+          {
+            "symbol_id": "SYM-013",
+            "name": "Schieber",
+            "score": 0.2091
+          },
+          {
+            "symbol_id": "SYM-036",
+            "name": "Thermometer",
+            "score": 0.1916
+          }
+        ],
+        "corroboration_status": "insufficient_shape_evidence"
+      },
+      {
+        "component_fact_id": "CF68883a89e1a76d5bf663",
+        "kind": "UNRESOLVED",
+        "page": 1,
+        "bbox": [
+          506.7599792480469,
+          174.840087890625,
+          625.5599975585938,
+          207.719970703125
+        ],
+        "centroid": [
+          566.1599884033203,
+          191.280029296875
+        ],
+        "symbol_type": null,
+        "symbol_name": null,
+        "recognition_method": "classical_cv_template_match_rotation_invariant",
+        "confidence": 0.3137970566749573,
+        "graph_association": {
+          "relation": "at_branch",
+          "node_ids": [
+            "n246",
+            "n247",
+            "n299"
+          ],
+          "edge_ids": []
+        },
+        "supporting_evidence": {
+          "best_score": 0.3138,
+          "second_best_score": 0.2141,
+          "margin": 0.0997,
+          "rotation_degrees": 270
+        },
+        "ambiguity_candidates": [
+          {
+            "symbol_id": "SYM-058",
+            "name": "Belüfter – Bauart LB",
+            "score": 0.3138
+          },
+          {
+            "symbol_id": "SYM-043",
+            "name": "Apparate- und Armaturenanschluss mit",
+            "score": 0.2141
+          },
+          {
+            "symbol_id": "SYM-046",
+            "name": "Thermostatischer Mischer",
+            "score": 0.2096
+          }
+        ],
+        "corroboration_status": "insufficient_shape_evidence"
+      },
+      {
+        "component_fact_id": "CF7053a1b2af5b41c96c28",
+        "kind": "UNRESOLVED",
+        "page": 1,
+        "bbox": [
+          688.0799560546875,
+          249.1201171875,
+          700.7999877929688,
+          264.9599609375
+        ],
+        "centroid": [
+          694.4399719238281,
+          257.0400390625
+        ],
+        "symbol_type": null,
+        "symbol_name": null,
+        "recognition_method": "classical_cv_template_match_rotation_invariant",
+        "confidence": 0.40884435176849365,
+        "graph_association": {
+          "relation": "at_branch",
+          "node_ids": [
+            "n353",
+            "n355"
+          ],
+          "edge_ids": []
+        },
+        "supporting_evidence": {
+          "best_score": 0.4088,
+          "second_best_score": 0.399,
+          "margin": 0.0098,
+          "rotation_degrees": 180
+        },
+        "ambiguity_candidates": [
+          {
+            "symbol_id": "SYM-035",
+            "name": "Flüssigkeitspumpe mit mechanischem Antrieb",
+            "score": 0.4088
+          },
+          {
+            "symbol_id": "SYM-037",
+            "name": "Manometer",
+            "score": 0.399
+          },
+          {
+            "symbol_id": "SYM-026",
+            "name": "Rohrunterbrecher",
+            "score": 0.3806
+          }
+        ],
+        "corroboration_status": "insufficient_shape_evidence"
+      },
+      {
+        "component_fact_id": "CF24534dc46ac1a1671a3d",
+        "kind": "UNRESOLVED",
+        "page": 1,
+        "bbox": [
+          630.1199951171875,
+          890.400146484375,
+          641.5199584960938,
+          940.679931640625
+        ],
+        "centroid": [
+          635.8199768066406,
+          915.5400390625
+        ],
+        "symbol_type": null,
+        "symbol_name": null,
+        "recognition_method": "classical_cv_template_match_rotation_invariant",
+        "confidence": 0.15636348724365234,
+        "graph_association": {
+          "relation": "at_branch",
+          "node_ids": [
+            "n361",
+            "n362"
+          ],
+          "edge_ids": []
+        },
+        "supporting_evidence": {
+          "best_score": 0.1564,
+          "second_best_score": 0.0873,
+          "margin": 0.0691,
+          "rotation_degrees": 0
+        },
+        "ambiguity_candidates": [
+          {
+            "symbol_id": "SYM-029",
+            "name": "Rückflussverhinderer – kontrollierbar",
+            "score": 0.1564
+          },
+          {
+            "symbol_id": "SYM-058",
+            "name": "Belüfter – Bauart LB",
+            "score": 0.0873
+          },
+          {
+            "symbol_id": "SYM-011",
+            "name": "Geradsitzventil / Schrägsitzventil",
+            "score": 0.0765
+          }
+        ],
+        "corroboration_status": "insufficient_shape_evidence"
+      },
+      {
+        "component_fact_id": "CF2b6759edb55cdde0ced6",
+        "kind": "UNRESOLVED",
+        "page": 1,
+        "bbox": [
+          666.47998046875,
+          202.199951171875,
+          667.5599975585938,
+          208.320068359375
+        ],
+        "centroid": [
+          667.0199890136719,
+          205.260009765625
+        ],
+        "symbol_type": null,
+        "symbol_name": null,
+        "recognition_method": "classical_cv_template_match_rotation_invariant",
+        "confidence": 0.32152730226516724,
+        "graph_association": {
+          "relation": "at_branch",
+          "node_ids": [
+            "n116",
+            "n354"
+          ],
+          "edge_ids": []
+        },
+        "supporting_evidence": {
+          "best_score": 0.3215,
+          "second_best_score": 0.3198,
+          "margin": 0.0017,
+          "rotation_degrees": 0
+        },
+        "ambiguity_candidates": [
+          {
+            "symbol_id": "SYM-013",
+            "name": "Schieber",
+            "score": 0.3215
+          },
+          {
+            "symbol_id": "SYM-008",
+            "name": "Absperrarmatur",
+            "score": 0.3198
+          },
+          {
+            "symbol_id": "SYM-014",
+            "name": "Absperrklappe",
+            "score": 0.3133
+          }
+        ],
+        "corroboration_status": "insufficient_shape_evidence"
+      },
+      {
+        "component_fact_id": "CF896215f023f661ded0d7",
+        "kind": "UNRESOLVED",
+        "page": 1,
+        "bbox": [
+          666.47998046875,
+          250.920166015625,
+          667.5599975585938,
+          257.0400390625
+        ],
+        "centroid": [
+          667.0199890136719,
+          253.9801025390625
+        ],
+        "symbol_type": null,
+        "symbol_name": null,
+        "recognition_method": "classical_cv_template_match_rotation_invariant",
+        "confidence": 0.3257909417152405,
+        "graph_association": {
+          "relation": "on_edge",
+          "node_ids": [],
+          "edge_ids": [
+            "e229"
+          ]
+        },
+        "supporting_evidence": {
+          "best_score": 0.3258,
+          "second_best_score": 0.3238,
+          "margin": 0.002,
+          "rotation_degrees": 0
+        },
+        "ambiguity_candidates": [
+          {
+            "symbol_id": "SYM-013",
+            "name": "Schieber",
+            "score": 0.3258
+          },
+          {
+            "symbol_id": "SYM-008",
+            "name": "Absperrarmatur",
+            "score": 0.3238
+          },
+          {
+            "symbol_id": "SYM-014",
+            "name": "Absperrklappe",
+            "score": 0.3176
+          }
+        ],
+        "corroboration_status": "insufficient_shape_evidence"
+      },
+      {
+        "component_fact_id": "CFc13e837897662f97f98a",
+        "kind": "UNRESOLVED",
+        "page": 1,
+        "bbox": [
+          696.0,
+          288.0,
+          706.9199829101562,
+          294.1201171875
+        ],
+        "centroid": [
+          701.4599914550781,
+          291.06005859375
+        ],
+        "symbol_type": null,
+        "symbol_name": null,
+        "recognition_method": "classical_cv_template_match_rotation_invariant",
+        "confidence": 0.30829089879989624,
+        "graph_association": {
+          "relation": "at_branch",
+          "node_ids": [
+            "n243",
+            "n351"
+          ],
+          "edge_ids": []
+        },
+        "supporting_evidence": {
+          "best_score": 0.3083,
+          "second_best_score": 0.3073,
+          "margin": 0.001,
+          "rotation_degrees": 270
+        },
+        "ambiguity_candidates": [
+          {
+            "symbol_id": "SYM-054",
+            "name": "Rohrbelüfter – Bauart HB",
+            "score": 0.3083
+          },
+          {
+            "symbol_id": "SYM-031",
+            "name": "Rohrbelüfter in Durchflussform",
+            "score": 0.3073
+          },
+          {
+            "symbol_id": "SYM-052",
+            "name": "Freier Auslauf – Bauart AA, AB, AC, AD, AF",
+            "score": 0.2837
+          }
+        ],
+        "corroboration_status": "insufficient_shape_evidence"
+      },
+      {
+        "component_fact_id": "CF3bc9a71c4a5938453eb0",
+        "kind": "UNRESOLVED",
+        "page": 1,
+        "bbox": [
+          649.4400024414062,
+          671.64013671875,
+          656.6400146484375,
+          673.920166015625
+        ],
+        "centroid": [
+          653.0400085449219,
+          672.7801513671875
+        ],
+        "symbol_type": null,
+        "symbol_name": null,
+        "recognition_method": "classical_cv_template_match_rotation_invariant",
+        "confidence": 0.38815295696258545,
+        "graph_association": {
+          "relation": "at_branch",
+          "node_ids": [
+            "n172",
+            "n173",
+            "n174",
+            "n175",
+            "n250"
+          ],
+          "edge_ids": []
+        },
+        "supporting_evidence": {
+          "best_score": 0.3882,
+          "second_best_score": 0.383,
+          "margin": 0.0051,
+          "rotation_degrees": 270
+        },
+        "ambiguity_candidates": [
+          {
+            "symbol_id": "SYM-014",
+            "name": "Absperrklappe",
+            "score": 0.3882
+          },
+          {
+            "symbol_id": "SYM-008",
+            "name": "Absperrarmatur",
+            "score": 0.383
+          },
+          {
+            "symbol_id": "SYM-013",
+            "name": "Schieber",
+            "score": 0.3515
+          }
+        ],
+        "corroboration_status": "insufficient_shape_evidence"
+      },
+      {
+        "component_fact_id": "CFbfe083c1f0be23981d52",
+        "kind": "UNRESOLVED",
+        "page": 1,
+        "bbox": [
+          819.5999755859375,
+          1736.280029296875,
+          858.5999755859375,
+          1747.080078125
+        ],
+        "centroid": [
+          839.0999755859375,
+          1741.6800537109375
+        ],
+        "symbol_type": null,
+        "symbol_name": null,
+        "recognition_method": "classical_cv_template_match_rotation_invariant",
+        "confidence": 0.2289474904537201,
+        "graph_association": {
+          "relation": "at_branch",
+          "node_ids": [
+            "n230",
+            "n359"
+          ],
+          "edge_ids": []
+        },
+        "supporting_evidence": {
+          "best_score": 0.2289,
+          "second_best_score": 0.2015,
+          "margin": 0.0274,
+          "rotation_degrees": 180
+        },
+        "ambiguity_candidates": [
+          {
+            "symbol_id": "SYM-024",
+            "name": "Auslaufventil mit Sicherungsarmatur und",
+            "score": 0.2289
+          },
+          {
+            "symbol_id": "SYM-014",
+            "name": "Absperrklappe",
+            "score": 0.2015
+          },
+          {
+            "symbol_id": "SYM-008",
+            "name": "Absperrarmatur",
+            "score": 0.1906
+          }
+        ],
+        "corroboration_status": "insufficient_shape_evidence"
+      },
+      {
+        "component_fact_id": "CF454a2c74434d78d671cf",
+        "kind": "UNRESOLVED",
+        "page": 1,
+        "bbox": [
+          649.4400024414062,
+          1742.8800048828125,
+          656.6400146484375,
+          1745.1600341796875
+        ],
+        "centroid": [
+          653.0400085449219,
+          1744.02001953125
+        ],
+        "symbol_type": null,
+        "symbol_name": null,
+        "recognition_method": "classical_cv_template_match_rotation_invariant",
+        "confidence": 0.38466280698776245,
+        "graph_association": {
+          "relation": "at_branch",
+          "node_ids": [
+            "n182",
+            "n183",
+            "n184",
+            "n185",
+            "n358"
+          ],
+          "edge_ids": []
+        },
+        "supporting_evidence": {
+          "best_score": 0.3847,
+          "second_best_score": 0.3717,
+          "margin": 0.013,
+          "rotation_degrees": 270
+        },
+        "ambiguity_candidates": [
+          {
+            "symbol_id": "SYM-008",
+            "name": "Absperrarmatur",
+            "score": 0.3847
+          },
+          {
+            "symbol_id": "SYM-014",
+            "name": "Absperrklappe",
+            "score": 0.3717
+          },
+          {
+            "symbol_id": "SYM-013",
+            "name": "Schieber",
+            "score": 0.335
+          }
+        ],
+        "corroboration_status": "insufficient_shape_evidence"
+      },
+      {
+        "component_fact_id": "CF6ca6e726ed20d3958986",
+        "kind": "UNRESOLVED",
+        "page": 1,
+        "bbox": [
+          707.8800048828125,
+          1730.760009765625,
+          723.719970703125,
+          1744.56005859375
+        ],
+        "centroid": [
+          715.7999877929688,
+          1737.6600341796875
+        ],
+        "symbol_type": null,
+        "symbol_name": null,
+        "recognition_method": "classical_cv_template_match_rotation_invariant",
+        "confidence": 0.1826980710029602,
+        "graph_association": {
+          "relation": "at_branch",
+          "node_ids": [
+            "n187",
+            "n189",
+            "n231"
+          ],
+          "edge_ids": []
+        },
+        "supporting_evidence": {
+          "best_score": 0.1827,
+          "second_best_score": 0.1743,
+          "margin": 0.0084,
+          "rotation_degrees": 0
+        },
+        "ambiguity_candidates": [
+          {
+            "symbol_id": "SYM-008",
+            "name": "Absperrarmatur",
+            "score": 0.1827
+          },
+          {
+            "symbol_id": "SYM-013",
+            "name": "Schieber",
+            "score": 0.1743
+          },
+          {
+            "symbol_id": "SYM-014",
+            "name": "Absperrklappe",
+            "score": 0.1702
+          }
+        ],
+        "corroboration_status": "insufficient_shape_evidence"
+      }
+    ],
+    "stats": {
+      "components_evaluated": 76,
+      "by_kind": {
+        "COMPONENT_FACT": 0,
+        "COMPONENT_CANDIDATE": 0,
+        "UNRESOLVED": 76
+      },
+      "library_eligible_symbols": 43,
+      "library_total_symbols": 58
+    }
+  },
   "diagnostics": {
     "filename": "W-003_Referenzfall.Plan.pdf",
     "page_count": 1,
     "warnings": [],
     "timing_ms": {
-      "parse": 1234.5,
-      "plan_facts": 20.1,
-      "total": 1254.6
+      "parse": 1274.992622000127,
+      "plan_facts": 22.761526000067533,
+      "component_facts": 7038.522311000179,
+      "total": 8336.276459000374
     }
   }
 }

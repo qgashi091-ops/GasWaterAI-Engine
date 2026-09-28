@@ -31,4 +31,7 @@ def test_analyze_real_w003_pdf_returns_the_required_shape():
     assert isinstance(body["pages"], list) and len(body["pages"]) == 1
     assert "plan_facts" in body and "facts" in body["plan_facts"]
     assert all(f["kind"] in ("FACT", "DERIVED_FACT", "UNRESOLVED") for f in body["plan_facts"]["facts"])
+    assert "component_facts" in body and "facts" in body["component_facts"]
+    assert all(f["kind"] in ("COMPONENT_FACT", "COMPONENT_CANDIDATE", "UNRESOLVED") for f in body["component_facts"]["facts"])
     assert "diagnostics" in body and "timing_ms" in body["diagnostics"]
+    assert "component_facts" in body["diagnostics"]["timing_ms"]

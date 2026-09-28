@@ -5,3 +5,5 @@ python-multipart
 pymupdf
 pytesseract
 Pillow
+opencv-python-headless
+numpy

@@ -9,6 +9,7 @@ from __future__ import annotations
 from pathlib import Path
 
 from app.fingerprint import canonical_hash, document_fingerprint
+from app.plan_analysis.component_facts import build_component_facts
 from app.plan_analysis.pipeline import analyze_pdf_bytes
 from app.plan_analysis.plan_facts import build_document_facts
 
@@ -40,3 +41,23 @@ def test_w003_ten_repeated_runs_produce_semantically_identical_plan_facts():
     )
     assert len(set(fact_counts)) == 1
     assert fact_counts[0] > 0, "the real W-003 plan must yield a non-trivial fact set"
+
+
+def test_w003_ten_repeated_runs_produce_identical_component_facts_and_stable_ids():
+    """v0.2's own acceptance criterion, alongside (not instead of) v0.1's:
+    deterministic component detections and their stable component_fact_ids
+    must be 10/10 identical, on top of v0.1's topology staying untouched."""
+    pdf_bytes = FIXTURE.read_bytes()
+    component_hashes = []
+    fact_id_sets = []
+    for _ in range(RUNS):
+        doc = analyze_pdf_bytes(pdf_bytes, filename=FIXTURE.name)
+        component_facts = build_component_facts(pdf_bytes, doc)
+        component_hashes.append(canonical_hash(component_facts))
+        fact_id_sets.append(frozenset(f["component_fact_id"] for f in component_facts["facts"]))
+
+    assert len(set(component_hashes)) == 1, (
+        f"component_facts differed across {RUNS} runs of the identical PDF -- "
+        f"got {len(set(component_hashes))} distinct canonical hashes, expected 1"
+    )
+    assert len(set(fact_id_sets)) == 1, "component_fact_id values must be stable across identical reruns"

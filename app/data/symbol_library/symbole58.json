@@ -1,0 +1,466 @@
+[
+ {
+  "id": "SYM-001",
+  "nr": "Nr. 1",
+  "name": "Wasserleitung",
+  "beschreibung": "Stern wird ersetzt durch: PW Wasserleitung; PWC Trinkwasserleitung kalt; PWH Trinkwasserleitung warm; PWH-C Trinkwasserleitung warm, Zirkulation; NPW Nichttrinkwasser; TI Wärmedämmung",
+  "quelle": "SVGW W3, Ausgabe 2013, Anhang 4, S. 71",
+  "page": 1
+ },
+ {
+  "id": "SYM-002",
+  "nr": "Nr. 2",
+  "name": "Trinkwasserleitung, kalt – Nennweite 80",
+  "beschreibung": "Beispiel für Leitungsbeschriftung: PWC 80.",
+  "quelle": "SVGW W3, Ausgabe 2013, Anhang 4, S. 71",
+  "page": 1
+ },
+ {
+  "id": "SYM-003",
+  "nr": "Nr. 3",
+  "name": "Trinkwasserleitung, warm – Nennweite 50 und",
+  "beschreibung": "Wärmedämmung Beispiel für Leitungsbeschriftung: PWH 50 - TI.",
+  "quelle": "SVGW W3, Ausgabe 2013, Anhang 4, S. 71",
+  "page": 1
+ },
+ {
+  "id": "SYM-004",
+  "nr": "Nr. 4",
+  "name": "Trinkwasserleitung, warm – Nennweite 40",
+  "beschreibung": "Beispiel für Leitungsbeschriftung: PWH - C 40.",
+  "quelle": "SVGW W3, Ausgabe 2013, Anhang 4, S. 71",
+  "page": 1
+ },
+ {
+  "id": "SYM-005",
+  "nr": "Nr. 5",
+  "name": "Leitungskreuz",
+  "beschreibung": "Keine Verbindung zwischen den beiden Leitungen.",
+  "quelle": "SVGW W3, Ausgabe 2013, Anhang 4, S. 71",
+  "page": 1
+ },
+ {
+  "id": "SYM-006",
+  "nr": "Nr. 6",
+  "name": "Abzweig, einseitig",
+  "beschreibung": "Der Durchmesser des Punktes sollte das 5-Fache der dicksten Strichstärke sein.",
+  "quelle": "SVGW W3, Ausgabe 2013, Anhang 4, S. 71",
+  "page": 1
+ },
+ {
+  "id": "SYM-007",
+  "nr": "Nr. 7",
+  "name": "Übergang im Werkstoff",
+  "beschreibung": "Beispiel: Übergang Stahl auf Kupfer.",
+  "quelle": "SVGW W3, Ausgabe 2013, Anhang 4, S. 71",
+  "page": 1
+ },
+ {
+  "id": "SYM-008",
+  "nr": "Nr. 8",
+  "name": "Absperrarmatur",
+  "beschreibung": "Allgemeines Sinnbild für eine Absperrarmatur.",
+  "quelle": "SVGW W3, Ausgabe 2013, Anhang 4, S. 71",
+  "page": 1
+ },
+ {
+  "id": "SYM-009",
+  "nr": "Nr. 9",
+  "name": "Eckventil",
+  "beschreibung": "Eckventil.",
+  "quelle": "SVGW W3, Ausgabe 2013, Anhang 4, S. 71",
+  "page": 2
+ },
+ {
+  "id": "SYM-010",
+  "nr": "Nr. 10",
+  "name": "Dreiwegeventil",
+  "beschreibung": "Dreiwegeventil.",
+  "quelle": "SVGW W3, Ausgabe 2013, Anhang 4, S. 71",
+  "page": 2
+ },
+ {
+  "id": "SYM-011",
+  "nr": "Nr. 11",
+  "name": "Geradsitzventil / Schrägsitzventil",
+  "beschreibung": "Geradsitz- bzw. Schrägsitzventil.",
+  "quelle": "SVGW W3, Ausgabe 2013, Anhang 4, S. 71",
+  "page": 2
+ },
+ {
+  "id": "SYM-012",
+  "nr": "Nr. 12",
+  "name": "Kugelhahn",
+  "beschreibung": "Kugelhahn.",
+  "quelle": "SVGW W3, Ausgabe 2013, Anhang 4, S. 71",
+  "page": 2
+ },
+ {
+  "id": "SYM-013",
+  "nr": "Nr. 13",
+  "name": "Schieber",
+  "beschreibung": "Schieber.",
+  "quelle": "SVGW W3, Ausgabe 2013, Anhang 4, S. 71",
+  "page": 2
+ },
+ {
+  "id": "SYM-014",
+  "nr": "Nr. 14",
+  "name": "Absperrklappe",
+  "beschreibung": "Absperrklappe.",
+  "quelle": "SVGW W3, Ausgabe 2013, Anhang 4, S. 71",
+  "page": 2
+ },
+ {
+  "id": "SYM-015",
+  "nr": "Nr. 15",
+  "name": "Druckminderer",
+  "beschreibung": "Druckminderer; Pfeil p kennzeichnet die Druckreduzierung.",
+  "quelle": "SVGW W3, Ausgabe 2013, Anhang 4, S. 71",
+  "page": 2
+ },
+ {
+  "id": "SYM-016",
+  "nr": "Nr. 16",
+  "name": "Auslaufventil / Entleerungsventil",
+  "beschreibung": "Auslauf- bzw. Entleerungsventil.",
+  "quelle": "SVGW W3, Ausgabe 2013, Anhang 4, S. 71",
+  "page": 3
+ },
+ {
+  "id": "SYM-017",
+  "nr": "Nr. 17",
+  "name": "Standauslaufventil",
+  "beschreibung": "Standauslaufventil.",
+  "quelle": "SVGW W3, Ausgabe 2013, Anhang 4, S. 71",
+  "page": 3
+ },
+ {
+  "id": "SYM-018",
+  "nr": "Nr. 18",
+  "name": "Wandauslaufventil",
+  "beschreibung": "Wandauslaufventil.",
+  "quelle": "SVGW W3, Ausgabe 2013, Anhang 4, S. 71",
+  "page": 3
+ },
+ {
+  "id": "SYM-019",
+  "nr": "Nr. 19",
+  "name": "Mischbatterie",
+  "beschreibung": "Mischbatterie.",
+  "quelle": "SVGW W3, Ausgabe 2013, Anhang 4, S. 71",
+  "page": 3
+ },
+ {
+  "id": "SYM-020",
+  "nr": "Nr. 20",
+  "name": "Standmischbatterie",
+  "beschreibung": "Standmischbatterie.",
+  "quelle": "SVGW W3, Ausgabe 2013, Anhang 4, S. 71",
+  "page": 3
+ },
+ {
+  "id": "SYM-021",
+  "nr": "Nr. 21",
+  "name": "Wandmischbatterie",
+  "beschreibung": "Wandmischbatterie.",
+  "quelle": "SVGW W3, Ausgabe 2013, Anhang 4, S. 71",
+  "page": 3
+ },
+ {
+  "id": "SYM-022",
+  "nr": "Nr. 22",
+  "name": "Selbstschlussarmatur",
+  "beschreibung": "Selbstschlussarmatur (SC).",
+  "quelle": "SVGW W3, Ausgabe 2013, Anhang 4, S. 71",
+  "page": 3
+ },
+ {
+  "id": "SYM-023",
+  "nr": "Nr. 23",
+  "name": "Brause",
+  "beschreibung": "Brause.",
+  "quelle": "SVGW W3, Ausgabe 2013, Anhang 4, S. 71",
+  "page": 3
+ },
+ {
+  "id": "SYM-024",
+  "nr": "Nr. 24",
+  "name": "Auslaufventil mit Sicherungsarmatur und",
+  "beschreibung": "Schlauchverschraubung Kombination aus Auslaufventil, Sicherungsarmatur und Schlauchanschluss.",
+  "quelle": "SVGW W3, Ausgabe 2013, Anhang 4, S. 71",
+  "page": 4
+ },
+ {
+  "id": "SYM-025",
+  "nr": "Nr. 25",
+  "name": "Sicherungseinrichtung",
+  "beschreibung": "Stern wird ersetzt durch z. B. AA, AB, AC, AD, AF, BA, CA, DA, DB, DC, EA, EB, HB, HC, HD, LB (siehe W3/E1).",
+  "quelle": "SVGW W3, Ausgabe 2013, Anhang 4, S. 71",
+  "page": 4
+ },
+ {
+  "id": "SYM-026",
+  "nr": "Nr. 26",
+  "name": "Rohrunterbrecher",
+  "beschreibung": "Allgemeines Sinnbild Rohrunterbrecher.",
+  "quelle": "SVGW W3, Ausgabe 2013, Anhang 4, S. 72",
+  "page": 4
+ },
+ {
+  "id": "SYM-027",
+  "nr": "Nr. 27",
+  "name": "Rohrbelüfter",
+  "beschreibung": "Allgemeines Sinnbild Rohrbelüfter.",
+  "quelle": "SVGW W3, Ausgabe 2013, Anhang 4, S. 72",
+  "page": 4
+ },
+ {
+  "id": "SYM-028",
+  "nr": "Nr. 28",
+  "name": "Rückflussverhinderer – nicht kontrollierbar",
+  "beschreibung": "Pfeil gibt Fliessrichtung an.",
+  "quelle": "SVGW W3, Ausgabe 2013, Anhang 4, S. 72",
+  "page": 4
+ },
+ {
+  "id": "SYM-029",
+  "nr": "Nr. 29",
+  "name": "Rückflussverhinderer – kontrollierbar",
+  "beschreibung": "Pfeil gibt Fliessrichtung an.",
+  "quelle": "SVGW W3, Ausgabe 2013, Anhang 4, S. 72",
+  "page": 4
+ },
+ {
+  "id": "SYM-030",
+  "nr": "Nr. 30",
+  "name": "Absperrventil mit integriertem",
+  "beschreibung": "Rückflussverhinderer Kombiniertes Absperrventil mit Rückflussverhinderer.",
+  "quelle": "SVGW W3, Ausgabe 2013, Anhang 4, S. 72",
+  "page": 4
+ },
+ {
+  "id": "SYM-031",
+  "nr": "Nr. 31",
+  "name": "Rohrbelüfter in Durchflussform",
+  "beschreibung": "Rohrbelüfter in Durchflussform.",
+  "quelle": "SVGW W3, Ausgabe 2013, Anhang 4, S. 72",
+  "page": 5
+ },
+ {
+  "id": "SYM-032",
+  "nr": "Nr. 32",
+  "name": "Systemtrenngerät mit kontrollierbaren",
+  "beschreibung": "Druckzonen Systemtrenngerät mit kontrollierbaren Druckzonen.",
+  "quelle": "SVGW W3, Ausgabe 2013, Anhang 4, S. 72",
+  "page": 5
+ },
+ {
+  "id": "SYM-033",
+  "nr": "Nr. 33",
+  "name": "Sicherheitsventil, federbelastet",
+  "beschreibung": "Federbelastetes Sicherheitsventil.",
+  "quelle": "SVGW W3, Ausgabe 2013, Anhang 4, S. 72",
+  "page": 5
+ },
+ {
+  "id": "SYM-034",
+  "nr": "Nr. 34",
+  "name": "Mechanischer Filter",
+  "beschreibung": "Mechanischer Filter.",
+  "quelle": "SVGW W3, Ausgabe 2013, Anhang 4, S. 72",
+  "page": 5
+ },
+ {
+  "id": "SYM-035",
+  "nr": "Nr. 35",
+  "name": "Flüssigkeitspumpe mit mechanischem Antrieb",
+  "beschreibung": "Flüssigkeitspumpe mit mechanischem Antrieb.",
+  "quelle": "SVGW W3, Ausgabe 2013, Anhang 4, S. 72",
+  "page": 5
+ },
+ {
+  "id": "SYM-036",
+  "nr": "Nr. 36",
+  "name": "Thermometer",
+  "beschreibung": "Thermometer.",
+  "quelle": "SVGW W3, Ausgabe 2013, Anhang 4, S. 72",
+  "page": 5
+ },
+ {
+  "id": "SYM-037",
+  "nr": "Nr. 37",
+  "name": "Manometer",
+  "beschreibung": "Manometer.",
+  "quelle": "SVGW W3, Ausgabe 2013, Anhang 4, S. 72",
+  "page": 5
+ },
+ {
+  "id": "SYM-038",
+  "nr": "Nr. 38",
+  "name": "Wasserzähler",
+  "beschreibung": "Wasserzähler.",
+  "quelle": "SVGW W3, Ausgabe 2013, Anhang 4, S. 72",
+  "page": 6
+ },
+ {
+  "id": "SYM-039",
+  "nr": "Nr. 39",
+  "name": "Antrieb durch Elektromotor",
+  "beschreibung": "Elektromotorischer Antrieb.",
+  "quelle": "SVGW W3, Ausgabe 2013, Anhang 4, S. 72",
+  "page": 6
+ },
+ {
+  "id": "SYM-040",
+  "nr": "Nr. 40",
+  "name": "Antrieb durch Elektromagnet",
+  "beschreibung": "Elektromagnetischer Antrieb.",
+  "quelle": "SVGW W3, Ausgabe 2013, Anhang 4, S. 72",
+  "page": 6
+ },
+ {
+  "id": "SYM-041",
+  "nr": "Nr. 41",
+  "name": "Trichter",
+  "beschreibung": "Trichter.",
+  "quelle": "SVGW W3, Ausgabe 2013, Anhang 4, S. 72",
+  "page": 6
+ },
+ {
+  "id": "SYM-042",
+  "nr": "Nr. 42",
+  "name": "Verschraubung",
+  "beschreibung": "Verschraubung.",
+  "quelle": "SVGW W3, Ausgabe 2013, Anhang 4, S. 72",
+  "page": 6
+ },
+ {
+  "id": "SYM-043",
+  "nr": "Nr. 43",
+  "name": "Apparate- und Armaturenanschluss mit",
+  "beschreibung": "Absperrung Anschluss mit Absperrmöglichkeit.",
+  "quelle": "SVGW W3, Ausgabe 2013, Anhang 4, S. 72",
+  "page": 6
+ },
+ {
+  "id": "SYM-044",
+  "nr": "Nr. 44",
+  "name": "Apparate- und Armaturenanschluss",
+  "beschreibung": "Anschluss ohne dargestellte Absperrung.",
+  "quelle": "SVGW W3, Ausgabe 2013, Anhang 4, S. 72",
+  "page": 6
+ },
+ {
+  "id": "SYM-045",
+  "nr": "Nr. 45",
+  "name": "Systemtrenngerät nicht kontrollierbar",
+  "beschreibung": "Systemtrenngerät mit nicht kontrollierbaren Druckzonen.",
+  "quelle": "SVGW W3, Ausgabe 2013, Anhang 4, S. 72",
+  "page": 7
+ },
+ {
+  "id": "SYM-046",
+  "nr": "Nr. 46",
+  "name": "Thermostatischer Mischer",
+  "beschreibung": "Thermostatischer Mischer.",
+  "quelle": "SVGW W3, Ausgabe 2013, Anhang 4, S. 72",
+  "page": 7
+ },
+ {
+  "id": "SYM-047",
+  "nr": "Nr. 47",
+  "name": "Druckminderer mit Filter",
+  "beschreibung": "Kombination Druckminderer und Filter.",
+  "quelle": "SVGW W3, Ausgabe 2013, Anhang 4, S. 72",
+  "page": 7
+ },
+ {
+  "id": "SYM-048",
+  "nr": "Nr. 48",
+  "name": "Anschlussstelle für Mess- oder Reguliereinrichtung",
+  "beschreibung": "Anschlussstelle für Mess- oder Reguliereinrichtung.",
+  "quelle": "SVGW W3, Ausgabe 2013, Anhang 4, S. 72",
+  "page": 7
+ },
+ {
+  "id": "SYM-049",
+  "nr": "Nr. 49",
+  "name": "Kompensator",
+  "beschreibung": "Kompensator.",
+  "quelle": "SVGW W3, Ausgabe 2013, Anhang 4, S. 72",
+  "page": 7
+ },
+ {
+  "id": "SYM-050",
+  "nr": "Nr. 50",
+  "name": "Flexible Verbindung",
+  "beschreibung": "Flexible Verbindung.",
+  "quelle": "SVGW W3, Ausgabe 2013, Anhang 4, S. 72",
+  "page": 7
+ },
+ {
+  "id": "SYM-051",
+  "nr": "Nr. 51",
+  "name": "Zirkulationsregelventil",
+  "beschreibung": "Zirkulationsregelventil.",
+  "quelle": "SVGW W3, Ausgabe 2013, Anhang 4, S. 72",
+  "page": 7
+ },
+ {
+  "id": "SYM-052",
+  "nr": "Nr. 52",
+  "name": "Freier Auslauf – Bauart AA, AB, AC, AD, AF",
+  "beschreibung": "Allgemeines Sinnbild für freien Auslauf der genannten Bauarten.",
+  "quelle": "SVGW W3, Ausgabe 2013, Anhang 4, S. 72",
+  "page": 8
+ },
+ {
+  "id": "SYM-053",
+  "nr": "Nr. 53",
+  "name": "Rohrunterbrecher – Bauart DB",
+  "beschreibung": "Rohrunterbrecher Bauart DB.",
+  "quelle": "SVGW W3, Ausgabe 2013, Anhang 4, S. 72",
+  "page": 8
+ },
+ {
+  "id": "SYM-054",
+  "nr": "Nr. 54",
+  "name": "Rohrbelüfter – Bauart HB",
+  "beschreibung": "Rohrbelüfter Bauart HB.",
+  "quelle": "SVGW W3, Ausgabe 2013, Anhang 4, S. 72",
+  "page": 8
+ },
+ {
+  "id": "SYM-055",
+  "nr": "Nr. 55",
+  "name": "Automatischer Umsteller – Bauart HC",
+  "beschreibung": "Automatischer Umsteller Bauart HC.",
+  "quelle": "SVGW W3, Ausgabe 2013, Anhang 4, S. 72",
+  "page": 8
+ },
+ {
+  "id": "SYM-056",
+  "nr": "Nr. 56",
+  "name": "Rohrbelüfter – Bauart HD",
+  "beschreibung": "Rohrbelüfter Bauart HD.",
+  "quelle": "SVGW W3, Ausgabe 2013, Anhang 4, S. 72",
+  "page": 8
+ },
+ {
+  "id": "SYM-057",
+  "nr": "Nr. 57",
+  "name": "Belüfter – Bauart LA",
+  "beschreibung": "Belüfter Bauart LA.",
+  "quelle": "SVGW W3, Ausgabe 2013, Anhang 4, S. 72",
+  "page": 8
+ },
+ {
+  "id": "SYM-058",
+  "nr": "Nr. 58",
+  "name": "Belüfter – Bauart LB",
+  "beschreibung": "Belüfter Bauart LB.",
+  "quelle": "SVGW W3, Ausgabe 2013, Anhang 4, S. 72",
+  "page": 8
+ }
+]

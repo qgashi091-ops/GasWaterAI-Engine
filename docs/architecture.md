@@ -11,8 +11,10 @@ PDF bytes
        -> label_hints.guess_label_hint()    (reused, unchanged)
        -> association.associate_text_spans()(reused, unchanged)
      -> schema.DocumentAnalysis             (reused, unchanged — the JSON contract)
-  -> plan_facts.build_document_facts()      (NEW — this PoC's actual contribution)
-  -> app/main.py: POST /analyze             (NEW — thin FastAPI wrapper)
+  -> plan_facts.build_document_facts()      (v0.1 — topology, unchanged in v0.2)
+  -> component_facts.build_component_facts() (v0.2 NEW — component recognition)
+       -> symbol_library.SymbolLibrary       (v0.2 NEW — the 58-symbol reference set)
+  -> app/main.py: POST /analyze             (thin FastAPI wrapper, extended additively for v0.2)
 ```
 
 ## What was reused, and why unchanged
@@ -110,11 +112,57 @@ Per page, restricted to the directly-drawn (non-bridge) subgraph:
 O(V+E) per page; no raster processing, no ML model, no new dependency beyond
 what the original parser already required.
 
+## v0.2: component recognition (`symbol_library.py`, `component_facts.py`)
+
+New modules, built strictly on top of v0.1's unchanged output. Full data
+audit in `docs/symbol-audit.md`; full evaluation in
+`docs/w003-component-poc-report.md`. Summary:
+
+- **`symbol_library.py`** loads the 58 SVGW reference images (committed at
+  `app/data/symbol_library/`, extracted once from the source PDF — itself a
+  scanned raster legend, not vector data, which is why matching is
+  raster/classical-CV rather than vector-to-vector) plus the offline data
+  audit (`audit.json`), and exposes rotation-invariant (0/90/180/270°),
+  scale-invariant (via ink-bbox-crop-and-resize canonicalization) normalized
+  cross-correlation matching. The audit's `not_a_component` and
+  `low_distinctiveness` symbols are excluded from the matching pool
+  entirely; `ambiguous_families` and `text_legend_required` symbols can
+  still be top matches but are capped below `COMPONENT_FACT`.
+- **`component_facts.py`** re-renders a raster crop at each of v0.1's own
+  already-detected `SymbolCandidate` bboxes (the ONLY new raster-processing
+  step in this engine — v0.1 remains raster-free by design), matches it
+  against the library, and classifies `COMPONENT_FACT` / `COMPONENT_CANDIDATE`
+  / `UNRESOLVED` using precision-first thresholds plus the audit's
+  ambiguous-family/text-required flags. Graph association
+  (`at_endpoint`/`at_branch`/`on_edge`/`near_not_connected`) reuses v0.1's
+  own proven `port_node_ids` and edge polylines — no new connectivity is
+  invented from proximity alone.
+
+**A real coordinate-frame bug was found and fixed while building this**,
+entirely within v0.2's own code, without touching any v0.1 file: for a
+rotated PDF page (`page.rotation != 0`, true for W-003 — it's rotated 90°),
+PyMuPDF's `get_drawings()`/`get_text()` (which `vectors.py`/`graph.py`/
+`symbols.py`/`text.py` all build every bbox from) report coordinates in the
+page's *unrotated* frame, while `page.rect` and `get_pixmap()`'s `clip`
+argument are in the *rotated/display* frame — meaning `schema.PageAnalysis`'s
+own `width`/`height` (taken from `page.rect`) already silently disagreed
+with the frame every bbox inside the same object is expressed in. This was
+completely invisible in v0.1, whose topology algorithm never renders a
+pixel or compares a bbox against `page.rect`. `component_facts.py` is the
+first code to do so, and works around it locally by mapping each bbox
+through `page.rotation_matrix` (identity when rotation is 0) before
+building a render clip rect — see the comment in
+`component_facts.py::_render_symbol_crop`.
+
 ## API
 
 `POST /analyze` (multipart PDF upload) → `{engine_version, document_fingerprint,
-pages, plan_facts, diagnostics}`. `GET /health`. No database, no auth — out of
-scope per the PoC's hard boundary.
+pages, plan_facts, component_facts, diagnostics}`. `GET /health`. No
+database, no auth — out of scope per the PoC's hard boundary.
+`component_facts` is purely additive: every v0.1 response field is
+unchanged, and a failure inside component recognition is caught in
+`app/main.py` and reported as an empty result rather than ever taking down
+the (unrelated) topology response.
 
 ## Known v0.1 limitations (by design, not oversight)
 
@@ -133,3 +181,18 @@ scope per the PoC's hard boundary.
 - No safety-device or apparatus *shape* classification exists (inherited from
   the original parser, which explicitly defers this to Base44's symbol
   library and AI review).
+
+## Known v0.2 limitations (by design/measurement, not oversight)
+
+- On the one real plan evaluated (W-003), **zero** components reached
+  `COMPONENT_FACT` or `COMPONENT_CANDIDATE` — see
+  `docs/w003-component-poc-report.md` for the full analysis of why (a
+  reference-vs-plan drawing-style gap, verified not to be a matching-code
+  defect).
+- `detect_symbols()`'s clustering (v0.1, unchanged) can merge several nearby
+  annotations into one oversized symbol candidate in dense plan areas,
+  which directly hurts single-icon template matching; fixing it would mean
+  touching v0.1's `symbols.py`, out of scope for this version.
+- A full plan-specific legend parser was investigated (W-003 does have a
+  usable legend block) but not built, per the task's explicit boundary.
+- No scale calibration; recognized components carry PDF-point bboxes only.
