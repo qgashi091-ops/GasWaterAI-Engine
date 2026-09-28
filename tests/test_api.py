@@ -35,3 +35,7 @@ def test_analyze_real_w003_pdf_returns_the_required_shape():
     assert all(f["kind"] in ("COMPONENT_FACT", "COMPONENT_CANDIDATE", "UNRESOLVED") for f in body["component_facts"]["facts"])
     assert "diagnostics" in body and "timing_ms" in body["diagnostics"]
     assert "component_facts" in body["diagnostics"]["timing_ms"]
+    assert "legend_intelligence" in body and "legend_candidates" in body["legend_intelligence"]
+    assert all(f["kind"] in ("COMPONENT_FACT", "COMPONENT_CANDIDATE", "UNRESOLVED")
+               for f in body["legend_intelligence"]["component_facts"])
+    assert "legend_intelligence" in body["diagnostics"]["timing_ms"]

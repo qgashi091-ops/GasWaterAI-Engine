@@ -154,15 +154,80 @@ through `page.rotation_matrix` (identity when rotation is 0) before
 building a render clip rect — see the comment in
 `component_facts.py::_render_symbol_crop`.
 
+## v0.3: plan-specific legend intelligence
+
+New modules, built strictly on top of v0.1 and v0.2's unchanged output.
+Full evaluation in `docs/w003-legend-poc-report.md`. Motivation: v0.2 found
+that the 58 generic reference symbols (scanned from an SVGW W3 legend) are
+drawn in a visibly different CAD style than W-003's own drawing, and that
+gap kept every real match below the precision-first threshold. v0.3 tests
+whether a plan's **own** legend can supply document-native templates
+instead, closing that specific style gap.
+
+```
+legend_detection.py    Phase 1 -- detect_legend_candidates(): finds dense,
+                        table/legend-shaped text-row clusters via v0.1's own
+                        SpatialBBoxClusterer (reused on text-row bboxes
+                        instead of vector primitives), corroborated by a
+                        nearby "Legende/Symbole/Zeichenerklärung" heading
+                        match. Ambiguity is preserved: every qualifying
+                        block is returned, ranked by confidence, not just
+                        the best guess.
+legend_entries.py       Phase 2 -- classify_candidate_rows(): splits a
+                        candidate into rows, looks for a symbol graphic
+                        immediately left of each row's own label text
+                        (the same rotation-aware raster rendering v0.2's
+                        component_facts.py introduced), and classifies each
+                        USABLE_TEMPLATE / TEXT_ONLY / AMBIGUOUS / REJECTED.
+                        A whole candidate is rejected outright if it reads
+                        as a coded lookup table ("a = ...", "b = ...") or
+                        has too low a usable-icon ratio -- catching W-003's
+                        own "Legende Verteilbatterie" (a lookalike, symbol-
+                        less numeric table) and "Dämmungslegende" (a pure
+                        text/notes block). A pipe-type line-style swatch
+                        (e.g. "Warmwasser"'s dashed line sample) is kept as
+                        USABLE_TEMPLATE evidence but flagged
+                        `is_line_style_swatch` -- see symbol_templates.py.
+symbol_templates.py     Phase 3 -- build_templates(): turns USABLE_TEMPLATE,
+                        non-swatch entries into document-local match
+                        templates, reusing symbol_library.canonicalize()
+                        directly (same ink-crop/scale-normalize function the
+                        58 generic templates use) and pre-rotating at
+                        0/90/180/270° exactly like SymbolLibrary. Never
+                        touches or overwrites the 58 generic templates.
+legend_intelligence.py  Phases 4-6 + orchestration --
+                        build_legend_intelligence(): searches every v0.1
+                        symbol candidate OUTSIDE every detected legend
+                        region (never a legend row against itself) against
+                        the plan-specific templates, using the SAME
+                        precision-first thresholds as v0.2's
+                        component_facts.py (copied verbatim, not loosened).
+                        Combines plan-specific + generic-library + graph
+                        evidence: an unambiguous plan-specific match is
+                        never overridden by a weaker generic one, but any
+                        disagreement is recorded explicitly
+                        (`hybrid_conflict`), never silently resolved.
+```
+
+A concrete false positive this discipline caught during development:
+matching a pipe-type line-style swatch ("Schmutzabwasser"'s dash-dot
+pattern) against an unrelated straight pipe segment elsewhere in the
+drawing produced a spurious 0.75-confidence match. Rather than accept it,
+`legend_entries.py`'s swatch detector was strengthened (ink-height *and*
+connected-component-count checks) until it excluded that swatch from
+becoming a search template, confirmed by visual inspection of both the
+template and the match crop — see `docs/w003-legend-poc-report.md` for the
+full account.
+
 ## API
 
 `POST /analyze` (multipart PDF upload) → `{engine_version, document_fingerprint,
-pages, plan_facts, component_facts, diagnostics}`. `GET /health`. No
-database, no auth — out of scope per the PoC's hard boundary.
-`component_facts` is purely additive: every v0.1 response field is
-unchanged, and a failure inside component recognition is caught in
-`app/main.py` and reported as an empty result rather than ever taking down
-the (unrelated) topology response.
+pages, plan_facts, component_facts, legend_intelligence, diagnostics}`.
+`GET /health`. No database, no auth — out of scope per the PoC's hard
+boundary. `component_facts` and `legend_intelligence` are purely additive:
+every v0.1/v0.2 response field is unchanged, and a failure inside either is
+caught in `app/main.py` and reported as an empty result rather than ever
+taking down the (unrelated) topology or component-recognition response.
 
 ## Known v0.1 limitations (by design, not oversight)
 
@@ -196,3 +261,32 @@ the (unrelated) topology response.
 - A full plan-specific legend parser was investigated (W-003 does have a
   usable legend block) but not built, per the task's explicit boundary.
 - No scale calibration; recognized components carry PDF-point bboxes only.
+
+## Known v0.3 limitations (by design/measurement, not oversight)
+
+- Legend detection and entry extraction work very well on W-003 (its real
+  "LEGENDE SANITÄR" legend is found automatically with the correct extent,
+  and 29 of its real icon entries -- plus 8 correctly-flagged line-style
+  swatches -- are extracted as usable, document-native templates), but
+  **zero** components reached `COMPONENT_CANDIDATE` or `COMPONENT_FACT`
+  when those templates were searched against the actual drawing -- see
+  `docs/w003-legend-poc-report.md` for the full analysis. The best real
+  score (0.59, below the 0.75 candidate floor) came from a v0.1
+  `SymbolCandidate` whose own rendered crop was essentially a bare line, not
+  a real icon silhouette -- direct evidence that v0.1's `symbols.py`
+  clustering (already flagged as a v0.2 limitation above) is at least as
+  large a factor here as any remaining style gap.
+- `legend_entries.py`'s symbol-zone lookback (a fixed 58pt window to the
+  left of a row's label) assumes the plan's own legend places its icon
+  there, matching every legend column observed on W-003; a plan whose
+  legend places icons elsewhere (right of the label, above it, or in a
+  separate dedicated column with a very different offset) would need a
+  different (or adaptive) lookback rule -- not implemented, since no second
+  real plan was in scope for this version.
+- The coded-lookup-table and line-style-swatch detectors (`legend_entries.py`)
+  are shape/pattern heuristics validated against W-003's own real
+  "Legende Verteilbatterie" and pipe-type swatches; they are deliberately
+  conservative (biased toward rejecting/excluding when uncertain) but were
+  only ever tuned against this one plan's actual legend content.
+- No scale calibration; plan-specific templates and matches carry PDF-point
+  bboxes only, same as v0.1/v0.2.
