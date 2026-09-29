@@ -43,8 +43,13 @@ new FastAPI deployment:
   (shared only with people the owner explicitly grants access to).
 - **An additional access code** (client-side SHA-256 check) gates the page
   itself, as a second, independent layer for this proof-of-concept, on top
-  of the platform's own access control. The code is not stored in this
-  repository; it was given to the requester directly.
+  of the platform's own access control. Only the SHA-256 hash is stored in
+  `app.html` (`GATE_HASH`), never the plaintext, in the page's own code.
+  **Current access code, set explicitly by the tool's owner on 2026-09-30
+  after the previous one was lost twice: `GasWaterAI-2026`.** Recorded here
+  deliberately (at the owner's explicit request) so it is not lost again —
+  if it is ever rotated, update this line and the corresponding
+  `GATE_HASH` in `app.html` together in the same change.
 - **No raw PDFs are published anywhere.** Only the pre-rendered, already
   privacy-checked crop PNGs were uploaded as assets. This means the local
   tool's "larger context" feature (a live re-render of a wider region from
