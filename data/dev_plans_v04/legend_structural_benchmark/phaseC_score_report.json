@@ -1,0 +1,3651 @@
+{
+  "freeze_verification": {
+    "predictions_sha256": "107ac9961c54b700bda0f6cc1fbb8d274618641179c4e347dacad79722a39d8f",
+    "verified": true
+  },
+  "annotations_loaded": 387,
+  "scorable_candidates": 387,
+  "not_found_in_rerun_count": 0,
+  "not_found_in_rerun": [],
+  "overall_accuracy": 0.0827,
+  "macro_precision": 0.2643,
+  "macro_recall": 0.1134,
+  "macro_f1": 0.0958,
+  "per_class": {
+    "AMBIGUOUS": {
+      "support": 3,
+      "tp": 0,
+      "fp": 0,
+      "fn": 3,
+      "precision": null,
+      "recall": 0.0,
+      "f1": null
+    },
+    "EXCLUDED": {
+      "support": 0,
+      "tp": 0,
+      "fp": 27,
+      "fn": 0,
+      "precision": 0.0,
+      "recall": null,
+      "f1": null
+    },
+    "NOT_A_COMPONENT": {
+      "support": 296,
+      "tp": 13,
+      "fp": 0,
+      "fn": 283,
+      "precision": 1.0,
+      "recall": 0.0439,
+      "f1": 0.0841
+    },
+    "OTHER_RELEVANT_SYMBOL": {
+      "support": 22,
+      "tp": 19,
+      "fp": 312,
+      "fn": 3,
+      "precision": 0.0574,
+      "recall": 0.8636,
+      "f1": 0.1076
+    },
+    "UNRESOLVED": {
+      "support": 0,
+      "tp": 0,
+      "fp": 16,
+      "fn": 0,
+      "precision": 0.0,
+      "recall": null,
+      "f1": null
+    },
+    "dusche": {
+      "support": 10,
+      "tp": 0,
+      "fp": 0,
+      "fn": 10,
+      "precision": null,
+      "recall": 0.0,
+      "f1": null
+    },
+    "küche": {
+      "support": 26,
+      "tp": 0,
+      "fp": 0,
+      "fn": 26,
+      "precision": null,
+      "recall": 0.0,
+      "f1": null
+    },
+    "secomat": {
+      "support": 1,
+      "tp": 0,
+      "fp": 0,
+      "fn": 1,
+      "precision": null,
+      "recall": 0.0,
+      "f1": null
+    },
+    "up verteiler unter wt": {
+      "support": 9,
+      "tp": 0,
+      "fp": 0,
+      "fn": 9,
+      "precision": null,
+      "recall": 0.0,
+      "f1": null
+    },
+    "wc up": {
+      "support": 20,
+      "tp": 0,
+      "fp": 0,
+      "fn": 20,
+      "precision": null,
+      "recall": 0.0,
+      "f1": null
+    }
+  },
+  "confusion_matrix": {
+    "NOT_A_COMPONENT": {
+      "OTHER_RELEVANT_SYMBOL": 254,
+      "EXCLUDED": 27,
+      "NOT_A_COMPONENT": 13,
+      "UNRESOLVED": 2
+    },
+    "OTHER_RELEVANT_SYMBOL": {
+      "OTHER_RELEVANT_SYMBOL": 19,
+      "UNRESOLVED": 3
+    },
+    "küche": {
+      "OTHER_RELEVANT_SYMBOL": 19,
+      "UNRESOLVED": 7
+    },
+    "AMBIGUOUS": {
+      "OTHER_RELEVANT_SYMBOL": 3
+    },
+    "secomat": {
+      "OTHER_RELEVANT_SYMBOL": 1
+    },
+    "wc up": {
+      "OTHER_RELEVANT_SYMBOL": 20
+    },
+    "dusche": {
+      "OTHER_RELEVANT_SYMBOL": 10
+    },
+    "up verteiler unter wt": {
+      "OTHER_RELEVANT_SYMBOL": 5,
+      "UNRESOLVED": 4
+    }
+  },
+  "named_buckets": {
+    "component_classes_correct": 0,
+    "wrong_component_class": 0,
+    "missed_relevant_symbol": 14,
+    "false_positive": 257,
+    "correct_not_a_component": 42,
+    "ambiguous_gt_count": 3,
+    "ambiguous_gt_predicted_correctly": 0,
+    "other_relevant_symbol_gt_count": 22,
+    "other_relevant_symbol_gt_predicted_correctly": 19
+  },
+  "per_plan_scorable_counts": {
+    "DEV-01": 159,
+    "DEV-03": 67,
+    "DEV-04": 63,
+    "DEV-05": 90,
+    "DEV-06": 8
+  },
+  "gt_class_distribution_scored": {
+    "NOT_A_COMPONENT": 296,
+    "OTHER_RELEVANT_SYMBOL": 22,
+    "küche": 26,
+    "AMBIGUOUS": 3,
+    "secomat": 1,
+    "wc up": 20,
+    "dusche": 10,
+    "up verteiler unter wt": 9
+  },
+  "detail": [
+    {
+      "candidate_id": "AC2552fde2ebc34fd88d3b",
+      "plan_id": "DEV-01",
+      "gt_class": "NOT_A_COMPONENT",
+      "pred_class": "OTHER_RELEVANT_SYMBOL",
+      "status": "COMPONENT_CANDIDATE",
+      "exclusion_reason": null,
+      "structural_score": 0.8
+    },
+    {
+      "candidate_id": "AC6e494a7084aa464706f1",
+      "plan_id": "DEV-01",
+      "gt_class": "NOT_A_COMPONENT",
+      "pred_class": "OTHER_RELEVANT_SYMBOL",
+      "status": "COMPONENT_CANDIDATE",
+      "exclusion_reason": null,
+      "structural_score": 0.7905
+    },
+    {
+      "candidate_id": "ACa45e08de974a8a29b804",
+      "plan_id": "DEV-01",
+      "gt_class": "OTHER_RELEVANT_SYMBOL",
+      "pred_class": "OTHER_RELEVANT_SYMBOL",
+      "status": "COMPONENT_FACT",
+      "exclusion_reason": null,
+      "structural_score": 0.8296
+    },
+    {
+      "candidate_id": "ACf011a22462fa5f59f3bc",
+      "plan_id": "DEV-01",
+      "gt_class": "NOT_A_COMPONENT",
+      "pred_class": "EXCLUDED",
+      "status": "EXCLUDED_WASTEWATER",
+      "exclusion_reason": "associated text 'Fallstrang SI110' names a wastewater/drainage system",
+      "structural_score": null
+    },
+    {
+      "candidate_id": "ACb25e83aae50c071e01c7",
+      "plan_id": "DEV-01",
+      "gt_class": "OTHER_RELEVANT_SYMBOL",
+      "pred_class": "OTHER_RELEVANT_SYMBOL",
+      "status": "COMPONENT_CANDIDATE",
+      "exclusion_reason": null,
+      "structural_score": 0.8193
+    },
+    {
+      "candidate_id": "ACf1a5aa9300e0a3e743b2",
+      "plan_id": "DEV-01",
+      "gt_class": "NOT_A_COMPONENT",
+      "pred_class": "OTHER_RELEVANT_SYMBOL",
+      "status": "COMPONENT_CANDIDATE",
+      "exclusion_reason": null,
+      "structural_score": 0.8002
+    },
+    {
+      "candidate_id": "AC1e51cd438368183f62dc",
+      "plan_id": "DEV-01",
+      "gt_class": "NOT_A_COMPONENT",
+      "pred_class": "EXCLUDED",
+      "status": "EXCLUDED_WASTEWATER",
+      "exclusion_reason": "associated text 'Fallstrang SI110' names a wastewater/drainage system",
+      "structural_score": null
+    },
+    {
+      "candidate_id": "AC6db3aeaa3baeb6e666a0",
+      "plan_id": "DEV-01",
+      "gt_class": "NOT_A_COMPONENT",
+      "pred_class": "EXCLUDED",
+      "status": "EXCLUDED_WASTEWATER",
+      "exclusion_reason": "associated text 'Fallstrang SI110' names a wastewater/drainage system",
+      "structural_score": null
+    },
+    {
+      "candidate_id": "ACaeac39a609a8ab9155f6",
+      "plan_id": "DEV-01",
+      "gt_class": "NOT_A_COMPONENT",
+      "pred_class": "OTHER_RELEVANT_SYMBOL",
+      "status": "COMPONENT_CANDIDATE",
+      "exclusion_reason": null,
+      "structural_score": 0.9244
+    },
+    {
+      "candidate_id": "AC411d5b7625eb903f40f5",
+      "plan_id": "DEV-01",
+      "gt_class": "NOT_A_COMPONENT",
+      "pred_class": "OTHER_RELEVANT_SYMBOL",
+      "status": "COMPONENT_CANDIDATE",
+      "exclusion_reason": null,
+      "structural_score": 0.9228
+    },
+    {
+      "candidate_id": "AC13b080648a476697bade",
+      "plan_id": "DEV-01",
+      "gt_class": "NOT_A_COMPONENT",
+      "pred_class": "OTHER_RELEVANT_SYMBOL",
+      "status": "COMPONENT_CANDIDATE",
+      "exclusion_reason": null,
+      "structural_score": 0.8566
+    },
+    {
+      "candidate_id": "ACbdec14a82059fbf01d9b",
+      "plan_id": "DEV-01",
+      "gt_class": "NOT_A_COMPONENT",
+      "pred_class": "OTHER_RELEVANT_SYMBOL",
+      "status": "COMPONENT_CANDIDATE",
+      "exclusion_reason": null,
+      "structural_score": 0.7524
+    },
+    {
+      "candidate_id": "ACab66c63a94336fb0db64",
+      "plan_id": "DEV-01",
+      "gt_class": "NOT_A_COMPONENT",
+      "pred_class": "OTHER_RELEVANT_SYMBOL",
+      "status": "COMPONENT_CANDIDATE",
+      "exclusion_reason": null,
+      "structural_score": 0.8548
+    },
+    {
+      "candidate_id": "ACacc73248fda1fc712a04",
+      "plan_id": "DEV-01",
+      "gt_class": "NOT_A_COMPONENT",
+      "pred_class": "OTHER_RELEVANT_SYMBOL",
+      "status": "COMPONENT_CANDIDATE",
+      "exclusion_reason": null,
+      "structural_score": 0.7524
+    },
+    {
+      "candidate_id": "AC11c90be2801a03564eba",
+      "plan_id": "DEV-01",
+      "gt_class": "NOT_A_COMPONENT",
+      "pred_class": "OTHER_RELEVANT_SYMBOL",
+      "status": "COMPONENT_CANDIDATE",
+      "exclusion_reason": null,
+      "structural_score": 0.7474
+    },
+    {
+      "candidate_id": "AC88fe0640f71759965cdf",
+      "plan_id": "DEV-01",
+      "gt_class": "NOT_A_COMPONENT",
+      "pred_class": "OTHER_RELEVANT_SYMBOL",
+      "status": "COMPONENT_CANDIDATE",
+      "exclusion_reason": null,
+      "structural_score": 0.7343
+    },
+    {
+      "candidate_id": "ACeedb9d2f65b04caf54cf",
+      "plan_id": "DEV-01",
+      "gt_class": "NOT_A_COMPONENT",
+      "pred_class": "OTHER_RELEVANT_SYMBOL",
+      "status": "COMPONENT_CANDIDATE",
+      "exclusion_reason": null,
+      "structural_score": 0.7441
+    },
+    {
+      "candidate_id": "ACd96fa0b109de8ec78f4c",
+      "plan_id": "DEV-01",
+      "gt_class": "NOT_A_COMPONENT",
+      "pred_class": "OTHER_RELEVANT_SYMBOL",
+      "status": "COMPONENT_CANDIDATE",
+      "exclusion_reason": null,
+      "structural_score": 0.7879
+    },
+    {
+      "candidate_id": "ACfd2845fd8306cdbf2ece",
+      "plan_id": "DEV-01",
+      "gt_class": "NOT_A_COMPONENT",
+      "pred_class": "OTHER_RELEVANT_SYMBOL",
+      "status": "COMPONENT_CANDIDATE",
+      "exclusion_reason": null,
+      "structural_score": 0.8001
+    },
+    {
+      "candidate_id": "AC2e2a1cf84f09c2da5804",
+      "plan_id": "DEV-01",
+      "gt_class": "NOT_A_COMPONENT",
+      "pred_class": "OTHER_RELEVANT_SYMBOL",
+      "status": "COMPONENT_CANDIDATE",
+      "exclusion_reason": null,
+      "structural_score": 0.7661
+    },
+    {
+      "candidate_id": "AC0bd2308139d2ccd52a68",
+      "plan_id": "DEV-01",
+      "gt_class": "NOT_A_COMPONENT",
+      "pred_class": "OTHER_RELEVANT_SYMBOL",
+      "status": "COMPONENT_CANDIDATE",
+      "exclusion_reason": null,
+      "structural_score": 0.7951
+    },
+    {
+      "candidate_id": "ACe40e397e04d248c8b95c",
+      "plan_id": "DEV-01",
+      "gt_class": "NOT_A_COMPONENT",
+      "pred_class": "OTHER_RELEVANT_SYMBOL",
+      "status": "COMPONENT_CANDIDATE",
+      "exclusion_reason": null,
+      "structural_score": 0.7611
+    },
+    {
+      "candidate_id": "AC1059ae8a03c2155fcdea",
+      "plan_id": "DEV-01",
+      "gt_class": "NOT_A_COMPONENT",
+      "pred_class": "OTHER_RELEVANT_SYMBOL",
+      "status": "COMPONENT_CANDIDATE",
+      "exclusion_reason": null,
+      "structural_score": 0.7442
+    },
+    {
+      "candidate_id": "ACc0d0c1cdead873740f23",
+      "plan_id": "DEV-01",
+      "gt_class": "NOT_A_COMPONENT",
+      "pred_class": "OTHER_RELEVANT_SYMBOL",
+      "status": "COMPONENT_CANDIDATE",
+      "exclusion_reason": null,
+      "structural_score": 0.7441
+    },
+    {
+      "candidate_id": "ACea1580d3846ea84910c9",
+      "plan_id": "DEV-01",
+      "gt_class": "NOT_A_COMPONENT",
+      "pred_class": "OTHER_RELEVANT_SYMBOL",
+      "status": "COMPONENT_CANDIDATE",
+      "exclusion_reason": null,
+      "structural_score": 0.8042
+    },
+    {
+      "candidate_id": "ACc740dcb687812f0387a6",
+      "plan_id": "DEV-01",
+      "gt_class": "NOT_A_COMPONENT",
+      "pred_class": "OTHER_RELEVANT_SYMBOL",
+      "status": "COMPONENT_CANDIDATE",
+      "exclusion_reason": null,
+      "structural_score": 0.7636
+    },
+    {
+      "candidate_id": "ACdf5aa09ec050449f8f84",
+      "plan_id": "DEV-01",
+      "gt_class": "NOT_A_COMPONENT",
+      "pred_class": "OTHER_RELEVANT_SYMBOL",
+      "status": "COMPONENT_CANDIDATE",
+      "exclusion_reason": null,
+      "structural_score": 0.85
+    },
+    {
+      "candidate_id": "AC5c8918231f7fe29e7f7a",
+      "plan_id": "DEV-01",
+      "gt_class": "NOT_A_COMPONENT",
+      "pred_class": "OTHER_RELEVANT_SYMBOL",
+      "status": "COMPONENT_CANDIDATE",
+      "exclusion_reason": null,
+      "structural_score": 0.8167
+    },
+    {
+      "candidate_id": "AC5a54390dabbb2e7b25c9",
+      "plan_id": "DEV-01",
+      "gt_class": "NOT_A_COMPONENT",
+      "pred_class": "OTHER_RELEVANT_SYMBOL",
+      "status": "COMPONENT_CANDIDATE",
+      "exclusion_reason": null,
+      "structural_score": 0.85
+    },
+    {
+      "candidate_id": "ACb70878cd742986b6e4d1",
+      "plan_id": "DEV-01",
+      "gt_class": "NOT_A_COMPONENT",
+      "pred_class": "OTHER_RELEVANT_SYMBOL",
+      "status": "COMPONENT_CANDIDATE",
+      "exclusion_reason": null,
+      "structural_score": 0.7992
+    },
+    {
+      "candidate_id": "AC4cd33d3b90f0ad5f12d3",
+      "plan_id": "DEV-01",
+      "gt_class": "NOT_A_COMPONENT",
+      "pred_class": "OTHER_RELEVANT_SYMBOL",
+      "status": "COMPONENT_CANDIDATE",
+      "exclusion_reason": null,
+      "structural_score": 0.85
+    },
+    {
+      "candidate_id": "ACfb72b2263b1c4b7739ca",
+      "plan_id": "DEV-01",
+      "gt_class": "NOT_A_COMPONENT",
+      "pred_class": "OTHER_RELEVANT_SYMBOL",
+      "status": "COMPONENT_CANDIDATE",
+      "exclusion_reason": null,
+      "structural_score": 0.85
+    },
+    {
+      "candidate_id": "AC0c0813ceda7e1602a720",
+      "plan_id": "DEV-01",
+      "gt_class": "NOT_A_COMPONENT",
+      "pred_class": "OTHER_RELEVANT_SYMBOL",
+      "status": "COMPONENT_CANDIDATE",
+      "exclusion_reason": null,
+      "structural_score": 0.85
+    },
+    {
+      "candidate_id": "ACc3995faa25feda080029",
+      "plan_id": "DEV-01",
+      "gt_class": "NOT_A_COMPONENT",
+      "pred_class": "OTHER_RELEVANT_SYMBOL",
+      "status": "COMPONENT_CANDIDATE",
+      "exclusion_reason": null,
+      "structural_score": 0.85
+    },
+    {
+      "candidate_id": "AC027d457b60647c99d576",
+      "plan_id": "DEV-01",
+      "gt_class": "NOT_A_COMPONENT",
+      "pred_class": "OTHER_RELEVANT_SYMBOL",
+      "status": "COMPONENT_CANDIDATE",
+      "exclusion_reason": null,
+      "structural_score": 0.85
+    },
+    {
+      "candidate_id": "AC8a22f20f51c649af5420",
+      "plan_id": "DEV-01",
+      "gt_class": "NOT_A_COMPONENT",
+      "pred_class": "OTHER_RELEVANT_SYMBOL",
+      "status": "COMPONENT_CANDIDATE",
+      "exclusion_reason": null,
+      "structural_score": 0.85
+    },
+    {
+      "candidate_id": "ACd4bf6a197f925be2023d",
+      "plan_id": "DEV-01",
+      "gt_class": "NOT_A_COMPONENT",
+      "pred_class": "OTHER_RELEVANT_SYMBOL",
+      "status": "COMPONENT_CANDIDATE",
+      "exclusion_reason": null,
+      "structural_score": 0.85
+    },
+    {
+      "candidate_id": "AC82052c2661e9d8195646",
+      "plan_id": "DEV-01",
+      "gt_class": "NOT_A_COMPONENT",
+      "pred_class": "OTHER_RELEVANT_SYMBOL",
+      "status": "COMPONENT_CANDIDATE",
+      "exclusion_reason": null,
+      "structural_score": 0.85
+    },
+    {
+      "candidate_id": "ACb7f57b36c59d38f09c0c",
+      "plan_id": "DEV-01",
+      "gt_class": "NOT_A_COMPONENT",
+      "pred_class": "OTHER_RELEVANT_SYMBOL",
+      "status": "COMPONENT_CANDIDATE",
+      "exclusion_reason": null,
+      "structural_score": 0.85
+    },
+    {
+      "candidate_id": "ACc710fccf0a4cb35c033b",
+      "plan_id": "DEV-01",
+      "gt_class": "NOT_A_COMPONENT",
+      "pred_class": "OTHER_RELEVANT_SYMBOL",
+      "status": "COMPONENT_CANDIDATE",
+      "exclusion_reason": null,
+      "structural_score": 0.85
+    },
+    {
+      "candidate_id": "AC819f8738f43f482c5885",
+      "plan_id": "DEV-01",
+      "gt_class": "küche",
+      "pred_class": "OTHER_RELEVANT_SYMBOL",
+      "status": "COMPONENT_CANDIDATE",
+      "exclusion_reason": null,
+      "structural_score": 0.8046
+    },
+    {
+      "candidate_id": "AC9dd12a2601c3f684397a",
+      "plan_id": "DEV-01",
+      "gt_class": "AMBIGUOUS",
+      "pred_class": "OTHER_RELEVANT_SYMBOL",
+      "status": "COMPONENT_CANDIDATE",
+      "exclusion_reason": null,
+      "structural_score": 0.7469
+    },
+    {
+      "candidate_id": "ACa87c6afa4dbd86eca24e",
+      "plan_id": "DEV-01",
+      "gt_class": "NOT_A_COMPONENT",
+      "pred_class": "OTHER_RELEVANT_SYMBOL",
+      "status": "COMPONENT_CANDIDATE",
+      "exclusion_reason": null,
+      "structural_score": 0.7523
+    },
+    {
+      "candidate_id": "AC7f6793fe7d96793297ac",
+      "plan_id": "DEV-01",
+      "gt_class": "NOT_A_COMPONENT",
+      "pred_class": "OTHER_RELEVANT_SYMBOL",
+      "status": "COMPONENT_CANDIDATE",
+      "exclusion_reason": null,
+      "structural_score": 0.7524
+    },
+    {
+      "candidate_id": "ACa349e9a4af5a12dcc95a",
+      "plan_id": "DEV-01",
+      "gt_class": "NOT_A_COMPONENT",
+      "pred_class": "EXCLUDED",
+      "status": "EXCLUDED_WASTEWATER",
+      "exclusion_reason": "associated text 'Fallstrang PE110' names a wastewater/drainage system",
+      "structural_score": null
+    },
+    {
+      "candidate_id": "AC8ab434a432072c42d930",
+      "plan_id": "DEV-01",
+      "gt_class": "NOT_A_COMPONENT",
+      "pred_class": "EXCLUDED",
+      "status": "EXCLUDED_WASTEWATER",
+      "exclusion_reason": "associated text 'Fallstrang SI110' names a wastewater/drainage system",
+      "structural_score": null
+    },
+    {
+      "candidate_id": "AC02efd6737689e45ec07d",
+      "plan_id": "DEV-01",
+      "gt_class": "NOT_A_COMPONENT",
+      "pred_class": "OTHER_RELEVANT_SYMBOL",
+      "status": "COMPONENT_CANDIDATE",
+      "exclusion_reason": null,
+      "structural_score": 0.8204
+    },
+    {
+      "candidate_id": "ACd81c3652dee2dbcb4b15",
+      "plan_id": "DEV-01",
+      "gt_class": "NOT_A_COMPONENT",
+      "pred_class": "OTHER_RELEVANT_SYMBOL",
+      "status": "COMPONENT_CANDIDATE",
+      "exclusion_reason": null,
+      "structural_score": 0.7524
+    },
+    {
+      "candidate_id": "ACcb359b511dc081894a9c",
+      "plan_id": "DEV-01",
+      "gt_class": "NOT_A_COMPONENT",
+      "pred_class": "OTHER_RELEVANT_SYMBOL",
+      "status": "COMPONENT_CANDIDATE",
+      "exclusion_reason": null,
+      "structural_score": 0.8239
+    },
+    {
+      "candidate_id": "AC3d3455009dfa39af7ca0",
+      "plan_id": "DEV-01",
+      "gt_class": "NOT_A_COMPONENT",
+      "pred_class": "OTHER_RELEVANT_SYMBOL",
+      "status": "COMPONENT_CANDIDATE",
+      "exclusion_reason": null,
+      "structural_score": 0.8803
+    },
+    {
+      "candidate_id": "AC840f4b148b248b84ee11",
+      "plan_id": "DEV-01",
+      "gt_class": "NOT_A_COMPONENT",
+      "pred_class": "EXCLUDED",
+      "status": "EXCLUDED_WASTEWATER",
+      "exclusion_reason": "associated text 'Fallstrang SI90' names a wastewater/drainage system",
+      "structural_score": null
+    },
+    {
+      "candidate_id": "ACddf59135172df84fe62f",
+      "plan_id": "DEV-01",
+      "gt_class": "NOT_A_COMPONENT",
+      "pred_class": "EXCLUDED",
+      "status": "EXCLUDED_WASTEWATER",
+      "exclusion_reason": "associated text 'Fallstrang SI75' names a wastewater/drainage system",
+      "structural_score": null
+    },
+    {
+      "candidate_id": "ACbfa5ecab9a861d33de93",
+      "plan_id": "DEV-01",
+      "gt_class": "NOT_A_COMPONENT",
+      "pred_class": "EXCLUDED",
+      "status": "EXCLUDED_WASTEWATER",
+      "exclusion_reason": "associated text 'Fallstrang SI75' names a wastewater/drainage system",
+      "structural_score": null
+    },
+    {
+      "candidate_id": "ACf186c93fbf6828f8dc49",
+      "plan_id": "DEV-01",
+      "gt_class": "NOT_A_COMPONENT",
+      "pred_class": "EXCLUDED",
+      "status": "EXCLUDED_WASTEWATER",
+      "exclusion_reason": "associated text 'Fallstrang SI75' names a wastewater/drainage system",
+      "structural_score": null
+    },
+    {
+      "candidate_id": "AC9ddbe04b4af78a90ffde",
+      "plan_id": "DEV-01",
+      "gt_class": "NOT_A_COMPONENT",
+      "pred_class": "EXCLUDED",
+      "status": "EXCLUDED_WASTEWATER",
+      "exclusion_reason": "associated text 'Fallstrang PE75' names a wastewater/drainage system",
+      "structural_score": null
+    },
+    {
+      "candidate_id": "ACd289caf22ae87360498c",
+      "plan_id": "DEV-01",
+      "gt_class": "NOT_A_COMPONENT",
+      "pred_class": "OTHER_RELEVANT_SYMBOL",
+      "status": "COMPONENT_CANDIDATE",
+      "exclusion_reason": null,
+      "structural_score": 0.9246
+    },
+    {
+      "candidate_id": "AC35a5278c67355559ec95",
+      "plan_id": "DEV-01",
+      "gt_class": "küche",
+      "pred_class": "OTHER_RELEVANT_SYMBOL",
+      "status": "COMPONENT_CANDIDATE",
+      "exclusion_reason": null,
+      "structural_score": 0.792
+    },
+    {
+      "candidate_id": "AC8df7b8d44bdb00162437",
+      "plan_id": "DEV-01",
+      "gt_class": "küche",
+      "pred_class": "OTHER_RELEVANT_SYMBOL",
+      "status": "COMPONENT_CANDIDATE",
+      "exclusion_reason": null,
+      "structural_score": 0.7913
+    },
+    {
+      "candidate_id": "AC03b4add25365adf4a9e5",
+      "plan_id": "DEV-01",
+      "gt_class": "NOT_A_COMPONENT",
+      "pred_class": "OTHER_RELEVANT_SYMBOL",
+      "status": "COMPONENT_CANDIDATE",
+      "exclusion_reason": null,
+      "structural_score": 0.9523
+    },
+    {
+      "candidate_id": "ACa9403077311b1c6f5c19",
+      "plan_id": "DEV-01",
+      "gt_class": "küche",
+      "pred_class": "OTHER_RELEVANT_SYMBOL",
+      "status": "COMPONENT_CANDIDATE",
+      "exclusion_reason": null,
+      "structural_score": 0.761
+    },
+    {
+      "candidate_id": "AC98f860fdfa70c958e1ed",
+      "plan_id": "DEV-01",
+      "gt_class": "küche",
+      "pred_class": "OTHER_RELEVANT_SYMBOL",
+      "status": "COMPONENT_CANDIDATE",
+      "exclusion_reason": null,
+      "structural_score": 0.7637
+    },
+    {
+      "candidate_id": "AC1a4eab40006bc50382dd",
+      "plan_id": "DEV-01",
+      "gt_class": "NOT_A_COMPONENT",
+      "pred_class": "OTHER_RELEVANT_SYMBOL",
+      "status": "COMPONENT_CANDIDATE",
+      "exclusion_reason": null,
+      "structural_score": 0.7523
+    },
+    {
+      "candidate_id": "AC9470f048fdba0303359f",
+      "plan_id": "DEV-01",
+      "gt_class": "NOT_A_COMPONENT",
+      "pred_class": "OTHER_RELEVANT_SYMBOL",
+      "status": "COMPONENT_CANDIDATE",
+      "exclusion_reason": null,
+      "structural_score": 0.8809
+    },
+    {
+      "candidate_id": "AC381958880c334c6448fa",
+      "plan_id": "DEV-01",
+      "gt_class": "NOT_A_COMPONENT",
+      "pred_class": "EXCLUDED",
+      "status": "EXCLUDED_WASTEWATER",
+      "exclusion_reason": "associated text 'Fallstrang SI90' names a wastewater/drainage system",
+      "structural_score": null
+    },
+    {
+      "candidate_id": "AC912e82251a5987764f15",
+      "plan_id": "DEV-01",
+      "gt_class": "NOT_A_COMPONENT",
+      "pred_class": "EXCLUDED",
+      "status": "EXCLUDED_WASTEWATER",
+      "exclusion_reason": "associated text 'Fallstrang SI90' names a wastewater/drainage system",
+      "structural_score": null
+    },
+    {
+      "candidate_id": "ACeff8bcf3da5d87ba08b9",
+      "plan_id": "DEV-01",
+      "gt_class": "NOT_A_COMPONENT",
+      "pred_class": "OTHER_RELEVANT_SYMBOL",
+      "status": "COMPONENT_CANDIDATE",
+      "exclusion_reason": null,
+      "structural_score": 0.9309
+    },
+    {
+      "candidate_id": "ACe9b5d19ceef668d9ceb8",
+      "plan_id": "DEV-01",
+      "gt_class": "NOT_A_COMPONENT",
+      "pred_class": "EXCLUDED",
+      "status": "EXCLUDED_WASTEWATER",
+      "exclusion_reason": "associated text 'Fallstrang SI90' names a wastewater/drainage system",
+      "structural_score": null
+    },
+    {
+      "candidate_id": "ACc2b70959d3176da0a551",
+      "plan_id": "DEV-01",
+      "gt_class": "NOT_A_COMPONENT",
+      "pred_class": "EXCLUDED",
+      "status": "EXCLUDED_WASTEWATER",
+      "exclusion_reason": "associated text 'Fallstrang PE75' names a wastewater/drainage system",
+      "structural_score": null
+    },
+    {
+      "candidate_id": "ACda6ac72413ed05a2dcaa",
+      "plan_id": "DEV-01",
+      "gt_class": "NOT_A_COMPONENT",
+      "pred_class": "OTHER_RELEVANT_SYMBOL",
+      "status": "COMPONENT_CANDIDATE",
+      "exclusion_reason": null,
+      "structural_score": 0.9226
+    },
+    {
+      "candidate_id": "ACe865c7b2a1cc559bb5a4",
+      "plan_id": "DEV-01",
+      "gt_class": "NOT_A_COMPONENT",
+      "pred_class": "OTHER_RELEVANT_SYMBOL",
+      "status": "COMPONENT_CANDIDATE",
+      "exclusion_reason": null,
+      "structural_score": 0.7125
+    },
+    {
+      "candidate_id": "AC49ff6de38ef44f4fe03f",
+      "plan_id": "DEV-01",
+      "gt_class": "AMBIGUOUS",
+      "pred_class": "OTHER_RELEVANT_SYMBOL",
+      "status": "COMPONENT_CANDIDATE",
+      "exclusion_reason": null,
+      "structural_score": 0.7772
+    },
+    {
+      "candidate_id": "AC24cadb30b740cfafb0eb",
+      "plan_id": "DEV-01",
+      "gt_class": "secomat",
+      "pred_class": "OTHER_RELEVANT_SYMBOL",
+      "status": "COMPONENT_CANDIDATE",
+      "exclusion_reason": null,
+      "structural_score": 0.8597
+    },
+    {
+      "candidate_id": "AC6c6dd6f904dd76cd032d",
+      "plan_id": "DEV-01",
+      "gt_class": "NOT_A_COMPONENT",
+      "pred_class": "OTHER_RELEVANT_SYMBOL",
+      "status": "COMPONENT_CANDIDATE",
+      "exclusion_reason": null,
+      "structural_score": 0.7182
+    },
+    {
+      "candidate_id": "ACf87630cbb4802fb56d0e",
+      "plan_id": "DEV-01",
+      "gt_class": "NOT_A_COMPONENT",
+      "pred_class": "OTHER_RELEVANT_SYMBOL",
+      "status": "COMPONENT_CANDIDATE",
+      "exclusion_reason": null,
+      "structural_score": 0.7171
+    },
+    {
+      "candidate_id": "AC15dac7231558389e574d",
+      "plan_id": "DEV-01",
+      "gt_class": "NOT_A_COMPONENT",
+      "pred_class": "OTHER_RELEVANT_SYMBOL",
+      "status": "COMPONENT_CANDIDATE",
+      "exclusion_reason": null,
+      "structural_score": 0.7525
+    },
+    {
+      "candidate_id": "ACd47dd4360b127b614bb3",
+      "plan_id": "DEV-01",
+      "gt_class": "NOT_A_COMPONENT",
+      "pred_class": "OTHER_RELEVANT_SYMBOL",
+      "status": "COMPONENT_CANDIDATE",
+      "exclusion_reason": null,
+      "structural_score": 0.7914
+    },
+    {
+      "candidate_id": "AC3c0ff986c631b5034fe1",
+      "plan_id": "DEV-01",
+      "gt_class": "NOT_A_COMPONENT",
+      "pred_class": "OTHER_RELEVANT_SYMBOL",
+      "status": "COMPONENT_CANDIDATE",
+      "exclusion_reason": null,
+      "structural_score": 0.7289
+    },
+    {
+      "candidate_id": "AC106ae0f7090222e8c12d",
+      "plan_id": "DEV-01",
+      "gt_class": "NOT_A_COMPONENT",
+      "pred_class": "OTHER_RELEVANT_SYMBOL",
+      "status": "COMPONENT_CANDIDATE",
+      "exclusion_reason": null,
+      "structural_score": 0.8114
+    },
+    {
+      "candidate_id": "AC99444edfccdd7f26fbfc",
+      "plan_id": "DEV-01",
+      "gt_class": "NOT_A_COMPONENT",
+      "pred_class": "OTHER_RELEVANT_SYMBOL",
+      "status": "COMPONENT_CANDIDATE",
+      "exclusion_reason": null,
+      "structural_score": 0.85
+    },
+    {
+      "candidate_id": "AC5c44bafb53717e283f08",
+      "plan_id": "DEV-01",
+      "gt_class": "NOT_A_COMPONENT",
+      "pred_class": "OTHER_RELEVANT_SYMBOL",
+      "status": "COMPONENT_CANDIDATE",
+      "exclusion_reason": null,
+      "structural_score": 0.7283
+    },
+    {
+      "candidate_id": "AC5b86d9121d4dc61e053a",
+      "plan_id": "DEV-01",
+      "gt_class": "NOT_A_COMPONENT",
+      "pred_class": "OTHER_RELEVANT_SYMBOL",
+      "status": "COMPONENT_CANDIDATE",
+      "exclusion_reason": null,
+      "structural_score": 0.8609
+    },
+    {
+      "candidate_id": "AC9f34aebad2ad0e395cf9",
+      "plan_id": "DEV-01",
+      "gt_class": "NOT_A_COMPONENT",
+      "pred_class": "OTHER_RELEVANT_SYMBOL",
+      "status": "COMPONENT_CANDIDATE",
+      "exclusion_reason": null,
+      "structural_score": 0.8535
+    },
+    {
+      "candidate_id": "ACe7efc9296b48528eb2d6",
+      "plan_id": "DEV-01",
+      "gt_class": "NOT_A_COMPONENT",
+      "pred_class": "OTHER_RELEVANT_SYMBOL",
+      "status": "COMPONENT_CANDIDATE",
+      "exclusion_reason": null,
+      "structural_score": 0.85
+    },
+    {
+      "candidate_id": "ACd6feab454152ff7c13c9",
+      "plan_id": "DEV-01",
+      "gt_class": "NOT_A_COMPONENT",
+      "pred_class": "OTHER_RELEVANT_SYMBOL",
+      "status": "COMPONENT_CANDIDATE",
+      "exclusion_reason": null,
+      "structural_score": 0.7522
+    },
+    {
+      "candidate_id": "AC9c80e5067b26dfe325f1",
+      "plan_id": "DEV-01",
+      "gt_class": "NOT_A_COMPONENT",
+      "pred_class": "OTHER_RELEVANT_SYMBOL",
+      "status": "COMPONENT_CANDIDATE",
+      "exclusion_reason": null,
+      "structural_score": 0.7469
+    },
+    {
+      "candidate_id": "ACccbcc60af2b4781aa47b",
+      "plan_id": "DEV-01",
+      "gt_class": "NOT_A_COMPONENT",
+      "pred_class": "OTHER_RELEVANT_SYMBOL",
+      "status": "COMPONENT_CANDIDATE",
+      "exclusion_reason": null,
+      "structural_score": 0.8469
+    },
+    {
+      "candidate_id": "AC6eb5af8a602b665857ad",
+      "plan_id": "DEV-01",
+      "gt_class": "NOT_A_COMPONENT",
+      "pred_class": "OTHER_RELEVANT_SYMBOL",
+      "status": "COMPONENT_CANDIDATE",
+      "exclusion_reason": null,
+      "structural_score": 0.8489
+    },
+    {
+      "candidate_id": "ACe5ab60221c5a213ae8f8",
+      "plan_id": "DEV-01",
+      "gt_class": "NOT_A_COMPONENT",
+      "pred_class": "OTHER_RELEVANT_SYMBOL",
+      "status": "COMPONENT_CANDIDATE",
+      "exclusion_reason": null,
+      "structural_score": 0.8183
+    },
+    {
+      "candidate_id": "ACc6f9d1ea671b52421d37",
+      "plan_id": "DEV-01",
+      "gt_class": "NOT_A_COMPONENT",
+      "pred_class": "OTHER_RELEVANT_SYMBOL",
+      "status": "COMPONENT_CANDIDATE",
+      "exclusion_reason": null,
+      "structural_score": 0.8599
+    },
+    {
+      "candidate_id": "AC2acb6f952549e3ee3ef4",
+      "plan_id": "DEV-01",
+      "gt_class": "NOT_A_COMPONENT",
+      "pred_class": "OTHER_RELEVANT_SYMBOL",
+      "status": "COMPONENT_CANDIDATE",
+      "exclusion_reason": null,
+      "structural_score": 0.9048
+    },
+    {
+      "candidate_id": "AC6241480371d1e5f0142d",
+      "plan_id": "DEV-01",
+      "gt_class": "NOT_A_COMPONENT",
+      "pred_class": "OTHER_RELEVANT_SYMBOL",
+      "status": "COMPONENT_CANDIDATE",
+      "exclusion_reason": null,
+      "structural_score": 0.8602
+    },
+    {
+      "candidate_id": "ACa5649a886bf389e285ad",
+      "plan_id": "DEV-01",
+      "gt_class": "NOT_A_COMPONENT",
+      "pred_class": "OTHER_RELEVANT_SYMBOL",
+      "status": "COMPONENT_CANDIDATE",
+      "exclusion_reason": null,
+      "structural_score": 0.8583
+    },
+    {
+      "candidate_id": "AC2c4e6ba48c03922391e8",
+      "plan_id": "DEV-01",
+      "gt_class": "NOT_A_COMPONENT",
+      "pred_class": "OTHER_RELEVANT_SYMBOL",
+      "status": "COMPONENT_CANDIDATE",
+      "exclusion_reason": null,
+      "structural_score": 0.8543
+    },
+    {
+      "candidate_id": "ACfd57a55a3c570f7e506d",
+      "plan_id": "DEV-01",
+      "gt_class": "NOT_A_COMPONENT",
+      "pred_class": "OTHER_RELEVANT_SYMBOL",
+      "status": "COMPONENT_CANDIDATE",
+      "exclusion_reason": null,
+      "structural_score": 0.8435
+    },
+    {
+      "candidate_id": "AC7e9eaa4e7e732ce07d29",
+      "plan_id": "DEV-01",
+      "gt_class": "NOT_A_COMPONENT",
+      "pred_class": "OTHER_RELEVANT_SYMBOL",
+      "status": "COMPONENT_CANDIDATE",
+      "exclusion_reason": null,
+      "structural_score": 0.7903
+    },
+    {
+      "candidate_id": "AC003cf375fdd054b8d997",
+      "plan_id": "DEV-01",
+      "gt_class": "NOT_A_COMPONENT",
+      "pred_class": "OTHER_RELEVANT_SYMBOL",
+      "status": "COMPONENT_CANDIDATE",
+      "exclusion_reason": null,
+      "structural_score": 0.8525
+    },
+    {
+      "candidate_id": "AC7557a98d5a37d3ccef6e",
+      "plan_id": "DEV-01",
+      "gt_class": "NOT_A_COMPONENT",
+      "pred_class": "OTHER_RELEVANT_SYMBOL",
+      "status": "COMPONENT_CANDIDATE",
+      "exclusion_reason": null,
+      "structural_score": 0.8951
+    },
+    {
+      "candidate_id": "ACff70c0eb0de602fa39ab",
+      "plan_id": "DEV-01",
+      "gt_class": "NOT_A_COMPONENT",
+      "pred_class": "OTHER_RELEVANT_SYMBOL",
+      "status": "COMPONENT_CANDIDATE",
+      "exclusion_reason": null,
+      "structural_score": 0.8492
+    },
+    {
+      "candidate_id": "ACb9a0e308281846c58aaf",
+      "plan_id": "DEV-01",
+      "gt_class": "NOT_A_COMPONENT",
+      "pred_class": "OTHER_RELEVANT_SYMBOL",
+      "status": "COMPONENT_CANDIDATE",
+      "exclusion_reason": null,
+      "structural_score": 0.8965
+    },
+    {
+      "candidate_id": "AC47d8b3f1852a933260ba",
+      "plan_id": "DEV-01",
+      "gt_class": "NOT_A_COMPONENT",
+      "pred_class": "EXCLUDED",
+      "status": "EXCLUDED_WASTEWATER",
+      "exclusion_reason": "associated text 'Fallstrang SI110' names a wastewater/drainage system",
+      "structural_score": null
+    },
+    {
+      "candidate_id": "AC7574cc817cd4b1d754a7",
+      "plan_id": "DEV-01",
+      "gt_class": "NOT_A_COMPONENT",
+      "pred_class": "EXCLUDED",
+      "status": "EXCLUDED_WASTEWATER",
+      "exclusion_reason": "associated text 'Fallstrang SI110' names a wastewater/drainage system",
+      "structural_score": null
+    },
+    {
+      "candidate_id": "AC826f6aa33905fa8d426f",
+      "plan_id": "DEV-01",
+      "gt_class": "NOT_A_COMPONENT",
+      "pred_class": "EXCLUDED",
+      "status": "EXCLUDED_WASTEWATER",
+      "exclusion_reason": "associated text 'Fallstrang SI110' names a wastewater/drainage system",
+      "structural_score": null
+    },
+    {
+      "candidate_id": "AC0b4673f93c44f290b19f",
+      "plan_id": "DEV-01",
+      "gt_class": "NOT_A_COMPONENT",
+      "pred_class": "EXCLUDED",
+      "status": "EXCLUDED_WASTEWATER",
+      "exclusion_reason": "associated text 'Fallstrang SI110' names a wastewater/drainage system",
+      "structural_score": null
+    },
+    {
+      "candidate_id": "AC61ec7be5a1de02d923b1",
+      "plan_id": "DEV-01",
+      "gt_class": "NOT_A_COMPONENT",
+      "pred_class": "EXCLUDED",
+      "status": "EXCLUDED_WASTEWATER",
+      "exclusion_reason": "associated text 'Fallstrang SI75' names a wastewater/drainage system",
+      "structural_score": null
+    },
+    {
+      "candidate_id": "AC4e61b0aca689c61ff729",
+      "plan_id": "DEV-01",
+      "gt_class": "NOT_A_COMPONENT",
+      "pred_class": "EXCLUDED",
+      "status": "EXCLUDED_WASTEWATER",
+      "exclusion_reason": "associated text 'Fallstrang SI110' names a wastewater/drainage system",
+      "structural_score": null
+    },
+    {
+      "candidate_id": "ACa626b122641a76818fcc",
+      "plan_id": "DEV-01",
+      "gt_class": "NOT_A_COMPONENT",
+      "pred_class": "EXCLUDED",
+      "status": "EXCLUDED_WASTEWATER",
+      "exclusion_reason": "associated text 'Fallstrang Ø90' names a wastewater/drainage system",
+      "structural_score": null
+    },
+    {
+      "candidate_id": "ACe64a69926f9f90a6d43b",
+      "plan_id": "DEV-01",
+      "gt_class": "NOT_A_COMPONENT",
+      "pred_class": "OTHER_RELEVANT_SYMBOL",
+      "status": "COMPONENT_CANDIDATE",
+      "exclusion_reason": null,
+      "structural_score": 0.8604
+    },
+    {
+      "candidate_id": "ACf10f91022865477f0e7a",
+      "plan_id": "DEV-01",
+      "gt_class": "NOT_A_COMPONENT",
+      "pred_class": "OTHER_RELEVANT_SYMBOL",
+      "status": "COMPONENT_CANDIDATE",
+      "exclusion_reason": null,
+      "structural_score": 0.9023
+    },
+    {
+      "candidate_id": "ACf3d8ea9f0b43cb044955",
+      "plan_id": "DEV-01",
+      "gt_class": "NOT_A_COMPONENT",
+      "pred_class": "OTHER_RELEVANT_SYMBOL",
+      "status": "COMPONENT_CANDIDATE",
+      "exclusion_reason": null,
+      "structural_score": 0.8604
+    },
+    {
+      "candidate_id": "ACecfb9e4ee07035babb1c",
+      "plan_id": "DEV-01",
+      "gt_class": "NOT_A_COMPONENT",
+      "pred_class": "OTHER_RELEVANT_SYMBOL",
+      "status": "COMPONENT_CANDIDATE",
+      "exclusion_reason": null,
+      "structural_score": 0.8508
+    },
+    {
+      "candidate_id": "ACb5a7e49096b10547f292",
+      "plan_id": "DEV-01",
+      "gt_class": "NOT_A_COMPONENT",
+      "pred_class": "OTHER_RELEVANT_SYMBOL",
+      "status": "COMPONENT_CANDIDATE",
+      "exclusion_reason": null,
+      "structural_score": 0.8583
+    },
+    {
+      "candidate_id": "AC0d725cde66282cf86119",
+      "plan_id": "DEV-01",
+      "gt_class": "NOT_A_COMPONENT",
+      "pred_class": "OTHER_RELEVANT_SYMBOL",
+      "status": "COMPONENT_CANDIDATE",
+      "exclusion_reason": null,
+      "structural_score": 0.8508
+    },
+    {
+      "candidate_id": "AC026bfeacf28ca0ea2887",
+      "plan_id": "DEV-01",
+      "gt_class": "NOT_A_COMPONENT",
+      "pred_class": "OTHER_RELEVANT_SYMBOL",
+      "status": "COMPONENT_CANDIDATE",
+      "exclusion_reason": null,
+      "structural_score": 0.8583
+    },
+    {
+      "candidate_id": "AC711dfcf6c78e0f913966",
+      "plan_id": "DEV-01",
+      "gt_class": "NOT_A_COMPONENT",
+      "pred_class": "OTHER_RELEVANT_SYMBOL",
+      "status": "COMPONENT_CANDIDATE",
+      "exclusion_reason": null,
+      "structural_score": 0.8699
+    },
+    {
+      "candidate_id": "AC7274830ea6f90af3721d",
+      "plan_id": "DEV-01",
+      "gt_class": "NOT_A_COMPONENT",
+      "pred_class": "EXCLUDED",
+      "status": "EXCLUDED_WASTEWATER",
+      "exclusion_reason": "associated text 'Fallstrang Ø90' names a wastewater/drainage system",
+      "structural_score": null
+    },
+    {
+      "candidate_id": "ACc1d93a3904d20e8bf568",
+      "plan_id": "DEV-01",
+      "gt_class": "NOT_A_COMPONENT",
+      "pred_class": "EXCLUDED",
+      "status": "EXCLUDED_WASTEWATER",
+      "exclusion_reason": "associated text 'Fallstrang Ø90' names a wastewater/drainage system",
+      "structural_score": null
+    },
+    {
+      "candidate_id": "ACd8a3ba3635fa0da807d5",
+      "plan_id": "DEV-01",
+      "gt_class": "NOT_A_COMPONENT",
+      "pred_class": "EXCLUDED",
+      "status": "EXCLUDED_WASTEWATER",
+      "exclusion_reason": "associated text 'Fallstrang PE75' names a wastewater/drainage system",
+      "structural_score": null
+    },
+    {
+      "candidate_id": "ACd49876e684be3b9298cb",
+      "plan_id": "DEV-01",
+      "gt_class": "NOT_A_COMPONENT",
+      "pred_class": "OTHER_RELEVANT_SYMBOL",
+      "status": "COMPONENT_CANDIDATE",
+      "exclusion_reason": null,
+      "structural_score": 0.7981
+    },
+    {
+      "candidate_id": "ACf5ba1b75f8ec6440ea18",
+      "plan_id": "DEV-01",
+      "gt_class": "OTHER_RELEVANT_SYMBOL",
+      "pred_class": "OTHER_RELEVANT_SYMBOL",
+      "status": "COMPONENT_CANDIDATE",
+      "exclusion_reason": null,
+      "structural_score": 0.7007
+    },
+    {
+      "candidate_id": "AC0e7fc3b8e176a6e924bf",
+      "plan_id": "DEV-01",
+      "gt_class": "NOT_A_COMPONENT",
+      "pred_class": "OTHER_RELEVANT_SYMBOL",
+      "status": "COMPONENT_CANDIDATE",
+      "exclusion_reason": null,
+      "structural_score": 0.6728
+    },
+    {
+      "candidate_id": "AC04d8226805f4f8b0ab39",
+      "plan_id": "DEV-01",
+      "gt_class": "NOT_A_COMPONENT",
+      "pred_class": "OTHER_RELEVANT_SYMBOL",
+      "status": "COMPONENT_CANDIDATE",
+      "exclusion_reason": null,
+      "structural_score": 0.8623
+    },
+    {
+      "candidate_id": "ACc0500919f9a15a0f37ee",
+      "plan_id": "DEV-01",
+      "gt_class": "NOT_A_COMPONENT",
+      "pred_class": "OTHER_RELEVANT_SYMBOL",
+      "status": "COMPONENT_CANDIDATE",
+      "exclusion_reason": null,
+      "structural_score": 0.8299
+    },
+    {
+      "candidate_id": "ACcf77c0adcff2b9b9cf5b",
+      "plan_id": "DEV-01",
+      "gt_class": "NOT_A_COMPONENT",
+      "pred_class": "OTHER_RELEVANT_SYMBOL",
+      "status": "COMPONENT_CANDIDATE",
+      "exclusion_reason": null,
+      "structural_score": 0.7524
+    },
+    {
+      "candidate_id": "AC89b66e315c69a93067ea",
+      "plan_id": "DEV-01",
+      "gt_class": "NOT_A_COMPONENT",
+      "pred_class": "OTHER_RELEVANT_SYMBOL",
+      "status": "COMPONENT_CANDIDATE",
+      "exclusion_reason": null,
+      "structural_score": 0.695
+    },
+    {
+      "candidate_id": "AC2bd2ebdd6dabdfca2174",
+      "plan_id": "DEV-01",
+      "gt_class": "NOT_A_COMPONENT",
+      "pred_class": "OTHER_RELEVANT_SYMBOL",
+      "status": "COMPONENT_CANDIDATE",
+      "exclusion_reason": null,
+      "structural_score": 0.7385
+    },
+    {
+      "candidate_id": "AC020c5fbab512420c1769",
+      "plan_id": "DEV-01",
+      "gt_class": "NOT_A_COMPONENT",
+      "pred_class": "OTHER_RELEVANT_SYMBOL",
+      "status": "COMPONENT_CANDIDATE",
+      "exclusion_reason": null,
+      "structural_score": 0.739
+    },
+    {
+      "candidate_id": "AC897f181e1a3832decd0c",
+      "plan_id": "DEV-01",
+      "gt_class": "NOT_A_COMPONENT",
+      "pred_class": "OTHER_RELEVANT_SYMBOL",
+      "status": "COMPONENT_CANDIDATE",
+      "exclusion_reason": null,
+      "structural_score": 0.8227
+    },
+    {
+      "candidate_id": "ACf58586f4d01a9503756d",
+      "plan_id": "DEV-01",
+      "gt_class": "NOT_A_COMPONENT",
+      "pred_class": "OTHER_RELEVANT_SYMBOL",
+      "status": "COMPONENT_CANDIDATE",
+      "exclusion_reason": null,
+      "structural_score": 0.921
+    },
+    {
+      "candidate_id": "AC39ba6a521c9c42518d18",
+      "plan_id": "DEV-01",
+      "gt_class": "NOT_A_COMPONENT",
+      "pred_class": "OTHER_RELEVANT_SYMBOL",
+      "status": "COMPONENT_CANDIDATE",
+      "exclusion_reason": null,
+      "structural_score": 0.9092
+    },
+    {
+      "candidate_id": "AC5f9c1b5d080b35b4c4f6",
+      "plan_id": "DEV-01",
+      "gt_class": "NOT_A_COMPONENT",
+      "pred_class": "OTHER_RELEVANT_SYMBOL",
+      "status": "COMPONENT_CANDIDATE",
+      "exclusion_reason": null,
+      "structural_score": 0.9089
+    },
+    {
+      "candidate_id": "ACb634fe6a4feeacd1454e",
+      "plan_id": "DEV-01",
+      "gt_class": "NOT_A_COMPONENT",
+      "pred_class": "OTHER_RELEVANT_SYMBOL",
+      "status": "COMPONENT_CANDIDATE",
+      "exclusion_reason": null,
+      "structural_score": 0.7239
+    },
+    {
+      "candidate_id": "AC0955dfa64e3de56ec97d",
+      "plan_id": "DEV-01",
+      "gt_class": "NOT_A_COMPONENT",
+      "pred_class": "EXCLUDED",
+      "status": "EXCLUDED_WASTEWATER",
+      "exclusion_reason": "associated text 'Fallstrang PE110' names a wastewater/drainage system",
+      "structural_score": null
+    },
+    {
+      "candidate_id": "AC4ff7cdab40ebc1313418",
+      "plan_id": "DEV-01",
+      "gt_class": "NOT_A_COMPONENT",
+      "pred_class": "EXCLUDED",
+      "status": "EXCLUDED_WASTEWATER",
+      "exclusion_reason": "associated text 'Fallstrang PE110' names a wastewater/drainage system",
+      "structural_score": null
+    },
+    {
+      "candidate_id": "ACc928e3975b02f1b81cbb",
+      "plan_id": "DEV-01",
+      "gt_class": "NOT_A_COMPONENT",
+      "pred_class": "OTHER_RELEVANT_SYMBOL",
+      "status": "COMPONENT_CANDIDATE",
+      "exclusion_reason": null,
+      "structural_score": 0.8048
+    },
+    {
+      "candidate_id": "ACc14c59eafdfe48af90f0",
+      "plan_id": "DEV-01",
+      "gt_class": "NOT_A_COMPONENT",
+      "pred_class": "OTHER_RELEVANT_SYMBOL",
+      "status": "COMPONENT_CANDIDATE",
+      "exclusion_reason": null,
+      "structural_score": 0.8049
+    },
+    {
+      "candidate_id": "ACfde2c1ae837cf701e019",
+      "plan_id": "DEV-01",
+      "gt_class": "NOT_A_COMPONENT",
+      "pred_class": "OTHER_RELEVANT_SYMBOL",
+      "status": "COMPONENT_CANDIDATE",
+      "exclusion_reason": null,
+      "structural_score": 0.8048
+    },
+    {
+      "candidate_id": "AC22725cc771427072a2f8",
+      "plan_id": "DEV-01",
+      "gt_class": "NOT_A_COMPONENT",
+      "pred_class": "OTHER_RELEVANT_SYMBOL",
+      "status": "COMPONENT_CANDIDATE",
+      "exclusion_reason": null,
+      "structural_score": 0.8048
+    },
+    {
+      "candidate_id": "AC5234a8d4681b714dcd22",
+      "plan_id": "DEV-01",
+      "gt_class": "NOT_A_COMPONENT",
+      "pred_class": "OTHER_RELEVANT_SYMBOL",
+      "status": "COMPONENT_CANDIDATE",
+      "exclusion_reason": null,
+      "structural_score": 0.8048
+    },
+    {
+      "candidate_id": "ACb9d6d7315b7475ead639",
+      "plan_id": "DEV-01",
+      "gt_class": "NOT_A_COMPONENT",
+      "pred_class": "OTHER_RELEVANT_SYMBOL",
+      "status": "COMPONENT_CANDIDATE",
+      "exclusion_reason": null,
+      "structural_score": 0.784
+    },
+    {
+      "candidate_id": "AC56cbd280135c216f0f71",
+      "plan_id": "DEV-01",
+      "gt_class": "NOT_A_COMPONENT",
+      "pred_class": "OTHER_RELEVANT_SYMBOL",
+      "status": "COMPONENT_CANDIDATE",
+      "exclusion_reason": null,
+      "structural_score": 0.7851
+    },
+    {
+      "candidate_id": "ACe1c4f70c5384a8de05a3",
+      "plan_id": "DEV-01",
+      "gt_class": "NOT_A_COMPONENT",
+      "pred_class": "OTHER_RELEVANT_SYMBOL",
+      "status": "COMPONENT_CANDIDATE",
+      "exclusion_reason": null,
+      "structural_score": 0.7851
+    },
+    {
+      "candidate_id": "AC80636a73fd6364a64ff1",
+      "plan_id": "DEV-01",
+      "gt_class": "NOT_A_COMPONENT",
+      "pred_class": "OTHER_RELEVANT_SYMBOL",
+      "status": "COMPONENT_CANDIDATE",
+      "exclusion_reason": null,
+      "structural_score": 0.7851
+    },
+    {
+      "candidate_id": "AC99fa3175f3acbd79f5e1",
+      "plan_id": "DEV-01",
+      "gt_class": "NOT_A_COMPONENT",
+      "pred_class": "OTHER_RELEVANT_SYMBOL",
+      "status": "COMPONENT_CANDIDATE",
+      "exclusion_reason": null,
+      "structural_score": 0.7851
+    },
+    {
+      "candidate_id": "AC64b6f7c6fa5295bc30cf",
+      "plan_id": "DEV-01",
+      "gt_class": "NOT_A_COMPONENT",
+      "pred_class": "OTHER_RELEVANT_SYMBOL",
+      "status": "COMPONENT_CANDIDATE",
+      "exclusion_reason": null,
+      "structural_score": 0.784
+    },
+    {
+      "candidate_id": "AC80ada58198e7421b8314",
+      "plan_id": "DEV-01",
+      "gt_class": "NOT_A_COMPONENT",
+      "pred_class": "OTHER_RELEVANT_SYMBOL",
+      "status": "COMPONENT_CANDIDATE",
+      "exclusion_reason": null,
+      "structural_score": 0.7851
+    },
+    {
+      "candidate_id": "AC3e4cbdb7658ea84bd52c",
+      "plan_id": "DEV-01",
+      "gt_class": "NOT_A_COMPONENT",
+      "pred_class": "OTHER_RELEVANT_SYMBOL",
+      "status": "COMPONENT_CANDIDATE",
+      "exclusion_reason": null,
+      "structural_score": 0.7851
+    },
+    {
+      "candidate_id": "AC71eb8599b237d74f127b",
+      "plan_id": "DEV-01",
+      "gt_class": "NOT_A_COMPONENT",
+      "pred_class": "OTHER_RELEVANT_SYMBOL",
+      "status": "COMPONENT_CANDIDATE",
+      "exclusion_reason": null,
+      "structural_score": 0.7851
+    },
+    {
+      "candidate_id": "ACafe9f3fbde83f563f304",
+      "plan_id": "DEV-01",
+      "gt_class": "NOT_A_COMPONENT",
+      "pred_class": "OTHER_RELEVANT_SYMBOL",
+      "status": "COMPONENT_CANDIDATE",
+      "exclusion_reason": null,
+      "structural_score": 0.7851
+    },
+    {
+      "candidate_id": "ACf6d32d180f9b7516533a",
+      "plan_id": "DEV-01",
+      "gt_class": "NOT_A_COMPONENT",
+      "pred_class": "OTHER_RELEVANT_SYMBOL",
+      "status": "COMPONENT_CANDIDATE",
+      "exclusion_reason": null,
+      "structural_score": 0.8049
+    },
+    {
+      "candidate_id": "ACeac69e3f8e84e50539df",
+      "plan_id": "DEV-01",
+      "gt_class": "NOT_A_COMPONENT",
+      "pred_class": "OTHER_RELEVANT_SYMBOL",
+      "status": "COMPONENT_CANDIDATE",
+      "exclusion_reason": null,
+      "structural_score": 0.8048
+    },
+    {
+      "candidate_id": "ACad9334d7f321c721f0cb",
+      "plan_id": "DEV-01",
+      "gt_class": "NOT_A_COMPONENT",
+      "pred_class": "OTHER_RELEVANT_SYMBOL",
+      "status": "COMPONENT_CANDIDATE",
+      "exclusion_reason": null,
+      "structural_score": 0.8048
+    },
+    {
+      "candidate_id": "AC8d082190be087933d02d",
+      "plan_id": "DEV-01",
+      "gt_class": "NOT_A_COMPONENT",
+      "pred_class": "OTHER_RELEVANT_SYMBOL",
+      "status": "COMPONENT_CANDIDATE",
+      "exclusion_reason": null,
+      "structural_score": 0.8048
+    },
+    {
+      "candidate_id": "AC6fc7e9661315e74a33dc",
+      "plan_id": "DEV-01",
+      "gt_class": "NOT_A_COMPONENT",
+      "pred_class": "OTHER_RELEVANT_SYMBOL",
+      "status": "COMPONENT_CANDIDATE",
+      "exclusion_reason": null,
+      "structural_score": 0.7048
+    },
+    {
+      "candidate_id": "AC98cc3e2eba91ecd7f62b",
+      "plan_id": "DEV-01",
+      "gt_class": "NOT_A_COMPONENT",
+      "pred_class": "OTHER_RELEVANT_SYMBOL",
+      "status": "COMPONENT_CANDIDATE",
+      "exclusion_reason": null,
+      "structural_score": 0.8914
+    },
+    {
+      "candidate_id": "AC26b93567e99e9effbb77",
+      "plan_id": "DEV-01",
+      "gt_class": "NOT_A_COMPONENT",
+      "pred_class": "OTHER_RELEVANT_SYMBOL",
+      "status": "COMPONENT_CANDIDATE",
+      "exclusion_reason": null,
+      "structural_score": 0.8962
+    },
+    {
+      "candidate_id": "ACa2959588ed4d8e2134ce",
+      "plan_id": "DEV-01",
+      "gt_class": "NOT_A_COMPONENT",
+      "pred_class": "OTHER_RELEVANT_SYMBOL",
+      "status": "COMPONENT_CANDIDATE",
+      "exclusion_reason": null,
+      "structural_score": 0.896
+    },
+    {
+      "candidate_id": "AC6e7fb70a224f308679c5",
+      "plan_id": "DEV-01",
+      "gt_class": "NOT_A_COMPONENT",
+      "pred_class": "OTHER_RELEVANT_SYMBOL",
+      "status": "COMPONENT_CANDIDATE",
+      "exclusion_reason": null,
+      "structural_score": 0.8889
+    },
+    {
+      "candidate_id": "AC63d615d3920a937af1d8",
+      "plan_id": "DEV-01",
+      "gt_class": "NOT_A_COMPONENT",
+      "pred_class": "OTHER_RELEVANT_SYMBOL",
+      "status": "COMPONENT_CANDIDATE",
+      "exclusion_reason": null,
+      "structural_score": 0.8576
+    },
+    {
+      "candidate_id": "AC855d80b8500ff54e1302",
+      "plan_id": "DEV-01",
+      "gt_class": "NOT_A_COMPONENT",
+      "pred_class": "OTHER_RELEVANT_SYMBOL",
+      "status": "COMPONENT_CANDIDATE",
+      "exclusion_reason": null,
+      "structural_score": 0.8158
+    },
+    {
+      "candidate_id": "ACd2294b27f1067d6229a1",
+      "plan_id": "DEV-03",
+      "gt_class": "NOT_A_COMPONENT",
+      "pred_class": "OTHER_RELEVANT_SYMBOL",
+      "status": "COMPONENT_CANDIDATE",
+      "exclusion_reason": null,
+      "structural_score": 0.7424
+    },
+    {
+      "candidate_id": "ACe238bb5cbee40b9aea45",
+      "plan_id": "DEV-03",
+      "gt_class": "NOT_A_COMPONENT",
+      "pred_class": "OTHER_RELEVANT_SYMBOL",
+      "status": "COMPONENT_CANDIDATE",
+      "exclusion_reason": null,
+      "structural_score": 0.7481
+    },
+    {
+      "candidate_id": "AC6f9d4469533141273a1d",
+      "plan_id": "DEV-03",
+      "gt_class": "NOT_A_COMPONENT",
+      "pred_class": "OTHER_RELEVANT_SYMBOL",
+      "status": "COMPONENT_CANDIDATE",
+      "exclusion_reason": null,
+      "structural_score": 0.7049
+    },
+    {
+      "candidate_id": "AC24ef2219b70a59327015",
+      "plan_id": "DEV-03",
+      "gt_class": "NOT_A_COMPONENT",
+      "pred_class": "OTHER_RELEVANT_SYMBOL",
+      "status": "COMPONENT_CANDIDATE",
+      "exclusion_reason": null,
+      "structural_score": 0.7049
+    },
+    {
+      "candidate_id": "ACec788f5c540612088ce0",
+      "plan_id": "DEV-03",
+      "gt_class": "NOT_A_COMPONENT",
+      "pred_class": "EXCLUDED",
+      "status": "EXCLUDED_WASTEWATER",
+      "exclusion_reason": "associated text 'Regenwasser' names a wastewater/drainage system",
+      "structural_score": null
+    },
+    {
+      "candidate_id": "ACe94e6c0c26a4d219f3cf",
+      "plan_id": "DEV-03",
+      "gt_class": "NOT_A_COMPONENT",
+      "pred_class": "OTHER_RELEVANT_SYMBOL",
+      "status": "COMPONENT_CANDIDATE",
+      "exclusion_reason": null,
+      "structural_score": 0.7049
+    },
+    {
+      "candidate_id": "ACae2a068a594fd36eacd1",
+      "plan_id": "DEV-03",
+      "gt_class": "NOT_A_COMPONENT",
+      "pred_class": "OTHER_RELEVANT_SYMBOL",
+      "status": "COMPONENT_CANDIDATE",
+      "exclusion_reason": null,
+      "structural_score": 0.7049
+    },
+    {
+      "candidate_id": "ACf1d0cf82d9e2168832ea",
+      "plan_id": "DEV-03",
+      "gt_class": "NOT_A_COMPONENT",
+      "pred_class": "OTHER_RELEVANT_SYMBOL",
+      "status": "COMPONENT_CANDIDATE",
+      "exclusion_reason": null,
+      "structural_score": 0.8144
+    },
+    {
+      "candidate_id": "AC41516bf0b472dbe839d6",
+      "plan_id": "DEV-03",
+      "gt_class": "küche",
+      "pred_class": "OTHER_RELEVANT_SYMBOL",
+      "status": "COMPONENT_CANDIDATE",
+      "exclusion_reason": null,
+      "structural_score": 0.8012
+    },
+    {
+      "candidate_id": "AC17b8839941e7d7d3a1d0",
+      "plan_id": "DEV-03",
+      "gt_class": "küche",
+      "pred_class": "OTHER_RELEVANT_SYMBOL",
+      "status": "COMPONENT_CANDIDATE",
+      "exclusion_reason": null,
+      "structural_score": 0.7869
+    },
+    {
+      "candidate_id": "AC2e230bc829934b752a22",
+      "plan_id": "DEV-03",
+      "gt_class": "OTHER_RELEVANT_SYMBOL",
+      "pred_class": "OTHER_RELEVANT_SYMBOL",
+      "status": "COMPONENT_CANDIDATE",
+      "exclusion_reason": null,
+      "structural_score": 0.7528
+    },
+    {
+      "candidate_id": "AC5487413f9fd088f56f1d",
+      "plan_id": "DEV-03",
+      "gt_class": "wc up",
+      "pred_class": "OTHER_RELEVANT_SYMBOL",
+      "status": "COMPONENT_CANDIDATE",
+      "exclusion_reason": null,
+      "structural_score": 0.8261
+    },
+    {
+      "candidate_id": "ACf4253232d47c21582b9f",
+      "plan_id": "DEV-03",
+      "gt_class": "dusche",
+      "pred_class": "OTHER_RELEVANT_SYMBOL",
+      "status": "COMPONENT_CANDIDATE",
+      "exclusion_reason": null,
+      "structural_score": 0.7648
+    },
+    {
+      "candidate_id": "AC14d2c1381686c1f93e1e",
+      "plan_id": "DEV-03",
+      "gt_class": "wc up",
+      "pred_class": "OTHER_RELEVANT_SYMBOL",
+      "status": "COMPONENT_CANDIDATE",
+      "exclusion_reason": null,
+      "structural_score": 0.8411
+    },
+    {
+      "candidate_id": "AC4e6c16ecf046146e1430",
+      "plan_id": "DEV-03",
+      "gt_class": "küche",
+      "pred_class": "OTHER_RELEVANT_SYMBOL",
+      "status": "COMPONENT_CANDIDATE",
+      "exclusion_reason": null,
+      "structural_score": 0.8025
+    },
+    {
+      "candidate_id": "AC425e112754643960cebd",
+      "plan_id": "DEV-03",
+      "gt_class": "küche",
+      "pred_class": "OTHER_RELEVANT_SYMBOL",
+      "status": "COMPONENT_CANDIDATE",
+      "exclusion_reason": null,
+      "structural_score": 0.7855
+    },
+    {
+      "candidate_id": "AC17c0ac714e88cc798a50",
+      "plan_id": "DEV-03",
+      "gt_class": "dusche",
+      "pred_class": "OTHER_RELEVANT_SYMBOL",
+      "status": "COMPONENT_CANDIDATE",
+      "exclusion_reason": null,
+      "structural_score": 0.7618
+    },
+    {
+      "candidate_id": "AC70ea8bf84911df233790",
+      "plan_id": "DEV-03",
+      "gt_class": "wc up",
+      "pred_class": "OTHER_RELEVANT_SYMBOL",
+      "status": "COMPONENT_CANDIDATE",
+      "exclusion_reason": null,
+      "structural_score": 0.8085
+    },
+    {
+      "candidate_id": "ACc248d6bc214218a68bbf",
+      "plan_id": "DEV-03",
+      "gt_class": "OTHER_RELEVANT_SYMBOL",
+      "pred_class": "OTHER_RELEVANT_SYMBOL",
+      "status": "COMPONENT_CANDIDATE",
+      "exclusion_reason": null,
+      "structural_score": 0.7354
+    },
+    {
+      "candidate_id": "ACb9dec7a1e1f0e5f65f9a",
+      "plan_id": "DEV-03",
+      "gt_class": "NOT_A_COMPONENT",
+      "pred_class": "OTHER_RELEVANT_SYMBOL",
+      "status": "COMPONENT_FACT",
+      "exclusion_reason": null,
+      "structural_score": 0.8658
+    },
+    {
+      "candidate_id": "AC30012e65a0d2ba922396",
+      "plan_id": "DEV-03",
+      "gt_class": "NOT_A_COMPONENT",
+      "pred_class": "OTHER_RELEVANT_SYMBOL",
+      "status": "COMPONENT_FACT",
+      "exclusion_reason": null,
+      "structural_score": 0.8658
+    },
+    {
+      "candidate_id": "ACa255472bda1209126256",
+      "plan_id": "DEV-03",
+      "gt_class": "NOT_A_COMPONENT",
+      "pred_class": "OTHER_RELEVANT_SYMBOL",
+      "status": "COMPONENT_FACT",
+      "exclusion_reason": null,
+      "structural_score": 0.8658
+    },
+    {
+      "candidate_id": "AC23c8fb2518db79bbab0b",
+      "plan_id": "DEV-03",
+      "gt_class": "wc up",
+      "pred_class": "OTHER_RELEVANT_SYMBOL",
+      "status": "COMPONENT_CANDIDATE",
+      "exclusion_reason": null,
+      "structural_score": 0.8313
+    },
+    {
+      "candidate_id": "ACd9fea6f158bde38bb9c7",
+      "plan_id": "DEV-03",
+      "gt_class": "dusche",
+      "pred_class": "OTHER_RELEVANT_SYMBOL",
+      "status": "COMPONENT_CANDIDATE",
+      "exclusion_reason": null,
+      "structural_score": 0.7676
+    },
+    {
+      "candidate_id": "AC536bf2622adab1a9a115",
+      "plan_id": "DEV-03",
+      "gt_class": "küche",
+      "pred_class": "OTHER_RELEVANT_SYMBOL",
+      "status": "COMPONENT_CANDIDATE",
+      "exclusion_reason": null,
+      "structural_score": 0.8023
+    },
+    {
+      "candidate_id": "AC271baac866f406ad481a",
+      "plan_id": "DEV-03",
+      "gt_class": "OTHER_RELEVANT_SYMBOL",
+      "pred_class": "OTHER_RELEVANT_SYMBOL",
+      "status": "COMPONENT_FACT",
+      "exclusion_reason": null,
+      "structural_score": 0.8658
+    },
+    {
+      "candidate_id": "AC938a35bf5cda2790ca4e",
+      "plan_id": "DEV-03",
+      "gt_class": "küche",
+      "pred_class": "OTHER_RELEVANT_SYMBOL",
+      "status": "COMPONENT_CANDIDATE",
+      "exclusion_reason": null,
+      "structural_score": 0.8025
+    },
+    {
+      "candidate_id": "AC8ae4dd97d7ac1a2a57ce",
+      "plan_id": "DEV-03",
+      "gt_class": "NOT_A_COMPONENT",
+      "pred_class": "OTHER_RELEVANT_SYMBOL",
+      "status": "COMPONENT_CANDIDATE",
+      "exclusion_reason": null,
+      "structural_score": 0.8807
+    },
+    {
+      "candidate_id": "AC122f58c6638f7a0194ed",
+      "plan_id": "DEV-03",
+      "gt_class": "wc up",
+      "pred_class": "OTHER_RELEVANT_SYMBOL",
+      "status": "COMPONENT_CANDIDATE",
+      "exclusion_reason": null,
+      "structural_score": 0.8241
+    },
+    {
+      "candidate_id": "ACd128ccde6c50ba7d0c9c",
+      "plan_id": "DEV-03",
+      "gt_class": "dusche",
+      "pred_class": "OTHER_RELEVANT_SYMBOL",
+      "status": "COMPONENT_CANDIDATE",
+      "exclusion_reason": null,
+      "structural_score": 0.7665
+    },
+    {
+      "candidate_id": "AC792b37689bb3232c9b97",
+      "plan_id": "DEV-03",
+      "gt_class": "wc up",
+      "pred_class": "OTHER_RELEVANT_SYMBOL",
+      "status": "COMPONENT_CANDIDATE",
+      "exclusion_reason": null,
+      "structural_score": 0.8312
+    },
+    {
+      "candidate_id": "ACaed206ced70b6e58a2fb",
+      "plan_id": "DEV-03",
+      "gt_class": "küche",
+      "pred_class": "OTHER_RELEVANT_SYMBOL",
+      "status": "COMPONENT_CANDIDATE",
+      "exclusion_reason": null,
+      "structural_score": 0.801
+    },
+    {
+      "candidate_id": "ACf1d1c60eef54b497bb82",
+      "plan_id": "DEV-03",
+      "gt_class": "dusche",
+      "pred_class": "OTHER_RELEVANT_SYMBOL",
+      "status": "COMPONENT_CANDIDATE",
+      "exclusion_reason": null,
+      "structural_score": 0.7708
+    },
+    {
+      "candidate_id": "ACabf2fe0680190a38be4b",
+      "plan_id": "DEV-03",
+      "gt_class": "NOT_A_COMPONENT",
+      "pred_class": "OTHER_RELEVANT_SYMBOL",
+      "status": "COMPONENT_FACT",
+      "exclusion_reason": null,
+      "structural_score": 0.8658
+    },
+    {
+      "candidate_id": "AC67b4f8cf087e520975a5",
+      "plan_id": "DEV-03",
+      "gt_class": "küche",
+      "pred_class": "OTHER_RELEVANT_SYMBOL",
+      "status": "COMPONENT_CANDIDATE",
+      "exclusion_reason": null,
+      "structural_score": 0.7856
+    },
+    {
+      "candidate_id": "AC51d5ba3d8f58bede6db6",
+      "plan_id": "DEV-03",
+      "gt_class": "wc up",
+      "pred_class": "OTHER_RELEVANT_SYMBOL",
+      "status": "COMPONENT_CANDIDATE",
+      "exclusion_reason": null,
+      "structural_score": 0.8083
+    },
+    {
+      "candidate_id": "AC6059fd303a28abd9e0ca",
+      "plan_id": "DEV-03",
+      "gt_class": "dusche",
+      "pred_class": "OTHER_RELEVANT_SYMBOL",
+      "status": "COMPONENT_CANDIDATE",
+      "exclusion_reason": null,
+      "structural_score": 0.7627
+    },
+    {
+      "candidate_id": "AC7eebc898eafef913475e",
+      "plan_id": "DEV-03",
+      "gt_class": "NOT_A_COMPONENT",
+      "pred_class": "OTHER_RELEVANT_SYMBOL",
+      "status": "COMPONENT_FACT",
+      "exclusion_reason": null,
+      "structural_score": 0.8658
+    },
+    {
+      "candidate_id": "AC1c482f8ceb89e548f31c",
+      "plan_id": "DEV-03",
+      "gt_class": "küche",
+      "pred_class": "OTHER_RELEVANT_SYMBOL",
+      "status": "COMPONENT_CANDIDATE",
+      "exclusion_reason": null,
+      "structural_score": 0.7857
+    },
+    {
+      "candidate_id": "AC51c351d24735dd6906e1",
+      "plan_id": "DEV-03",
+      "gt_class": "dusche",
+      "pred_class": "OTHER_RELEVANT_SYMBOL",
+      "status": "COMPONENT_CANDIDATE",
+      "exclusion_reason": null,
+      "structural_score": 0.7604
+    },
+    {
+      "candidate_id": "ACbeaf0309cb34b342c0fa",
+      "plan_id": "DEV-03",
+      "gt_class": "wc up",
+      "pred_class": "OTHER_RELEVANT_SYMBOL",
+      "status": "COMPONENT_CANDIDATE",
+      "exclusion_reason": null,
+      "structural_score": 0.8083
+    },
+    {
+      "candidate_id": "ACa334b1f91ffc6781f7d2",
+      "plan_id": "DEV-03",
+      "gt_class": "NOT_A_COMPONENT",
+      "pred_class": "OTHER_RELEVANT_SYMBOL",
+      "status": "COMPONENT_CANDIDATE",
+      "exclusion_reason": null,
+      "structural_score": 0.8807
+    },
+    {
+      "candidate_id": "AC322792ddee68aad8acfd",
+      "plan_id": "DEV-03",
+      "gt_class": "wc up",
+      "pred_class": "OTHER_RELEVANT_SYMBOL",
+      "status": "COMPONENT_CANDIDATE",
+      "exclusion_reason": null,
+      "structural_score": 0.8012
+    },
+    {
+      "candidate_id": "AC0b9cbdac3dffd5fb1553",
+      "plan_id": "DEV-03",
+      "gt_class": "küche",
+      "pred_class": "OTHER_RELEVANT_SYMBOL",
+      "status": "COMPONENT_CANDIDATE",
+      "exclusion_reason": null,
+      "structural_score": 0.7839
+    },
+    {
+      "candidate_id": "AC3ce3ffecc0e64753a6a9",
+      "plan_id": "DEV-03",
+      "gt_class": "dusche",
+      "pred_class": "OTHER_RELEVANT_SYMBOL",
+      "status": "COMPONENT_CANDIDATE",
+      "exclusion_reason": null,
+      "structural_score": 0.7638
+    },
+    {
+      "candidate_id": "AC8faee45015c7db6cf508",
+      "plan_id": "DEV-03",
+      "gt_class": "NOT_A_COMPONENT",
+      "pred_class": "OTHER_RELEVANT_SYMBOL",
+      "status": "COMPONENT_FACT",
+      "exclusion_reason": null,
+      "structural_score": 0.8658
+    },
+    {
+      "candidate_id": "ACcd0bd12fd5e07723a0a0",
+      "plan_id": "DEV-03",
+      "gt_class": "küche",
+      "pred_class": "OTHER_RELEVANT_SYMBOL",
+      "status": "COMPONENT_CANDIDATE",
+      "exclusion_reason": null,
+      "structural_score": 0.801
+    },
+    {
+      "candidate_id": "AC653f470ff9baa81b7c3d",
+      "plan_id": "DEV-03",
+      "gt_class": "dusche",
+      "pred_class": "OTHER_RELEVANT_SYMBOL",
+      "status": "COMPONENT_CANDIDATE",
+      "exclusion_reason": null,
+      "structural_score": 0.769
+    },
+    {
+      "candidate_id": "AC4a9c7a11b26f1ac1c376",
+      "plan_id": "DEV-03",
+      "gt_class": "wc up",
+      "pred_class": "OTHER_RELEVANT_SYMBOL",
+      "status": "COMPONENT_CANDIDATE",
+      "exclusion_reason": null,
+      "structural_score": 0.8313
+    },
+    {
+      "candidate_id": "ACe49fc3d303a2df33d69a",
+      "plan_id": "DEV-03",
+      "gt_class": "NOT_A_COMPONENT",
+      "pred_class": "OTHER_RELEVANT_SYMBOL",
+      "status": "COMPONENT_FACT",
+      "exclusion_reason": null,
+      "structural_score": 0.8658
+    },
+    {
+      "candidate_id": "ACed44daaec44875761e06",
+      "plan_id": "DEV-03",
+      "gt_class": "küche",
+      "pred_class": "OTHER_RELEVANT_SYMBOL",
+      "status": "COMPONENT_CANDIDATE",
+      "exclusion_reason": null,
+      "structural_score": 0.7842
+    },
+    {
+      "candidate_id": "AC2433f5dfe0aa81f2d2d5",
+      "plan_id": "DEV-03",
+      "gt_class": "dusche",
+      "pred_class": "OTHER_RELEVANT_SYMBOL",
+      "status": "COMPONENT_CANDIDATE",
+      "exclusion_reason": null,
+      "structural_score": 0.7853
+    },
+    {
+      "candidate_id": "AC82fdb37f1ea2c691ee6e",
+      "plan_id": "DEV-03",
+      "gt_class": "wc up",
+      "pred_class": "OTHER_RELEVANT_SYMBOL",
+      "status": "COMPONENT_CANDIDATE",
+      "exclusion_reason": null,
+      "structural_score": 0.7989
+    },
+    {
+      "candidate_id": "AC08b0d9f818bd7c5577b2",
+      "plan_id": "DEV-03",
+      "gt_class": "NOT_A_COMPONENT",
+      "pred_class": "OTHER_RELEVANT_SYMBOL",
+      "status": "COMPONENT_FACT",
+      "exclusion_reason": null,
+      "structural_score": 0.8658
+    },
+    {
+      "candidate_id": "AC63349bcaeafa80d4ebf7",
+      "plan_id": "DEV-03",
+      "gt_class": "NOT_A_COMPONENT",
+      "pred_class": "OTHER_RELEVANT_SYMBOL",
+      "status": "COMPONENT_CANDIDATE",
+      "exclusion_reason": null,
+      "structural_score": 0.7758
+    },
+    {
+      "candidate_id": "AC16f7fe6f1a44b90a0737",
+      "plan_id": "DEV-03",
+      "gt_class": "NOT_A_COMPONENT",
+      "pred_class": "OTHER_RELEVANT_SYMBOL",
+      "status": "COMPONENT_FACT",
+      "exclusion_reason": null,
+      "structural_score": 0.8868
+    },
+    {
+      "candidate_id": "AC15f3cdb6850a9796b68a",
+      "plan_id": "DEV-03",
+      "gt_class": "AMBIGUOUS",
+      "pred_class": "OTHER_RELEVANT_SYMBOL",
+      "status": "COMPONENT_CANDIDATE",
+      "exclusion_reason": null,
+      "structural_score": 0.7047
+    },
+    {
+      "candidate_id": "ACae5d32edfde4acf130de",
+      "plan_id": "DEV-03",
+      "gt_class": "OTHER_RELEVANT_SYMBOL",
+      "pred_class": "OTHER_RELEVANT_SYMBOL",
+      "status": "COMPONENT_CANDIDATE",
+      "exclusion_reason": null,
+      "structural_score": 0.708
+    },
+    {
+      "candidate_id": "ACb932e0e27bfca1be353a",
+      "plan_id": "DEV-03",
+      "gt_class": "OTHER_RELEVANT_SYMBOL",
+      "pred_class": "OTHER_RELEVANT_SYMBOL",
+      "status": "COMPONENT_CANDIDATE",
+      "exclusion_reason": null,
+      "structural_score": 0.8193
+    },
+    {
+      "candidate_id": "AC0fe8bf30d70f3b1ba932",
+      "plan_id": "DEV-03",
+      "gt_class": "NOT_A_COMPONENT",
+      "pred_class": "OTHER_RELEVANT_SYMBOL",
+      "status": "COMPONENT_FACT",
+      "exclusion_reason": null,
+      "structural_score": 0.8658
+    },
+    {
+      "candidate_id": "AC255f94b27ca65f2e9678",
+      "plan_id": "DEV-03",
+      "gt_class": "NOT_A_COMPONENT",
+      "pred_class": "OTHER_RELEVANT_SYMBOL",
+      "status": "COMPONENT_CANDIDATE",
+      "exclusion_reason": null,
+      "structural_score": 0.7921
+    },
+    {
+      "candidate_id": "ACa74480cbe03268d5f695",
+      "plan_id": "DEV-03",
+      "gt_class": "OTHER_RELEVANT_SYMBOL",
+      "pred_class": "OTHER_RELEVANT_SYMBOL",
+      "status": "COMPONENT_CANDIDATE",
+      "exclusion_reason": null,
+      "structural_score": 0.8061
+    },
+    {
+      "candidate_id": "AC77282dac70060ba0392a",
+      "plan_id": "DEV-03",
+      "gt_class": "NOT_A_COMPONENT",
+      "pred_class": "OTHER_RELEVANT_SYMBOL",
+      "status": "COMPONENT_CANDIDATE",
+      "exclusion_reason": null,
+      "structural_score": 0.8903
+    },
+    {
+      "candidate_id": "ACc2a0b615e788ed67245d",
+      "plan_id": "DEV-03",
+      "gt_class": "NOT_A_COMPONENT",
+      "pred_class": "OTHER_RELEVANT_SYMBOL",
+      "status": "COMPONENT_CANDIDATE",
+      "exclusion_reason": null,
+      "structural_score": 0.8902
+    },
+    {
+      "candidate_id": "AC869c517a58c6d0424931",
+      "plan_id": "DEV-03",
+      "gt_class": "NOT_A_COMPONENT",
+      "pred_class": "OTHER_RELEVANT_SYMBOL",
+      "status": "COMPONENT_CANDIDATE",
+      "exclusion_reason": null,
+      "structural_score": 0.868
+    },
+    {
+      "candidate_id": "AC93082506a4e7270caa30",
+      "plan_id": "DEV-03",
+      "gt_class": "NOT_A_COMPONENT",
+      "pred_class": "OTHER_RELEVANT_SYMBOL",
+      "status": "COMPONENT_CANDIDATE",
+      "exclusion_reason": null,
+      "structural_score": 0.7835
+    },
+    {
+      "candidate_id": "ACc63cdd33f6c9b5333fa1",
+      "plan_id": "DEV-03",
+      "gt_class": "NOT_A_COMPONENT",
+      "pred_class": "OTHER_RELEVANT_SYMBOL",
+      "status": "COMPONENT_CANDIDATE",
+      "exclusion_reason": null,
+      "structural_score": 0.7299
+    },
+    {
+      "candidate_id": "AC29e37e7a6a092f066d13",
+      "plan_id": "DEV-04",
+      "gt_class": "NOT_A_COMPONENT",
+      "pred_class": "OTHER_RELEVANT_SYMBOL",
+      "status": "COMPONENT_CANDIDATE",
+      "exclusion_reason": null,
+      "structural_score": 0.8829
+    },
+    {
+      "candidate_id": "AC9487f9c5252a1761cfc1",
+      "plan_id": "DEV-04",
+      "gt_class": "OTHER_RELEVANT_SYMBOL",
+      "pred_class": "OTHER_RELEVANT_SYMBOL",
+      "status": "COMPONENT_CANDIDATE",
+      "exclusion_reason": null,
+      "structural_score": 0.6876
+    },
+    {
+      "candidate_id": "ACcfcf4aa5705367a730e4",
+      "plan_id": "DEV-04",
+      "gt_class": "NOT_A_COMPONENT",
+      "pred_class": "OTHER_RELEVANT_SYMBOL",
+      "status": "COMPONENT_CANDIDATE",
+      "exclusion_reason": null,
+      "structural_score": 0.8719
+    },
+    {
+      "candidate_id": "AC1788874dab457702a77a",
+      "plan_id": "DEV-04",
+      "gt_class": "NOT_A_COMPONENT",
+      "pred_class": "OTHER_RELEVANT_SYMBOL",
+      "status": "COMPONENT_CANDIDATE",
+      "exclusion_reason": null,
+      "structural_score": 0.8612
+    },
+    {
+      "candidate_id": "ACba69d13ecb99ca491632",
+      "plan_id": "DEV-04",
+      "gt_class": "NOT_A_COMPONENT",
+      "pred_class": "OTHER_RELEVANT_SYMBOL",
+      "status": "COMPONENT_CANDIDATE",
+      "exclusion_reason": null,
+      "structural_score": 0.8612
+    },
+    {
+      "candidate_id": "AC057ede0edb365c282bb2",
+      "plan_id": "DEV-04",
+      "gt_class": "NOT_A_COMPONENT",
+      "pred_class": "OTHER_RELEVANT_SYMBOL",
+      "status": "COMPONENT_CANDIDATE",
+      "exclusion_reason": null,
+      "structural_score": 0.8612
+    },
+    {
+      "candidate_id": "AC59a98065093f681972f6",
+      "plan_id": "DEV-04",
+      "gt_class": "OTHER_RELEVANT_SYMBOL",
+      "pred_class": "OTHER_RELEVANT_SYMBOL",
+      "status": "COMPONENT_CANDIDATE",
+      "exclusion_reason": null,
+      "structural_score": 0.6409
+    },
+    {
+      "candidate_id": "AC17b9114a1425406f7311",
+      "plan_id": "DEV-04",
+      "gt_class": "OTHER_RELEVANT_SYMBOL",
+      "pred_class": "OTHER_RELEVANT_SYMBOL",
+      "status": "COMPONENT_CANDIDATE",
+      "exclusion_reason": null,
+      "structural_score": 0.6669
+    },
+    {
+      "candidate_id": "AC820ec12e6611f0abc990",
+      "plan_id": "DEV-04",
+      "gt_class": "NOT_A_COMPONENT",
+      "pred_class": "NOT_A_COMPONENT",
+      "status": "COMPONENT_CANDIDATE",
+      "exclusion_reason": null,
+      "structural_score": 0.9505
+    },
+    {
+      "candidate_id": "ACec822aec999358d12ba9",
+      "plan_id": "DEV-04",
+      "gt_class": "wc up",
+      "pred_class": "OTHER_RELEVANT_SYMBOL",
+      "status": "COMPONENT_CANDIDATE",
+      "exclusion_reason": null,
+      "structural_score": 0.8445
+    },
+    {
+      "candidate_id": "ACd6fb6e61df260b337f99",
+      "plan_id": "DEV-04",
+      "gt_class": "up verteiler unter wt",
+      "pred_class": "OTHER_RELEVANT_SYMBOL",
+      "status": "COMPONENT_CANDIDATE",
+      "exclusion_reason": null,
+      "structural_score": 0.7532
+    },
+    {
+      "candidate_id": "ACd954b0f3b8b19536bb25",
+      "plan_id": "DEV-04",
+      "gt_class": "up verteiler unter wt",
+      "pred_class": "OTHER_RELEVANT_SYMBOL",
+      "status": "COMPONENT_CANDIDATE",
+      "exclusion_reason": null,
+      "structural_score": 0.7534
+    },
+    {
+      "candidate_id": "AC67caeecd8d929485c536",
+      "plan_id": "DEV-04",
+      "gt_class": "wc up",
+      "pred_class": "OTHER_RELEVANT_SYMBOL",
+      "status": "COMPONENT_CANDIDATE",
+      "exclusion_reason": null,
+      "structural_score": 0.8445
+    },
+    {
+      "candidate_id": "AC3c4d1916c7d3f7a53ed0",
+      "plan_id": "DEV-04",
+      "gt_class": "NOT_A_COMPONENT",
+      "pred_class": "OTHER_RELEVANT_SYMBOL",
+      "status": "COMPONENT_CANDIDATE",
+      "exclusion_reason": null,
+      "structural_score": 0.7361
+    },
+    {
+      "candidate_id": "ACe22bc04991bd3f4f3c93",
+      "plan_id": "DEV-04",
+      "gt_class": "NOT_A_COMPONENT",
+      "pred_class": "NOT_A_COMPONENT",
+      "status": "COMPONENT_CANDIDATE",
+      "exclusion_reason": null,
+      "structural_score": 0.9543
+    },
+    {
+      "candidate_id": "AC1fd9d113c91084f86445",
+      "plan_id": "DEV-04",
+      "gt_class": "NOT_A_COMPONENT",
+      "pred_class": "OTHER_RELEVANT_SYMBOL",
+      "status": "COMPONENT_CANDIDATE",
+      "exclusion_reason": null,
+      "structural_score": 0.892
+    },
+    {
+      "candidate_id": "AC5820c448d21b3d401d56",
+      "plan_id": "DEV-04",
+      "gt_class": "up verteiler unter wt",
+      "pred_class": "OTHER_RELEVANT_SYMBOL",
+      "status": "COMPONENT_CANDIDATE",
+      "exclusion_reason": null,
+      "structural_score": 0.7424
+    },
+    {
+      "candidate_id": "AC91906bd2f0b0dad6fe89",
+      "plan_id": "DEV-04",
+      "gt_class": "NOT_A_COMPONENT",
+      "pred_class": "NOT_A_COMPONENT",
+      "status": "COMPONENT_CANDIDATE",
+      "exclusion_reason": null,
+      "structural_score": 0.7795
+    },
+    {
+      "candidate_id": "ACd1e9aac5656fe180a0e8",
+      "plan_id": "DEV-04",
+      "gt_class": "küche",
+      "pred_class": "OTHER_RELEVANT_SYMBOL",
+      "status": "COMPONENT_CANDIDATE",
+      "exclusion_reason": null,
+      "structural_score": 0.6879
+    },
+    {
+      "candidate_id": "AC1df001f81f4c855371ac",
+      "plan_id": "DEV-04",
+      "gt_class": "wc up",
+      "pred_class": "OTHER_RELEVANT_SYMBOL",
+      "status": "COMPONENT_CANDIDATE",
+      "exclusion_reason": null,
+      "structural_score": 0.8435
+    },
+    {
+      "candidate_id": "AC8408c5d8d4b9abd22df2",
+      "plan_id": "DEV-04",
+      "gt_class": "up verteiler unter wt",
+      "pred_class": "OTHER_RELEVANT_SYMBOL",
+      "status": "COMPONENT_CANDIDATE",
+      "exclusion_reason": null,
+      "structural_score": 0.753
+    },
+    {
+      "candidate_id": "ACcfe48a0a8212eba5d83f",
+      "plan_id": "DEV-04",
+      "gt_class": "NOT_A_COMPONENT",
+      "pred_class": "OTHER_RELEVANT_SYMBOL",
+      "status": "COMPONENT_CANDIDATE",
+      "exclusion_reason": null,
+      "structural_score": 0.8341
+    },
+    {
+      "candidate_id": "ACc013a79b0222c4aab35f",
+      "plan_id": "DEV-04",
+      "gt_class": "wc up",
+      "pred_class": "OTHER_RELEVANT_SYMBOL",
+      "status": "COMPONENT_CANDIDATE",
+      "exclusion_reason": null,
+      "structural_score": 0.8435
+    },
+    {
+      "candidate_id": "AC9b2528ccddb3902a27ef",
+      "plan_id": "DEV-04",
+      "gt_class": "küche",
+      "pred_class": "OTHER_RELEVANT_SYMBOL",
+      "status": "COMPONENT_CANDIDATE",
+      "exclusion_reason": null,
+      "structural_score": 0.735
+    },
+    {
+      "candidate_id": "AC8ce752976cd4dfee3eae",
+      "plan_id": "DEV-04",
+      "gt_class": "NOT_A_COMPONENT",
+      "pred_class": "NOT_A_COMPONENT",
+      "status": "COMPONENT_CANDIDATE",
+      "exclusion_reason": null,
+      "structural_score": 0.9108
+    },
+    {
+      "candidate_id": "AC6959e8fd6df206aca85b",
+      "plan_id": "DEV-04",
+      "gt_class": "NOT_A_COMPONENT",
+      "pred_class": "OTHER_RELEVANT_SYMBOL",
+      "status": "COMPONENT_CANDIDATE",
+      "exclusion_reason": null,
+      "structural_score": 0.911
+    },
+    {
+      "candidate_id": "ACe8be908f577901110fa0",
+      "plan_id": "DEV-04",
+      "gt_class": "NOT_A_COMPONENT",
+      "pred_class": "OTHER_RELEVANT_SYMBOL",
+      "status": "COMPONENT_CANDIDATE",
+      "exclusion_reason": null,
+      "structural_score": 0.7812
+    },
+    {
+      "candidate_id": "AC1ad8edd051c2e11a63d1",
+      "plan_id": "DEV-04",
+      "gt_class": "NOT_A_COMPONENT",
+      "pred_class": "OTHER_RELEVANT_SYMBOL",
+      "status": "COMPONENT_CANDIDATE",
+      "exclusion_reason": null,
+      "structural_score": 0.7949
+    },
+    {
+      "candidate_id": "AC44b58d6be4481bd81495",
+      "plan_id": "DEV-04",
+      "gt_class": "NOT_A_COMPONENT",
+      "pred_class": "NOT_A_COMPONENT",
+      "status": "COMPONENT_CANDIDATE",
+      "exclusion_reason": null,
+      "structural_score": 0.9155
+    },
+    {
+      "candidate_id": "AC798c9d93e6ef5d43da13",
+      "plan_id": "DEV-04",
+      "gt_class": "NOT_A_COMPONENT",
+      "pred_class": "NOT_A_COMPONENT",
+      "status": "COMPONENT_CANDIDATE",
+      "exclusion_reason": null,
+      "structural_score": 0.7018
+    },
+    {
+      "candidate_id": "ACcb7c6a8572b5635b5c12",
+      "plan_id": "DEV-04",
+      "gt_class": "NOT_A_COMPONENT",
+      "pred_class": "NOT_A_COMPONENT",
+      "status": "COMPONENT_CANDIDATE",
+      "exclusion_reason": null,
+      "structural_score": 0.7021
+    },
+    {
+      "candidate_id": "ACdf6bc2fd7a4fa19398d8",
+      "plan_id": "DEV-04",
+      "gt_class": "NOT_A_COMPONENT",
+      "pred_class": "OTHER_RELEVANT_SYMBOL",
+      "status": "COMPONENT_CANDIDATE",
+      "exclusion_reason": null,
+      "structural_score": 0.8971
+    },
+    {
+      "candidate_id": "ACdeb8b2ef4c048b246352",
+      "plan_id": "DEV-04",
+      "gt_class": "NOT_A_COMPONENT",
+      "pred_class": "OTHER_RELEVANT_SYMBOL",
+      "status": "COMPONENT_CANDIDATE",
+      "exclusion_reason": null,
+      "structural_score": 0.8071
+    },
+    {
+      "candidate_id": "AC27a3eafcd0ebd85d7013",
+      "plan_id": "DEV-04",
+      "gt_class": "NOT_A_COMPONENT",
+      "pred_class": "OTHER_RELEVANT_SYMBOL",
+      "status": "COMPONENT_CANDIDATE",
+      "exclusion_reason": null,
+      "structural_score": 0.8071
+    },
+    {
+      "candidate_id": "ACaee075dbcc474a66e0ff",
+      "plan_id": "DEV-04",
+      "gt_class": "NOT_A_COMPONENT",
+      "pred_class": "OTHER_RELEVANT_SYMBOL",
+      "status": "COMPONENT_CANDIDATE",
+      "exclusion_reason": null,
+      "structural_score": 0.8972
+    },
+    {
+      "candidate_id": "ACf00673d11bb01714bda7",
+      "plan_id": "DEV-04",
+      "gt_class": "NOT_A_COMPONENT",
+      "pred_class": "OTHER_RELEVANT_SYMBOL",
+      "status": "COMPONENT_CANDIDATE",
+      "exclusion_reason": null,
+      "structural_score": 0.8972
+    },
+    {
+      "candidate_id": "AC6e476b5635f535e08ef4",
+      "plan_id": "DEV-04",
+      "gt_class": "NOT_A_COMPONENT",
+      "pred_class": "OTHER_RELEVANT_SYMBOL",
+      "status": "COMPONENT_CANDIDATE",
+      "exclusion_reason": null,
+      "structural_score": 0.8611
+    },
+    {
+      "candidate_id": "ACe584d70177bbd7f1bd8b",
+      "plan_id": "DEV-04",
+      "gt_class": "NOT_A_COMPONENT",
+      "pred_class": "OTHER_RELEVANT_SYMBOL",
+      "status": "COMPONENT_CANDIDATE",
+      "exclusion_reason": null,
+      "structural_score": 0.9072
+    },
+    {
+      "candidate_id": "AC14a68da65651329fb508",
+      "plan_id": "DEV-04",
+      "gt_class": "NOT_A_COMPONENT",
+      "pred_class": "OTHER_RELEVANT_SYMBOL",
+      "status": "COMPONENT_CANDIDATE",
+      "exclusion_reason": null,
+      "structural_score": 0.8971
+    },
+    {
+      "candidate_id": "AC3a32670a9dc176b23c56",
+      "plan_id": "DEV-04",
+      "gt_class": "NOT_A_COMPONENT",
+      "pred_class": "OTHER_RELEVANT_SYMBOL",
+      "status": "COMPONENT_CANDIDATE",
+      "exclusion_reason": null,
+      "structural_score": 0.8071
+    },
+    {
+      "candidate_id": "AC42d766dafafcfcf25ce2",
+      "plan_id": "DEV-04",
+      "gt_class": "NOT_A_COMPONENT",
+      "pred_class": "OTHER_RELEVANT_SYMBOL",
+      "status": "COMPONENT_CANDIDATE",
+      "exclusion_reason": null,
+      "structural_score": 0.8364
+    },
+    {
+      "candidate_id": "ACa75f677fd83574817590",
+      "plan_id": "DEV-04",
+      "gt_class": "NOT_A_COMPONENT",
+      "pred_class": "NOT_A_COMPONENT",
+      "status": "COMPONENT_CANDIDATE",
+      "exclusion_reason": null,
+      "structural_score": 0.7798
+    },
+    {
+      "candidate_id": "ACe6645f2614600df5440c",
+      "plan_id": "DEV-04",
+      "gt_class": "NOT_A_COMPONENT",
+      "pred_class": "OTHER_RELEVANT_SYMBOL",
+      "status": "COMPONENT_CANDIDATE",
+      "exclusion_reason": null,
+      "structural_score": 0.9601
+    },
+    {
+      "candidate_id": "AC1a8818184e583645a132",
+      "plan_id": "DEV-04",
+      "gt_class": "NOT_A_COMPONENT",
+      "pred_class": "OTHER_RELEVANT_SYMBOL",
+      "status": "COMPONENT_CANDIDATE",
+      "exclusion_reason": null,
+      "structural_score": 0.7946
+    },
+    {
+      "candidate_id": "AC54b1d47197d0206c0eb5",
+      "plan_id": "DEV-04",
+      "gt_class": "up verteiler unter wt",
+      "pred_class": "OTHER_RELEVANT_SYMBOL",
+      "status": "COMPONENT_CANDIDATE",
+      "exclusion_reason": null,
+      "structural_score": 0.7349
+    },
+    {
+      "candidate_id": "AC2ee183a1f669ecd998d7",
+      "plan_id": "DEV-04",
+      "gt_class": "wc up",
+      "pred_class": "OTHER_RELEVANT_SYMBOL",
+      "status": "COMPONENT_CANDIDATE",
+      "exclusion_reason": null,
+      "structural_score": 0.7579
+    },
+    {
+      "candidate_id": "ACbbb56c0bb5785264b94f",
+      "plan_id": "DEV-04",
+      "gt_class": "NOT_A_COMPONENT",
+      "pred_class": "OTHER_RELEVANT_SYMBOL",
+      "status": "COMPONENT_CANDIDATE",
+      "exclusion_reason": null,
+      "structural_score": 0.7361
+    },
+    {
+      "candidate_id": "AC223a513b3ce46cc894e4",
+      "plan_id": "DEV-04",
+      "gt_class": "NOT_A_COMPONENT",
+      "pred_class": "NOT_A_COMPONENT",
+      "status": "COMPONENT_CANDIDATE",
+      "exclusion_reason": null,
+      "structural_score": 0.702
+    },
+    {
+      "candidate_id": "ACf6ffb18a87c4b0494cfe",
+      "plan_id": "DEV-04",
+      "gt_class": "NOT_A_COMPONENT",
+      "pred_class": "OTHER_RELEVANT_SYMBOL",
+      "status": "COMPONENT_CANDIDATE",
+      "exclusion_reason": null,
+      "structural_score": 0.8972
+    },
+    {
+      "candidate_id": "AC9095fdff7d20d8adec61",
+      "plan_id": "DEV-04",
+      "gt_class": "NOT_A_COMPONENT",
+      "pred_class": "OTHER_RELEVANT_SYMBOL",
+      "status": "COMPONENT_CANDIDATE",
+      "exclusion_reason": null,
+      "structural_score": 0.7362
+    },
+    {
+      "candidate_id": "ACca1d40c30b96a9bd97a7",
+      "plan_id": "DEV-04",
+      "gt_class": "NOT_A_COMPONENT",
+      "pred_class": "OTHER_RELEVANT_SYMBOL",
+      "status": "COMPONENT_CANDIDATE",
+      "exclusion_reason": null,
+      "structural_score": 0.7362
+    },
+    {
+      "candidate_id": "AC0cafbf74d80c3b9695ca",
+      "plan_id": "DEV-04",
+      "gt_class": "NOT_A_COMPONENT",
+      "pred_class": "OTHER_RELEVANT_SYMBOL",
+      "status": "COMPONENT_CANDIDATE",
+      "exclusion_reason": null,
+      "structural_score": 0.7362
+    },
+    {
+      "candidate_id": "ACc618b7327602f24b7669",
+      "plan_id": "DEV-04",
+      "gt_class": "NOT_A_COMPONENT",
+      "pred_class": "OTHER_RELEVANT_SYMBOL",
+      "status": "COMPONENT_CANDIDATE",
+      "exclusion_reason": null,
+      "structural_score": 0.8141
+    },
+    {
+      "candidate_id": "AC5ccbf2f144584e2fa8f5",
+      "plan_id": "DEV-04",
+      "gt_class": "NOT_A_COMPONENT",
+      "pred_class": "OTHER_RELEVANT_SYMBOL",
+      "status": "COMPONENT_CANDIDATE",
+      "exclusion_reason": null,
+      "structural_score": 0.8259
+    },
+    {
+      "candidate_id": "AC6934f85faee7bda88087",
+      "plan_id": "DEV-04",
+      "gt_class": "NOT_A_COMPONENT",
+      "pred_class": "NOT_A_COMPONENT",
+      "status": "COMPONENT_CANDIDATE",
+      "exclusion_reason": null,
+      "structural_score": 0.8266
+    },
+    {
+      "candidate_id": "AC3f3d27b5317cb4367270",
+      "plan_id": "DEV-04",
+      "gt_class": "NOT_A_COMPONENT",
+      "pred_class": "OTHER_RELEVANT_SYMBOL",
+      "status": "COMPONENT_CANDIDATE",
+      "exclusion_reason": null,
+      "structural_score": 0.7646
+    },
+    {
+      "candidate_id": "AC8817553eda892decd40c",
+      "plan_id": "DEV-04",
+      "gt_class": "NOT_A_COMPONENT",
+      "pred_class": "OTHER_RELEVANT_SYMBOL",
+      "status": "COMPONENT_CANDIDATE",
+      "exclusion_reason": null,
+      "structural_score": 0.8069
+    },
+    {
+      "candidate_id": "AC6dc9b687fa771f9479f2",
+      "plan_id": "DEV-04",
+      "gt_class": "NOT_A_COMPONENT",
+      "pred_class": "NOT_A_COMPONENT",
+      "status": "COMPONENT_CANDIDATE",
+      "exclusion_reason": null,
+      "structural_score": 0.9153
+    },
+    {
+      "candidate_id": "ACb912323486f01c4b1e2b",
+      "plan_id": "DEV-04",
+      "gt_class": "NOT_A_COMPONENT",
+      "pred_class": "NOT_A_COMPONENT",
+      "status": "COMPONENT_CANDIDATE",
+      "exclusion_reason": null,
+      "structural_score": 0.9153
+    },
+    {
+      "candidate_id": "AC4c5adb663d433670371e",
+      "plan_id": "DEV-04",
+      "gt_class": "OTHER_RELEVANT_SYMBOL",
+      "pred_class": "OTHER_RELEVANT_SYMBOL",
+      "status": "COMPONENT_CANDIDATE",
+      "exclusion_reason": null,
+      "structural_score": 0.7002
+    },
+    {
+      "candidate_id": "ACeece42d9d6eb270d487f",
+      "plan_id": "DEV-04",
+      "gt_class": "NOT_A_COMPONENT",
+      "pred_class": "OTHER_RELEVANT_SYMBOL",
+      "status": "COMPONENT_CANDIDATE",
+      "exclusion_reason": null,
+      "structural_score": 0.8332
+    },
+    {
+      "candidate_id": "AC4e43f947217a51e9757f",
+      "plan_id": "DEV-04",
+      "gt_class": "NOT_A_COMPONENT",
+      "pred_class": "OTHER_RELEVANT_SYMBOL",
+      "status": "COMPONENT_CANDIDATE",
+      "exclusion_reason": null,
+      "structural_score": 0.838
+    },
+    {
+      "candidate_id": "AC41f403b98776e1a2e3dd",
+      "plan_id": "DEV-04",
+      "gt_class": "NOT_A_COMPONENT",
+      "pred_class": "NOT_A_COMPONENT",
+      "status": "COMPONENT_CANDIDATE",
+      "exclusion_reason": null,
+      "structural_score": 0.9
+    },
+    {
+      "candidate_id": "ACfe0c5eb349d65e7e275a",
+      "plan_id": "DEV-05",
+      "gt_class": "NOT_A_COMPONENT",
+      "pred_class": "OTHER_RELEVANT_SYMBOL",
+      "status": "COMPONENT_CANDIDATE",
+      "exclusion_reason": null,
+      "structural_score": 0.8629
+    },
+    {
+      "candidate_id": "ACf30ed1c844dc62fccde1",
+      "plan_id": "DEV-05",
+      "gt_class": "NOT_A_COMPONENT",
+      "pred_class": "OTHER_RELEVANT_SYMBOL",
+      "status": "COMPONENT_CANDIDATE",
+      "exclusion_reason": null,
+      "structural_score": 0.8532
+    },
+    {
+      "candidate_id": "AC13c23822790efe0932c5",
+      "plan_id": "DEV-05",
+      "gt_class": "NOT_A_COMPONENT",
+      "pred_class": "OTHER_RELEVANT_SYMBOL",
+      "status": "COMPONENT_CANDIDATE",
+      "exclusion_reason": null,
+      "structural_score": 0.8532
+    },
+    {
+      "candidate_id": "AC2b51a5e4390cd898b01f",
+      "plan_id": "DEV-05",
+      "gt_class": "NOT_A_COMPONENT",
+      "pred_class": "OTHER_RELEVANT_SYMBOL",
+      "status": "COMPONENT_CANDIDATE",
+      "exclusion_reason": null,
+      "structural_score": 0.8532
+    },
+    {
+      "candidate_id": "ACaddc78d6650ad36f1f59",
+      "plan_id": "DEV-05",
+      "gt_class": "NOT_A_COMPONENT",
+      "pred_class": "OTHER_RELEVANT_SYMBOL",
+      "status": "COMPONENT_CANDIDATE",
+      "exclusion_reason": null,
+      "structural_score": 0.8532
+    },
+    {
+      "candidate_id": "AC68d6c2f165e6ca4bc012",
+      "plan_id": "DEV-05",
+      "gt_class": "NOT_A_COMPONENT",
+      "pred_class": "OTHER_RELEVANT_SYMBOL",
+      "status": "COMPONENT_CANDIDATE",
+      "exclusion_reason": null,
+      "structural_score": 0.8532
+    },
+    {
+      "candidate_id": "ACaf1ea54152e541ef73b4",
+      "plan_id": "DEV-05",
+      "gt_class": "NOT_A_COMPONENT",
+      "pred_class": "OTHER_RELEVANT_SYMBOL",
+      "status": "COMPONENT_CANDIDATE",
+      "exclusion_reason": null,
+      "structural_score": 0.648
+    },
+    {
+      "candidate_id": "ACd6a9d88c4de10eb3af6c",
+      "plan_id": "DEV-05",
+      "gt_class": "NOT_A_COMPONENT",
+      "pred_class": "OTHER_RELEVANT_SYMBOL",
+      "status": "COMPONENT_CANDIDATE",
+      "exclusion_reason": null,
+      "structural_score": 0.7513
+    },
+    {
+      "candidate_id": "ACe768222da304176fd4d9",
+      "plan_id": "DEV-05",
+      "gt_class": "wc up",
+      "pred_class": "OTHER_RELEVANT_SYMBOL",
+      "status": "COMPONENT_CANDIDATE",
+      "exclusion_reason": null,
+      "structural_score": 0.6057
+    },
+    {
+      "candidate_id": "AC564d255ebf60af30a919",
+      "plan_id": "DEV-05",
+      "gt_class": "up verteiler unter wt",
+      "pred_class": "UNRESOLVED",
+      "status": "UNRESOLVED",
+      "exclusion_reason": null,
+      "structural_score": 0.5849
+    },
+    {
+      "candidate_id": "AC12245b93eba7b0a38325",
+      "plan_id": "DEV-05",
+      "gt_class": "küche",
+      "pred_class": "UNRESOLVED",
+      "status": "UNRESOLVED",
+      "exclusion_reason": null,
+      "structural_score": 0.5807
+    },
+    {
+      "candidate_id": "AC951cad5e479b7bc90b3a",
+      "plan_id": "DEV-05",
+      "gt_class": "küche",
+      "pred_class": "UNRESOLVED",
+      "status": "UNRESOLVED",
+      "exclusion_reason": null,
+      "structural_score": 0.5653
+    },
+    {
+      "candidate_id": "AC09016dc0e43d31895f2b",
+      "plan_id": "DEV-05",
+      "gt_class": "NOT_A_COMPONENT",
+      "pred_class": "OTHER_RELEVANT_SYMBOL",
+      "status": "COMPONENT_CANDIDATE",
+      "exclusion_reason": null,
+      "structural_score": 0.7149
+    },
+    {
+      "candidate_id": "ACd48637233015be5b7328",
+      "plan_id": "DEV-05",
+      "gt_class": "OTHER_RELEVANT_SYMBOL",
+      "pred_class": "UNRESOLVED",
+      "status": "UNRESOLVED",
+      "exclusion_reason": null,
+      "structural_score": 0.5424
+    },
+    {
+      "candidate_id": "AC2677561960bc83b0f116",
+      "plan_id": "DEV-05",
+      "gt_class": "NOT_A_COMPONENT",
+      "pred_class": "OTHER_RELEVANT_SYMBOL",
+      "status": "COMPONENT_CANDIDATE",
+      "exclusion_reason": null,
+      "structural_score": 0.7403
+    },
+    {
+      "candidate_id": "ACd43fbccb995d9066bfde",
+      "plan_id": "DEV-05",
+      "gt_class": "NOT_A_COMPONENT",
+      "pred_class": "OTHER_RELEVANT_SYMBOL",
+      "status": "COMPONENT_CANDIDATE",
+      "exclusion_reason": null,
+      "structural_score": 0.7716
+    },
+    {
+      "candidate_id": "ACa8e30b2f9ad824827e81",
+      "plan_id": "DEV-05",
+      "gt_class": "NOT_A_COMPONENT",
+      "pred_class": "OTHER_RELEVANT_SYMBOL",
+      "status": "COMPONENT_CANDIDATE",
+      "exclusion_reason": null,
+      "structural_score": 0.6959
+    },
+    {
+      "candidate_id": "ACcbb1b41d6b7960332a0d",
+      "plan_id": "DEV-05",
+      "gt_class": "NOT_A_COMPONENT",
+      "pred_class": "OTHER_RELEVANT_SYMBOL",
+      "status": "COMPONENT_CANDIDATE",
+      "exclusion_reason": null,
+      "structural_score": 0.7091
+    },
+    {
+      "candidate_id": "AC153d89bcbc47ac0cca6c",
+      "plan_id": "DEV-05",
+      "gt_class": "NOT_A_COMPONENT",
+      "pred_class": "OTHER_RELEVANT_SYMBOL",
+      "status": "COMPONENT_CANDIDATE",
+      "exclusion_reason": null,
+      "structural_score": 0.709
+    },
+    {
+      "candidate_id": "AC424cdbc2909ddb1e3452",
+      "plan_id": "DEV-05",
+      "gt_class": "NOT_A_COMPONENT",
+      "pred_class": "OTHER_RELEVANT_SYMBOL",
+      "status": "COMPONENT_CANDIDATE",
+      "exclusion_reason": null,
+      "structural_score": 0.7115
+    },
+    {
+      "candidate_id": "ACbf49de0247e58f1e0ad4",
+      "plan_id": "DEV-05",
+      "gt_class": "küche",
+      "pred_class": "UNRESOLVED",
+      "status": "UNRESOLVED",
+      "exclusion_reason": null,
+      "structural_score": 0.5851
+    },
+    {
+      "candidate_id": "ACba16b5cc551ecb60a1c9",
+      "plan_id": "DEV-05",
+      "gt_class": "NOT_A_COMPONENT",
+      "pred_class": "OTHER_RELEVANT_SYMBOL",
+      "status": "COMPONENT_CANDIDATE",
+      "exclusion_reason": null,
+      "structural_score": 0.7513
+    },
+    {
+      "candidate_id": "ACa5ac63beec6c815614ae",
+      "plan_id": "DEV-05",
+      "gt_class": "OTHER_RELEVANT_SYMBOL",
+      "pred_class": "OTHER_RELEVANT_SYMBOL",
+      "status": "COMPONENT_CANDIDATE",
+      "exclusion_reason": null,
+      "structural_score": 0.6196
+    },
+    {
+      "candidate_id": "AC5c5c5193e57f916c36c8",
+      "plan_id": "DEV-05",
+      "gt_class": "NOT_A_COMPONENT",
+      "pred_class": "OTHER_RELEVANT_SYMBOL",
+      "status": "COMPONENT_CANDIDATE",
+      "exclusion_reason": null,
+      "structural_score": 0.6477
+    },
+    {
+      "candidate_id": "AC69990efe86fc9557a679",
+      "plan_id": "DEV-05",
+      "gt_class": "wc up",
+      "pred_class": "OTHER_RELEVANT_SYMBOL",
+      "status": "COMPONENT_CANDIDATE",
+      "exclusion_reason": null,
+      "structural_score": 0.605
+    },
+    {
+      "candidate_id": "AC7b68654707c1d2cbe54c",
+      "plan_id": "DEV-05",
+      "gt_class": "NOT_A_COMPONENT",
+      "pred_class": "OTHER_RELEVANT_SYMBOL",
+      "status": "COMPONENT_CANDIDATE",
+      "exclusion_reason": null,
+      "structural_score": 0.6841
+    },
+    {
+      "candidate_id": "ACe5ad3f129b0391b65cc4",
+      "plan_id": "DEV-05",
+      "gt_class": "küche",
+      "pred_class": "UNRESOLVED",
+      "status": "UNRESOLVED",
+      "exclusion_reason": null,
+      "structural_score": 0.5817
+    },
+    {
+      "candidate_id": "AC825dc98db2c21d8bbcad",
+      "plan_id": "DEV-05",
+      "gt_class": "küche",
+      "pred_class": "UNRESOLVED",
+      "status": "UNRESOLVED",
+      "exclusion_reason": null,
+      "structural_score": 0.5653
+    },
+    {
+      "candidate_id": "ACb2f00bb28ff1469a7ba7",
+      "plan_id": "DEV-05",
+      "gt_class": "NOT_A_COMPONENT",
+      "pred_class": "OTHER_RELEVANT_SYMBOL",
+      "status": "COMPONENT_CANDIDATE",
+      "exclusion_reason": null,
+      "structural_score": 0.7798
+    },
+    {
+      "candidate_id": "ACe7cefa091fb03e833361",
+      "plan_id": "DEV-05",
+      "gt_class": "NOT_A_COMPONENT",
+      "pred_class": "OTHER_RELEVANT_SYMBOL",
+      "status": "COMPONENT_CANDIDATE",
+      "exclusion_reason": null,
+      "structural_score": 0.6546
+    },
+    {
+      "candidate_id": "AC71482feab6bc8cc69125",
+      "plan_id": "DEV-05",
+      "gt_class": "NOT_A_COMPONENT",
+      "pred_class": "OTHER_RELEVANT_SYMBOL",
+      "status": "COMPONENT_CANDIDATE",
+      "exclusion_reason": null,
+      "structural_score": 0.7149
+    },
+    {
+      "candidate_id": "ACd0220273fb80b54ef981",
+      "plan_id": "DEV-05",
+      "gt_class": "OTHER_RELEVANT_SYMBOL",
+      "pred_class": "OTHER_RELEVANT_SYMBOL",
+      "status": "COMPONENT_CANDIDATE",
+      "exclusion_reason": null,
+      "structural_score": 0.6196
+    },
+    {
+      "candidate_id": "AC8c52c6b599a060fa2366",
+      "plan_id": "DEV-05",
+      "gt_class": "wc up",
+      "pred_class": "OTHER_RELEVANT_SYMBOL",
+      "status": "COMPONENT_CANDIDATE",
+      "exclusion_reason": null,
+      "structural_score": 0.6055
+    },
+    {
+      "candidate_id": "AC05c5716f2d9fd7c99f16",
+      "plan_id": "DEV-05",
+      "gt_class": "up verteiler unter wt",
+      "pred_class": "UNRESOLVED",
+      "status": "UNRESOLVED",
+      "exclusion_reason": null,
+      "structural_score": 0.5872
+    },
+    {
+      "candidate_id": "ACa92c3cf56df0355aaba6",
+      "plan_id": "DEV-05",
+      "gt_class": "NOT_A_COMPONENT",
+      "pred_class": "OTHER_RELEVANT_SYMBOL",
+      "status": "COMPONENT_CANDIDATE",
+      "exclusion_reason": null,
+      "structural_score": 0.7513
+    },
+    {
+      "candidate_id": "AC01edf1839380858440a7",
+      "plan_id": "DEV-05",
+      "gt_class": "NOT_A_COMPONENT",
+      "pred_class": "OTHER_RELEVANT_SYMBOL",
+      "status": "COMPONENT_CANDIDATE",
+      "exclusion_reason": null,
+      "structural_score": 0.7518
+    },
+    {
+      "candidate_id": "AC7356bf866fa8be45a59e",
+      "plan_id": "DEV-05",
+      "gt_class": "NOT_A_COMPONENT",
+      "pred_class": "OTHER_RELEVANT_SYMBOL",
+      "status": "COMPONENT_CANDIDATE",
+      "exclusion_reason": null,
+      "structural_score": 0.6895
+    },
+    {
+      "candidate_id": "AC7be1b73a30e1d705447f",
+      "plan_id": "DEV-05",
+      "gt_class": "NOT_A_COMPONENT",
+      "pred_class": "OTHER_RELEVANT_SYMBOL",
+      "status": "COMPONENT_CANDIDATE",
+      "exclusion_reason": null,
+      "structural_score": 0.6178
+    },
+    {
+      "candidate_id": "AC4a3a2752bc39d83eb8bc",
+      "plan_id": "DEV-05",
+      "gt_class": "NOT_A_COMPONENT",
+      "pred_class": "OTHER_RELEVANT_SYMBOL",
+      "status": "COMPONENT_CANDIDATE",
+      "exclusion_reason": null,
+      "structural_score": 0.7318
+    },
+    {
+      "candidate_id": "AC113b15a87fb7d362ee68",
+      "plan_id": "DEV-05",
+      "gt_class": "küche",
+      "pred_class": "UNRESOLVED",
+      "status": "UNRESOLVED",
+      "exclusion_reason": null,
+      "structural_score": 0.5825
+    },
+    {
+      "candidate_id": "ACdabd4abd8c57ee370dd3",
+      "plan_id": "DEV-05",
+      "gt_class": "küche",
+      "pred_class": "UNRESOLVED",
+      "status": "UNRESOLVED",
+      "exclusion_reason": null,
+      "structural_score": 0.5681
+    },
+    {
+      "candidate_id": "AC26109e05065f5f00a957",
+      "plan_id": "DEV-05",
+      "gt_class": "NOT_A_COMPONENT",
+      "pred_class": "OTHER_RELEVANT_SYMBOL",
+      "status": "COMPONENT_CANDIDATE",
+      "exclusion_reason": null,
+      "structural_score": 0.7243
+    },
+    {
+      "candidate_id": "ACffe4f23ab86688739b2a",
+      "plan_id": "DEV-05",
+      "gt_class": "up verteiler unter wt",
+      "pred_class": "UNRESOLVED",
+      "status": "UNRESOLVED",
+      "exclusion_reason": null,
+      "structural_score": 0.5857
+    },
+    {
+      "candidate_id": "ACaca4862e4c418011db86",
+      "plan_id": "DEV-05",
+      "gt_class": "wc up",
+      "pred_class": "OTHER_RELEVANT_SYMBOL",
+      "status": "COMPONENT_CANDIDATE",
+      "exclusion_reason": null,
+      "structural_score": 0.6055
+    },
+    {
+      "candidate_id": "ACf1c730b671e32ba4952e",
+      "plan_id": "DEV-05",
+      "gt_class": "OTHER_RELEVANT_SYMBOL",
+      "pred_class": "OTHER_RELEVANT_SYMBOL",
+      "status": "COMPONENT_CANDIDATE",
+      "exclusion_reason": null,
+      "structural_score": 0.6196
+    },
+    {
+      "candidate_id": "ACc08f152f6eed27a751e7",
+      "plan_id": "DEV-05",
+      "gt_class": "NOT_A_COMPONENT",
+      "pred_class": "OTHER_RELEVANT_SYMBOL",
+      "status": "COMPONENT_CANDIDATE",
+      "exclusion_reason": null,
+      "structural_score": 0.648
+    },
+    {
+      "candidate_id": "AC6bebdbda880bc15eadfe",
+      "plan_id": "DEV-05",
+      "gt_class": "NOT_A_COMPONENT",
+      "pred_class": "OTHER_RELEVANT_SYMBOL",
+      "status": "COMPONENT_CANDIDATE",
+      "exclusion_reason": null,
+      "structural_score": 0.6467
+    },
+    {
+      "candidate_id": "AC1c8b9738fd0ab823695f",
+      "plan_id": "DEV-05",
+      "gt_class": "NOT_A_COMPONENT",
+      "pred_class": "OTHER_RELEVANT_SYMBOL",
+      "status": "COMPONENT_CANDIDATE",
+      "exclusion_reason": null,
+      "structural_score": 0.7126
+    },
+    {
+      "candidate_id": "ACe60f2c5bc539b4477b25",
+      "plan_id": "DEV-05",
+      "gt_class": "NOT_A_COMPONENT",
+      "pred_class": "OTHER_RELEVANT_SYMBOL",
+      "status": "COMPONENT_CANDIDATE",
+      "exclusion_reason": null,
+      "structural_score": 0.7318
+    },
+    {
+      "candidate_id": "ACd94c1fa0add5bae4a563",
+      "plan_id": "DEV-05",
+      "gt_class": "NOT_A_COMPONENT",
+      "pred_class": "OTHER_RELEVANT_SYMBOL",
+      "status": "COMPONENT_CANDIDATE",
+      "exclusion_reason": null,
+      "structural_score": 0.7318
+    },
+    {
+      "candidate_id": "ACf44e154a86915b86abe6",
+      "plan_id": "DEV-05",
+      "gt_class": "NOT_A_COMPONENT",
+      "pred_class": "OTHER_RELEVANT_SYMBOL",
+      "status": "COMPONENT_CANDIDATE",
+      "exclusion_reason": null,
+      "structural_score": 0.7318
+    },
+    {
+      "candidate_id": "ACc32a61a543aae7c7d5f5",
+      "plan_id": "DEV-05",
+      "gt_class": "NOT_A_COMPONENT",
+      "pred_class": "OTHER_RELEVANT_SYMBOL",
+      "status": "COMPONENT_CANDIDATE",
+      "exclusion_reason": null,
+      "structural_score": 0.894
+    },
+    {
+      "candidate_id": "ACa4bb2229fa7803b5a4f9",
+      "plan_id": "DEV-05",
+      "gt_class": "NOT_A_COMPONENT",
+      "pred_class": "OTHER_RELEVANT_SYMBOL",
+      "status": "COMPONENT_CANDIDATE",
+      "exclusion_reason": null,
+      "structural_score": 0.7117
+    },
+    {
+      "candidate_id": "AC21cf9d7d1d6f476323e7",
+      "plan_id": "DEV-05",
+      "gt_class": "NOT_A_COMPONENT",
+      "pred_class": "OTHER_RELEVANT_SYMBOL",
+      "status": "COMPONENT_CANDIDATE",
+      "exclusion_reason": null,
+      "structural_score": 0.7118
+    },
+    {
+      "candidate_id": "AC54a1170aec48209f2f51",
+      "plan_id": "DEV-05",
+      "gt_class": "NOT_A_COMPONENT",
+      "pred_class": "OTHER_RELEVANT_SYMBOL",
+      "status": "COMPONENT_CANDIDATE",
+      "exclusion_reason": null,
+      "structural_score": 0.7117
+    },
+    {
+      "candidate_id": "AC1d7b2fc38ad7c0609023",
+      "plan_id": "DEV-05",
+      "gt_class": "NOT_A_COMPONENT",
+      "pred_class": "OTHER_RELEVANT_SYMBOL",
+      "status": "COMPONENT_CANDIDATE",
+      "exclusion_reason": null,
+      "structural_score": 0.7117
+    },
+    {
+      "candidate_id": "AC133abff042884d15b1d2",
+      "plan_id": "DEV-05",
+      "gt_class": "NOT_A_COMPONENT",
+      "pred_class": "OTHER_RELEVANT_SYMBOL",
+      "status": "COMPONENT_CANDIDATE",
+      "exclusion_reason": null,
+      "structural_score": 0.7117
+    },
+    {
+      "candidate_id": "ACd0beae1d36b6938dbc48",
+      "plan_id": "DEV-05",
+      "gt_class": "NOT_A_COMPONENT",
+      "pred_class": "OTHER_RELEVANT_SYMBOL",
+      "status": "COMPONENT_CANDIDATE",
+      "exclusion_reason": null,
+      "structural_score": 0.7091
+    },
+    {
+      "candidate_id": "AC975d9df5a8003e6a2be0",
+      "plan_id": "DEV-05",
+      "gt_class": "NOT_A_COMPONENT",
+      "pred_class": "OTHER_RELEVANT_SYMBOL",
+      "status": "COMPONENT_CANDIDATE",
+      "exclusion_reason": null,
+      "structural_score": 0.8493
+    },
+    {
+      "candidate_id": "AC4030fb838b8263a59cdf",
+      "plan_id": "DEV-05",
+      "gt_class": "NOT_A_COMPONENT",
+      "pred_class": "OTHER_RELEVANT_SYMBOL",
+      "status": "COMPONENT_CANDIDATE",
+      "exclusion_reason": null,
+      "structural_score": 0.8494
+    },
+    {
+      "candidate_id": "AC277c8df53d644c314888",
+      "plan_id": "DEV-05",
+      "gt_class": "NOT_A_COMPONENT",
+      "pred_class": "OTHER_RELEVANT_SYMBOL",
+      "status": "COMPONENT_CANDIDATE",
+      "exclusion_reason": null,
+      "structural_score": 0.7386
+    },
+    {
+      "candidate_id": "ACa75dedcf4e5b048ecdc9",
+      "plan_id": "DEV-05",
+      "gt_class": "NOT_A_COMPONENT",
+      "pred_class": "OTHER_RELEVANT_SYMBOL",
+      "status": "COMPONENT_CANDIDATE",
+      "exclusion_reason": null,
+      "structural_score": 0.7091
+    },
+    {
+      "candidate_id": "AC61a82a997f904403885c",
+      "plan_id": "DEV-05",
+      "gt_class": "NOT_A_COMPONENT",
+      "pred_class": "OTHER_RELEVANT_SYMBOL",
+      "status": "COMPONENT_CANDIDATE",
+      "exclusion_reason": null,
+      "structural_score": 0.7243
+    },
+    {
+      "candidate_id": "ACc0a4dd791be4c62549b7",
+      "plan_id": "DEV-05",
+      "gt_class": "NOT_A_COMPONENT",
+      "pred_class": "UNRESOLVED",
+      "status": "UNRESOLVED",
+      "exclusion_reason": null,
+      "structural_score": 0.5975
+    },
+    {
+      "candidate_id": "ACc2e2c1ca8f64b35bbef3",
+      "plan_id": "DEV-05",
+      "gt_class": "OTHER_RELEVANT_SYMBOL",
+      "pred_class": "OTHER_RELEVANT_SYMBOL",
+      "status": "COMPONENT_CANDIDATE",
+      "exclusion_reason": null,
+      "structural_score": 0.6835
+    },
+    {
+      "candidate_id": "ACb1741b07407ac5aa27c5",
+      "plan_id": "DEV-05",
+      "gt_class": "OTHER_RELEVANT_SYMBOL",
+      "pred_class": "OTHER_RELEVANT_SYMBOL",
+      "status": "COMPONENT_CANDIDATE",
+      "exclusion_reason": null,
+      "structural_score": 0.6155
+    },
+    {
+      "candidate_id": "AC4b0a0a0d3fc54ac0241c",
+      "plan_id": "DEV-05",
+      "gt_class": "NOT_A_COMPONENT",
+      "pred_class": "OTHER_RELEVANT_SYMBOL",
+      "status": "COMPONENT_CANDIDATE",
+      "exclusion_reason": null,
+      "structural_score": 0.6562
+    },
+    {
+      "candidate_id": "AC5e2a756ae47eca4aa11d",
+      "plan_id": "DEV-05",
+      "gt_class": "OTHER_RELEVANT_SYMBOL",
+      "pred_class": "UNRESOLVED",
+      "status": "UNRESOLVED",
+      "exclusion_reason": null,
+      "structural_score": 0.595
+    },
+    {
+      "candidate_id": "AC9991a28c5eac6f33b88b",
+      "plan_id": "DEV-05",
+      "gt_class": "NOT_A_COMPONENT",
+      "pred_class": "OTHER_RELEVANT_SYMBOL",
+      "status": "COMPONENT_CANDIDATE",
+      "exclusion_reason": null,
+      "structural_score": 0.6641
+    },
+    {
+      "candidate_id": "AC86870f754f03275fcf1d",
+      "plan_id": "DEV-05",
+      "gt_class": "NOT_A_COMPONENT",
+      "pred_class": "OTHER_RELEVANT_SYMBOL",
+      "status": "COMPONENT_CANDIDATE",
+      "exclusion_reason": null,
+      "structural_score": 0.721
+    },
+    {
+      "candidate_id": "ACe901a723d34147250ac3",
+      "plan_id": "DEV-05",
+      "gt_class": "NOT_A_COMPONENT",
+      "pred_class": "OTHER_RELEVANT_SYMBOL",
+      "status": "COMPONENT_CANDIDATE",
+      "exclusion_reason": null,
+      "structural_score": 0.6572
+    },
+    {
+      "candidate_id": "ACce65c078df046c82af8a",
+      "plan_id": "DEV-05",
+      "gt_class": "NOT_A_COMPONENT",
+      "pred_class": "OTHER_RELEVANT_SYMBOL",
+      "status": "COMPONENT_CANDIDATE",
+      "exclusion_reason": null,
+      "structural_score": 0.6771
+    },
+    {
+      "candidate_id": "AC8d448c83063861e22486",
+      "plan_id": "DEV-05",
+      "gt_class": "NOT_A_COMPONENT",
+      "pred_class": "OTHER_RELEVANT_SYMBOL",
+      "status": "COMPONENT_CANDIDATE",
+      "exclusion_reason": null,
+      "structural_score": 0.6632
+    },
+    {
+      "candidate_id": "AC6c7cdfe65831c731ee5c",
+      "plan_id": "DEV-05",
+      "gt_class": "NOT_A_COMPONENT",
+      "pred_class": "OTHER_RELEVANT_SYMBOL",
+      "status": "COMPONENT_CANDIDATE",
+      "exclusion_reason": null,
+      "structural_score": 0.6772
+    },
+    {
+      "candidate_id": "AC87f60100d8c5d274a564",
+      "plan_id": "DEV-05",
+      "gt_class": "NOT_A_COMPONENT",
+      "pred_class": "OTHER_RELEVANT_SYMBOL",
+      "status": "COMPONENT_CANDIDATE",
+      "exclusion_reason": null,
+      "structural_score": 0.9223
+    },
+    {
+      "candidate_id": "ACda130e94feb6642644dc",
+      "plan_id": "DEV-05",
+      "gt_class": "NOT_A_COMPONENT",
+      "pred_class": "OTHER_RELEVANT_SYMBOL",
+      "status": "COMPONENT_CANDIDATE",
+      "exclusion_reason": null,
+      "structural_score": 0.6625
+    },
+    {
+      "candidate_id": "AC24ed8db655dd83d19d66",
+      "plan_id": "DEV-05",
+      "gt_class": "NOT_A_COMPONENT",
+      "pred_class": "OTHER_RELEVANT_SYMBOL",
+      "status": "COMPONENT_CANDIDATE",
+      "exclusion_reason": null,
+      "structural_score": 0.7004
+    },
+    {
+      "candidate_id": "AC1398d67b2dba2bd6ef89",
+      "plan_id": "DEV-05",
+      "gt_class": "NOT_A_COMPONENT",
+      "pred_class": "OTHER_RELEVANT_SYMBOL",
+      "status": "COMPONENT_CANDIDATE",
+      "exclusion_reason": null,
+      "structural_score": 0.9179
+    },
+    {
+      "candidate_id": "ACfdc504850067ebae5b2d",
+      "plan_id": "DEV-05",
+      "gt_class": "NOT_A_COMPONENT",
+      "pred_class": "OTHER_RELEVANT_SYMBOL",
+      "status": "COMPONENT_CANDIDATE",
+      "exclusion_reason": null,
+      "structural_score": 0.9179
+    },
+    {
+      "candidate_id": "AC8dcb982be8aab1194b63",
+      "plan_id": "DEV-05",
+      "gt_class": "NOT_A_COMPONENT",
+      "pred_class": "OTHER_RELEVANT_SYMBOL",
+      "status": "COMPONENT_CANDIDATE",
+      "exclusion_reason": null,
+      "structural_score": 0.9179
+    },
+    {
+      "candidate_id": "ACb7c927b35e6a024c4d43",
+      "plan_id": "DEV-05",
+      "gt_class": "NOT_A_COMPONENT",
+      "pred_class": "OTHER_RELEVANT_SYMBOL",
+      "status": "COMPONENT_CANDIDATE",
+      "exclusion_reason": null,
+      "structural_score": 0.7798
+    },
+    {
+      "candidate_id": "AC8b7218a6b89b85ed3950",
+      "plan_id": "DEV-05",
+      "gt_class": "NOT_A_COMPONENT",
+      "pred_class": "OTHER_RELEVANT_SYMBOL",
+      "status": "COMPONENT_CANDIDATE",
+      "exclusion_reason": null,
+      "structural_score": 0.7798
+    },
+    {
+      "candidate_id": "ACdeab14f772202a1e3ab8",
+      "plan_id": "DEV-05",
+      "gt_class": "NOT_A_COMPONENT",
+      "pred_class": "OTHER_RELEVANT_SYMBOL",
+      "status": "COMPONENT_CANDIDATE",
+      "exclusion_reason": null,
+      "structural_score": 0.7798
+    },
+    {
+      "candidate_id": "AC67912b9654a3f5cd0e3f",
+      "plan_id": "DEV-05",
+      "gt_class": "NOT_A_COMPONENT",
+      "pred_class": "OTHER_RELEVANT_SYMBOL",
+      "status": "COMPONENT_CANDIDATE",
+      "exclusion_reason": null,
+      "structural_score": 0.7175
+    },
+    {
+      "candidate_id": "ACd1e6ab902d20ad02f315",
+      "plan_id": "DEV-05",
+      "gt_class": "NOT_A_COMPONENT",
+      "pred_class": "OTHER_RELEVANT_SYMBOL",
+      "status": "COMPONENT_CANDIDATE",
+      "exclusion_reason": null,
+      "structural_score": 0.6393
+    },
+    {
+      "candidate_id": "AC14acd9c053c10245346d",
+      "plan_id": "DEV-05",
+      "gt_class": "OTHER_RELEVANT_SYMBOL",
+      "pred_class": "OTHER_RELEVANT_SYMBOL",
+      "status": "COMPONENT_CANDIDATE",
+      "exclusion_reason": null,
+      "structural_score": 0.6281
+    },
+    {
+      "candidate_id": "ACb3670dc2b13f9ceaf5fc",
+      "plan_id": "DEV-05",
+      "gt_class": "NOT_A_COMPONENT",
+      "pred_class": "OTHER_RELEVANT_SYMBOL",
+      "status": "COMPONENT_CANDIDATE",
+      "exclusion_reason": null,
+      "structural_score": 0.6989
+    },
+    {
+      "candidate_id": "ACa6cf17b654c0ce21da19",
+      "plan_id": "DEV-05",
+      "gt_class": "NOT_A_COMPONENT",
+      "pred_class": "OTHER_RELEVANT_SYMBOL",
+      "status": "COMPONENT_CANDIDATE",
+      "exclusion_reason": null,
+      "structural_score": 0.8312
+    },
+    {
+      "candidate_id": "ACfd0cb57b987e4f8527b9",
+      "plan_id": "DEV-05",
+      "gt_class": "NOT_A_COMPONENT",
+      "pred_class": "UNRESOLVED",
+      "status": "UNRESOLVED",
+      "exclusion_reason": null,
+      "structural_score": 0.5917
+    },
+    {
+      "candidate_id": "AC57df3392a7bf482c211a",
+      "plan_id": "DEV-05",
+      "gt_class": "OTHER_RELEVANT_SYMBOL",
+      "pred_class": "UNRESOLVED",
+      "status": "UNRESOLVED",
+      "exclusion_reason": null,
+      "structural_score": 0.591
+    },
+    {
+      "candidate_id": "ACc88fe55101164223bc52",
+      "plan_id": "DEV-06",
+      "gt_class": "NOT_A_COMPONENT",
+      "pred_class": "OTHER_RELEVANT_SYMBOL",
+      "status": "COMPONENT_CANDIDATE",
+      "exclusion_reason": null,
+      "structural_score": 0.8629
+    },
+    {
+      "candidate_id": "ACdfbb3e2031b4e34c07c3",
+      "plan_id": "DEV-06",
+      "gt_class": "NOT_A_COMPONENT",
+      "pred_class": "OTHER_RELEVANT_SYMBOL",
+      "status": "COMPONENT_CANDIDATE",
+      "exclusion_reason": null,
+      "structural_score": 0.8532
+    },
+    {
+      "candidate_id": "AC7619dc8e1b6df6c3cf2a",
+      "plan_id": "DEV-06",
+      "gt_class": "NOT_A_COMPONENT",
+      "pred_class": "OTHER_RELEVANT_SYMBOL",
+      "status": "COMPONENT_CANDIDATE",
+      "exclusion_reason": null,
+      "structural_score": 0.8532
+    },
+    {
+      "candidate_id": "AC0a174b14e7dafa9ac52e",
+      "plan_id": "DEV-06",
+      "gt_class": "NOT_A_COMPONENT",
+      "pred_class": "OTHER_RELEVANT_SYMBOL",
+      "status": "COMPONENT_CANDIDATE",
+      "exclusion_reason": null,
+      "structural_score": 0.8532
+    },
+    {
+      "candidate_id": "AC6b5f5be1c8b7916faf8b",
+      "plan_id": "DEV-06",
+      "gt_class": "NOT_A_COMPONENT",
+      "pred_class": "OTHER_RELEVANT_SYMBOL",
+      "status": "COMPONENT_CANDIDATE",
+      "exclusion_reason": null,
+      "structural_score": 0.8532
+    },
+    {
+      "candidate_id": "AC88122daf71ab6c7cd115",
+      "plan_id": "DEV-06",
+      "gt_class": "NOT_A_COMPONENT",
+      "pred_class": "OTHER_RELEVANT_SYMBOL",
+      "status": "COMPONENT_CANDIDATE",
+      "exclusion_reason": null,
+      "structural_score": 0.8532
+    },
+    {
+      "candidate_id": "AC2150f004ccc4e1b332a9",
+      "plan_id": "DEV-06",
+      "gt_class": "NOT_A_COMPONENT",
+      "pred_class": "OTHER_RELEVANT_SYMBOL",
+      "status": "COMPONENT_CANDIDATE",
+      "exclusion_reason": null,
+      "structural_score": 0.7432
+    },
+    {
+      "candidate_id": "ACbb375bf0990f8d63f919",
+      "plan_id": "DEV-06",
+      "gt_class": "up verteiler unter wt",
+      "pred_class": "UNRESOLVED",
+      "status": "UNRESOLVED",
+      "exclusion_reason": null,
+      "structural_score": 0.5804
+    }
+  ]
+}

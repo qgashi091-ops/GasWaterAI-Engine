@@ -1,0 +1,119 @@
+{
+  "selection_criteria": [
+    "annotated_presence > 0 (candidate_ids only, never label content)",
+    "usable symbol legend confirmed by running legend_detection + legend_entries against the real PDF (>=1 USABLE_TEMPLATE, non-line-swatch entry)",
+    "maximum feasible style_family diversity among plans meeting the above"
+  ],
+  "all_plan_stats": {
+    "DEV-01": {
+      "total_candidates": 185,
+      "annotated_presence": 159,
+      "style_family": "STANDALONE-1"
+    },
+    "DEV-03": {
+      "total_candidates": 68,
+      "annotated_presence": 67,
+      "style_family": "STANDALONE-3"
+    },
+    "DEV-04": {
+      "total_candidates": 65,
+      "annotated_presence": 63,
+      "style_family": "FAM-4"
+    },
+    "DEV-05": {
+      "total_candidates": 92,
+      "annotated_presence": 90,
+      "style_family": "FAM-4"
+    },
+    "DEV-06": {
+      "total_candidates": 112,
+      "annotated_presence": 8,
+      "style_family": "FAM-4"
+    },
+    "DEV-07": {
+      "total_candidates": 2,
+      "annotated_presence": 0,
+      "style_family": "STANDALONE-5"
+    },
+    "DEV-10": {
+      "total_candidates": 32,
+      "annotated_presence": 0,
+      "style_family": "STANDALONE-8"
+    },
+    "DEV-11": {
+      "total_candidates": 17,
+      "annotated_presence": 0,
+      "style_family": "FAM-9"
+    },
+    "DEV-12": {
+      "total_candidates": 81,
+      "annotated_presence": 0,
+      "style_family": "FAM-9"
+    },
+    "DEV-13": {
+      "total_candidates": 18,
+      "annotated_presence": 0,
+      "style_family": "STANDALONE-10"
+    },
+    "DEV-14": {
+      "total_candidates": 9,
+      "annotated_presence": 0,
+      "style_family": "STANDALONE-11"
+    },
+    "DEV-15": {
+      "total_candidates": 89,
+      "annotated_presence": 0,
+      "style_family": "STANDALONE-12"
+    },
+    "DEV-17": {
+      "total_candidates": 12,
+      "annotated_presence": 0,
+      "style_family": "STANDALONE-14"
+    },
+    "DEV-20": {
+      "total_candidates": 55,
+      "annotated_presence": 0,
+      "style_family": "STANDALONE-17"
+    }
+  },
+  "eligible_by_annotated_presence": {
+    "DEV-01": {
+      "total_candidates": 185,
+      "annotated_presence": 159,
+      "style_family": "STANDALONE-1"
+    },
+    "DEV-03": {
+      "total_candidates": 68,
+      "annotated_presence": 67,
+      "style_family": "STANDALONE-3"
+    },
+    "DEV-04": {
+      "total_candidates": 65,
+      "annotated_presence": 63,
+      "style_family": "FAM-4"
+    },
+    "DEV-05": {
+      "total_candidates": 92,
+      "annotated_presence": 90,
+      "style_family": "FAM-4"
+    },
+    "DEV-06": {
+      "total_candidates": 112,
+      "annotated_presence": 8,
+      "style_family": "FAM-4"
+    }
+  },
+  "selected_plans": [
+    "DEV-01",
+    "DEV-03",
+    "DEV-04",
+    "DEV-05",
+    "DEV-06"
+  ],
+  "distinct_style_families_in_selection": [
+    "FAM-4",
+    "STANDALONE-1",
+    "STANDALONE-3"
+  ],
+  "family_diversity_note": "Only 5 of the 14 manifested DEV plans have ANY existing human annotation yet (review has so far progressed through DEV-01, DEV-03, DEV-04, DEV-05, DEV-06 in manifest order); those 5 span only 3 distinct style_family values (STANDALONE-1, STANDALONE-3, FAM-4 x3), not 5. Every other manifested plan (DEV-07, 10, 11, 12, 13, 14, 15, 17, 20) has ZERO existing annotations and so cannot contribute anything to Phase C scoring regardless of its legend quality or family. Selecting for real scorable evidence over family diversity was the deliberate choice here -- see docs/v04-legend-structural-benchmark-report.md section 1."
+}

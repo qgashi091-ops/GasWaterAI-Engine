@@ -1,0 +1,35 @@
+{
+  "frozen_at_utc": "2026-09-29T19:24:45.162280+00:00",
+  "predictions_file": "data/dev_plans_v04/legend_structural_benchmark/predictions.json",
+  "predictions_sha256": "107ac9961c54b700bda0f6cc1fbb8d274618641179c4e347dacad79722a39d8f",
+  "predictions_byte_size": 829981,
+  "selected_plans": [
+    "DEV-01",
+    "DEV-03",
+    "DEV-04",
+    "DEV-05",
+    "DEV-06"
+  ],
+  "total_prediction_records": 648,
+  "git_head_commit_at_freeze_time": "45cd8d69776a10f6e743fe3e4f5d6e6c9c89600f",
+  "holdout_audit": {
+    "files_audited": [
+      "scripts/legend_benchmark_phaseA_predict.py",
+      "app/legend_structural_benchmark/__init__.py",
+      "app/legend_structural_benchmark/select_plans.py",
+      "app/legend_structural_benchmark/legend_extraction.py",
+      "app/legend_structural_benchmark/matching.py",
+      "app/legend_structural_benchmark/vector_features.py"
+    ],
+    "patterns_checked": [
+      "ArtifactData import/call",
+      "reads candidate 'class' field",
+      "reads verification_status field",
+      "reads annotator_note field",
+      "opens an annotations-dump directory for its contents"
+    ],
+    "hits": {},
+    "clean": true
+  },
+  "attestation": "No file in _PHASE_A_SOURCE_FILES imports ArtifactData or any hosted-database client, and none of the four terms above -- which would only ever appear if a human annotation's class, verification_status, or annotator_note were being read -- were found anywhere in Phase A's own source. manifest.json, the only local dataset file Phase A reads, was independently confirmed to hold no human labels either: every one of its 837 candidates' own class field is null and verification_status is 'UNLABELED' (see docs/v04-dataset-cleanup-report.md and this benchmark's report section 2). The 387 real human annotations exist only in the hosted Artifact tool's separate database, which this freeze script's own predecessor (Phase A) never called."
+}

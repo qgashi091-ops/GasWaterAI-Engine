@@ -15,3 +15,11 @@ data/dev_plans_v04/id_mapping.LOCAL_ONLY.json
 # only runs when run_v04_pipeline.py reads and aggregates it normally) --
 # never committed even if a crash leaves one on disk.
 data/dev_plans_v04/annotation_dataset/_worker_*.tmp.json
+# Legend + vector-geometry structural benchmark (docs/v04-legend-structural-benchmark-report.md):
+# predictions.json holds full per-candidate bbox/page detail for 648
+# schema-area symbols; it adds nothing beyond what the report already
+# summarizes, so it stays local (re-creatable any time by re-running
+# scripts/legend_benchmark_phaseA_predict.py against the same 5 raw PDFs).
+# freeze_manifest.json (the SHA-256 + holdout audit) and
+# phaseC_score_report.json (the full scoring detail) are small and kept.
+data/dev_plans_v04/legend_structural_benchmark/predictions.json
