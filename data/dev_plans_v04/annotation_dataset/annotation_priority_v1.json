@@ -1,0 +1,86 @@
+{
+  "total_candidates": 837,
+  "labeled_count": 387,
+  "positive_class_counts": {
+    "NOT_A_COMPONENT": 296,
+    "küche": 26,
+    "OTHER_RELEVANT_SYMBOL": 22,
+    "wc up": 20,
+    "dusche": 10,
+    "up verteiler unter wt": 9,
+    "AMBIGUOUS": 3,
+    "secomat": 1
+  },
+  "low_value_patterns_derived": {
+    "cns28 (27 lu)": {
+      "not_a_component_rate": 0.9796,
+      "labeled_n": 49
+    },
+    "b": {
+      "not_a_component_rate": 1.0,
+      "labeled_n": 9
+    },
+    "a": {
+      "not_a_component_rate": 1.0,
+      "labeled_n": 20
+    },
+    "in dex art der ände rung": {
+      "not_a_component_rate": 1.0,
+      "labeled_n": 4
+    },
+    "(bauseits)": {
+      "not_a_component_rate": 1.0,
+      "labeled_n": 13
+    },
+    "warmwasser steigleitungen und leitung in bodenschlitz 30 mm porengummischlauch / 30 mm protect": {
+      "not_a_component_rate": 1.0,
+      "labeled_n": 4
+    },
+    "wasserversorgung": {
+      "not_a_component_rate": 1.0,
+      "labeled_n": 10
+    },
+    "messfühler niveau": {
+      "not_a_component_rate": 1.0,
+      "labeled_n": 3
+    },
+    "pe-s 110": {
+      "not_a_component_rate": 1.0,
+      "labeled_n": 6
+    },
+    "- 1:50 massstab: rev. a:": {
+      "not_a_component_rate": 1.0,
+      "labeled_n": 8
+    },
+    "warmwasserleitung von haus 7 cr 35": {
+      "not_a_component_rate": 0.9167,
+      "labeled_n": 12
+    },
+    "dämmschlauch schmutzwasser sammelleitungen": {
+      "not_a_component_rate": 1.0,
+      "labeled_n": 10
+    }
+  },
+  "tier_counts": {
+    "labeled": 387,
+    "excluded": 22,
+    "high": 130,
+    "normal": 298
+  },
+  "target_high_priority_count": 130,
+  "score_weights": {
+    "graph_endpoint_or_branch": 3,
+    "potable_water_terminology": 3,
+    "apparatus_component_terminology": 3,
+    "usable_legend_evidence": 2,
+    "component_like_geometry": 2,
+    "proximity_to_proven_potable_graph": 2,
+    "high_confidence_candidate_generation_evidence": 1,
+    "dimension_or_lu_label": -3,
+    "pure_pipe_segment_geometry": -3,
+    "text_only_cluster_weak_evidence": -2,
+    "insulation_or_material_description": -3,
+    "titleblock_or_boilerplate_text": -3,
+    "known_low_value_pattern": -4
+  }
+}
