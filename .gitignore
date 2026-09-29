@@ -3,3 +3,15 @@ __pycache__/
 .pytest_cache/
 .venv/
 *.egg-info/
+
+# v0.4 real-plan dataset: raw customer PDFs and the pseudonym<->filename
+# mapping are never committed (title blocks carry real names/addresses/
+# companies) -- only the derived, pseudonymous annotation_dataset/ is.
+# See docs/v04-dataset-report.md's privacy-audit section.
+data/dev_plans_v04/raw/
+data/dev_plans_v04/id_mapping.LOCAL_ONLY.json
+# Defense-in-depth: a crashed pipeline run can leave one of these behind
+# with a plan's UNFILTERED raw legend text (taxonomy.py's privacy filter
+# only runs when run_v04_pipeline.py reads and aggregates it normally) --
+# never committed even if a crash leaves one on disk.
+data/dev_plans_v04/annotation_dataset/_worker_*.tmp.json

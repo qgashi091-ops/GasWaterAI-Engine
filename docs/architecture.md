@@ -229,6 +229,225 @@ every v0.1/v0.2 response field is unchanged, and a failure inside either is
 caught in `app/main.py` and reported as an empty result rather than ever
 taking down the (unrelated) topology or component-recognition response.
 
+## v0.4: real-plan dataset & annotation pipeline
+
+New, standalone modules (`app/dataset_pipeline/`, `app/annotation_tool/`) —
+not part of the `POST /analyze` request path at all. Turns a batch of real,
+unseen plans into a human-reviewable annotation dataset for a *future*
+trained detector; trains nothing itself. Full results in
+`docs/v04-dataset-report.md`.
+
+```
+app/dataset_pipeline/
+  audit.py       Phase 1 -- runs the UNCHANGED v0.1/v0.2/v0.3 engine per
+                  plan and reports page/vector/text/graph/legend stats plus
+                  parser success/failure -- never silently skips a plan the
+                  engine can't parse.
+  privacy.py     Phase 2 -- regex-only PII heuristics over a plan's own
+                  native text (never OCR/vision) and its original filename;
+                  reports kind+count only, never the matched text itself.
+  families.py    Project/style-family grouping (shared filename-stem
+                  prefix, computed from the LOCAL, never-committed filename
+                  mapping) + perceptual-hash near-duplicate detection --
+                  the unit every later split decision respects.
+  candidates.py  Phase 4 -- turns each v0.3 hybrid component fact into a
+                  human-reviewable candidate: a context-bounded crop
+                  (capped in absolute size, see MAX_CROP_SIDE_PT below),
+                  nearby text, graph relation, and top suggestions. Every
+                  candidate already comes from
+                  legend_intelligence.build_legend_intelligence, which only
+                  evaluates symbols OUTSIDE every detected legend/dense-text
+                  region, so a title block is excluded for most candidates
+                  "for free" -- but not reliably enough on its own; see
+                  "Privacy: three stacked, independent layers" below for why
+                  two more, mandatory checks sit in front of every crop this
+                  module renders.
+  taxonomy.py    Phase 5 -- proposes ~10-15 classes purely from this
+                  batch's own measured evidence (legend-entry frequency,
+                  v0.1's existing backflow-device-code pattern match
+                  reused from label_hints.py, and generic-library
+                  drawing-side suggestion frequency) -- never invents an
+                  unsupported class.
+  splits.py      Phase 7 -- train/validation/test assignment at the
+                  FAMILY level (never a plan alone), greedy largest-family-
+                  first. W-001..W-010 are never inputs to this module.
+  export.py      Phase 8 -- manifest + class-list writer, and a YOLO-label
+                  converter that only ever emits a label for a row a human
+                  has actually verified (`verification_status == "LABELED"`)
+                  -- an engine suggestion alone is never exported as
+                  training truth.
+  qc.py          Phase 9 -- duplicate/near-duplicate candidate detection
+                  (bbox IoU on the same plan/page), class-imbalance
+                  reporting, and a no-suggestion review queue.
+app/annotation_tool/
+  main.py + store.py + static/index.html
+                  Phase 6 -- a small local FastAPI app + one static page
+                  (no build step, no Base44, no network dependency). A
+                  JSON-file store with atomic, autosaving writes. Draws a
+                  highlight box over exactly which object in a (possibly
+                  busy) crop is the candidate being reviewed, and offers an
+                  on-demand, live-rendered wider-context view.
+scripts/
+  _v04_plan_worker.py   the actual per-plan engine run, executed as its
+                         OWN subprocess.
+  run_v04_pipeline.py   orchestrator: runs every plan in its own process
+                         GROUP with a hard wall-clock timeout, killing the
+                         whole group (not just the direct child) on
+                         timeout -- see "Known v0.4 limitations" below for
+                         why that specific detail mattered in practice.
+```
+
+**Crop sizing** (`candidates.py::MAX_CROP_SIDE_PT`): an early real crop from
+this batch showed nearly an entire multi-storey schema, because the
+proportional context margin was applied to a v0.1 `SymbolCandidate` that
+was itself unusually large (the same pre-existing over-clustering
+limitation already listed under "Known v0.2 limitations" below). Fixed by
+capping the crop's absolute rendered size, centered on the candidate's own
+centroid, rather than only bounding the margin.
+
+**Privacy: three stacked, independent layers** (`candidates.py`, plus the
+annotation tool's own live wide-context endpoint). This exists because a
+real title block leaked into a rendered crop TWICE during development, each
+time past a check that had looked sufficient:
+
+1. `legend_intelligence.py`'s own geometric exclusion (Phase 4's self-match
+   check: a v0.1 symbol candidate inside a detected legend/dense-text
+   region is never turned into a component fact, so it never reaches
+   `candidates.py` at all). Sufficient on W-003's title block; NOT
+   sufficient in general -- one real plan's unusually large, fragmented
+   title block left gaps between `legend_detection.py`'s clustered
+   sub-regions, and a stray symbol candidate landed in exactly such a gap.
+   Its rendered crop, caught by manual visual review before being
+   committed, showed a property owner's name, a company's address, phone
+   number and email.
+2. `_crop_contains_pii()`: a second, content-based check -- scans every
+   text span (v0.1's own `page_model.text_spans`) that overlaps the crop's
+   OWN render region against `privacy.py`'s regex patterns (street
+   address, postal-code+town, title-block field labels, company suffix,
+   phone, email), independent of whatever `legend_detection.py`'s
+   clustering geometry happened to find. Drops the candidate entirely --
+   never renders or saves it -- rather than merely flagging it.
+3. `_ocr_pii_zones()` / `_ocr_scan_rect_for_pii()`: re-checking the exact
+   candidate layer 2 was added for showed it was STILL present and STILL
+   leaking, because v0.1's own native text extraction
+   (`text.py::extract_native_text_spans`, via PyMuPDF's `get_text()`)
+   returns NOTHING for that part of the page -- confirmed directly with
+   `get_text("words")` and `get_text("dict")`, not just the convenience
+   wrapper. Root cause: some of that plan's title-block fields are drawn as
+   vector outlines/curves (a common CAD-export setting, "convert text to
+   paths"), which render as perfectly readable letters but are not text
+   objects in the PDF at all -- invisible to EVERY text-layer extraction
+   method, however it's called. Layer 2 cannot see what was never text to
+   begin with. Layer 3 renders and OCRs the actual pixels instead: once per
+   PAGE (not once per candidate -- prohibitively slow across hundreds of
+   candidates), every detected legend/dense-text region is grouped with its
+   neighbors within `OCR_ZONE_MERGE_DISTANCE_PT` (deliberately looser than
+   `legend_detection.py`'s own clustering distance, since this real title
+   block's fragments sat farther apart than that), padded, and OCR'd; any
+   zone whose OCR'd text matches `privacy.py`'s patterns becomes a hard
+   exclusion region for every candidate on that page. Fails SAFE (treats a
+   render/OCR exception as PII) rather than silently passing an unreadable
+   region through.
+
+The annotation tool's `/api/candidate/{id}/wide_crop` endpoint (a live,
+larger render the offline pipeline never precomputed or checked) carries
+the equivalent of layers 2 and 3 itself (`_ocr_scan_rect_for_pii`, reused
+directly rather than re-implemented) rather than relying on the offline
+pipeline having already checked a smaller region.
+
+**Privacy beyond the crop image: two MORE, independent vectors found while
+auditing this batch's real output.** The three layers above guard the
+rendered PIXELS of a crop. Two other places carry the SAME underlying
+legend-entry text as plain TEXT, independent of any crop, and needed their
+own separate fix:
+
+- `candidates.py::_is_safe_plan_suggestion_label` — each candidate's
+  `plan_specific_suggestion` (v0.3's own best-matching-legend-entry label,
+  shown as a one-click suggestion button in the annotation tool and stored
+  per-candidate in `manifest.json`) comes from `fact["plan_specific_
+  evidence"]["label"]`, populated by v0.3's existing legend-matching logic
+  with no reason to suspect the "legend entry" it matched against might
+  actually be a company's contact line rather than a device row (the same
+  root cause as the crop-image gap, seen from a different angle: legend
+  detection's clustering is over-inclusive). Auditing this batch's real
+  `qc.py` class-imbalance report found a phone number as the single MOST
+  COMMON "suggested label" across all 20 plans' candidates before this fix.
+  The fix drops only the suggestion (`plan_specific_suggestion = None`),
+  never the candidate itself, since its crop image is independently already
+  verified safe by the three layers above; `generic_suggestion` needs no
+  such check, since it is always a fixed library name, never text scraped
+  from the plan.
+- `taxonomy.py::is_plausible_component_label` — `legend_entries[].
+  normalized_label` text is aggregated into `classes.json`/`pipeline_
+  summary.json`'s `taxonomy` block, which are committed files, independent
+  of any crop or candidate. The same real plan's legend carried a supplier's
+  phone number, postal code+town, and company name directly in this path;
+  fixing it required a mandatory `privacy.scan_text` call plus a separate,
+  non-privacy noise filter (regex/digit-density checks rejecting dimension
+  and fixture-table rows like "kw: 3"/"ø63"/"dn100", which had been
+  dominating the naive frequency ranking — see `taxonomy.py`'s own
+  docstring for the full rationale and `docs/v04-dataset-report.md`'s §5
+  for the resulting class list and its own documented residual gaps).
+
+Fixing the first of these two surfaced a THIRD, separate bug: `privacy.py`'s
+`SWISS_PLZ_TOWN_PATTERN` and `COMPANY_SUFFIX_PATTERN` were missing
+`re.IGNORECASE` (unlike `STREET_PATTERN`/`TITLE_BLOCK_FIELD_PATTERN`, which
+already had it) — since `legend_intelligence.py` lowercases its
+`normalized_label` text, a real postal-code+town pair and a real company
+name silently passed every check until this was fixed. All of `privacy.py`'s
+patterns are now case-insensitive, with a regression test for exactly this.
+A final, comprehensive automated scan of every string in the three
+committed JSON output files (after all fixes) found zero genuine PII
+matches — the only two hits were v0.1's own internal diagnostic warning
+text ("Excluded 6784 of 7051 candidate line segments...", a segment count,
+not plan content) coincidentally matching the same loose 4-digit+word
+shape, confirmed benign by inspection.
+
+**Coordinate-frame care, again**: `component_facts.py`'s
+`_render_symbol_crop` was factored to share its exact DISPLAY-space clip-
+rect computation (`_display_clip_rect`) with `candidates.py`, because that
+function adds its OWN extra margin on top of whatever bbox it's given —
+computing where a candidate lands WITHIN its saved crop (for the annotation
+tool's highlight box) needs the crop's *actual* rendered origin, not the
+bbox passed in to request it. Reusing the same function instead of
+re-deriving the margin math avoids exactly the kind of silent, hard-to-spot
+misalignment this whole engine's rotation-frame history has already run
+into twice.
+
+## Known v0.4 limitations (by design/measurement, not oversight)
+
+- Only 1 of this batch's 20 real plans (DEV-18) is genuinely scanned/
+  image-based with near-zero vector content; 4 more richly vector-based
+  plans (DEV-02, DEV-09, DEV-16, DEV-20) still needed some or all of their
+  text via v0.1's existing tiled-OCR fallback (`text.py`, unchanged;
+  `text_source` "ocr"/"mixed" -- see `docs/v04-dataset-report.md`'s §1
+  table). One OCR call triggered a genuine multi-minute tesseract hang on a
+  single OCR tile during development -- a real, previously-unobserved
+  robustness gap in that OCR path, surfaced by this batch's more varied
+  real-world input rather than by W-001..W-010 or W-003. Not fixed inside
+  `text.py` (out of scope, and v0.1's ten modules stay unchanged by
+  design); worked around at the orchestration layer instead
+  (`run_v04_pipeline.py` runs each plan in its own process group and kills
+  the whole group on a timeout, so one hung OCR call can't take the batch
+  down or leak an orphaned process).
+- The SAME tesseract pathology above was found a second time, live, in
+  `candidates.py`'s own OCR-based privacy layer (`_ocr_scan_rect_for_pii`,
+  used by both `_ocr_pii_zones` during candidate generation and the
+  annotation tool's `/wide_crop` endpoint) -- with no batch-level process
+  group around it to catch a hang, one real request hung for 6+ minutes.
+  Fixed with pytesseract's own per-call `timeout=` kwarg
+  (`OCR_TIMEOUT_SECONDS`), which raises on expiry and is caught by the
+  existing fail-SAFE exception handling (treated as PII, same as any other
+  OCR failure) -- no batch-level process-group machinery needed at this
+  smaller scope.
+- Family grouping (`families.py`) uses filename-stem similarity, which
+  generalizes only as well as this batch's own naming conventions did; a
+  future batch with less informative filenames would need the near-
+  duplicate/content-similarity signal to carry more weight.
+- The symbol-zone/context-crop sizing constants were tuned against this
+  batch's and W-003's real layouts, not against a large, diverse corpus.
+- No scale calibration; no LLM anywhere in this pipeline, same as v0.1-v0.3.
+
 ## Known v0.1 limitations (by design, not oversight)
 
 - Dimension-to-edge evidence only covers **directly associated** text (one

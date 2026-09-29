@@ -1,12 +1,14 @@
-# GasWaterAI Engine v0.3 — external deterministic PoC
+# GasWaterAI Engine v0.4 — external deterministic PoC
 
-A small, standalone proof of concept answering three questions:
+A small, standalone proof of concept answering four questions:
 
 > Can a real water-installation plan PDF be converted into a reproducible technical `PlanFacts` model **without letting an LLM invent topology**? (v0.1)
 >
 > Can the engine also answer *what component is located at or near this proven graph position* — deterministically, without an LLM? (v0.2)
 >
 > Can a plan's **own legend** become a temporary, plan-specific symbol library that recognizes components more reliably than a generic scanned reference set — still without any LLM? (v0.3)
+>
+> Can a batch of real, unseen plans be turned into a privacy-safe, human-reviewable annotation dataset for a *future* trained detector — without training anything yet? (v0.4)
 
 ## Why this exists
 
@@ -23,8 +25,9 @@ recognition.
 Base44 remains the application/frontend layer. This repository is the
 external plan-analysis engine that would replace its embedded parser call if
 this PoC succeeds — see `docs/architecture.md`, `docs/w003-poc-report.md`
-(v0.1), `docs/w003-component-poc-report.md` (v0.2) and
-`docs/w003-legend-poc-report.md` (v0.3).
+(v0.1), `docs/w003-component-poc-report.md` (v0.2),
+`docs/w003-legend-poc-report.md` (v0.3) and `docs/v04-dataset-report.md`
+(v0.4).
 
 ## Scope
 
@@ -39,6 +42,12 @@ PDF -> deterministic vector extraction -> normalized graph -> PlanFacts JSON
         build document-local match templates -> search the drawing,
         excluding the legend itself -> hybrid recognition combining
         plan-specific + generic + text + graph evidence)
+    -> real-plan dataset & annotation pipeline                               [v0.4]
+       (audit + privacy-scan a batch of new real plans -> generate
+        privacy-safe annotation-candidate crops -> propose a taxonomy from
+        measured evidence -> local human annotation tool -> family-aware
+        train/val/test split design -> detector-ready export format;
+        trains nothing)
 ```
 
 Explicitly **not** in this version: Base44 integration, frontend, billing/auth,
@@ -73,19 +82,72 @@ pip install -r requirements-dev.txt
 pytest tests/ -v
 ```
 
-60 tests, all real (no mocked PDF parsing): the real W-003 PDF is a
+110 tests, all real (no mocked PDF parsing): the real W-003 PDF is a
 committed fixture (`tests/fixtures/`), and v0.1's topology, v0.2's
 component recognition, and v0.3's legend intelligence each have dedicated
 10-repeated-run reproducibility tests — the project's primary acceptance
-criterion. See `docs/w003-poc-report.md`, `docs/w003-component-poc-report.md`
-and `docs/w003-legend-poc-report.md` for the actual results, and
-`docs/symbol-audit.md` for the data audit behind the 58-symbol library.
+criterion. v0.4's dataset-pipeline and annotation-tool tests are unit/
+synthetic (the real 20-plan batch is not part of the committed fixtures or
+the per-commit test budget — see `docs/v04-dataset-report.md`). See
+`docs/w003-poc-report.md`, `docs/w003-component-poc-report.md`,
+`docs/w003-legend-poc-report.md` and `docs/v04-dataset-report.md` for the
+actual results, and `docs/symbol-audit.md` for the data audit behind the
+58-symbol library.
 
 ## Performance
 
 ```bash
 python3 scripts/measure_performance.py
 ```
+
+## v0.4: real-plan dataset & annotation pipeline
+
+```bash
+# 1. Place your own batch of real plan PDFs at data/dev_plans_v04/raw/,
+#    named by a pseudonymous id (e.g. DEV-01.pdf .. DEV-20.pdf) -- this
+#    directory is gitignored and never committed; see docs/v04-dataset-report.md
+#    for why (some real filenames/title blocks carry customer PII).
+python3 scripts/run_v04_pipeline.py
+
+# 2. Review the generated candidates locally:
+uvicorn app.annotation_tool.main:app --reload --port 8010
+# open http://localhost:8010/
+```
+
+Every annotation crop passes THREE independent, stacked exclusion checks
+before it is ever rendered or saved: (1) `legend_intelligence.py`'s own
+geometric exclusion of anything inside a detected legend/dense-text region
+(which usually already covers a title block), (2) a mandatory,
+content-based regex scan (`candidates.py::_crop_contains_pii`) of every
+text span actually inside the crop's own render region, and (3) an
+OCR-based scan (`candidates.py::_ocr_pii_zones`) of the rendered pixels
+around every detected legend/dense-text region. Layer 3 exists because
+layer 2 was found insufficient on a real plan during development: some of
+its title-block fields are drawn as vector-outlined text/paths (a CAD
+"convert text to paths" export setting), which are perfectly readable as
+pixels but are not text objects in the PDF at all — invisible to every
+PDF text-layer extraction method, no matter how it's called. Only
+rendering and OCRing the actual pixels catches that case (see
+`docs/v04-dataset-report.md`'s privacy section for the full account). A
+candidate is dropped entirely, never flagged-but-kept, if any check fires.
+The annotation tool's own live "larger context" view carries the
+equivalent of layers 2 and 3 as well, since it renders a bigger region the
+offline pipeline never checked at all.
+
+Crop IMAGES were only one of three places raw plan text was found leaking
+during development, each a genuinely different mechanism (full account in
+`docs/v04-dataset-report.md`'s privacy section): each candidate's
+`plan_specific_suggestion` (a one-click suggestion button in the annotation
+tool, stored per-candidate in `manifest.json`) and the proposed taxonomy's
+own class names/evidence counts (`classes.json`, `pipeline_summary.json`)
+are BOTH derived from the same legend-entry text independent of the crop
+image, and both needed their own, separate mandatory privacy check
+(`candidates.py::_is_safe_plan_suggestion_label`,
+`taxonomy.py::is_plausible_component_label`) before this batch's real data
+could be committed safely. `privacy.py`'s own regex patterns also had a
+case-sensitivity bug (two of six were missing `re.IGNORECASE`) that let a
+real postal-code+town pair and a company name pass every check once
+lowercased — fixed, and now covered by a regression test.
 
 ## Every fact carries provenance
 

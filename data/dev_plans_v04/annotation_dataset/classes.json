@@ -1,0 +1,20 @@
+{
+  "pex-verteiler": 0,
+  "dusche": 1,
+  "küche": 2,
+  "coop laden": 3,
+  "apparate stk. kw ww dim": 4,
+  "up verteiler unter wt": 5,
+  "BA": 6,
+  "9 mm armaflex": 7,
+  "an bestehenter leitung anschliessen": 8,
+  "dämmung regenwasser": 9,
+  "kaltwasser": 10,
+  "kw stk. ww dim": 11,
+  "secomat": 12,
+  "warmwasser": 13,
+  "wc up": 14,
+  "OTHER_RELEVANT_SYMBOL": 15,
+  "NOT_A_COMPONENT": 16,
+  "AMBIGUOUS": 17
+}

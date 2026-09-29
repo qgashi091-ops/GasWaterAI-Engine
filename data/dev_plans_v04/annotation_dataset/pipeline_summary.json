@@ -1,0 +1,2547 @@
+{
+  "batch_summary": {
+    "total_plans": 20,
+    "parser_success": 20,
+    "parser_failed": 0,
+    "failed_plan_ids": [],
+    "likely_scanned_plan_ids": [
+      "DEV-18"
+    ],
+    "legend_detected_count": 20,
+    "total_symbol_candidates": 1522,
+    "total_usable_legend_entries": 2257,
+    "runtime_seconds": {
+      "min": 8.651,
+      "max": 502.75,
+      "mean": 86.363,
+      "total": 1727.261
+    }
+  },
+  "audits": [
+    {
+      "plan_id": "DEV-01",
+      "page_count": 1,
+      "parser_outcome": "ok",
+      "error": null,
+      "rotation": 0,
+      "width_pt": 5612.0,
+      "height_pt": 1672.0,
+      "native_text_chars": 13670,
+      "raw_drawing_count": 101355,
+      "is_likely_scanned": false,
+      "text_source": "native",
+      "graph_nodes": 462,
+      "graph_edges": 329,
+      "symbol_candidates": 228,
+      "plan_facts_count": 1894,
+      "component_facts_stats": {
+        "components_evaluated": 228,
+        "by_kind": {
+          "COMPONENT_FACT": 0,
+          "COMPONENT_CANDIDATE": 0,
+          "UNRESOLVED": 228
+        },
+        "library_eligible_symbols": 43,
+        "library_total_symbols": 58
+      },
+      "legend_detected": true,
+      "legend_top_confidence": 1.0,
+      "legend_heading": "Legende Verteilbatterie: Stamm 1 1/2\"",
+      "usable_legend_entries": 49,
+      "legend_intelligence_stats": {
+        "legend_candidates_detected": 4,
+        "legend_entries_extracted": 152,
+        "plan_specific_templates_built": 44,
+        "components_evaluated": 206,
+        "by_kind": {
+          "COMPONENT_FACT": 0,
+          "COMPONENT_CANDIDATE": 0,
+          "UNRESOLVED": 206
+        },
+        "hybrid_conflicts": 0
+      },
+      "runtime_seconds": 157.601,
+      "peak_rss_delta_kb": 422632,
+      "warnings": [
+        "Bridged 2 junction gap(s) via collinear continuation, 1 via shared symbol evidence, and 0 via corner convergence; every other dangling end was left unresolved rather than guessed -- see graph.edges[].is_bridge.",
+        "Very high vector primitive count (101355); symbol clustering is heuristic and should be spot-checked.",
+        "Excluded 15884 of 17849 candidate line segments (89%) from the pipe graph: one color group dominates this page's total drawn line length with almost no other color present, which is far more consistent with a background/reference layer (walls, gridlines, dimension lines) than a multi-media pipe network. Not deleted -- see stats.background_line_segments."
+      ]
+    },
+    {
+      "plan_id": "DEV-02",
+      "page_count": 1,
+      "parser_outcome": "ok",
+      "error": null,
+      "rotation": 0,
+      "width_pt": 792.0,
+      "height_pt": 612.0,
+      "native_text_chars": 0,
+      "raw_drawing_count": 52591,
+      "is_likely_scanned": false,
+      "text_source": "ocr",
+      "graph_nodes": 424,
+      "graph_edges": 365,
+      "symbol_candidates": 88,
+      "plan_facts_count": 1627,
+      "component_facts_stats": {
+        "components_evaluated": 88,
+        "by_kind": {
+          "COMPONENT_FACT": 0,
+          "COMPONENT_CANDIDATE": 0,
+          "UNRESOLVED": 88
+        },
+        "library_eligible_symbols": 43,
+        "library_total_symbols": 58
+      },
+      "legend_detected": true,
+      "legend_top_confidence": 0.6,
+      "legend_heading": null,
+      "usable_legend_entries": 46,
+      "legend_intelligence_stats": {
+        "legend_candidates_detected": 1,
+        "legend_entries_extracted": 187,
+        "plan_specific_templates_built": 35,
+        "components_evaluated": 0,
+        "by_kind": {
+          "COMPONENT_FACT": 0,
+          "COMPONENT_CANDIDATE": 0,
+          "UNRESOLVED": 0
+        },
+        "hybrid_conflicts": 0
+      },
+      "runtime_seconds": 73.023,
+      "peak_rss_delta_kb": 164744,
+      "warnings": [
+        "Pages requiring OCR fallback: [1]",
+        "No reliable native text layer detected (likely vectorized/CAD-exported text or a scanned page) -- fell back to OCR.",
+        "Bridged 0 junction gap(s) via collinear continuation, 11 via shared symbol evidence, and 0 via corner convergence; every other dangling end was left unresolved rather than guessed -- see graph.edges[].is_bridge.",
+        "Very high vector primitive count (52591); symbol clustering is heuristic and should be spot-checked."
+      ]
+    },
+    {
+      "plan_id": "DEV-03",
+      "page_count": 1,
+      "parser_outcome": "ok",
+      "error": null,
+      "rotation": 90,
+      "width_pt": 3345.0,
+      "height_pt": 2154.0,
+      "native_text_chars": 6185,
+      "raw_drawing_count": 11914,
+      "is_likely_scanned": false,
+      "text_source": "native",
+      "graph_nodes": 166,
+      "graph_edges": 102,
+      "symbol_candidates": 74,
+      "plan_facts_count": 739,
+      "component_facts_stats": {
+        "components_evaluated": 74,
+        "by_kind": {
+          "COMPONENT_FACT": 0,
+          "COMPONENT_CANDIDATE": 0,
+          "UNRESOLVED": 74
+        },
+        "library_eligible_symbols": 43,
+        "library_total_symbols": 58
+      },
+      "legend_detected": true,
+      "legend_top_confidence": 1.0,
+      "legend_heading": "Legende Sanitär",
+      "usable_legend_entries": 40,
+      "legend_intelligence_stats": {
+        "legend_candidates_detected": 3,
+        "legend_entries_extracted": 66,
+        "plan_specific_templates_built": 39,
+        "components_evaluated": 69,
+        "by_kind": {
+          "COMPONENT_FACT": 0,
+          "COMPONENT_CANDIDATE": 0,
+          "UNRESOLVED": 69
+        },
+        "hybrid_conflicts": 0
+      },
+      "runtime_seconds": 32.439,
+      "peak_rss_delta_kb": 223808,
+      "warnings": [
+        "Bridged 1 junction gap(s) via collinear continuation, 4 via shared symbol evidence, and 0 via corner convergence; every other dangling end was left unresolved rather than guessed -- see graph.edges[].is_bridge.",
+        "Excluded 134 of 260 candidate line segments (52%) from the pipe graph: one color group dominates this page's total drawn line length with almost no other color present, which is far more consistent with a background/reference layer (walls, gridlines, dimension lines) than a multi-media pipe network. Not deleted -- see stats.background_line_segments."
+      ]
+    },
+    {
+      "plan_id": "DEV-04",
+      "page_count": 1,
+      "parser_outcome": "ok",
+      "error": null,
+      "rotation": 0,
+      "width_pt": 2383.9,
+      "height_pt": 1683.8,
+      "native_text_chars": 4195,
+      "raw_drawing_count": 19694,
+      "is_likely_scanned": false,
+      "text_source": "native",
+      "graph_nodes": 499,
+      "graph_edges": 395,
+      "symbol_candidates": 108,
+      "plan_facts_count": 1917,
+      "component_facts_stats": {
+        "components_evaluated": 108,
+        "by_kind": {
+          "COMPONENT_FACT": 0,
+          "COMPONENT_CANDIDATE": 0,
+          "UNRESOLVED": 108
+        },
+        "library_eligible_symbols": 43,
+        "library_total_symbols": 58
+      },
+      "legend_detected": true,
+      "legend_top_confidence": 1.0,
+      "legend_heading": "Legende Sanitärschema",
+      "usable_legend_entries": 28,
+      "legend_intelligence_stats": {
+        "legend_candidates_detected": 4,
+        "legend_entries_extracted": 83,
+        "plan_specific_templates_built": 27,
+        "components_evaluated": 93,
+        "by_kind": {
+          "COMPONENT_FACT": 0,
+          "COMPONENT_CANDIDATE": 0,
+          "UNRESOLVED": 93
+        },
+        "hybrid_conflicts": 0
+      },
+      "runtime_seconds": 34.64,
+      "peak_rss_delta_kb": 243044,
+      "warnings": [
+        "Bridged 6 junction gap(s) via collinear continuation, 7 via shared symbol evidence, and 1 via corner convergence; every other dangling end was left unresolved rather than guessed -- see graph.edges[].is_bridge."
+      ]
+    },
+    {
+      "plan_id": "DEV-05",
+      "page_count": 1,
+      "parser_outcome": "ok",
+      "error": null,
+      "rotation": 0,
+      "width_pt": 2383.9,
+      "height_pt": 1683.8,
+      "native_text_chars": 4499,
+      "raw_drawing_count": 20706,
+      "is_likely_scanned": false,
+      "text_source": "native",
+      "graph_nodes": 530,
+      "graph_edges": 432,
+      "symbol_candidates": 122,
+      "plan_facts_count": 2034,
+      "component_facts_stats": {
+        "components_evaluated": 122,
+        "by_kind": {
+          "COMPONENT_FACT": 0,
+          "COMPONENT_CANDIDATE": 0,
+          "UNRESOLVED": 122
+        },
+        "library_eligible_symbols": 43,
+        "library_total_symbols": 58
+      },
+      "legend_detected": true,
+      "legend_top_confidence": 1.0,
+      "legend_heading": "Legende Sanitärschema",
+      "usable_legend_entries": 18,
+      "legend_intelligence_stats": {
+        "legend_candidates_detected": 4,
+        "legend_entries_extracted": 72,
+        "plan_specific_templates_built": 17,
+        "components_evaluated": 117,
+        "by_kind": {
+          "COMPONENT_FACT": 0,
+          "COMPONENT_CANDIDATE": 0,
+          "UNRESOLVED": 117
+        },
+        "hybrid_conflicts": 0
+      },
+      "runtime_seconds": 39.724,
+      "peak_rss_delta_kb": 249672,
+      "warnings": [
+        "Bridged 5 junction gap(s) via collinear continuation, 8 via shared symbol evidence, and 1 via corner convergence; every other dangling end was left unresolved rather than guessed -- see graph.edges[].is_bridge."
+      ]
+    },
+    {
+      "plan_id": "DEV-06",
+      "page_count": 1,
+      "parser_outcome": "ok",
+      "error": null,
+      "rotation": 0,
+      "width_pt": 2383.9,
+      "height_pt": 1683.8,
+      "native_text_chars": 4209,
+      "raw_drawing_count": 19468,
+      "is_likely_scanned": false,
+      "text_source": "native",
+      "graph_nodes": 522,
+      "graph_edges": 421,
+      "symbol_candidates": 116,
+      "plan_facts_count": 1967,
+      "component_facts_stats": {
+        "components_evaluated": 116,
+        "by_kind": {
+          "COMPONENT_FACT": 0,
+          "COMPONENT_CANDIDATE": 0,
+          "UNRESOLVED": 116
+        },
+        "library_eligible_symbols": 43,
+        "library_total_symbols": 58
+      },
+      "legend_detected": true,
+      "legend_top_confidence": 1.0,
+      "legend_heading": "Legende Sanitärschema",
+      "usable_legend_entries": 14,
+      "legend_intelligence_stats": {
+        "legend_candidates_detected": 3,
+        "legend_entries_extracted": 63,
+        "plan_specific_templates_built": 13,
+        "components_evaluated": 113,
+        "by_kind": {
+          "COMPONENT_FACT": 0,
+          "COMPONENT_CANDIDATE": 0,
+          "UNRESOLVED": 113
+        },
+        "hybrid_conflicts": 0
+      },
+      "runtime_seconds": 38.038,
+      "peak_rss_delta_kb": 245008,
+      "warnings": [
+        "Bridged 3 junction gap(s) via collinear continuation, 5 via shared symbol evidence, and 1 via corner convergence; every other dangling end was left unresolved rather than guessed -- see graph.edges[].is_bridge."
+      ]
+    },
+    {
+      "plan_id": "DEV-07",
+      "page_count": 1,
+      "parser_outcome": "ok",
+      "error": null,
+      "rotation": 90,
+      "width_pt": 14287.0,
+      "height_pt": 2526.0,
+      "native_text_chars": 32947,
+      "raw_drawing_count": 327136,
+      "is_likely_scanned": false,
+      "text_source": "native",
+      "graph_nodes": 329,
+      "graph_edges": 232,
+      "symbol_candidates": 13,
+      "plan_facts_count": 2517,
+      "component_facts_stats": {
+        "components_evaluated": 13,
+        "by_kind": {
+          "COMPONENT_FACT": 0,
+          "COMPONENT_CANDIDATE": 0,
+          "UNRESOLVED": 13
+        },
+        "library_eligible_symbols": 43,
+        "library_total_symbols": 58
+      },
+      "legend_detected": true,
+      "legend_top_confidence": 0.6,
+      "legend_heading": null,
+      "usable_legend_entries": 856,
+      "legend_intelligence_stats": {
+        "legend_candidates_detected": 41,
+        "legend_entries_extracted": 1227,
+        "plan_specific_templates_built": 836,
+        "components_evaluated": 10,
+        "by_kind": {
+          "COMPONENT_FACT": 0,
+          "COMPONENT_CANDIDATE": 0,
+          "UNRESOLVED": 10
+        },
+        "hybrid_conflicts": 0
+      },
+      "runtime_seconds": 490.317,
+      "peak_rss_delta_kb": 631012,
+      "warnings": [
+        "Bridged 2 junction gap(s) via collinear continuation, 0 via shared symbol evidence, and 2 via corner convergence; every other dangling end was left unresolved rather than guessed -- see graph.edges[].is_bridge.",
+        "Very high vector primitive count (327136); symbol clustering is heuristic and should be spot-checked.",
+        "Excluded 6784 of 7051 candidate line segments (96%) from the pipe graph: one color group dominates this page's total drawn line length with almost no other color present, which is far more consistent with a background/reference layer (walls, gridlines, dimension lines) than a multi-media pipe network. Not deleted -- see stats.background_line_segments."
+      ]
+    },
+    {
+      "plan_id": "DEV-08",
+      "page_count": 1,
+      "parser_outcome": "ok",
+      "error": null,
+      "rotation": 90,
+      "width_pt": 2891.0,
+      "height_pt": 1106.0,
+      "native_text_chars": 6704,
+      "raw_drawing_count": 7293,
+      "is_likely_scanned": false,
+      "text_source": "native",
+      "graph_nodes": 602,
+      "graph_edges": 456,
+      "symbol_candidates": 67,
+      "plan_facts_count": 2430,
+      "component_facts_stats": {
+        "components_evaluated": 67,
+        "by_kind": {
+          "COMPONENT_FACT": 0,
+          "COMPONENT_CANDIDATE": 0,
+          "UNRESOLVED": 67
+        },
+        "library_eligible_symbols": 43,
+        "library_total_symbols": 58
+      },
+      "legend_detected": true,
+      "legend_top_confidence": 0.6,
+      "legend_heading": null,
+      "usable_legend_entries": 155,
+      "legend_intelligence_stats": {
+        "legend_candidates_detected": 10,
+        "legend_entries_extracted": 248,
+        "plan_specific_templates_built": 142,
+        "components_evaluated": 42,
+        "by_kind": {
+          "COMPONENT_FACT": 0,
+          "COMPONENT_CANDIDATE": 2,
+          "UNRESOLVED": 40
+        },
+        "hybrid_conflicts": 0
+      },
+      "runtime_seconds": 28.39,
+      "peak_rss_delta_kb": 126816,
+      "warnings": [
+        "Bridged 13 junction gap(s) via collinear continuation, 0 via shared symbol evidence, and 4 via corner convergence; every other dangling end was left unresolved rather than guessed -- see graph.edges[].is_bridge."
+      ]
+    },
+    {
+      "plan_id": "DEV-09",
+      "page_count": 1,
+      "parser_outcome": "ok",
+      "error": null,
+      "rotation": 0,
+      "width_pt": 1190.5,
+      "height_pt": 841.9,
+      "native_text_chars": 2,
+      "raw_drawing_count": 1618,
+      "is_likely_scanned": false,
+      "text_source": "mixed",
+      "graph_nodes": 188,
+      "graph_edges": 127,
+      "symbol_candidates": 42,
+      "plan_facts_count": 736,
+      "component_facts_stats": {
+        "components_evaluated": 42,
+        "by_kind": {
+          "COMPONENT_FACT": 0,
+          "COMPONENT_CANDIDATE": 0,
+          "UNRESOLVED": 42
+        },
+        "library_eligible_symbols": 43,
+        "library_total_symbols": 58
+      },
+      "legend_detected": true,
+      "legend_top_confidence": 0.6,
+      "legend_heading": null,
+      "usable_legend_entries": 107,
+      "legend_intelligence_stats": {
+        "legend_candidates_detected": 2,
+        "legend_entries_extracted": 200,
+        "plan_specific_templates_built": 79,
+        "components_evaluated": 0,
+        "by_kind": {
+          "COMPONENT_FACT": 0,
+          "COMPONENT_CANDIDATE": 0,
+          "UNRESOLVED": 0
+        },
+        "hybrid_conflicts": 0
+      },
+      "runtime_seconds": 19.965,
+      "peak_rss_delta_kb": 65736,
+      "warnings": [
+        "Pages requiring OCR fallback: [1]",
+        "No reliable native text layer detected (likely vectorized/CAD-exported text or a scanned page) -- fell back to OCR.",
+        "Bridged 0 junction gap(s) via collinear continuation, 0 via shared symbol evidence, and 2 via corner convergence; every other dangling end was left unresolved rather than guessed -- see graph.edges[].is_bridge."
+      ]
+    },
+    {
+      "plan_id": "DEV-10",
+      "page_count": 1,
+      "parser_outcome": "ok",
+      "error": null,
+      "rotation": 0,
+      "width_pt": 6576.4,
+      "height_pt": 2590.9,
+      "native_text_chars": 11127,
+      "raw_drawing_count": 312418,
+      "is_likely_scanned": false,
+      "text_source": "native",
+      "graph_nodes": 376,
+      "graph_edges": 324,
+      "symbol_candidates": 94,
+      "plan_facts_count": 1476,
+      "component_facts_stats": {
+        "components_evaluated": 94,
+        "by_kind": {
+          "COMPONENT_FACT": 0,
+          "COMPONENT_CANDIDATE": 0,
+          "UNRESOLVED": 94
+        },
+        "library_eligible_symbols": 43,
+        "library_total_symbols": 58
+      },
+      "legend_detected": true,
+      "legend_top_confidence": 0.6,
+      "legend_heading": null,
+      "usable_legend_entries": 163,
+      "legend_intelligence_stats": {
+        "legend_candidates_detected": 7,
+        "legend_entries_extracted": 242,
+        "plan_specific_templates_built": 159,
+        "components_evaluated": 73,
+        "by_kind": {
+          "COMPONENT_FACT": 0,
+          "COMPONENT_CANDIDATE": 0,
+          "UNRESOLVED": 73
+        },
+        "hybrid_conflicts": 0
+      },
+      "runtime_seconds": 502.75,
+      "peak_rss_delta_kb": 585912,
+      "warnings": [
+        "Bridged 1 junction gap(s) via collinear continuation, 5 via shared symbol evidence, and 0 via corner convergence; every other dangling end was left unresolved rather than guessed -- see graph.edges[].is_bridge.",
+        "Very high vector primitive count (312418); symbol clustering is heuristic and should be spot-checked."
+      ]
+    },
+    {
+      "plan_id": "DEV-11",
+      "page_count": 1,
+      "parser_outcome": "ok",
+      "error": null,
+      "rotation": 0,
+      "width_pt": 1683.0,
+      "height_pt": 2383.0,
+      "native_text_chars": 4139,
+      "raw_drawing_count": 8005,
+      "is_likely_scanned": false,
+      "text_source": "native",
+      "graph_nodes": 341,
+      "graph_edges": 286,
+      "symbol_candidates": 37,
+      "plan_facts_count": 1469,
+      "component_facts_stats": {
+        "components_evaluated": 37,
+        "by_kind": {
+          "COMPONENT_FACT": 0,
+          "COMPONENT_CANDIDATE": 0,
+          "UNRESOLVED": 37
+        },
+        "library_eligible_symbols": 43,
+        "library_total_symbols": 58
+      },
+      "legend_detected": true,
+      "legend_top_confidence": 0.6,
+      "legend_heading": null,
+      "usable_legend_entries": 90,
+      "legend_intelligence_stats": {
+        "legend_candidates_detected": 4,
+        "legend_entries_extracted": 111,
+        "plan_specific_templates_built": 89,
+        "components_evaluated": 19,
+        "by_kind": {
+          "COMPONENT_FACT": 0,
+          "COMPONENT_CANDIDATE": 0,
+          "UNRESOLVED": 19
+        },
+        "hybrid_conflicts": 0
+      },
+      "runtime_seconds": 16.287,
+      "peak_rss_delta_kb": 92632,
+      "warnings": [
+        "Bridged 15 junction gap(s) via collinear continuation, 3 via shared symbol evidence, and 1 via corner convergence; every other dangling end was left unresolved rather than guessed -- see graph.edges[].is_bridge."
+      ]
+    },
+    {
+      "plan_id": "DEV-12",
+      "page_count": 1,
+      "parser_outcome": "ok",
+      "error": null,
+      "rotation": 0,
+      "width_pt": 3370.0,
+      "height_pt": 2383.0,
+      "native_text_chars": 6601,
+      "raw_drawing_count": 26179,
+      "is_likely_scanned": false,
+      "text_source": "native",
+      "graph_nodes": 661,
+      "graph_edges": 491,
+      "symbol_candidates": 150,
+      "plan_facts_count": 2688,
+      "component_facts_stats": {
+        "components_evaluated": 150,
+        "by_kind": {
+          "COMPONENT_FACT": 0,
+          "COMPONENT_CANDIDATE": 0,
+          "UNRESOLVED": 150
+        },
+        "library_eligible_symbols": 43,
+        "library_total_symbols": 58
+      },
+      "legend_detected": true,
+      "legend_top_confidence": 1.0,
+      "legend_heading": "Legende Leitungen",
+      "usable_legend_entries": 112,
+      "legend_intelligence_stats": {
+        "legend_candidates_detected": 5,
+        "legend_entries_extracted": 157,
+        "plan_specific_templates_built": 108,
+        "components_evaluated": 136,
+        "by_kind": {
+          "COMPONENT_FACT": 0,
+          "COMPONENT_CANDIDATE": 0,
+          "UNRESOLVED": 136
+        },
+        "hybrid_conflicts": 0
+      },
+      "runtime_seconds": 79.924,
+      "peak_rss_delta_kb": 260276,
+      "warnings": [
+        "Bridged 17 junction gap(s) via collinear continuation, 8 via shared symbol evidence, and 9 via corner convergence; every other dangling end was left unresolved rather than guessed -- see graph.edges[].is_bridge."
+      ]
+    },
+    {
+      "plan_id": "DEV-13",
+      "page_count": 1,
+      "parser_outcome": "ok",
+      "error": null,
+      "rotation": 90,
+      "width_pt": 1684.0,
+      "height_pt": 1191.0,
+      "native_text_chars": 1722,
+      "raw_drawing_count": 5447,
+      "is_likely_scanned": false,
+      "text_source": "native",
+      "graph_nodes": 221,
+      "graph_edges": 150,
+      "symbol_candidates": 41,
+      "plan_facts_count": 897,
+      "component_facts_stats": {
+        "components_evaluated": 41,
+        "by_kind": {
+          "COMPONENT_FACT": 0,
+          "COMPONENT_CANDIDATE": 0,
+          "UNRESOLVED": 41
+        },
+        "library_eligible_symbols": 43,
+        "library_total_symbols": 58
+      },
+      "legend_detected": true,
+      "legend_top_confidence": 0.6,
+      "legend_heading": null,
+      "usable_legend_entries": 21,
+      "legend_intelligence_stats": {
+        "legend_candidates_detected": 3,
+        "legend_entries_extracted": 70,
+        "plan_specific_templates_built": 21,
+        "components_evaluated": 35,
+        "by_kind": {
+          "COMPONENT_FACT": 0,
+          "COMPONENT_CANDIDATE": 0,
+          "UNRESOLVED": 35
+        },
+        "hybrid_conflicts": 0
+      },
+      "runtime_seconds": 8.651,
+      "peak_rss_delta_kb": 159856,
+      "warnings": [
+        "Bridged 2 junction gap(s) via collinear continuation, 0 via shared symbol evidence, and 0 via corner convergence; every other dangling end was left unresolved rather than guessed -- see graph.edges[].is_bridge."
+      ]
+    },
+    {
+      "plan_id": "DEV-14",
+      "page_count": 1,
+      "parser_outcome": "ok",
+      "error": null,
+      "rotation": 270,
+      "width_pt": 2268.0,
+      "height_pt": 1772.0,
+      "native_text_chars": 5182,
+      "raw_drawing_count": 15367,
+      "is_likely_scanned": false,
+      "text_source": "native",
+      "graph_nodes": 529,
+      "graph_edges": 370,
+      "symbol_candidates": 58,
+      "plan_facts_count": 2191,
+      "component_facts_stats": {
+        "components_evaluated": 58,
+        "by_kind": {
+          "COMPONENT_FACT": 0,
+          "COMPONENT_CANDIDATE": 0,
+          "UNRESOLVED": 58
+        },
+        "library_eligible_symbols": 43,
+        "library_total_symbols": 58
+      },
+      "legend_detected": true,
+      "legend_top_confidence": 1.0,
+      "legend_heading": "LEGENDE SANITÄR-ARMATUREN",
+      "usable_legend_entries": 156,
+      "legend_intelligence_stats": {
+        "legend_candidates_detected": 7,
+        "legend_entries_extracted": 220,
+        "plan_specific_templates_built": 155,
+        "components_evaluated": 26,
+        "by_kind": {
+          "COMPONENT_FACT": 0,
+          "COMPONENT_CANDIDATE": 0,
+          "UNRESOLVED": 26
+        },
+        "hybrid_conflicts": 0
+      },
+      "runtime_seconds": 30.706,
+      "peak_rss_delta_kb": 136612,
+      "warnings": [
+        "Bridged 7 junction gap(s) via collinear continuation, 0 via shared symbol evidence, and 3 via corner convergence; every other dangling end was left unresolved rather than guessed -- see graph.edges[].is_bridge."
+      ]
+    },
+    {
+      "plan_id": "DEV-15",
+      "page_count": 1,
+      "parser_outcome": "ok",
+      "error": null,
+      "rotation": 270,
+      "width_pt": 3883.0,
+      "height_pt": 2580.0,
+      "native_text_chars": 6162,
+      "raw_drawing_count": 18205,
+      "is_likely_scanned": false,
+      "text_source": "native",
+      "graph_nodes": 496,
+      "graph_edges": 379,
+      "symbol_candidates": 94,
+      "plan_facts_count": 2057,
+      "component_facts_stats": {
+        "components_evaluated": 94,
+        "by_kind": {
+          "COMPONENT_FACT": 0,
+          "COMPONENT_CANDIDATE": 0,
+          "UNRESOLVED": 94
+        },
+        "library_eligible_symbols": 43,
+        "library_total_symbols": 58
+      },
+      "legend_detected": true,
+      "legend_top_confidence": 0.6,
+      "legend_heading": null,
+      "usable_legend_entries": 62,
+      "legend_intelligence_stats": {
+        "legend_candidates_detected": 9,
+        "legend_entries_extracted": 153,
+        "plan_specific_templates_built": 60,
+        "components_evaluated": 89,
+        "by_kind": {
+          "COMPONENT_FACT": 0,
+          "COMPONENT_CANDIDATE": 0,
+          "UNRESOLVED": 89
+        },
+        "hybrid_conflicts": 0
+      },
+      "runtime_seconds": 58.602,
+      "peak_rss_delta_kb": 272104,
+      "warnings": [
+        "Bridged 12 junction gap(s) via collinear continuation, 9 via shared symbol evidence, and 13 via corner convergence; every other dangling end was left unresolved rather than guessed -- see graph.edges[].is_bridge."
+      ]
+    },
+    {
+      "plan_id": "DEV-16",
+      "page_count": 1,
+      "parser_outcome": "ok",
+      "error": null,
+      "rotation": 0,
+      "width_pt": 1683.7,
+      "height_pt": 1190.5,
+      "native_text_chars": 2,
+      "raw_drawing_count": 2135,
+      "is_likely_scanned": false,
+      "text_source": "mixed",
+      "graph_nodes": 202,
+      "graph_edges": 127,
+      "symbol_candidates": 59,
+      "plan_facts_count": 841,
+      "component_facts_stats": {
+        "components_evaluated": 59,
+        "by_kind": {
+          "COMPONENT_FACT": 0,
+          "COMPONENT_CANDIDATE": 0,
+          "UNRESOLVED": 59
+        },
+        "library_eligible_symbols": 43,
+        "library_total_symbols": 58
+      },
+      "legend_detected": true,
+      "legend_top_confidence": 0.6,
+      "legend_heading": null,
+      "usable_legend_entries": 138,
+      "legend_intelligence_stats": {
+        "legend_candidates_detected": 4,
+        "legend_entries_extracted": 346,
+        "plan_specific_templates_built": 117,
+        "components_evaluated": 1,
+        "by_kind": {
+          "COMPONENT_FACT": 0,
+          "COMPONENT_CANDIDATE": 0,
+          "UNRESOLVED": 1
+        },
+        "hybrid_conflicts": 0
+      },
+      "runtime_seconds": 39.013,
+      "peak_rss_delta_kb": 129000,
+      "warnings": [
+        "Pages requiring OCR fallback: [1]",
+        "No reliable native text layer detected (likely vectorized/CAD-exported text or a scanned page) -- fell back to OCR.",
+        "Bridged 4 junction gap(s) via collinear continuation, 1 via shared symbol evidence, and 0 via corner convergence; every other dangling end was left unresolved rather than guessed -- see graph.edges[].is_bridge."
+      ]
+    },
+    {
+      "plan_id": "DEV-17",
+      "page_count": 1,
+      "parser_outcome": "ok",
+      "error": null,
+      "rotation": 0,
+      "width_pt": 1190.0,
+      "height_pt": 1683.0,
+      "native_text_chars": 2414,
+      "raw_drawing_count": 12359,
+      "is_likely_scanned": false,
+      "text_source": "native",
+      "graph_nodes": 203,
+      "graph_edges": 140,
+      "symbol_candidates": 24,
+      "plan_facts_count": 798,
+      "component_facts_stats": {
+        "components_evaluated": 24,
+        "by_kind": {
+          "COMPONENT_FACT": 0,
+          "COMPONENT_CANDIDATE": 1,
+          "UNRESOLVED": 23
+        },
+        "library_eligible_symbols": 43,
+        "library_total_symbols": 58
+      },
+      "legend_detected": true,
+      "legend_top_confidence": 0.6,
+      "legend_heading": null,
+      "usable_legend_entries": 36,
+      "legend_intelligence_stats": {
+        "legend_candidates_detected": 2,
+        "legend_entries_extracted": 51,
+        "plan_specific_templates_built": 36,
+        "components_evaluated": 15,
+        "by_kind": {
+          "COMPONENT_FACT": 0,
+          "COMPONENT_CANDIDATE": 0,
+          "UNRESOLVED": 15
+        },
+        "hybrid_conflicts": 0
+      },
+      "runtime_seconds": 8.901,
+      "peak_rss_delta_kb": 120144,
+      "warnings": [
+        "Bridged 2 junction gap(s) via collinear continuation, 0 via shared symbol evidence, and 0 via corner convergence; every other dangling end was left unresolved rather than guessed -- see graph.edges[].is_bridge.",
+        "Excluded 1432 of 1591 candidate line segments (90%) from the pipe graph: one color group dominates this page's total drawn line length with almost no other color present, which is far more consistent with a background/reference layer (walls, gridlines, dimension lines) than a multi-media pipe network. Not deleted -- see stats.background_line_segments."
+      ]
+    },
+    {
+      "plan_id": "DEV-18",
+      "page_count": 1,
+      "parser_outcome": "ok",
+      "error": null,
+      "rotation": 270,
+      "width_pt": 1190.4,
+      "height_pt": 841.7,
+      "native_text_chars": 0,
+      "raw_drawing_count": 0,
+      "is_likely_scanned": true,
+      "text_source": "ocr",
+      "graph_nodes": 0,
+      "graph_edges": 0,
+      "symbol_candidates": 0,
+      "plan_facts_count": 0,
+      "component_facts_stats": {
+        "components_evaluated": 0,
+        "by_kind": {
+          "COMPONENT_FACT": 0,
+          "COMPONENT_CANDIDATE": 0,
+          "UNRESOLVED": 0
+        },
+        "library_eligible_symbols": 43,
+        "library_total_symbols": 58
+      },
+      "legend_detected": true,
+      "legend_top_confidence": 0.6,
+      "legend_heading": null,
+      "usable_legend_entries": 64,
+      "legend_intelligence_stats": {
+        "legend_candidates_detected": 1,
+        "legend_entries_extracted": 306,
+        "plan_specific_templates_built": 53,
+        "components_evaluated": 0,
+        "by_kind": {
+          "COMPONENT_FACT": 0,
+          "COMPONENT_CANDIDATE": 0,
+          "UNRESOLVED": 0
+        },
+        "hybrid_conflicts": 0
+      },
+      "runtime_seconds": 28.892,
+      "peak_rss_delta_kb": 143228,
+      "warnings": [
+        "Pages requiring OCR fallback: [1]",
+        "No reliable native text layer detected (likely vectorized/CAD-exported text or a scanned page) -- fell back to OCR."
+      ]
+    },
+    {
+      "plan_id": "DEV-19",
+      "page_count": 1,
+      "parser_outcome": "ok",
+      "error": null,
+      "rotation": 0,
+      "width_pt": 1785.0,
+      "height_pt": 1389.0,
+      "native_text_chars": 3770,
+      "raw_drawing_count": 17148,
+      "is_likely_scanned": false,
+      "text_source": "native",
+      "graph_nodes": 419,
+      "graph_edges": 286,
+      "symbol_candidates": 35,
+      "plan_facts_count": 1763,
+      "component_facts_stats": {
+        "components_evaluated": 35,
+        "by_kind": {
+          "COMPONENT_FACT": 0,
+          "COMPONENT_CANDIDATE": 0,
+          "UNRESOLVED": 35
+        },
+        "library_eligible_symbols": 43,
+        "library_total_symbols": 58
+      },
+      "legend_detected": true,
+      "legend_top_confidence": 0.6,
+      "legend_heading": null,
+      "usable_legend_entries": 72,
+      "legend_intelligence_stats": {
+        "legend_candidates_detected": 2,
+        "legend_entries_extracted": 126,
+        "plan_specific_templates_built": 71,
+        "components_evaluated": 18,
+        "by_kind": {
+          "COMPONENT_FACT": 0,
+          "COMPONENT_CANDIDATE": 0,
+          "UNRESOLVED": 18
+        },
+        "hybrid_conflicts": 0
+      },
+      "runtime_seconds": 15.143,
+      "peak_rss_delta_kb": 92180,
+      "warnings": [
+        "Bridged 9 junction gap(s) via collinear continuation, 2 via shared symbol evidence, and 13 via corner convergence; every other dangling end was left unresolved rather than guessed -- see graph.edges[].is_bridge."
+      ]
+    },
+    {
+      "plan_id": "DEV-20",
+      "page_count": 1,
+      "parser_outcome": "ok",
+      "error": null,
+      "rotation": 90,
+      "width_pt": 1191.0,
+      "height_pt": 842.0,
+      "native_text_chars": 0,
+      "raw_drawing_count": 2233,
+      "is_likely_scanned": false,
+      "text_source": "ocr",
+      "graph_nodes": 161,
+      "graph_edges": 103,
+      "symbol_candidates": 72,
+      "plan_facts_count": 655,
+      "component_facts_stats": {
+        "components_evaluated": 72,
+        "by_kind": {
+          "COMPONENT_FACT": 0,
+          "COMPONENT_CANDIDATE": 0,
+          "UNRESOLVED": 72
+        },
+        "library_eligible_symbols": 43,
+        "library_total_symbols": 58
+      },
+      "legend_detected": true,
+      "legend_top_confidence": 0.6,
+      "legend_heading": null,
+      "usable_legend_entries": 30,
+      "legend_intelligence_stats": {
+        "legend_candidates_detected": 1,
+        "legend_entries_extracted": 157,
+        "plan_specific_templates_built": 25,
+        "components_evaluated": 56,
+        "by_kind": {
+          "COMPONENT_FACT": 0,
+          "COMPONENT_CANDIDATE": 0,
+          "UNRESOLVED": 56
+        },
+        "hybrid_conflicts": 0
+      },
+      "runtime_seconds": 24.255,
+      "peak_rss_delta_kb": 170008,
+      "warnings": [
+        "Pages requiring OCR fallback: [1]",
+        "No reliable native text layer detected (likely vectorized/CAD-exported text or a scanned page) -- fell back to OCR.",
+        "Bridged 0 junction gap(s) via collinear continuation, 3 via shared symbol evidence, and 0 via corner convergence; every other dangling end was left unresolved rather than guessed -- see graph.edges[].is_bridge."
+      ]
+    }
+  ],
+  "families": {
+    "DEV-01": "STANDALONE-1",
+    "DEV-02": "STANDALONE-2",
+    "DEV-03": "STANDALONE-3",
+    "DEV-04": "FAM-4",
+    "DEV-05": "FAM-4",
+    "DEV-06": "FAM-4",
+    "DEV-07": "STANDALONE-5",
+    "DEV-08": "STANDALONE-6",
+    "DEV-09": "STANDALONE-7",
+    "DEV-10": "STANDALONE-8",
+    "DEV-11": "FAM-9",
+    "DEV-12": "FAM-9",
+    "DEV-13": "STANDALONE-10",
+    "DEV-14": "STANDALONE-11",
+    "DEV-15": "STANDALONE-12",
+    "DEV-16": "STANDALONE-13",
+    "DEV-17": "STANDALONE-14",
+    "DEV-18": "STANDALONE-15",
+    "DEV-19": "STANDALONE-16",
+    "DEV-20": "STANDALONE-17"
+  },
+  "near_duplicate_pairs": [],
+  "split": {
+    "plan_to_split": {
+      "DEV-01": "train",
+      "DEV-02": "train",
+      "DEV-03": "validation",
+      "DEV-04": "train",
+      "DEV-05": "train",
+      "DEV-06": "train",
+      "DEV-07": "test",
+      "DEV-08": "train",
+      "DEV-09": "validation",
+      "DEV-10": "test",
+      "DEV-11": "train",
+      "DEV-12": "train",
+      "DEV-13": "train",
+      "DEV-14": "train",
+      "DEV-15": "train",
+      "DEV-16": "train",
+      "DEV-17": "train",
+      "DEV-18": "train",
+      "DEV-19": "validation",
+      "DEV-20": "test"
+    },
+    "family_to_split": {
+      "FAM-4": "train",
+      "FAM-9": "train",
+      "STANDALONE-1": "train",
+      "STANDALONE-10": "train",
+      "STANDALONE-11": "train",
+      "STANDALONE-12": "train",
+      "STANDALONE-13": "train",
+      "STANDALONE-14": "train",
+      "STANDALONE-15": "train",
+      "STANDALONE-16": "validation",
+      "STANDALONE-17": "test",
+      "STANDALONE-2": "train",
+      "STANDALONE-3": "validation",
+      "STANDALONE-5": "test",
+      "STANDALONE-6": "train",
+      "STANDALONE-7": "validation",
+      "STANDALONE-8": "test"
+    },
+    "counts": {
+      "train": 14,
+      "validation": 3,
+      "test": 3
+    }
+  },
+  "privacy": {
+    "per_plan_text_scan": [
+      {
+        "plan_id": "DEV-01",
+        "has_pii_risk": true,
+        "findings": [
+          {
+            "kind": "street_address",
+            "count": 3
+          },
+          {
+            "kind": "postal_code_town",
+            "count": 4
+          },
+          {
+            "kind": "title_block_field",
+            "count": 3
+          },
+          {
+            "kind": "company_name",
+            "count": 3
+          },
+          {
+            "kind": "email_address",
+            "count": 1
+          }
+        ],
+        "filename_flagged": false,
+        "filename_flag_reason": "",
+        "candidates_excluded_for_pii": 21
+      },
+      {
+        "plan_id": "DEV-02",
+        "has_pii_risk": false,
+        "findings": [],
+        "filename_flagged": false,
+        "filename_flag_reason": "",
+        "candidates_excluded_for_pii": 0
+      },
+      {
+        "plan_id": "DEV-03",
+        "has_pii_risk": true,
+        "findings": [
+          {
+            "kind": "street_address",
+            "count": 2
+          },
+          {
+            "kind": "postal_code_town",
+            "count": 6
+          },
+          {
+            "kind": "company_name",
+            "count": 1
+          },
+          {
+            "kind": "phone_number",
+            "count": 1
+          },
+          {
+            "kind": "email_address",
+            "count": 1
+          }
+        ],
+        "filename_flagged": false,
+        "filename_flag_reason": "",
+        "candidates_excluded_for_pii": 1
+      },
+      {
+        "plan_id": "DEV-04",
+        "has_pii_risk": true,
+        "findings": [
+          {
+            "kind": "street_address",
+            "count": 4
+          },
+          {
+            "kind": "postal_code_town",
+            "count": 6
+          },
+          {
+            "kind": "phone_number",
+            "count": 5
+          },
+          {
+            "kind": "email_address",
+            "count": 5
+          }
+        ],
+        "filename_flagged": false,
+        "filename_flag_reason": "",
+        "candidates_excluded_for_pii": 28
+      },
+      {
+        "plan_id": "DEV-05",
+        "has_pii_risk": true,
+        "findings": [
+          {
+            "kind": "street_address",
+            "count": 4
+          },
+          {
+            "kind": "postal_code_town",
+            "count": 6
+          },
+          {
+            "kind": "phone_number",
+            "count": 5
+          },
+          {
+            "kind": "email_address",
+            "count": 5
+          }
+        ],
+        "filename_flagged": false,
+        "filename_flag_reason": "",
+        "candidates_excluded_for_pii": 25
+      },
+      {
+        "plan_id": "DEV-06",
+        "has_pii_risk": true,
+        "findings": [
+          {
+            "kind": "street_address",
+            "count": 4
+          },
+          {
+            "kind": "postal_code_town",
+            "count": 6
+          },
+          {
+            "kind": "phone_number",
+            "count": 5
+          },
+          {
+            "kind": "email_address",
+            "count": 5
+          }
+        ],
+        "filename_flagged": false,
+        "filename_flag_reason": "",
+        "candidates_excluded_for_pii": 1
+      },
+      {
+        "plan_id": "DEV-07",
+        "has_pii_risk": true,
+        "findings": [
+          {
+            "kind": "street_address",
+            "count": 2
+          },
+          {
+            "kind": "postal_code_town",
+            "count": 6
+          },
+          {
+            "kind": "company_name",
+            "count": 1
+          },
+          {
+            "kind": "email_address",
+            "count": 1
+          }
+        ],
+        "filename_flagged": false,
+        "filename_flag_reason": "",
+        "candidates_excluded_for_pii": 8
+      },
+      {
+        "plan_id": "DEV-08",
+        "has_pii_risk": true,
+        "findings": [
+          {
+            "kind": "street_address",
+            "count": 1
+          },
+          {
+            "kind": "postal_code_town",
+            "count": 2
+          },
+          {
+            "kind": "company_name",
+            "count": 9
+          },
+          {
+            "kind": "phone_number",
+            "count": 1
+          },
+          {
+            "kind": "email_address",
+            "count": 1
+          }
+        ],
+        "filename_flagged": false,
+        "filename_flag_reason": "",
+        "candidates_excluded_for_pii": 42
+      },
+      {
+        "plan_id": "DEV-09",
+        "has_pii_risk": false,
+        "findings": [],
+        "filename_flagged": false,
+        "filename_flag_reason": "",
+        "candidates_excluded_for_pii": 0
+      },
+      {
+        "plan_id": "DEV-10",
+        "has_pii_risk": true,
+        "findings": [
+          {
+            "kind": "street_address",
+            "count": 4
+          },
+          {
+            "kind": "postal_code_town",
+            "count": 12
+          },
+          {
+            "kind": "company_name",
+            "count": 10
+          },
+          {
+            "kind": "phone_number",
+            "count": 2
+          },
+          {
+            "kind": "email_address",
+            "count": 2
+          }
+        ],
+        "filename_flagged": false,
+        "filename_flag_reason": "",
+        "candidates_excluded_for_pii": 41
+      },
+      {
+        "plan_id": "DEV-11",
+        "has_pii_risk": true,
+        "findings": [
+          {
+            "kind": "street_address",
+            "count": 1
+          },
+          {
+            "kind": "postal_code_town",
+            "count": 3
+          },
+          {
+            "kind": "company_name",
+            "count": 1
+          },
+          {
+            "kind": "phone_number",
+            "count": 1
+          },
+          {
+            "kind": "email_address",
+            "count": 1
+          }
+        ],
+        "filename_flagged": false,
+        "filename_flag_reason": "",
+        "candidates_excluded_for_pii": 2
+      },
+      {
+        "plan_id": "DEV-12",
+        "has_pii_risk": true,
+        "findings": [
+          {
+            "kind": "street_address",
+            "count": 1
+          },
+          {
+            "kind": "postal_code_town",
+            "count": 3
+          },
+          {
+            "kind": "company_name",
+            "count": 1
+          },
+          {
+            "kind": "phone_number",
+            "count": 1
+          },
+          {
+            "kind": "email_address",
+            "count": 1
+          }
+        ],
+        "filename_flagged": false,
+        "filename_flag_reason": "",
+        "candidates_excluded_for_pii": 55
+      },
+      {
+        "plan_id": "DEV-13",
+        "has_pii_risk": true,
+        "findings": [
+          {
+            "kind": "postal_code_town",
+            "count": 4
+          }
+        ],
+        "filename_flagged": false,
+        "filename_flag_reason": "",
+        "candidates_excluded_for_pii": 17
+      },
+      {
+        "plan_id": "DEV-14",
+        "has_pii_risk": true,
+        "findings": [
+          {
+            "kind": "street_address",
+            "count": 1
+          },
+          {
+            "kind": "postal_code_town",
+            "count": 3
+          },
+          {
+            "kind": "title_block_field",
+            "count": 1
+          },
+          {
+            "kind": "company_name",
+            "count": 2
+          },
+          {
+            "kind": "phone_number",
+            "count": 1
+          },
+          {
+            "kind": "email_address",
+            "count": 1
+          }
+        ],
+        "filename_flagged": false,
+        "filename_flag_reason": "",
+        "candidates_excluded_for_pii": 17
+      },
+      {
+        "plan_id": "DEV-15",
+        "has_pii_risk": true,
+        "findings": [
+          {
+            "kind": "street_address",
+            "count": 2
+          },
+          {
+            "kind": "postal_code_town",
+            "count": 3
+          },
+          {
+            "kind": "company_name",
+            "count": 1
+          },
+          {
+            "kind": "phone_number",
+            "count": 1
+          },
+          {
+            "kind": "email_address",
+            "count": 1
+          }
+        ],
+        "filename_flagged": false,
+        "filename_flag_reason": "",
+        "candidates_excluded_for_pii": 0
+      },
+      {
+        "plan_id": "DEV-16",
+        "has_pii_risk": false,
+        "findings": [],
+        "filename_flagged": false,
+        "filename_flag_reason": "",
+        "candidates_excluded_for_pii": 1
+      },
+      {
+        "plan_id": "DEV-17",
+        "has_pii_risk": true,
+        "findings": [
+          {
+            "kind": "postal_code_town",
+            "count": 2
+          }
+        ],
+        "filename_flagged": false,
+        "filename_flag_reason": "",
+        "candidates_excluded_for_pii": 3
+      },
+      {
+        "plan_id": "DEV-18",
+        "has_pii_risk": false,
+        "findings": [],
+        "filename_flagged": false,
+        "filename_flag_reason": "",
+        "candidates_excluded_for_pii": 0
+      },
+      {
+        "plan_id": "DEV-19",
+        "has_pii_risk": true,
+        "findings": [
+          {
+            "kind": "postal_code_town",
+            "count": 4
+          },
+          {
+            "kind": "company_name",
+            "count": 1
+          },
+          {
+            "kind": "phone_number",
+            "count": 1
+          },
+          {
+            "kind": "email_address",
+            "count": 1
+          }
+        ],
+        "filename_flagged": false,
+        "filename_flag_reason": "",
+        "candidates_excluded_for_pii": 18
+      },
+      {
+        "plan_id": "DEV-20",
+        "has_pii_risk": false,
+        "findings": [],
+        "filename_flagged": false,
+        "filename_flag_reason": "",
+        "candidates_excluded_for_pii": 1
+      }
+    ],
+    "filename_scan": {
+      "DEV-01": {
+        "flagged": false,
+        "reason": ""
+      },
+      "DEV-02": {
+        "flagged": false,
+        "reason": ""
+      },
+      "DEV-03": {
+        "flagged": false,
+        "reason": ""
+      },
+      "DEV-04": {
+        "flagged": false,
+        "reason": ""
+      },
+      "DEV-05": {
+        "flagged": false,
+        "reason": ""
+      },
+      "DEV-06": {
+        "flagged": false,
+        "reason": ""
+      },
+      "DEV-07": {
+        "flagged": false,
+        "reason": ""
+      },
+      "DEV-08": {
+        "flagged": false,
+        "reason": ""
+      },
+      "DEV-09": {
+        "flagged": false,
+        "reason": ""
+      },
+      "DEV-10": {
+        "flagged": false,
+        "reason": ""
+      },
+      "DEV-11": {
+        "flagged": false,
+        "reason": ""
+      },
+      "DEV-12": {
+        "flagged": false,
+        "reason": ""
+      },
+      "DEV-13": {
+        "flagged": false,
+        "reason": ""
+      },
+      "DEV-14": {
+        "flagged": false,
+        "reason": ""
+      },
+      "DEV-15": {
+        "flagged": false,
+        "reason": ""
+      },
+      "DEV-16": {
+        "flagged": false,
+        "reason": ""
+      },
+      "DEV-17": {
+        "flagged": false,
+        "reason": ""
+      },
+      "DEV-18": {
+        "flagged": false,
+        "reason": ""
+      },
+      "DEV-19": {
+        "flagged": true,
+        "reason": "filename appears to contain a street address"
+      },
+      "DEV-20": {
+        "flagged": false,
+        "reason": ""
+      }
+    }
+  },
+  "taxonomy": {
+    "classes": [
+      "pex-verteiler",
+      "dusche",
+      "küche",
+      "coop laden",
+      "apparate stk. kw ww dim",
+      "up verteiler unter wt",
+      "BA",
+      "9 mm armaflex",
+      "an bestehenter leitung anschliessen",
+      "dämmung regenwasser",
+      "kaltwasser",
+      "kw stk. ww dim",
+      "secomat",
+      "warmwasser",
+      "wc up",
+      "OTHER_RELEVANT_SYMBOL",
+      "NOT_A_COMPONENT",
+      "AMBIGUOUS"
+    ],
+    "evidence_counts": {
+      "putzraum": {
+        "legend": 2,
+        "safety_code": 0,
+        "generic_drawing": 0,
+        "total": 2
+      },
+      "fallleitung mittels schallschutzgrundplatten,": {
+        "legend": 3,
+        "safety_code": 0,
+        "generic_drawing": 0,
+        "total": 3
+      },
+      "up verteiler unter wt": {
+        "legend": 8,
+        "safety_code": 0,
+        "generic_drawing": 0,
+        "total": 8
+      },
+      "war": {
+        "legend": 2,
+        "safety_code": 0,
+        "generic_drawing": 0,
+        "total": 2
+      },
+      "EA": {
+        "legend": 0,
+        "safety_code": 2,
+        "generic_drawing": 0,
+        "total": 2
+      },
+      "küche": {
+        "legend": 17,
+        "safety_code": 0,
+        "generic_drawing": 0,
+        "total": 17
+      },
+      "apparate stk. kw ww dim": {
+        "legend": 8,
+        "safety_code": 0,
+        "generic_drawing": 0,
+        "total": 8
+      },
+      "geberit isol schmutzwasser fallstränge": {
+        "legend": 3,
+        "safety_code": 0,
+        "generic_drawing": 0,
+        "total": 3
+      },
+      "was": {
+        "legend": 3,
+        "safety_code": 0,
+        "generic_drawing": 0,
+        "total": 3
+      },
+      "masstab": {
+        "legend": 2,
+        "safety_code": 0,
+        "generic_drawing": 0,
+        "total": 2
+      },
+      "kaltwasser": {
+        "legend": 6,
+        "safety_code": 0,
+        "generic_drawing": 0,
+        "total": 6
+      },
+      "schieber": {
+        "legend": 3,
+        "safety_code": 0,
+        "generic_drawing": 0,
+        "total": 3
+      },
+      "an bestehenter leitung anschliessen cr": {
+        "legend": 2,
+        "safety_code": 0,
+        "generic_drawing": 0,
+        "total": 2
+      },
+      "rückschlagklappe": {
+        "legend": 3,
+        "safety_code": 0,
+        "generic_drawing": 0,
+        "total": 3
+      },
+      "heizungsfüllventil": {
+        "legend": 4,
+        "safety_code": 0,
+        "generic_drawing": 0,
+        "total": 4
+      },
+      "ausstosszeit": {
+        "legend": 2,
+        "safety_code": 0,
+        "generic_drawing": 0,
+        "total": 2
+      },
+      "gartenventil (rd)": {
+        "legend": 2,
+        "safety_code": 0,
+        "generic_drawing": 0,
+        "total": 2
+      },
+      "gartenventil (nd)": {
+        "legend": 2,
+        "safety_code": 0,
+        "generic_drawing": 0,
+        "total": 2
+      },
+      "gewerk s": {
+        "legend": 2,
+        "safety_code": 0,
+        "generic_drawing": 0,
+        "total": 2
+      },
+      "fühler": {
+        "legend": 3,
+        "safety_code": 0,
+        "generic_drawing": 0,
+        "total": 3
+      },
+      "index": {
+        "legend": 2,
+        "safety_code": 0,
+        "generic_drawing": 0,
+        "total": 2
+      },
+      "kaltwasser red. druck": {
+        "legend": 3,
+        "safety_code": 0,
+        "generic_drawing": 0,
+        "total": 3
+      },
+      "fallleitung doppelt mit geberit isol dämmen": {
+        "legend": 3,
+        "safety_code": 0,
+        "generic_drawing": 0,
+        "total": 3
+      },
+      "zirkulationsventil thermisch (mit absperrventilen)": {
+        "legend": 2,
+        "safety_code": 0,
+        "generic_drawing": 0,
+        "total": 2
+      },
+      "schmutzwasser": {
+        "legend": 2,
+        "safety_code": 0,
+        "generic_drawing": 0,
+        "total": 2
+      },
+      "isolierholländer": {
+        "legend": 2,
+        "safety_code": 0,
+        "generic_drawing": 0,
+        "total": 2
+      },
+      "sicherheitsgruppe": {
+        "legend": 3,
+        "safety_code": 0,
+        "generic_drawing": 0,
+        "total": 3
+      },
+      "waschtrog": {
+        "legend": 2,
+        "safety_code": 0,
+        "generic_drawing": 0,
+        "total": 2
+      },
+      "station-west 2a": {
+        "legend": 3,
+        "safety_code": 0,
+        "generic_drawing": 0,
+        "total": 3
+      },
+      "temperaturfühler": {
+        "legend": 2,
+        "safety_code": 0,
+        "generic_drawing": 0,
+        "total": 2
+      },
+      "dusche": {
+        "legend": 27,
+        "safety_code": 0,
+        "generic_drawing": 0,
+        "total": 27
+      },
+      "leitungen": {
+        "legend": 2,
+        "safety_code": 0,
+        "generic_drawing": 0,
+        "total": 2
+      },
+      "absprache mit brandabschottungsfirma.": {
+        "legend": 2,
+        "safety_code": 0,
+        "generic_drawing": 0,
+        "total": 2
+      },
+      "thermometer": {
+        "legend": 2,
+        "safety_code": 0,
+        "generic_drawing": 0,
+        "total": 2
+      },
+      "druckminderer": {
+        "legend": 2,
+        "safety_code": 0,
+        "generic_drawing": 0,
+        "total": 2
+      },
+      "thermostatischer mischer": {
+        "legend": 2,
+        "safety_code": 0,
+        "generic_drawing": 0,
+        "total": 2
+      },
+      "wkn": {
+        "legend": 2,
+        "safety_code": 0,
+        "generic_drawing": 0,
+        "total": 2
+      },
+      "absperrventil": {
+        "legend": 2,
+        "safety_code": 0,
+        "generic_drawing": 0,
+        "total": 2
+      },
+      "wwv": {
+        "legend": 2,
+        "safety_code": 0,
+        "generic_drawing": 0,
+        "total": 2
+      },
+      "verteilbatterie": {
+        "legend": 2,
+        "safety_code": 0,
+        "generic_drawing": 0,
+        "total": 2
+      },
+      "feinfilter mit umgehung": {
+        "legend": 2,
+        "safety_code": 0,
+        "generic_drawing": 0,
+        "total": 2
+      },
+      "kugelhahnen": {
+        "legend": 3,
+        "safety_code": 0,
+        "generic_drawing": 0,
+        "total": 3
+      },
+      "reduktion:": {
+        "legend": 2,
+        "safety_code": 0,
+        "generic_drawing": 0,
+        "total": 2
+      },
+      "13 mm armaflex schmutzwasser entlüftungen": {
+        "legend": 3,
+        "safety_code": 0,
+        "generic_drawing": 0,
+        "total": 3
+      },
+      "wkr": {
+        "legend": 2,
+        "safety_code": 0,
+        "generic_drawing": 0,
+        "total": 2
+      },
+      "(bauseits)": {
+        "legend": 2,
+        "safety_code": 0,
+        "generic_drawing": 0,
+        "total": 2
+      },
+      "dreiwegventil": {
+        "legend": 3,
+        "safety_code": 0,
+        "generic_drawing": 0,
+        "total": 3
+      },
+      "an bestehenter leitung anschliessen": {
+        "legend": 6,
+        "safety_code": 0,
+        "generic_drawing": 0,
+        "total": 6
+      },
+      "vertikaler fluchtweg: nur baustoffe rf1 erlaubt": {
+        "legend": 2,
+        "safety_code": 0,
+        "generic_drawing": 0,
+        "total": 2
+      },
+      "objekt": {
+        "legend": 2,
+        "safety_code": 0,
+        "generic_drawing": 0,
+        "total": 2
+      },
+      "warmwasser": {
+        "legend": 6,
+        "safety_code": 0,
+        "generic_drawing": 0,
+        "total": 6
+      },
+      "ok duschenwanne ca. 14cm ab rb": {
+        "legend": 3,
+        "safety_code": 0,
+        "generic_drawing": 0,
+        "total": 3
+      },
+      "sockelaufbau unter dusche": {
+        "legend": 3,
+        "safety_code": 0,
+        "generic_drawing": 0,
+        "total": 3
+      },
+      "wasserzähler": {
+        "legend": 4,
+        "safety_code": 0,
+        "generic_drawing": 0,
+        "total": 4
+      },
+      "dämmung regenwasser": {
+        "legend": 6,
+        "safety_code": 0,
+        "generic_drawing": 0,
+        "total": 6
+      },
+      "kw stk. ww dim": {
+        "legend": 6,
+        "safety_code": 0,
+        "generic_drawing": 0,
+        "total": 6
+      },
+      "apparate": {
+        "legend": 3,
+        "safety_code": 0,
+        "generic_drawing": 0,
+        "total": 3
+      },
+      "kompensator": {
+        "legend": 3,
+        "safety_code": 0,
+        "generic_drawing": 0,
+        "total": 3
+      },
+      "wc up": {
+        "legend": 6,
+        "safety_code": 0,
+        "generic_drawing": 0,
+        "total": 6
+      },
+      "t-stücke/durchgang:": {
+        "legend": 4,
+        "safety_code": 0,
+        "generic_drawing": 0,
+        "total": 4
+      },
+      "dämmschlauch schmutzwasser sammelleitungen": {
+        "legend": 3,
+        "safety_code": 0,
+        "generic_drawing": 0,
+        "total": 3
+      },
+      "geberit pe geb-art-nr 367.744 vorschweissbund d": {
+        "legend": 2,
+        "safety_code": 0,
+        "generic_drawing": 0,
+        "total": 2
+      },
+      "- 1:50 massstab: rev. a:": {
+        "legend": 3,
+        "safety_code": 0,
+        "generic_drawing": 0,
+        "total": 3
+      },
+      "zirkulationsventil mechanisch (mit absperrventilen)": {
+        "legend": 2,
+        "safety_code": 0,
+        "generic_drawing": 0,
+        "total": 2
+      },
+      "AF": {
+        "legend": 0,
+        "safety_code": 5,
+        "generic_drawing": 0,
+        "total": 5
+      },
+      "horizontaler fluchtweg: pir-schalen mit alu grobkorn": {
+        "legend": 2,
+        "safety_code": 0,
+        "generic_drawing": 0,
+        "total": 2
+      },
+      "kaltwasser netzdruck": {
+        "legend": 3,
+        "safety_code": 0,
+        "generic_drawing": 0,
+        "total": 3
+      },
+      "warmwasser rücklauf": {
+        "legend": 2,
+        "safety_code": 0,
+        "generic_drawing": 0,
+        "total": 2
+      },
+      "speicherinhalt in liter dämmstärke dämmstärke": {
+        "legend": 2,
+        "safety_code": 0,
+        "generic_drawing": 0,
+        "total": 2
+      },
+      "pex-verteiler": {
+        "legend": 46,
+        "safety_code": 0,
+        "generic_drawing": 0,
+        "total": 46
+      },
+      "flexible verbindung": {
+        "legend": 4,
+        "safety_code": 0,
+        "generic_drawing": 0,
+        "total": 4
+      },
+      "up-ventil": {
+        "legend": 2,
+        "safety_code": 0,
+        "generic_drawing": 0,
+        "total": 2
+      },
+      "lu tu alu": {
+        "legend": 2,
+        "safety_code": 0,
+        "generic_drawing": 0,
+        "total": 2
+      },
+      "total lu": {
+        "legend": 3,
+        "safety_code": 0,
+        "generic_drawing": 0,
+        "total": 3
+      },
+      "wkr lu": {
+        "legend": 5,
+        "safety_code": 0,
+        "generic_drawing": 0,
+        "total": 5
+      },
+      "schallschutzmassnahmen": {
+        "legend": 3,
+        "safety_code": 0,
+        "generic_drawing": 0,
+        "total": 3
+      },
+      "drosselklappe": {
+        "legend": 4,
+        "safety_code": 0,
+        "generic_drawing": 0,
+        "total": 4
+      },
+      "für gebäudetechnik": {
+        "legend": 2,
+        "safety_code": 0,
+        "generic_drawing": 0,
+        "total": 2
+      },
+      "kühlmöbel - anschluss var.": {
+        "legend": 2,
+        "safety_code": 0,
+        "generic_drawing": 0,
+        "total": 2
+      },
+      "personal wc": {
+        "legend": 2,
+        "safety_code": 0,
+        "generic_drawing": 0,
+        "total": 2
+      },
+      "fixpunkt": {
+        "legend": 2,
+        "safety_code": 0,
+        "generic_drawing": 0,
+        "total": 2
+      },
+      "9 mm armaflex": {
+        "legend": 6,
+        "safety_code": 0,
+        "generic_drawing": 0,
+        "total": 6
+      },
+      "umwälzpumpe": {
+        "legend": 3,
+        "safety_code": 0,
+        "generic_drawing": 0,
+        "total": 3
+      },
+      "pneumatisches ventil": {
+        "legend": 2,
+        "safety_code": 0,
+        "generic_drawing": 0,
+        "total": 2
+      },
+      "wm/tu": {
+        "legend": 6,
+        "safety_code": 0,
+        "generic_drawing": 0,
+        "total": 6
+      },
+      "pumpe": {
+        "legend": 2,
+        "safety_code": 0,
+        "generic_drawing": 0,
+        "total": 2
+      },
+      "armaturen": {
+        "legend": 2,
+        "safety_code": 0,
+        "generic_drawing": 0,
+        "total": 2
+      },
+      "rückschlagventil": {
+        "legend": 2,
+        "safety_code": 0,
+        "generic_drawing": 0,
+        "total": 2
+      },
+      "rückflussverhinderer": {
+        "legend": 3,
+        "safety_code": 0,
+        "generic_drawing": 0,
+        "total": 3
+      },
+      "magnetventil": {
+        "legend": 2,
+        "safety_code": 0,
+        "generic_drawing": 0,
+        "total": 2
+      },
+      "uk fertig decke": {
+        "legend": 2,
+        "safety_code": 0,
+        "generic_drawing": 0,
+        "total": 2
+      },
+      "regenwasser": {
+        "legend": 2,
+        "safety_code": 0,
+        "generic_drawing": 0,
+        "total": 2
+      },
+      "motorventil": {
+        "legend": 2,
+        "safety_code": 0,
+        "generic_drawing": 0,
+        "total": 2
+      },
+      "secomat": {
+        "legend": 6,
+        "safety_code": 0,
+        "generic_drawing": 0,
+        "total": 6
+      },
+      "umstellventil": {
+        "legend": 2,
+        "safety_code": 0,
+        "generic_drawing": 0,
+        "total": 2
+      },
+      "entleerhahnen": {
+        "legend": 2,
+        "safety_code": 0,
+        "generic_drawing": 0,
+        "total": 2
+      },
+      "schmutzabwasser": {
+        "legend": 2,
+        "safety_code": 0,
+        "generic_drawing": 0,
+        "total": 2
+      },
+      "revision": {
+        "legend": 2,
+        "safety_code": 0,
+        "generic_drawing": 0,
+        "total": 2
+      },
+      "batterieventil": {
+        "legend": 3,
+        "safety_code": 0,
+        "generic_drawing": 0,
+        "total": 3
+      },
+      "geschirrspüler": {
+        "legend": 2,
+        "safety_code": 0,
+        "generic_drawing": 0,
+        "total": 2
+      },
+      "up.-ventil 1/2\"": {
+        "legend": 2,
+        "safety_code": 0,
+        "generic_drawing": 0,
+        "total": 2
+      },
+      "warmwasserleitung von haus 7 cr": {
+        "legend": 2,
+        "safety_code": 0,
+        "generic_drawing": 0,
+        "total": 2
+      },
+      "energie technik beratung": {
+        "legend": 2,
+        "safety_code": 0,
+        "generic_drawing": 0,
+        "total": 2
+      },
+      "gartenventil": {
+        "legend": 3,
+        "safety_code": 0,
+        "generic_drawing": 0,
+        "total": 3
+      },
+      "wwr": {
+        "legend": 2,
+        "safety_code": 0,
+        "generic_drawing": 0,
+        "total": 2
+      },
+      "duschenwanne": {
+        "legend": 3,
+        "safety_code": 0,
+        "generic_drawing": 0,
+        "total": 3
+      },
+      "systemtrenngerät": {
+        "legend": 2,
+        "safety_code": 0,
+        "generic_drawing": 0,
+        "total": 2
+      },
+      "passstück": {
+        "legend": 2,
+        "safety_code": 0,
+        "generic_drawing": 0,
+        "total": 2
+      },
+      "λ < 0.03 w/mk": {
+        "legend": 2,
+        "safety_code": 0,
+        "generic_drawing": 0,
+        "total": 2
+      },
+      "zirkulationsregelventil": {
+        "legend": 2,
+        "safety_code": 0,
+        "generic_drawing": 0,
+        "total": 2
+      },
+      "abwasser": {
+        "legend": 2,
+        "safety_code": 0,
+        "generic_drawing": 0,
+        "total": 2
+      },
+      "gaszähler": {
+        "legend": 3,
+        "safety_code": 0,
+        "generic_drawing": 0,
+        "total": 3
+      },
+      "wc wm": {
+        "legend": 2,
+        "safety_code": 0,
+        "generic_drawing": 0,
+        "total": 2
+      },
+      "sicherheitsventil": {
+        "legend": 5,
+        "safety_code": 0,
+        "generic_drawing": 0,
+        "total": 5
+      },
+      "BA": {
+        "legend": 0,
+        "safety_code": 7,
+        "generic_drawing": 0,
+        "total": 7
+      },
+      "länge: 3.0m": {
+        "legend": 3,
+        "safety_code": 0,
+        "generic_drawing": 0,
+        "total": 3
+      },
+      "49.1 wohnen / essen pex-verteiler": {
+        "legend": 2,
+        "safety_code": 0,
+        "generic_drawing": 0,
+        "total": 2
+      },
+      "coop laden": {
+        "legend": 12,
+        "safety_code": 0,
+        "generic_drawing": 0,
+        "total": 12
+      },
+      "feinfilter": {
+        "legend": 2,
+        "safety_code": 0,
+        "generic_drawing": 0,
+        "total": 2
+      },
+      "absperrventil mit entleerung": {
+        "legend": 2,
+        "safety_code": 0,
+        "generic_drawing": 0,
+        "total": 2
+      },
+      "an decke befestigen.": {
+        "legend": 3,
+        "safety_code": 0,
+        "generic_drawing": 0,
+        "total": 3
+      },
+      "manometer": {
+        "legend": 2,
+        "safety_code": 0,
+        "generic_drawing": 0,
+        "total": 2
+      },
+      "geberit isol/19 mm armaflex regen-/terrassenwasser": {
+        "legend": 3,
+        "safety_code": 0,
+        "generic_drawing": 0,
+        "total": 3
+      },
+      "regenabwasser": {
+        "legend": 2,
+        "safety_code": 0,
+        "generic_drawing": 0,
+        "total": 2
+      },
+      "produktion / metzgerei": {
+        "legend": 3,
+        "safety_code": 0,
+        "generic_drawing": 0,
+        "total": 3
+      },
+      "waschtisch": {
+        "legend": 3,
+        "safety_code": 0,
+        "generic_drawing": 0,
+        "total": 3
+      },
+      "bauteildurchführungen (wände / böden / decke) nach": {
+        "legend": 2,
+        "safety_code": 0,
+        "generic_drawing": 0,
+        "total": 2
+      },
+      "bm bei jedem geschossdurchgang": {
+        "legend": 4,
+        "safety_code": 0,
+        "generic_drawing": 0,
+        "total": 4
+      },
+      "in der vorwand geführt:": {
+        "legend": 2,
+        "safety_code": 0,
+        "generic_drawing": 0,
+        "total": 2
+      },
+      "personal küche": {
+        "legend": 2,
+        "safety_code": 0,
+        "generic_drawing": 0,
+        "total": 2
+      }
+    }
+  },
+  "qc": {
+    "duplicate_pairs": [],
+    "class_imbalance": {
+      "suggested_label_counts": {
+        "NO_SUGGESTION": 147,
+        "cns28 (27 lu)": 58,
+        "geberit isol/19 mm armaflex regen-/terrassenwasser": 40,
+        "rückschlagventil": 34,
+        "an bestehenter leitung anschliessen": 26,
+        "m": 24,
+        "für gebäudetechnik": 24,
+        "(bauseits)": 21,
+        "dämmschlauch schmutzwasser sammelleitungen": 21,
+        "2. lage = xxxukd": 20,
+        "a": 20,
+        ". . . . 00": 18,
+        "13 mm armaflex schmutzwasser entlüftungen": 15,
+        "- 1:50 massstab: rev. a:": 15,
+        "wwr": 14,
+        "motor. dreiwegventil": 12,
+        "warmwasserleitung von haus 7 cr 35": 12,
+        "iw": 12,
+        "wasserversorgung": 10,
+        "station-west 2a": 10,
+        "drosselklappe": 10,
+        "st \" n": 10,
+        "1. lage = xxxukd": 9,
+        "b": 9,
+        "l-----------------------": 8,
+        "cns22 (16 lu)": 7,
+        "sicherheitsthermostat": 7,
+        "wasserzähler": 7,
+        "gasbrenner": 6,
+        "pe-s 110": 6,
+        "in der vorwand geführt:": 6,
+        "sicherheitsgruppe": 6,
+        "a u s f ü h r u n g s a n i t ä r": 5,
+        "warmwasser steigleitungen und leitung in bodenschlitz 30 mm porengummischlauch / 30 mm protect": 5,
+        "geberit isol schmutzwasser fallstränge": 5,
+        "passstück": 5,
+        "verteilbatterie": 5,
+        "fühler": 5,
+        "küche 1 3 2 1/2": 5,
+        "ø28 (27 lu)": 5,
+        "°": 5,
+        "3. lage = xxxukd": 4,
+        "in dex art der ände rung": 4,
+        "batterieventil": 4,
+        "wkr": 4,
+        "heizungsfüllventil": 4,
+        "thermostatischer mischer": 4,
+        "thermisches mischventil": 4,
+        "uk fertig decke": 3,
+        "messfühler niveau": 3,
+        "entleerung": 3,
+        "an bestehenter leitung anschliessen cr 28": 3,
+        "was auf pumpenschacht": 3,
+        "kalt- und warmwasser": 3,
+        "apparate stk. kw ww dim": 3,
+        "waschtisch 1 1 1 1/2": 3,
+        "5": 3,
+        "leitungsbeschriftungen": 3,
+        "_———— a": 3,
+        "c": 2,
+        "hohem wiederstand gegen wasserdampfdiffusion / verklebt": 2,
+        "gis-vorwandinstallationen": 2,
+        "messfühler druck": 2,
+        "fl 2": 2,
+        "kw/ww/zk": 2,
+        "apparateschild / mit kette": 2,
+        "geschirrspüler": 2,
+        "80": 2,
+        "zirkulationsregelventil": 2,
+        "strangschema sanitär": 2,
+        "rückflussverhinderer": 2,
+        "t": 2,
+        "entleerhahn": 2,
+        "gaszähler": 2,
+        "4 3": 2,
+        "- / -": 2,
+        "brandschutz": 2,
+        "wc 1 1 1/2": 2,
+        "cns ø35(91)": 2,
+        "nl -l-": 2,
+        "caterterassenauslautverti": 2,
+        "orca hauswasseranschius.": 2,
+        "tmwassarkat trinkwasser": 2,
+        "mit steckschlüssel": 1,
+        "porengummischlauch 20mm mit": 1,
+        "zuleitung extern = dn 50": 1,
+        "e d f": 1,
+        "regler": 1,
+        "cr 28": 1,
+        "ww: 1 x vpe ø16": 1,
+        "ø110 (16.2)": 1,
+        "produktion / metzgerei": 1,
+        "kaltwasser": 1,
+        "personal küche": 1,
+        "dn 40 mm 17.2 3/8\" mm dn 125 48.3 139.7 mm": 1,
+        "schmutzabwasser": 1,
+        "revision": 1,
+        "masstab": 1,
+        "tropfwasser kondensabwasser": 1,
+        "medium": 1,
+        "siede gewinde auf plan auf plan siede auf plan": 1,
+        "feinfilter mit umgehung": 1,
+        "up-ventil": 1,
+        "legende leitungen": 1,
+        "kugelhahnen": 1,
+        "lieferung durch heizung": 1,
+        "absperrventil": 1,
+        "index": 1,
+        "dreiwegventil": 1,
+        "pe-x ø16": 1,
+        "zirkulationsregler": 1,
+        "1": 1,
+        "wma 1 2 1/2": 1,
+        "zirkulationspumpe": 1,
+        "2": 1,
+        "wassermesser 2": 1,
+        "il": 1,
+        "inion": 1,
+        "wann monde": 1,
+        "we": 1,
+        "mi waschmaschine wesenmämer wasereämer": 1,
+        "— mm": 1
+      },
+      "assigned_class_counts": {},
+      "suggested_imbalance_ratio": 147.0,
+      "imbalance_warning": true
+    },
+    "review_queue_no_suggestion_count": 147,
+    "review_queue_no_suggestion_sample": [
+      "AC9487f9c5252a1761cfc1",
+      "ACcfcf4aa5705367a730e4",
+      "AC1788874dab457702a77a",
+      "ACba69d13ecb99ca491632",
+      "AC057ede0edb365c282bb2",
+      "AC59a98065093f681972f6",
+      "AC17b9114a1425406f7311",
+      "AC91906bd2f0b0dad6fe89",
+      "ACd1e9aac5656fe180a0e8",
+      "ACcf1652672f5a56811805",
+      "AC6959e8fd6df206aca85b",
+      "ACe8be908f577901110fa0",
+      "ACf00673d11bb01714bda7",
+      "AC42d766dafafcfcf25ce2",
+      "AC9a8e90ce1ab92f97007d",
+      "ACa75f677fd83574817590",
+      "ACe6645f2614600df5440c",
+      "AC2ee183a1f669ecd998d7",
+      "AC4c5adb663d433670371e",
+      "ACeece42d9d6eb270d487f"
+    ]
+  },
+  "manifest": {
+    "path": "/home/user/gaswaterai-engine/data/dev_plans_v04/annotation_dataset/manifest.json",
+    "record_count": 837
+  },
+  "total_candidates": 837
+}

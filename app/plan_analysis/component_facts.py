@@ -81,26 +81,37 @@ class ComponentFact:
         }
 
 
-def _render_symbol_crop(page: "pymupdf.Page", bbox: tuple) -> Optional[np.ndarray]:
-    # IMPORTANT (found while building this module, not present in any v0.1
-    # code path so it was never previously observable): for a rotated page
-    # (page.rotation != 0), PyMuPDF's page.get_drawings()/get_text() --
-    # which graph.py/symbols.py/text.py build every bbox from -- report
-    # coordinates in the page's UNROTATED coordinate frame, while
-    # page.get_pixmap()'s `clip` argument (like page.rect itself) is in the
-    # ROTATED/display frame. schema.PageAnalysis.width/height are also
-    # display-frame (from page.rect), so a v0.1 bbox and v0.1's own
-    # width/height already silently disagree on which frame they're in --
-    # this was invisible in v0.1 because plan_facts.py's topology algorithm
-    # never renders a pixel or compares a bbox against page.rect. It matters
-    # here because this is the first module that renders raster pixels from
-    # a bbox. Fixed locally, without touching any v0.1 file, by mapping the
-    # bbox through page.rotation_matrix (identity when rotation == 0) before
-    # building the clip rect.
+def _display_clip_rect(page: "pymupdf.Page", bbox: tuple) -> "pymupdf.Rect":
+    """The exact DISPLAY-space clip rect _render_symbol_crop renders --
+    factored out (not just inlined) so a caller that needs to know exactly
+    which pixels ended up in the saved crop (e.g. v0.4's candidates.py,
+    which draws a highlight box over the candidate's own position WITHIN
+    that crop) can derive it precisely instead of approximating and
+    silently drifting if this margin math ever changes here.
+
+    IMPORTANT (found while building this module, not present in any v0.1
+    code path so it was never previously observable): for a rotated page
+    (page.rotation != 0), PyMuPDF's page.get_drawings()/get_text() --
+    which graph.py/symbols.py/text.py build every bbox from -- report
+    coordinates in the page's UNROTATED coordinate frame, while
+    page.get_pixmap()'s `clip` argument (like page.rect itself) is in the
+    ROTATED/display frame. schema.PageAnalysis.width/height are also
+    display-frame (from page.rect), so a v0.1 bbox and v0.1's own
+    width/height already silently disagree on which frame they're in --
+    this was invisible in v0.1 because plan_facts.py's topology algorithm
+    never renders a pixel or compares a bbox against page.rect. It matters
+    here because this is the first module that renders raster pixels from
+    a bbox. Fixed locally, without touching any v0.1 file, by mapping the
+    bbox through page.rotation_matrix (identity when rotation == 0) before
+    building the clip rect."""
     x0, y0, x1, y1 = pymupdf.Rect(bbox) * page.rotation_matrix
     w, h = max(x1 - x0, 1e-6), max(y1 - y0, 1e-6)
     margin = CROP_MARGIN_FRACTION * max(w, h)
-    clip = pymupdf.Rect(x0 - margin, y0 - margin, x1 + margin, y1 + margin) & page.rect
+    return pymupdf.Rect(x0 - margin, y0 - margin, x1 + margin, y1 + margin) & page.rect
+
+
+def _render_symbol_crop(page: "pymupdf.Page", bbox: tuple) -> Optional[np.ndarray]:
+    clip = _display_clip_rect(page, bbox)
     if clip.is_empty:
         return None
     zoom = RENDER_DPI / 72.0
