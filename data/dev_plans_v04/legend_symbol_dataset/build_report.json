@@ -1,0 +1,428 @@
+{
+  "plans_total": 20,
+  "plans_with_usable_legend": 20,
+  "total_legend_entries_extracted": 4062,
+  "excluded_not_a_real_symbol_row": 1936,
+  "excluded_privacy": 61,
+  "excluded_non_potable_water": 1724,
+  "excluded_non_potable_water_by_reason": {
+    "relevance_not_established": 1396,
+    "excluded_dimension_table": 211,
+    "excluded_wastewater_drainage": 37,
+    "excluded_titleblock_or_company": 25,
+    "excluded_insulation": 20,
+    "excluded_instruction_text": 13,
+    "excluded_pipe_segment_label": 12,
+    "excluded_heating_only": 5,
+    "excluded_electrical": 3,
+    "excluded_ventilation": 2
+  },
+  "same_plan_page_duplicates_removed": 0,
+  "remaining_potable_water_symbol_entries": 341,
+  "unique_proposed_component_types": 139,
+  "proposed_component_types": [
+    "* zirkulationsregulierventl",
+    "11.1 wohnen / essen pex-verteiler 43",
+    "12.1 wohnen / essen pex-verteiler 44",
+    "20.1 wohnen / essen pex-verteiler 45",
+    "30.1 wohnen / essen pex-verteiler 46",
+    "40.1 wohnen / essen pex-verteiler 47",
+    "49.1 wohnen / essen pex-verteiler 48",
+    "49.1 wohnen / essen pex-verteiler 49",
+    "52.1 wohnen / essen pex-verteiler 54",
+    "52.2 du / wc 52.1.1 korridor pex-verteiler 54",
+    "=== trinkwasser warm (pwh)",
+    "=== trinkwasserzirkulation warm (pwh-c)",
+    "absperrklappe",
+    "absperrventil",
+    "absperrventil mit entleerung",
+    "absperrventil mit entleerung filter",
+    "alle kw-/ww zähler mit m-bus",
+    "apparate stk. kw ww dim",
+    "ba = absperrarmatur om",
+    "batterieventil",
+    "cenause (kw",
+    "druckminderer",
+    "entleerhahn",
+    "entleerhahnen",
+    "farblegende sanitär",
+    "feinfilter",
+    "feinfilter mit umgehung",
+    "filter",
+    "filter absperrventil mit entleerung",
+    "gartenventil",
+    "gartenventil (nd)",
+    "gartenventil (rd)",
+    "kalt- und warmwasser",
+    "kaltwasser",
+    "kaltwasser netzdruck",
+    "kaltwasser netzdruck wkn",
+    "kaltwasser pir / alu grobkornfolie",
+    "kaltwasser red. druck",
+    "kaltwasserleitungen",
+    "kw küchen und aussenhähnen",
+    "kw stk. ww dim",
+    "kw: 1 x vpe ø16",
+    "kw: 1 x vpe ø20",
+    "kw: 1x vpe ø20",
+    "kw: 2 x vpe ø16",
+    "kw: 2 x vpe ø20",
+    "kw: 3",
+    "kw: 3 x vpe ø16",
+    "kw: 3x vpe ø20",
+    "legende sanitär",
+    "legende sanitär-armaturen",
+    "mi waschmaschine wesenmämer wasereämer",
+    "mit absperrventilen ø15/22 mit absperrventilen ø15",
+    "motor. absperrklappe",
+    "od rr, verteiler ot br",
+    "pex verteiler",
+    "pex-verteiler",
+    "pex-verteiler 10",
+    "pex-verteiler 2",
+    "pex-verteiler 20",
+    "pex-verteiler 22",
+    "pex-verteiler 26",
+    "pex-verteiler 27",
+    "pex-verteiler 28",
+    "pex-verteiler 29",
+    "pex-verteiler 30",
+    "pex-verteiler 32",
+    "pex-verteiler 37",
+    "pex-verteiler 38",
+    "pex-verteiler 39",
+    "pex-verteiler 41",
+    "pex-verteiler 42",
+    "pex-verteiler 43",
+    "pex-verteiler 44",
+    "pex-verteiler 45",
+    "pex-verteiler 46",
+    "pex-verteiler 47",
+    "pex-verteiler 48",
+    "pex-verteiler 50",
+    "pex-verteiler 51",
+    "pex-verteiler 52",
+    "pex-verteiler 53",
+    "pex-verteiler 54",
+    "pex-verteiler 9",
+    "pex-verteiler: 1",
+    "rückflussverhinderer",
+    "rückflussverhinderer (nicht kontrollierbar)",
+    "rückschlagklappe",
+    "rückschlagventil",
+    "sanitär apparate",
+    "sicherheitsgruppe",
+    "sicherheitsgruppe 6",
+    "sicherheitsventil",
+    "thermisches mischventil",
+    "thermostatischer mischer",
+    "tmwassarkat trinkwasser",
+    "trinkwasser kalt (pwc)",
+    "up verteiler unter wt",
+    "up-ventil",
+    "verteilerbeschriftung",
+    "w k o kaltwasser osmose",
+    "warmwasser",
+    "warmwasser mit brandschutz wwv",
+    "warmwasser pir / alu grobkornfolie",
+    "warmwasser rar",
+    "warmwasser rar ww-r",
+    "warmwasser rücklauf",
+    "warmwasser vorlauf",
+    "warmwasser warmhalteband",
+    "warmwasser wwv",
+    "waschtrog",
+    "wassererwärmer",
+    "wassererwärmer-anschluss: cns 22mm",
+    "wasserzähler",
+    "wasserzähler m 3",
+    "wkr kaltwasser mit brandschutz",
+    "wkr kaltwasser red. druck",
+    "ww",
+    "ww-h",
+    "ww-r",
+    "ww: 1 x vpe ø16",
+    "ww: 1 x vpe ø20",
+    "ww: 1x vpe ø20",
+    "ww: 2",
+    "ww: 2 x vpe ø16",
+    "ww: 3 x vpe ø16",
+    "wwr warmwasser rücklauf",
+    "x kesselentleerventil",
+    "x kesselentleerventil $ kessenerveni",
+    "zirkulation",
+    "zirkulation r.a.r. zirk",
+    "zirkulationspumpe",
+    "zirkulationsregelventil",
+    "zirkulationsregler",
+    "zirkulationsventil mechanisch (mit absperrventilen)",
+    "zirkulationsventil thermisch (mit absperrventilen)",
+    "© _ hauswasseranschluss",
+    "© hauswasseranschluss fo}",
+    "© zirkulationspumpe"
+  ],
+  "per_plan_stats": {
+    "DEV-01": {
+      "has_usable_legend": true,
+      "legend_entries_total": 131,
+      "excluded_not_symbol": 87,
+      "excluded_privacy": 0,
+      "excluded_non_potable": {
+        "excluded_instruction_text": 3,
+        "excluded_pipe_segment_label": 4,
+        "excluded_dimension_table": 4,
+        "relevance_not_established": 25,
+        "excluded_titleblock_or_company": 7,
+        "excluded_wastewater_drainage": 1
+      },
+      "included": 0
+    },
+    "DEV-02": {
+      "has_usable_legend": true,
+      "legend_entries_total": 187,
+      "excluded_not_symbol": 152,
+      "excluded_privacy": 0,
+      "excluded_non_potable": {
+        "relevance_not_established": 33,
+        "excluded_wastewater_drainage": 1
+      },
+      "included": 1
+    },
+    "DEV-03": {
+      "has_usable_legend": true,
+      "legend_entries_total": 55,
+      "excluded_not_symbol": 16,
+      "excluded_privacy": 0,
+      "excluded_non_potable": {
+        "relevance_not_established": 31,
+        "excluded_insulation": 1
+      },
+      "included": 7
+    },
+    "DEV-04": {
+      "has_usable_legend": true,
+      "legend_entries_total": 68,
+      "excluded_not_symbol": 41,
+      "excluded_privacy": 6,
+      "excluded_non_potable": {
+        "relevance_not_established": 8,
+        "excluded_instruction_text": 6,
+        "excluded_pipe_segment_label": 2,
+        "excluded_wastewater_drainage": 3,
+        "excluded_insulation": 1,
+        "excluded_titleblock_or_company": 1
+      },
+      "included": 0
+    },
+    "DEV-05": {
+      "has_usable_legend": true,
+      "legend_entries_total": 57,
+      "excluded_not_symbol": 40,
+      "excluded_privacy": 6,
+      "excluded_non_potable": {
+        "excluded_wastewater_drainage": 3,
+        "excluded_insulation": 1,
+        "relevance_not_established": 3,
+        "excluded_titleblock_or_company": 1,
+        "excluded_instruction_text": 2,
+        "excluded_pipe_segment_label": 1
+      },
+      "included": 0
+    },
+    "DEV-06": {
+      "has_usable_legend": true,
+      "legend_entries_total": 48,
+      "excluded_not_symbol": 35,
+      "excluded_privacy": 6,
+      "excluded_non_potable": {
+        "excluded_wastewater_drainage": 3,
+        "excluded_insulation": 1,
+        "relevance_not_established": 2,
+        "excluded_titleblock_or_company": 1
+      },
+      "included": 0
+    },
+    "DEV-07": {
+      "has_usable_legend": true,
+      "legend_entries_total": 1196,
+      "excluded_not_symbol": 360,
+      "excluded_privacy": 4,
+      "excluded_non_potable": {
+        "relevance_not_established": 500,
+        "excluded_dimension_table": 122,
+        "excluded_wastewater_drainage": 12,
+        "excluded_insulation": 6,
+        "excluded_titleblock_or_company": 3
+      },
+      "included": 189
+    },
+    "DEV-08": {
+      "has_usable_legend": true,
+      "legend_entries_total": 248,
+      "excluded_not_symbol": 106,
+      "excluded_privacy": 2,
+      "excluded_non_potable": {
+        "relevance_not_established": 103,
+        "excluded_insulation": 3,
+        "excluded_wastewater_drainage": 4,
+        "excluded_pipe_segment_label": 1,
+        "excluded_titleblock_or_company": 1,
+        "excluded_dimension_table": 7
+      },
+      "included": 21
+    },
+    "DEV-09": {
+      "has_usable_legend": true,
+      "legend_entries_total": 200,
+      "excluded_not_symbol": 121,
+      "excluded_privacy": 4,
+      "excluded_non_potable": {
+        "relevance_not_established": 63,
+        "excluded_dimension_table": 3,
+        "excluded_pipe_segment_label": 1
+      },
+      "included": 8
+    },
+    "DEV-10": {
+      "has_usable_legend": true,
+      "legend_entries_total": 242,
+      "excluded_not_symbol": 83,
+      "excluded_privacy": 14,
+      "excluded_non_potable": {
+        "relevance_not_established": 106,
+        "excluded_electrical": 3,
+        "excluded_titleblock_or_company": 1,
+        "excluded_dimension_table": 4,
+        "excluded_pipe_segment_label": 2,
+        "excluded_wastewater_drainage": 2,
+        "excluded_insulation": 7,
+        "excluded_instruction_text": 1,
+        "excluded_heating_only": 1
+      },
+      "included": 18
+    },
+    "DEV-11": {
+      "has_usable_legend": true,
+      "legend_entries_total": 111,
+      "excluded_not_symbol": 22,
+      "excluded_privacy": 1,
+      "excluded_non_potable": {
+        "relevance_not_established": 59,
+        "excluded_wastewater_drainage": 1,
+        "excluded_heating_only": 1
+      },
+      "included": 27
+    },
+    "DEV-12": {
+      "has_usable_legend": true,
+      "legend_entries_total": 134,
+      "excluded_not_symbol": 26,
+      "excluded_privacy": 3,
+      "excluded_non_potable": {
+        "relevance_not_established": 68,
+        "excluded_wastewater_drainage": 3,
+        "excluded_heating_only": 2,
+        "excluded_dimension_table": 3
+      },
+      "included": 29
+    },
+    "DEV-13": {
+      "has_usable_legend": true,
+      "legend_entries_total": 50,
+      "excluded_not_symbol": 29,
+      "excluded_privacy": 0,
+      "excluded_non_potable": {
+        "relevance_not_established": 16,
+        "excluded_dimension_table": 1
+      },
+      "included": 4
+    },
+    "DEV-14": {
+      "has_usable_legend": true,
+      "legend_entries_total": 220,
+      "excluded_not_symbol": 65,
+      "excluded_privacy": 6,
+      "excluded_non_potable": {
+        "excluded_heating_only": 1,
+        "relevance_not_established": 100,
+        "excluded_dimension_table": 32,
+        "excluded_wastewater_drainage": 2,
+        "excluded_titleblock_or_company": 1
+      },
+      "included": 13
+    },
+    "DEV-15": {
+      "has_usable_legend": true,
+      "legend_entries_total": 145,
+      "excluded_not_symbol": 85,
+      "excluded_privacy": 4,
+      "excluded_non_potable": {
+        "relevance_not_established": 46,
+        "excluded_titleblock_or_company": 1,
+        "excluded_dimension_table": 1
+      },
+      "included": 8
+    },
+    "DEV-16": {
+      "has_usable_legend": true,
+      "legend_entries_total": 338,
+      "excluded_not_symbol": 221,
+      "excluded_privacy": 0,
+      "excluded_non_potable": {
+        "excluded_dimension_table": 27,
+        "relevance_not_established": 81,
+        "excluded_titleblock_or_company": 5
+      },
+      "included": 4
+    },
+    "DEV-17": {
+      "has_usable_legend": true,
+      "legend_entries_total": 43,
+      "excluded_not_symbol": 7,
+      "excluded_privacy": 0,
+      "excluded_non_potable": {
+        "relevance_not_established": 25,
+        "excluded_dimension_table": 5,
+        "excluded_instruction_text": 1
+      },
+      "included": 5
+    },
+    "DEV-18": {
+      "has_usable_legend": true,
+      "legend_entries_total": 306,
+      "excluded_not_symbol": 253,
+      "excluded_privacy": 1,
+      "excluded_non_potable": {
+        "relevance_not_established": 49,
+        "excluded_pipe_segment_label": 1,
+        "excluded_titleblock_or_company": 1
+      },
+      "included": 1
+    },
+    "DEV-19": {
+      "has_usable_legend": true,
+      "legend_entries_total": 126,
+      "excluded_not_symbol": 55,
+      "excluded_privacy": 4,
+      "excluded_non_potable": {
+        "relevance_not_established": 56,
+        "excluded_titleblock_or_company": 1,
+        "excluded_ventilation": 2,
+        "excluded_wastewater_drainage": 2,
+        "excluded_dimension_table": 2
+      },
+      "included": 4
+    },
+    "DEV-20": {
+      "has_usable_legend": true,
+      "legend_entries_total": 157,
+      "excluded_not_symbol": 132,
+      "excluded_privacy": 0,
+      "excluded_non_potable": {
+        "relevance_not_established": 22,
+        "excluded_titleblock_or_company": 1
+      },
+      "included": 2
+    }
+  }
+}
