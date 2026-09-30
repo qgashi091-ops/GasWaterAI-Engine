@@ -1,0 +1,597 @@
+{
+  "manifest_candidate_count": 837,
+  "legend_symbol_count": 341,
+  "annotations_labeled_count": 426,
+  "legend_reviews_count": 150,
+  "annotations_class_counts": {
+    "NOT_A_COMPONENT": 325,
+    "up verteiler unter wt": 9,
+    "wc up": 21,
+    "OTHER_RELEVANT_SYMBOL": 27,
+    "küche": 28,
+    "dusche": 10,
+    "AMBIGUOUS": 5,
+    "secomat": 1
+  },
+  "annotations_positive_detail": {
+    "up verteiler unter wt": {
+      "instance_count": 9,
+      "instances": [
+        "ACffe4f23ab86688739b2a",
+        "AC5820c448d21b3d401d56",
+        "ACd954b0f3b8b19536bb25",
+        "ACd6fb6e61df260b337f99",
+        "AC564d255ebf60af30a919",
+        "AC54b1d47197d0206c0eb5",
+        "AC05c5716f2d9fd7c99f16",
+        "AC8408c5d8d4b9abd22df2",
+        "ACbb375bf0990f8d63f919"
+      ],
+      "plans": [
+        "DEV-04",
+        "DEV-05",
+        "DEV-06"
+      ],
+      "families": [
+        "FAM-4"
+      ]
+    },
+    "wc up": {
+      "instance_count": 21,
+      "instances": [
+        "AC51d5ba3d8f58bede6db6",
+        "AC4a9c7a11b26f1ac1c376",
+        "ACbeaf0309cb34b342c0fa",
+        "ACec822aec999358d12ba9",
+        "AC322792ddee68aad8acfd",
+        "AC82fdb37f1ea2c691ee6e",
+        "AC122f58c6638f7a0194ed",
+        "AC792b37689bb3232c9b97",
+        "AC23c8fb2518db79bbab0b",
+        "AC2ee183a1f669ecd998d7",
+        "AC00da68abf30e54373c2b",
+        "ACc013a79b0222c4aab35f",
+        "AC8c52c6b599a060fa2366",
+        "AC5487413f9fd088f56f1d",
+        "ACaca4862e4c418011db86",
+        "AC14d2c1381686c1f93e1e",
+        "AC69990efe86fc9557a679",
+        "AC67caeecd8d929485c536",
+        "AC1df001f81f4c855371ac",
+        "ACe768222da304176fd4d9",
+        "AC70ea8bf84911df233790"
+      ],
+      "plans": [
+        "DEV-03",
+        "DEV-04",
+        "DEV-05",
+        "DEV-20"
+      ],
+      "families": [
+        "FAM-4",
+        "STANDALONE-17",
+        "STANDALONE-3"
+      ]
+    },
+    "OTHER_RELEVANT_SYMBOL": {
+      "instance_count": 27,
+      "instances": [
+        "ACf1c730b671e32ba4952e",
+        "AC6bde3e81fcbb097fe56a",
+        "ACb25e83aae50c071e01c7",
+        "ACd0220273fb80b54ef981",
+        "ACb932e0e27bfca1be353a",
+        "ACae5d32edfde4acf130de",
+        "AC2e230bc829934b752a22",
+        "AC81881d4aac742bfdd50f",
+        "AC4c5adb663d433670371e",
+        "ACd48637233015be5b7328",
+        "AC57df3392a7bf482c211a",
+        "AC271baac866f406ad481a",
+        "ACc2e2c1ca8f64b35bbef3",
+        "AC9487f9c5252a1761cfc1",
+        "ACa5ac63beec6c815614ae",
+        "ACa74480cbe03268d5f695",
+        "ACb1741b07407ac5aa27c5",
+        "ACc248d6bc214218a68bbf",
+        "AC2433eb2b8c8f506066b7",
+        "AC59a98065093f681972f6",
+        "ACa45e08de974a8a29b804",
+        "ACdbab798c07a881aee420",
+        "ACf5ba1b75f8ec6440ea18",
+        "AC17b9114a1425406f7311",
+        "AC9635ecef29efbe0f4e0b",
+        "AC5e2a756ae47eca4aa11d",
+        "AC14acd9c053c10245346d"
+      ],
+      "plans": [
+        "DEV-01",
+        "DEV-03",
+        "DEV-04",
+        "DEV-05",
+        "DEV-11",
+        "DEV-12",
+        "DEV-13",
+        "DEV-17"
+      ],
+      "families": [
+        "FAM-4",
+        "FAM-9",
+        "STANDALONE-1",
+        "STANDALONE-10",
+        "STANDALONE-14",
+        "STANDALONE-3"
+      ]
+    },
+    "küche": {
+      "instance_count": 28,
+      "instances": [
+        "AC9b2528ccddb3902a27ef",
+        "AC1c482f8ceb89e548f31c",
+        "ACdabd4abd8c57ee370dd3",
+        "AC96df091404b86373823b",
+        "AC536bf2622adab1a9a115",
+        "AC41516bf0b472dbe839d6",
+        "ACaed206ced70b6e58a2fb",
+        "AC113b15a87fb7d362ee68",
+        "AC8df7b8d44bdb00162437",
+        "AC425e112754643960cebd",
+        "ACa9403077311b1c6f5c19",
+        "AC98f860fdfa70c958e1ed",
+        "AC9905ff2d39347b920c34",
+        "AC4e6c16ecf046146e1430",
+        "ACd1e9aac5656fe180a0e8",
+        "AC819f8738f43f482c5885",
+        "ACbf49de0247e58f1e0ad4",
+        "ACe5ad3f129b0391b65cc4",
+        "AC938a35bf5cda2790ca4e",
+        "AC67b4f8cf087e520975a5",
+        "ACcd0bd12fd5e07723a0a0",
+        "AC35a5278c67355559ec95",
+        "AC951cad5e479b7bc90b3a",
+        "AC825dc98db2c21d8bbcad",
+        "ACed44daaec44875761e06",
+        "AC17b8839941e7d7d3a1d0",
+        "AC0b9cbdac3dffd5fb1553",
+        "AC12245b93eba7b0a38325"
+      ],
+      "plans": [
+        "DEV-01",
+        "DEV-03",
+        "DEV-04",
+        "DEV-05"
+      ],
+      "families": [
+        "FAM-4",
+        "STANDALONE-1",
+        "STANDALONE-3"
+      ]
+    },
+    "dusche": {
+      "instance_count": 10,
+      "instances": [
+        "AC3ce3ffecc0e64753a6a9",
+        "ACf4253232d47c21582b9f",
+        "AC17c0ac714e88cc798a50",
+        "ACd128ccde6c50ba7d0c9c",
+        "ACd9fea6f158bde38bb9c7",
+        "AC51c351d24735dd6906e1",
+        "AC2433f5dfe0aa81f2d2d5",
+        "AC653f470ff9baa81b7c3d",
+        "ACf1d1c60eef54b497bb82",
+        "AC6059fd303a28abd9e0ca"
+      ],
+      "plans": [
+        "DEV-03"
+      ],
+      "families": [
+        "STANDALONE-3"
+      ]
+    },
+    "secomat": {
+      "instance_count": 1,
+      "instances": [
+        "AC24cadb30b740cfafb0eb"
+      ],
+      "plans": [
+        "DEV-01"
+      ],
+      "families": [
+        "STANDALONE-1"
+      ]
+    }
+  },
+  "annotations_positive_family_plan_breakdown": {
+    "up verteiler unter wt": {
+      "FAM-4|DEV-05": 3,
+      "FAM-4|DEV-04": 5,
+      "FAM-4|DEV-06": 1
+    },
+    "wc up": {
+      "STANDALONE-3|DEV-03": 11,
+      "FAM-4|DEV-04": 5,
+      "STANDALONE-17|DEV-20": 1,
+      "FAM-4|DEV-05": 4
+    },
+    "OTHER_RELEVANT_SYMBOL": {
+      "FAM-4|DEV-05": 9,
+      "FAM-9|DEV-11": 1,
+      "STANDALONE-1|DEV-01": 3,
+      "STANDALONE-3|DEV-03": 6,
+      "FAM-9|DEV-12": 1,
+      "FAM-4|DEV-04": 4,
+      "STANDALONE-10|DEV-13": 1,
+      "STANDALONE-14|DEV-17": 2
+    },
+    "küche": {
+      "FAM-4|DEV-04": 2,
+      "STANDALONE-3|DEV-03": 12,
+      "FAM-4|DEV-05": 7,
+      "STANDALONE-1|DEV-01": 7
+    },
+    "dusche": {
+      "STANDALONE-3|DEV-03": 10
+    },
+    "secomat": {
+      "STANDALONE-1|DEV-01": 1
+    }
+  },
+  "other_relevant_symbol_breakdown": {
+    "(no note)": {
+      "instance_count": 8,
+      "instances": [
+        "ACf1c730b671e32ba4952e",
+        "AC6bde3e81fcbb097fe56a",
+        "ACb25e83aae50c071e01c7",
+        "AC81881d4aac742bfdd50f",
+        "AC271baac866f406ad481a",
+        "AC2433eb2b8c8f506066b7",
+        "ACa45e08de974a8a29b804",
+        "ACdbab798c07a881aee420"
+      ],
+      "plans": [
+        "DEV-01",
+        "DEV-03",
+        "DEV-05",
+        "DEV-11",
+        "DEV-12",
+        "DEV-13",
+        "DEV-17"
+      ],
+      "families": [
+        "FAM-4",
+        "FAM-9",
+        "STANDALONE-1",
+        "STANDALONE-10",
+        "STANDALONE-14",
+        "STANDALONE-3"
+      ]
+    },
+    "badewannenmischer": {
+      "instance_count": 3,
+      "instances": [
+        "ACd0220273fb80b54ef981",
+        "ACa5ac63beec6c815614ae",
+        "AC17b9114a1425406f7311"
+      ],
+      "plans": [
+        "DEV-04",
+        "DEV-05"
+      ],
+      "families": [
+        "FAM-4"
+      ]
+    },
+    "sicherheitsventil": {
+      "instance_count": 1,
+      "instances": [
+        "ACb932e0e27bfca1be353a"
+      ],
+      "plans": [
+        "DEV-03"
+      ],
+      "families": [
+        "STANDALONE-3"
+      ]
+    },
+    "verteilbatterie": {
+      "instance_count": 3,
+      "instances": [
+        "ACae5d32edfde4acf130de",
+        "AC9487f9c5252a1761cfc1",
+        "AC14acd9c053c10245346d"
+      ],
+      "plans": [
+        "DEV-03",
+        "DEV-04",
+        "DEV-05"
+      ],
+      "families": [
+        "FAM-4",
+        "STANDALONE-3"
+      ]
+    },
+    "waschmaschine": {
+      "instance_count": 3,
+      "instances": [
+        "AC2e230bc829934b752a22",
+        "AC4c5adb663d433670371e",
+        "ACc248d6bc214218a68bbf"
+      ],
+      "plans": [
+        "DEV-03",
+        "DEV-04"
+      ],
+      "families": [
+        "FAM-4",
+        "STANDALONE-3"
+      ]
+    },
+    "zirkulationsventile": {
+      "instance_count": 3,
+      "instances": [
+        "ACd48637233015be5b7328",
+        "ACc2e2c1ca8f64b35bbef3",
+        "ACb1741b07407ac5aa27c5"
+      ],
+      "plans": [
+        "DEV-05"
+      ],
+      "families": [
+        "FAM-4"
+      ]
+    },
+    "gartenventil frostsicher": {
+      "instance_count": 2,
+      "instances": [
+        "AC57df3392a7bf482c211a",
+        "ACf5ba1b75f8ec6440ea18"
+      ],
+      "plans": [
+        "DEV-01",
+        "DEV-05"
+      ],
+      "families": [
+        "FAM-4",
+        "STANDALONE-1"
+      ]
+    },
+    "beschriftung verteilung": {
+      "instance_count": 1,
+      "instances": [
+        "ACa74480cbe03268d5f695"
+      ],
+      "plans": [
+        "DEV-03"
+      ],
+      "families": [
+        "STANDALONE-3"
+      ]
+    },
+    "duschenmischer": {
+      "instance_count": 1,
+      "instances": [
+        "AC59a98065093f681972f6"
+      ],
+      "plans": [
+        "DEV-04"
+      ],
+      "families": [
+        "FAM-4"
+      ]
+    },
+    "waschtisch": {
+      "instance_count": 1,
+      "instances": [
+        "AC9635ecef29efbe0f4e0b"
+      ],
+      "plans": [
+        "DEV-17"
+      ],
+      "families": [
+        "STANDALONE-14"
+      ]
+    },
+    "waschtrog": {
+      "instance_count": 1,
+      "instances": [
+        "AC5e2a756ae47eca4aa11d"
+      ],
+      "plans": [
+        "DEV-05"
+      ],
+      "families": [
+        "FAM-4"
+      ]
+    }
+  },
+  "legend_review_decision_counts": {
+    "unclear": 134,
+    "correct": 12,
+    "corrected": 4
+  },
+  "legend_review_positive_detail": {
+    "absperrklappe": {
+      "instance_count": 1,
+      "instances": [
+        "LE726b190a783302b66cbd"
+      ],
+      "plans": [
+        "DEV-03"
+      ],
+      "families": [
+        "STANDALONE-3"
+      ]
+    },
+    "motor. absperrklappe": {
+      "instance_count": 1,
+      "instances": [
+        "LE40f714a15b9b05b8e638"
+      ],
+      "plans": [
+        "DEV-03"
+      ],
+      "families": [
+        "STANDALONE-3"
+      ]
+    },
+    "kw: 2 x vpe ø16": {
+      "instance_count": 1,
+      "instances": [
+        "LEed61a4ed6f57ad190e84"
+      ],
+      "plans": [
+        "DEV-07"
+      ],
+      "families": [
+        "STANDALONE-5"
+      ]
+    },
+    "filter": {
+      "instance_count": 1,
+      "instances": [
+        "LEb245f017a5549659a6f3"
+      ],
+      "plans": [
+        "DEV-03"
+      ],
+      "families": [
+        "STANDALONE-3"
+      ]
+    },
+    "wasserzähler m 3": {
+      "instance_count": 1,
+      "instances": [
+        "LEd227fe0fe8abf393c705"
+      ],
+      "plans": [
+        "DEV-03"
+      ],
+      "families": [
+        "STANDALONE-3"
+      ]
+    },
+    "pex-verteiler 2": {
+      "instance_count": 1,
+      "instances": [
+        "LEa7e27e96cc670b6916b1"
+      ],
+      "plans": [
+        "DEV-07"
+      ],
+      "families": [
+        "STANDALONE-5"
+      ]
+    },
+    "ww: 1 x vpe ø20": {
+      "instance_count": 1,
+      "instances": [
+        "LEd9fed684dc18ffee5a85"
+      ],
+      "plans": [
+        "DEV-07"
+      ],
+      "families": [
+        "STANDALONE-5"
+      ]
+    },
+    "sicherheitsventil": {
+      "instance_count": 1,
+      "instances": [
+        "LE3f176c2478036418ce65"
+      ],
+      "plans": [
+        "DEV-03"
+      ],
+      "families": [
+        "STANDALONE-3"
+      ]
+    },
+    "legende sanitär": {
+      "instance_count": 1,
+      "instances": [
+        "LEef4a7372922c7eccce79"
+      ],
+      "plans": [
+        "DEV-02"
+      ],
+      "families": [
+        "STANDALONE-2"
+      ]
+    },
+    "rückschlagklappe": {
+      "instance_count": 1,
+      "instances": [
+        "LEfbcca8dacc47835fa457"
+      ],
+      "plans": [
+        "DEV-03"
+      ],
+      "families": [
+        "STANDALONE-3"
+      ]
+    },
+    "waschtisch": {
+      "instance_count": 2,
+      "instances": [
+        "LEb03fa30af5e457988ace",
+        "LE62f87fe9fd798299666d"
+      ],
+      "plans": [
+        "DEV-07"
+      ],
+      "families": [
+        "STANDALONE-5"
+      ]
+    },
+    "rückschlagventil": {
+      "instance_count": 1,
+      "instances": [
+        "LEe5e804f3120845578f2a"
+      ],
+      "plans": [
+        "DEV-03"
+      ],
+      "families": [
+        "STANDALONE-3"
+      ]
+    },
+    "abwasser": {
+      "instance_count": 1,
+      "instances": [
+        "LE9b9f277dababeeb20e54"
+      ],
+      "plans": [
+        "DEV-07"
+      ],
+      "families": [
+        "STANDALONE-5"
+      ]
+    },
+    "kw: 3": {
+      "instance_count": 1,
+      "instances": [
+        "LE0b3805c9e415491dad45"
+      ],
+      "plans": [
+        "DEV-07"
+      ],
+      "families": [
+        "STANDALONE-5"
+      ]
+    },
+    "absperrventile": {
+      "instance_count": 1,
+      "instances": [
+        "LEdcd4e5fd12db4e23838d"
+      ],
+      "plans": [
+        "DEV-07"
+      ],
+      "families": [
+        "STANDALONE-5"
+      ]
+    }
+  },
+  "duplicate_near_duplicate_note": "Reused the already-verified geometric duplicate audit for this exact 837-candidate dataset (docs/v04-dataset-cleanup-report.md, Step 2): IoU>=0.5 OR (IoU>=0.15 AND shared graph id AND centroid_dist<20pt) checked across all 41,309 same-(plan,page) candidate pairs -- zero found above threshold (max IoU observed anywhere: 0.118). Not re-derived here; that result covers the full candidate set including every candidate audited above."
+}
