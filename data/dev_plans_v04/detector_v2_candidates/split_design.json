@@ -1,0 +1,146 @@
+{
+  "basis": "candidate presence (pre-review) -- see module docstring; re-run after human review",
+  "per_class": {
+    "absperrarmatur": {
+      "counts": {
+        "test": 1,
+        "train": 6,
+        "validation": 2
+      },
+      "family_to_split": {
+        "FAM-4": "train",
+        "FAM-9": "train",
+        "STANDALONE-10": "validation",
+        "STANDALONE-3": "test",
+        "STANDALONE-5": "train",
+        "STANDALONE-8": "validation"
+      },
+      "plan_to_split": {
+        "DEV-03": "test",
+        "DEV-04": "train",
+        "DEV-05": "train",
+        "DEV-06": "train",
+        "DEV-07": "train",
+        "DEV-10": "validation",
+        "DEV-11": "train",
+        "DEV-12": "train",
+        "DEV-13": "validation"
+      }
+    },
+    "filter": {
+      "counts": {
+        "test": 1,
+        "train": 8,
+        "validation": 2
+      },
+      "family_to_split": {
+        "FAM-4": "train",
+        "FAM-9": "train",
+        "STANDALONE-10": "train",
+        "STANDALONE-16": "train",
+        "STANDALONE-3": "validation",
+        "STANDALONE-5": "test",
+        "STANDALONE-6": "train",
+        "STANDALONE-8": "validation"
+      },
+      "plan_to_split": {
+        "DEV-03": "validation",
+        "DEV-04": "train",
+        "DEV-05": "train",
+        "DEV-06": "train",
+        "DEV-07": "test",
+        "DEV-08": "train",
+        "DEV-10": "validation",
+        "DEV-11": "train",
+        "DEV-12": "train",
+        "DEV-13": "train",
+        "DEV-19": "train"
+      }
+    },
+    "sicherheitsgruppe_ventil": {
+      "counts": {
+        "test": 1,
+        "train": 6,
+        "validation": 2
+      },
+      "family_to_split": {
+        "FAM-9": "train",
+        "STANDALONE-10": "train",
+        "STANDALONE-14": "train",
+        "STANDALONE-16": "train",
+        "STANDALONE-3": "validation",
+        "STANDALONE-5": "test",
+        "STANDALONE-6": "train",
+        "STANDALONE-8": "validation"
+      },
+      "plan_to_split": {
+        "DEV-03": "validation",
+        "DEV-07": "test",
+        "DEV-08": "train",
+        "DEV-10": "validation",
+        "DEV-11": "train",
+        "DEV-12": "train",
+        "DEV-13": "train",
+        "DEV-17": "train",
+        "DEV-19": "train"
+      }
+    },
+    "systemtrenner_ba": {
+      "counts": {
+        "test": 1,
+        "train": 6,
+        "validation": 2
+      },
+      "family_to_split": {
+        "FAM-4": "train",
+        "FAM-9": "train",
+        "STANDALONE-1": "validation",
+        "STANDALONE-16": "test",
+        "STANDALONE-5": "train",
+        "STANDALONE-8": "validation"
+      },
+      "plan_to_split": {
+        "DEV-01": "validation",
+        "DEV-04": "train",
+        "DEV-05": "train",
+        "DEV-06": "train",
+        "DEV-07": "train",
+        "DEV-10": "validation",
+        "DEV-11": "train",
+        "DEV-12": "train",
+        "DEV-19": "test"
+      }
+    },
+    "wasserzaehler": {
+      "counts": {
+        "test": 1,
+        "train": 6,
+        "validation": 1
+      },
+      "family_to_split": {
+        "FAM-9": "train",
+        "STANDALONE-10": "train",
+        "STANDALONE-16": "train",
+        "STANDALONE-3": "train",
+        "STANDALONE-5": "validation",
+        "STANDALONE-6": "test",
+        "STANDALONE-8": "train"
+      },
+      "plan_to_split": {
+        "DEV-03": "train",
+        "DEV-07": "validation",
+        "DEV-08": "test",
+        "DEV-10": "train",
+        "DEV-11": "train",
+        "DEV-12": "train",
+        "DEV-13": "train",
+        "DEV-19": "train"
+      }
+    }
+  },
+  "split_ratios": {
+    "test": 0.15,
+    "train": 0.7,
+    "validation": 0.15
+  }
+}
