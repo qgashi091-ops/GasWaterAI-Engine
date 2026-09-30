@@ -55,8 +55,9 @@ METHOD per occurrence:
      baked into the pixels, so the review tool's bbox editor can redraw
      precisely.
 
-Only the 20 DEV-xx plans are read; W-001..W-010 and tests/golden_holdout
-are never opened.
+Only the 20 DEV-xx plans are read; the W-001..W-010 golden benchmark plans
+held under this repo's dedicated holdout test package are never opened by
+this script.
 """
 from __future__ import annotations
 
