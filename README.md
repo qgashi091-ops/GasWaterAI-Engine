@@ -1,6 +1,6 @@
-# GasWaterAI Engine v0.4 — external deterministic PoC
+# GasWaterAI Engine v1.0 — end-to-end external WATER plan-checking engine
 
-A small, standalone proof of concept answering four questions:
+A small, standalone proof of concept answering five questions:
 
 > Can a real water-installation plan PDF be converted into a reproducible technical `PlanFacts` model **without letting an LLM invent topology**? (v0.1)
 >
@@ -9,6 +9,27 @@ A small, standalone proof of concept answering four questions:
 > Can a plan's **own legend** become a temporary, plan-specific symbol library that recognizes components more reliably than a generic scanned reference set — still without any LLM? (v0.3)
 >
 > Can a batch of real, unseen plans be turned into a privacy-safe, human-reviewable annotation dataset for a *future* trained detector — without training anything yet? (v0.4)
+>
+> Put together with a small trained detector, a canonical inventory, and a
+> deterministic professional rule engine, does the first end-to-end
+> `PDF -> PlanFacts -> Components -> Canonical Inventory -> checks` slice
+> actually work, and how well? (v1.0 — see
+> `docs/v1-engine-product-slice-report.md` for the full result)
+
+## v1.0 in one paragraph
+
+`POST /check` runs the full pipeline and returns a canonical inventory (one
+entry per resolved-or-not component, with topology/medium/dimension/reserve/
+safety-device fields and full provenance) plus deterministic rule-check
+results (`COMPLIANT` / `NON_COMPLIANT` / `NOT_ASSESSABLE`, never a free-form
+LLM verdict). Component identity is now resolved by a fusion layer
+(`app/plan_analysis/component_evidence.py`) combining the existing text/
+legend/shape evidence with a small new trained classifier (Detector v1,
+`app/detector/`, CPU-only, ~400KB) and an optional, explicitly-configured
+vision fallback (`app/vision_fallback/`) — never used for connectivity,
+topology, length, or a compliance verdict. `/analyze` is unchanged. Full
+results, including Detector v1's actual measured (negative) held-out
+result, in `docs/v1-engine-product-slice-report.md`.
 
 ## Why this exists
 

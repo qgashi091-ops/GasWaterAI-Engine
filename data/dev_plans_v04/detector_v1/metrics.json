@@ -1,0 +1,279 @@
+{
+  "seed": 42,
+  "model_config": {
+    "n_estimators": 200,
+    "max_depth": 12,
+    "random_state": 42,
+    "n_jobs": 1,
+    "class_weight": "balanced"
+  },
+  "feature_config": {
+    "image_size": 96,
+    "descriptor": "HOG(16,16,8,8,9)+4x4 intensity grid"
+  },
+  "split_ratios": {
+    "train": 0.7,
+    "validation": 0.15,
+    "test": 0.15
+  },
+  "dataset_version": "annotations_dump_2026-09-30_426docs",
+  "classes_present_in_train": [
+    "background",
+    "kueche",
+    "wc_up"
+  ],
+  "target_classes": [
+    "kueche",
+    "wc_up"
+  ],
+  "background_label": "background",
+  "dropped_unreadable_crops": [],
+  "split_assignment": {
+    "plan_to_split": {
+      "DEV-03": "test",
+      "DEV-04": "train",
+      "DEV-05": "train",
+      "DEV-01": "train",
+      "DEV-20": "validation",
+      "DEV-12": "train",
+      "DEV-06": "train",
+      "DEV-10": "train",
+      "DEV-11": "train",
+      "DEV-17": "validation",
+      "DEV-13": "train",
+      "DEV-07": "test"
+    },
+    "family_to_split": {
+      "FAM-4": "train",
+      "STANDALONE-1": "train",
+      "STANDALONE-17": "validation",
+      "STANDALONE-3": "test",
+      "FAM-9": "train",
+      "STANDALONE-10": "train",
+      "STANDALONE-14": "validation",
+      "STANDALONE-5": "test",
+      "STANDALONE-8": "train"
+    },
+    "counts": {
+      "train": 8,
+      "validation": 2,
+      "test": 2
+    }
+  },
+  "counts_by_split_and_target": {
+    "train": {
+      "kueche": 16,
+      "wc_up": 9,
+      "background": 295
+    },
+    "validation": {
+      "kueche": 0,
+      "wc_up": 1,
+      "background": 2
+    },
+    "test": {
+      "kueche": 12,
+      "wc_up": 11,
+      "background": 28
+    }
+  },
+  "train": {
+    "n": 320,
+    "plans": [
+      "DEV-01",
+      "DEV-04",
+      "DEV-05",
+      "DEV-06",
+      "DEV-10",
+      "DEV-11",
+      "DEV-12",
+      "DEV-13"
+    ],
+    "style_families": [
+      "FAM-4",
+      "FAM-9",
+      "STANDALONE-1",
+      "STANDALONE-10",
+      "STANDALONE-8"
+    ],
+    "classification_report": {
+      "background": {
+        "precision": 1.0,
+        "recall": 1.0,
+        "f1-score": 1.0,
+        "support": 295.0
+      },
+      "kueche": {
+        "precision": 1.0,
+        "recall": 1.0,
+        "f1-score": 1.0,
+        "support": 16.0
+      },
+      "wc_up": {
+        "precision": 1.0,
+        "recall": 1.0,
+        "f1-score": 1.0,
+        "support": 9.0
+      },
+      "accuracy": 1.0,
+      "macro avg": {
+        "precision": 1.0,
+        "recall": 1.0,
+        "f1-score": 1.0,
+        "support": 320.0
+      },
+      "weighted avg": {
+        "precision": 1.0,
+        "recall": 1.0,
+        "f1-score": 1.0,
+        "support": 320.0
+      }
+    },
+    "confusion_matrix": {
+      "labels": [
+        "background",
+        "kueche",
+        "wc_up"
+      ],
+      "matrix": [
+        [
+          295,
+          0,
+          0
+        ],
+        [
+          0,
+          16,
+          0
+        ],
+        [
+          0,
+          0,
+          9
+        ]
+      ]
+    }
+  },
+  "validation": {
+    "n": 3,
+    "plans": [
+      "DEV-17",
+      "DEV-20"
+    ],
+    "style_families": [
+      "STANDALONE-14",
+      "STANDALONE-17"
+    ],
+    "classification_report": {
+      "background": {
+        "precision": 0.6666666666666666,
+        "recall": 1.0,
+        "f1-score": 0.8,
+        "support": 2.0
+      },
+      "wc_up": {
+        "precision": 0.0,
+        "recall": 0.0,
+        "f1-score": 0.0,
+        "support": 1.0
+      },
+      "accuracy": 0.6666666666666666,
+      "macro avg": {
+        "precision": 0.3333333333333333,
+        "recall": 0.5,
+        "f1-score": 0.4,
+        "support": 3.0
+      },
+      "weighted avg": {
+        "precision": 0.4444444444444444,
+        "recall": 0.6666666666666666,
+        "f1-score": 0.5333333333333333,
+        "support": 3.0
+      }
+    },
+    "confusion_matrix": {
+      "labels": [
+        "background",
+        "wc_up"
+      ],
+      "matrix": [
+        [
+          2,
+          0
+        ],
+        [
+          1,
+          0
+        ]
+      ]
+    }
+  },
+  "test": {
+    "n": 51,
+    "plans": [
+      "DEV-03",
+      "DEV-07"
+    ],
+    "style_families": [
+      "STANDALONE-3",
+      "STANDALONE-5"
+    ],
+    "classification_report": {
+      "background": {
+        "precision": 0.5490196078431373,
+        "recall": 1.0,
+        "f1-score": 0.7088607594936709,
+        "support": 28.0
+      },
+      "kueche": {
+        "precision": 0.0,
+        "recall": 0.0,
+        "f1-score": 0.0,
+        "support": 12.0
+      },
+      "wc_up": {
+        "precision": 0.0,
+        "recall": 0.0,
+        "f1-score": 0.0,
+        "support": 11.0
+      },
+      "accuracy": 0.5490196078431373,
+      "macro avg": {
+        "precision": 0.18300653594771243,
+        "recall": 0.3333333333333333,
+        "f1-score": 0.23628691983122363,
+        "support": 51.0
+      },
+      "weighted avg": {
+        "precision": 0.30142252979623224,
+        "recall": 0.5490196078431373,
+        "f1-score": 0.3891784561926036,
+        "support": 51.0
+      }
+    },
+    "confusion_matrix": {
+      "labels": [
+        "background",
+        "kueche",
+        "wc_up"
+      ],
+      "matrix": [
+        [
+          28,
+          0,
+          0
+        ],
+        [
+          12,
+          0,
+          0
+        ],
+        [
+          11,
+          0,
+          0
+        ]
+      ]
+    }
+  }
+}

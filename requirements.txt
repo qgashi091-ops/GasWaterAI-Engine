@@ -7,3 +7,5 @@ pytesseract
 Pillow
 opencv-python-headless
 numpy
+scikit-learn
+joblib
