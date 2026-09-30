@@ -1,38 +1,39 @@
 """ENGINE v1 epic, section 10 -- Golden evaluation (W-001..W-010), EVALUATION
 ONLY: never trains, never tunes, never edits a rule after seeing a result.
 
-BLOCKER, confirmed before writing this script (not a guess): the 10 real
-W-001..W-010 reference-plan PDFs and their 38-golden-finding ground-truth
-dataset are NOT present anywhere in this build/dev session.
-  - `tests/fixtures/` in this repo (qgashi091-ops/GasWaterAI-Engine) holds
-    ONLY `W-003_Referenzfall.Plan.pdf`; there has never been a W-001, W-002,
-    W-004..W-010 file committed to this repo (confirmed via `git log --all
-    --diff-filter=A --name-only`).
-  - `qgashi091-ops/gaswaterai` (the other repo available this session) has
-    an identical gap: its own `backend/tests/fixtures/reference_plans/`
-    directory contains only a README explaining the same real 10 plans are
-    real client deliverables, deliberately `.gitignore`'d, and must be
-    copied in locally or pointed to via `GASWATERAI_REFERENCE_PLANS_DIR`.
-  - No other location on this container's filesystem holds them either
-    (checked broadly).
+STATUS as of the golden-holdout import (see
+docs/v1-golden-holdout-import-report.md for the full audit): the 10 real
+W-001..W-010 plan PDFs ARE now present locally, imported into the isolated
+`tests/golden_holdout/plans/` holdout (gitignored -- see that package's own
+isolation contract in `tests/golden_holdout/__init__.py`, enforced by
+`tests/test_golden_holdout_isolation.py`). The curated 38-golden-finding
+benchmark denominator is STILL NOT AVAILABLE: it was searched for across
+every repository available in this session (including full git history on
+every branch) and does not exist as a committed, machine-readable file
+anywhere. Only the 113 RAW extracted Fachbericht bullets exist
+(`tests/golden_holdout/raw_findings_113.json`) -- explicitly NOT the
+benchmark denominator, never to be substituted for it (see
+`tests/golden_holdout/harness.py`'s `load_curated_benchmark()`, which raises
+rather than falling back to the raw bullets).
 
-This script is written and ready to run correctly the moment the files
-exist; it does not fabricate a result in their absence -- see `main()`'s
-first check. Point `--reference-plans-dir` at a directory containing
-`W-001_Referenzfall.Plan.pdf` .. `W-010_Referenzfall.Plan.pdf` (or set
-GASWATERAI_REFERENCE_PLANS_DIR) plus a `golden_findings.json` describing the
-established 38 golden findings and this script will produce the full report
-table section 10 asks for (TP/partial/FN, unsupported FP, weighted recall,
-precision, NOT_ASSESSABLE, results by capability/rule family). The engine
-itself is FROZEN before this script is ever pointed at real data (this
-script never changes app/ code -- it only reads and reports), matching
-"freeze engine first, hash/version it, THEN evaluate."
+This script still does not fabricate a result in the curated benchmark's
+absence -- see `main()`'s checks below. Point `--golden-findings` at a real
+`golden_findings_38.json` (or place it at
+`tests/golden_holdout/golden_findings_38.json`) once that curated mapping
+exists, and this script will produce the full report table section 10 asks
+for (TP/partial/FN, unsupported FP, weighted recall, precision,
+NOT_ASSESSABLE, results by capability/rule family). The engine itself is
+FROZEN before this script is ever pointed at real data (this script never
+changes app/ code -- it only reads and reports), matching "freeze engine
+first, hash/version it, THEN evaluate." Per explicit instruction, this
+script does not run the engine against the golden plans or attempt any
+optimization/benchmark until the curated denominator exists and a
+benchmark run is explicitly requested -- see `main()`.
 """
 from __future__ import annotations
 
 import argparse
 import json
-import os
 import sys
 from pathlib import Path
 
@@ -46,8 +47,10 @@ from app.plan_analysis.pipeline import analyze_pdf_bytes
 from app.plan_analysis.plan_facts import build_document_facts
 from app.rules.engine import run_checks
 from app.rules.water_rules import ALL_RULES
+from tests.golden_holdout import harness as golden_holdout
 
-EXPECTED_PLAN_IDS = [f"W-{i:03d}" for i in range(1, 11)]
+EXPECTED_PLAN_IDS = golden_holdout.GOLDEN_PLAN_IDS
+DEFAULT_GOLDEN_FINDINGS_PATH = golden_holdout.CURATED_BENCHMARK_PATH
 BASELINE = {
     "golden_finding_count": 38,
     "weighted_tp_baseline": 5.5,
@@ -82,22 +85,16 @@ def run_engine_on_plan(pdf_path: Path) -> dict:
 
 def main() -> None:
     parser = argparse.ArgumentParser()
-    parser.add_argument("--reference-plans-dir", type=Path, default=None)
-    parser.add_argument("--golden-findings", type=Path, default=None,
-                         help="JSON file describing the 38 golden findings and their expected classification per plan.")
+    parser.add_argument("--reference-plans-dir", type=Path, default=golden_holdout.PLANS_DIR)
+    parser.add_argument("--golden-findings", type=Path, default=DEFAULT_GOLDEN_FINDINGS_PATH,
+                         help="JSON file describing the curated 38 golden findings and their expected classification per plan.")
     args = parser.parse_args()
 
-    reference_dir = args.reference_plans_dir or (
-        Path(os.environ["GASWATERAI_REFERENCE_PLANS_DIR"]) if os.environ.get("GASWATERAI_REFERENCE_PLANS_DIR") else None
-    )
+    reference_dir = args.reference_plans_dir
 
     if reference_dir is None or not reference_dir.exists():
         print("BLOCKED: no reference plans directory available.")
-        print("Set --reference-plans-dir or GASWATERAI_REFERENCE_PLANS_DIR to a directory")
-        print(f"containing {EXPECTED_PLAN_IDS[0]}_*.pdf .. {EXPECTED_PLAN_IDS[-1]}_*.pdf.")
-        print("Checked and confirmed absent from this session:")
-        print("  - GasWaterAI-Engine/tests/fixtures/ (only W-003 present)")
-        print("  - gaswaterai/backend/tests/fixtures/reference_plans/ (gitignored, empty)")
+        print(f"Expected the golden holdout at {golden_holdout.PLANS_DIR} (see tests/golden_holdout/__init__.py).")
         print(f"Baseline this evaluation would compare against: {json.dumps(BASELINE)}")
         sys.exit(2)
 
@@ -108,15 +105,20 @@ def main() -> None:
         sys.exit(2)
 
     if args.golden_findings is None or not args.golden_findings.exists():
-        print("BLOCKED: --golden-findings JSON (the 38 golden findings' ground truth) not provided.")
-        print("Reference plans were found, but scoring requires the golden findings file.")
+        print("BLOCKED: the curated 38-golden-finding benchmark mapping does not exist yet.")
+        print(f"  Expected at: {args.golden_findings}")
+        print("  All 10 golden plans were found and are ready, but scoring requires this curated")
+        print("  file, which is DISTINCT from the 113 raw Fachbericht bullets in")
+        print("  tests/golden_holdout/raw_findings_113.json -- those are provenance only and")
+        print("  must never be substituted for the real 38-finding denominator.")
+        print(f"Baseline this evaluation would compare against: {json.dumps(BASELINE)}")
         sys.exit(2)
 
     golden_findings = json.loads(args.golden_findings.read_text())
 
     engine_outputs = {plan_id: run_engine_on_plan(path) for plan_id, path in found.items()}
     # Scoring logic intentionally not implemented further: it depends
-    # entirely on golden_findings.json's own schema, which does not exist
+    # entirely on golden_findings_38.json's own schema, which does not exist
     # in this session either. Once both real inputs exist, this is the
     # single place to add: match each golden finding to a check_id in
     # engine_outputs[plan_id]["checks"], classify TP/partial/FN, and

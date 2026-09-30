@@ -1,0 +1,185 @@
+{
+  "_provenance": {
+    "source_repo": "qgashi091-ops/gaswaterai-base44-app",
+    "source_path": "base44/shared/data/goldenGroundTruth/fachberichte.json",
+    "source_commit": "7d2f7bf57bb20e29e526f4acac309eb22965505c",
+    "imported_at": "2026-09-30",
+    "status": "RAW EXTRACTED BULLETS ONLY -- NOT THE BENCHMARK DENOMINATOR",
+    "note": "These are the 113 raw, itemized findings (Bedingungen) extracted verbatim from the 10 real Fachbericht PDFs, one list per plan (W-001..W-010), 113 total. This is NOT the curated 38-golden-finding benchmark denominator the product benchmark (weighted TP 5.5/38, recall 14.5%, precision 23.9%, 13 unsupported) is defined against. That curated 38-finding mapping was searched for across all three repositories available in this session (qgashi091-ops/GasWaterAI-Engine, qgashi091-ops/gaswaterai, qgashi091-ops/gaswaterai-base44-app, including full git history on every branch of the last) and does not exist as a committed, machine-readable file anywhere. Per explicit instruction, no new 38-finding denominator was fabricated from these 113 bullets or from the Fachbericht text -- see docs/v1-golden-holdout-import-report.md."
+  },
+  "fachberichte": {
+    "W-001": {
+      "id": "W-001",
+      "findings": [
+        "Die Grössenbestimmung des Sicherheitsventils erfolgt aufgrund des Wasservolumens und/oder der Wärmeleistung des Wassererwärmers. Zur Beurteilung fehlen folgende Angaben: Inhalt und Leistung des Wassererwärmers",
+        "Der Rückflussverhindere ist nach dem Wasserzähler einzubauen (gemäss Normschema).",
+        "Bei nicht bestimmungsgemässem Betrieb von Apparaten oder Entnahmearmaturen wie frostsichere Gartenventile (1. UG), Trog (2. UG), in Wohnungen aufgestellte Waschmaschinen (1.UG + 2.OG), abgelegene Anschlüsse usw. ist durch folgende Massnahmen eine Trinkwassererneuerung alle 72 Stunden sicherzustellen: Verbindung mit einem täglich genutzten Endverbraucher",
+        "Verbindung mit einer automatischen Wasserbezugseinrichtung",
+        "Apparat/Entnahmearmatur mit automatischer Auslösung verwenden",
+        "Apparat/Entnahmearmatur über die Verteilleitung einschlaufen",
+        "Apparat/Entnahmearmatur über Strömungsverteiler an die Verteilleitung anschliessen",
+        "Folgende Leitungsteile sind zur Vermeidung von Trinkwasserstagnation so kurz wie möglich zu halten und beträgt maximal 4 x ID der nicht durchströmten Leitung: Reserveanschlüsse 2. UG-Enthärtungsanlage",
+        "Bei Übergängen von Rohren aus verschiedenen Metallen, insbesondere von Stahl, Kupfer und rostbeständigem Stahl, sind zum Schutz gegen Korrosion geeignete Massnahmen zu treffen.",
+        "Bei Badewannen mit Exafill-Wanneneinläufen sind Rohrunterbrecher einzubauen, sofern diese nicht in den Mischern integriert sind",
+        "Die Rohrweiten sind nach der zur Installation passenden Methode zu bestimmen. Die Kontrolle der Rohrweiten, Druckverluste, Hydraulik und Fliessgeschwindigkeiten sind nicht Bestandteil unseres Leistungsumfanges. Wir haben diese nicht kontrolliert."
+      ],
+      "anzahl": 11
+    },
+    "W-002": {
+      "id": "W-002",
+      "findings": [
+        "Die Grössenbestimmung des Sicherheitsventils erfolgt aufgrund des Wasservolumens und/oder der Wärmeleistung des Wassererwärmers. Zur Beurteilung fehlen folgende Angaben: Inhalt und Leistung des Wassererwärmers",
+        "Anschlüsse auf Wasserentnahmestellen, welche für einen späteren Ausbau vorgesehen werden, dürfen nicht am Wasserverteilnetz angeschlossen werden oder sind so in die Trinkwasserinstallation zu integrieren, dass kein stagnierendes Wasser entsteht.",
+        "Reserveanschlüsse KW+WW Dachgeschoss Abgang C",
+        "Folgende Leitungsteile sind zur Vermeidung von Trinkwasserstagnation so kurz wie möglich zu halten und beträgt maximal 4 x ID der nicht durchströmten Leitung: Steigzone vom Obergeschoss in das Dachgeschoss. Zuleitung zu Abgang C",
+        "Bei Badewannen mit Exafill-Wanneneinläufen sind Rohrunterbrecher einzubauen, sofern diese nicht in den Mischern integriert, sind",
+        "Die Rohrweiten sind nach der zur Installation passenden Methode zu bestimmen. Die Kontrolle der Rohrweiten, Druckverluste, Hydraulik und Fliessgeschwindigkeiten sind nicht Bestandteil unseres Leistungsumfanges. Wir haben diese nicht kontrolliert."
+      ],
+      "anzahl": 6
+    },
+    "W-003": {
+      "id": "W-003",
+      "findings": [
+        "Im Abgang Netzdruck für das Gartenventil ist ein Systemtrenner Typ CA einzubauen. Empfehlung ewl Systemtrenner Typ BA einzubauen, dieser muss jährlich gewartet werden, somit ist die Trinkwasserhygiene gewährleistet. Die Einbauvorschriften des Lieferanten sind unbedingt einzuhalten.",
+        "Beim Trinkwasser-Systemtrenngerät ist der Auslauf der Zwischenkammer in einen offenen Trichter zu leiten. Dieser ist so zu bemessen, dass bei voller Entlastung der Mittelzone das Wasser abgeleitet werden kann. Zwischen freiem Auslauf des Systemtrenngeräts und der Überlaufkante des Ablaufes ist eine minimale Distanz von 20 mm einzuhalten.",
+        "Kennzeichnung Gartenventile mit dem nachfolgenden Piktogramm zu bezeichnen: Kein Trinkwasser",
+        "Systemtrenngerät der Bauart BA sind gemäss SVGW W3/E2 wartungspflichtig. Für Systemtrenngeräte dieser Bauart muss mit der Lieferfirma ein schriftlich festgelegter Wartungsvertrag abgeschlossen werden. Die Einbauvorschriften des Lieferanten sind unbedingt einzuhalten.",
+        "Bei nicht bestimmungsgemässem Betrieb von Apparaten oder Entnahmearmaturen wie frostsichere Gartenventile, Balkonventile, in Wohnungen aufgestellte Waschmaschinen, abgelegene Anschlüsse usw. ist durch folgende Massnahmen eine Trinkwassererneuerung alle 72 Stunden sicherzustellen: Gartenventil Gartengeschoss rechts",
+        "Verbindung mit einem täglich genutzten Endverbraucher",
+        "Verbindung mit einer automatischen Wasserbezugseinrichtung",
+        "Apparat/Entnahmearmatur mit automatischer Auslösung verwenden",
+        "Apparat/Entnahmearmatur über die Verteilleitung einschlaufen",
+        "Apparat/Entnahmearmatur über Strömungsverteiler an die Verteilleitung anschliessen",
+        "Folgende Leitungsteile sind zur Vermeidung von Trinkwasserstagnation so kurz wie möglich zu halten und beträgt maximal 4 x ID der nicht durchströmten Leitung: Anschluss Systemtrenngerät Typ CA oder BA (Abgangnetzdruck)",
+        "Anschluss Freier Auslauf Bauart AA oder AB (Schwimmbadanlage)",
+        "Einbau eines Durchflussbegrenzer für den Pool: Abstellung => Durchflussmengenbegrenzer (0.48l/s)",
+        "Abstellung Bei Badewannen mit Exafill-Wanneneinläufen sind Rohrunterbrecher einzubauen, sofern diese nicht in den Mischern integriert sind",
+        "Die Rohrweiten sind nach der zur Installation passenden Methode zu bestimmen. Die Kontrolle der Rohrweiten, Druckverluste, Hydraulik und Fliessgeschwindigkeiten sind nicht Bestandteil unseres Leistungsumfanges. Wir haben diese nicht kontrolliert."
+      ],
+      "anzahl": 15
+    },
+    "W-004": {
+      "id": "W-004",
+      "findings": [
+        "Abgang Netzdruck für die Gartenventile ist ein Systemtrenner Typ CA einzubauen. Empfehlung ewl Systemtrenner Typ BA einzubauen, dieser muss jährlich gewartet werden, somit ist die Trinkwasserhygiene gewährleistet. Die Einbauvorschriften des Lieferanten sind unbedingt einzuhalten.",
+        "Beim Trinkwasser-Systemtrenngerät ist der Auslauf der Zwischenkammer in einen offenen Trichter zu leiten. Dieser ist so zu bemessen, dass bei voller Entlastung der Mittelzone das Wasser abgeleitet werden kann. Zwischen freiem Auslauf des Systemtrenngeräts und der Überlaufkante des Ablaufes ist eine minimale Distanz von 20 mm einzuhalten.",
+        "Kennzeichnung Gartenventile mit dem nachfolgenden Piktogramm zu bezeichnen: Kein Trinkwasser",
+        "Systemtrenngerät der Bauart BA sind gemäss SVGW W3/E2 wartungspflichtig. Für Systemtrenngeräte dieser Bauart muss mit der Lieferfirma ein schriftlich festgelegter Wartungsvertrag abgeschlossen werden. Die Einbauvorschriften des Lieferanten sind unbedingt einzuhalten.",
+        "Die Grösse des Sicherheitsventils für Wassererwärmer über 1000 Liter bis 5000 Liter oder bis 250 kW ist: 1\".",
+        "Sicherheitsventile sollten im gleichen Raum bzw. gleichen Etage sein wie der Wassererwärmer.",
+        "Zwischen Rückflussverhinderer und Wassererwärmer dürfen keine weiteren Verbraucher angeschlossen sein.",
+        "In der Kaltwasseranschlussleitung auf den Wassererwärmer darf nach dem Sicherheitsventil kein Rückflussverhinderer eingebaut werden.",
+        "Anschlüsse auf Wasserentnahmestellen, welche für einen späteren Ausbau vorgesehen werden, dürfen nicht am Wasserverteilnetz angeschlossen werden oder sind so in die Trinkwasserinstallation zu integrieren, dass kein stagnierendes Wasser entsteht.",
+        "Reserveanschlüsse KW+WW Zwischengeschoss",
+        "Folgende Leitungsteile sind zur Vermeidung von Trinkwasserstagnation so kurz wie möglich zu halten und beträgt maximal 4 x ID der nicht durchströmten Leitung: Anschluss Systemtrenngerät Typ CA oder BA",
+        "Abgänge Reserveanschlüsse bis Abstellung",
+        "Bei Badewannen mit Exafill-Wanneneinläufen sind Rohrunterbrecher einzubauen, sofern diese nicht in den Mischern integriert, sind",
+        "Die Rohrweiten sind nach der zur Installation passenden Methode zu bestimmen. Die Kontrolle der Rohrweiten, Druckverluste, Hydraulik und Fliessgeschwindigkeiten sind nicht Bestandteil unseres Leistungsumfanges. Wir haben diese nicht kontrolliert."
+      ],
+      "anzahl": 14
+    },
+    "W-005": {
+      "id": "W-005",
+      "findings": [
+        "Die Grössenbestimmung des Sicherheitsventils erfolgt aufgrund des Wasservolumens und/oder der Wärmeleistung des Wassererwärmers. Zur Beurteilung fehlen folgende Angaben: Inhalt und Leistung des Wassererwärmers",
+        "Im Abgang Netzdruck ist ein Systemtrenner Typ CA einzubauen. Empfehlung ewl Systemtrenner Typ BA einzubauen, dieser muss jährlich gewartet werden, somit ist die Trinkwasserhygiene gewährleistet. Die Einbauvorschriften des Lieferanten sind unbedingt einzuhalten.",
+        "Beim Trinkwasser-Systemtrenngerät ist der Auslauf der Zwischenkammer in einen offenen Trichter zu leiten. Dieser ist so zu bemessen, dass bei voller Entlastung der Mittelzone das Wasser abgeleitet werden kann. Zwischen freiem Auslauf des Systemtrenngeräts und der Überlaufkante des Ablaufes ist eine minimale Distanz von 20 mm einzuhalten.",
+        "Systemtrenngerät der Bauart BA sind gemäss SVGW W3/E2 wartungspflichtig. Für Systemtrenngeräte dieser Bauart muss mit der Lieferfirma ein schriftlich festgelegter Wartungsvertrag abgeschlossen werden. Die Einbauvorschriften des Lieferanten sind unbedingt einzuhalten.",
+        "Kennzeichnung Entnahmestellen (Netzdruck) mit dem nachfolgenden Piktogramm zu bezeichnen: Kein Trinkwasser",
+        "Bei nicht bestimmungsgemässem Betrieb von Apparaten oder Entnahmearmaturen wie Tröge 1. UG + EG, abgelegene Anschlüsse usw. ist durch folgende Massnahmen eine Trinkwassererneuerung alle 72 Stunden sicherzustellen: Verbindung mit einem täglich genutzten Endverbraucher",
+        "Verbindung mit einer automatischen Wasserbezugseinrichtung",
+        "Apparat/Entnahmearmatur mit automatischer Auslösung verwenden",
+        "Apparat/Entnahmearmatur über die Verteilleitung einschlaufen",
+        "Apparat/Entnahmearmatur über Strömungsverteiler an die Verteilleitung anschliessen",
+        "Folgende Leitungsteile sind zur Vermeidung von Trinkwasserstagnation so kurz wie möglich zu halten und beträgt maximal 4 x ID der nicht durchströmten Leitung: Anschluss Systemtrenngerät Typ CA oder BA",
+        "Die Rohrweiten sind nach der zur Installation passenden Methode zu bestimmen. Die Kontrolle der Rohrweiten, Druckverluste, Hydraulik und Fliessgeschwindigkeiten sind nicht Bestandteil unseres Leistungsumfanges. Wir haben diese nicht kontrolliert."
+      ],
+      "anzahl": 12
+    },
+    "W-006": {
+      "id": "W-006",
+      "findings": [
+        "Im Abgang für die Gartenventile ist ein Systemtrenner Typ CA einzubauen. Empfehlung ewl Systemtrenner Typ BA einbauen, dieser muss jährlich gewartet werden, somit ist die Trinkwasserhygiene gewährleistet. Die Einbauvorschriften des Lieferanten sind unbedingt einzuhalten. Betrifft das Gartenventil auf der Dachaufsicht.",
+        "Beim Trinkwasser-Systemtrenngerät ist der Auslauf der Zwischenkammer in einen offenen Trichter zu leiten. Dieser ist so zu bemessen, dass bei voller Entlastung der Mittelzone das Wasser abgeleitet werden kann. Zwischen freiem Auslauf des Systemtrenngeräts und der Überlaufkante des Ablaufes ist eine minimale Distanz von 20 mm einzuhalten.",
+        "Kennzeichnung Gartenventil mit dem nachfolgenden Piktogramm zu bezeichnen: Kein Trinkwasser.",
+        "Systemtrenngerät der Bauart BA sind gemäss SVGW W3/E2 wartungspflichtig. Für Systemtrenngeräte dieser Bauart muss mit der Lieferfirma ein schriftlich festgelegter Wartungsvertrag abgeschlossen werden. Die Einbauvorschriften des Lieferanten sind unbedingt einzuhalten.",
+        "Bei nicht bestimmungsgemässem Betrieb von Apparaten oder Entnahmearmaturen wie frostsichere Gartenventile, Balkonventile, Steamer, Foodcenter, in Wohnungen aufgestellte Waschmaschinen, abgelegene Anschlüsse usw. ist durch folgende Massnahmen eine Trinkwassererneuerung alle 72 Stunden sicherzustellen: Verbindung mit einem täglich genutzten Endverbraucher",
+        "Verbindung mit einer automatischen Wasserbezugseinrichtung",
+        "Apparat/Entnahmearmatur mit automatischer Auslösung verwenden",
+        "Apparat/Entnahmearmatur über die Verteilleitung einschlaufen",
+        "Apparat/Entnahmearmatur über Strömungsverteiler an die Verteilleitung anschliessen",
+        "Folgende Leitungsteile sind zur Vermeidung von Trinkwasserstagnation so kurz wie möglich zu halten und beträgt maximal 4 x ID der nicht durchströmten Leitung: Anschluss Systemtrenngerät Typ CA oder BA",
+        "Bei Badewannen mit Exafill-Wanneneinläufen sind Rohrunterbrecher einzubauen, sofern diese nicht in den Mischern integriert sind.",
+        "Die Rohrweiten sind nach der zur Installation passenden Methode zu bestimmen. Die Kontrolle der Rohrweiten, Druckverluste, Hydraulik und Fliessgeschwindigkeiten sind nicht Bestandteil unseres Leistungsumfanges. Wir haben diese nicht kontrolliert."
+      ],
+      "anzahl": 12
+    },
+    "W-007": {
+      "id": "W-007",
+      "findings": [
+        "Nach dem Wasserzähler ist ein Rückflussverhinderer einzubauen (siehe Normschema).",
+        "Die Grössenbestimmung des Sicherheitsventils erfolgt aufgrund des Wasservolumens und/oder der Wärmeleistung des Wassererwärmers. Zur Beurteilung fehlen folgende Angaben: Inhalt und Leistung des Wassererwärmers",
+        "Abgang Netzdruck für die Gartenventile ist ein Systemtrenner Typ CA einzubauen. Empfehlung ewl Systemtrenner Typ BA einzubauen, dieser muss jährlich gewartet werden, somit ist die Trinkwasserhygiene gewährleistet. Die Einbauvorschriften des Lieferanten sind unbedingt einzuhalten.",
+        "Beim Trinkwasser-Systemtrenngerät ist der Auslauf der Zwischenkammer in einen offenen Trichter zu leiten. Dieser ist so zu bemessen, dass bei voller Entlastung der Mittelzone das Wasser abgeleitet werden kann. Zwischen freiem Auslauf des Systemtrenngeräts und der Überlaufkante des Ablaufes ist eine minimale Distanz von 20 mm einzuhalten.",
+        "Kennzeichnung Gartenventile mit dem nachfolgenden Piktogramm zu bezeichnen: Kein Trinkwasser",
+        "Systemtrenngerät der Bauart BA sind gemäss SVGW W3/E2 wartungspflichtig. Für Systemtrenngeräte dieser Bauart muss mit der Lieferfirma ein schriftlich festgelegter Wartungsvertrag abgeschlossen werden. Die Einbauvorschriften des Lieferanten sind unbedingt einzuhalten.",
+        "Bei nicht bestimmungsgemässem Betrieb von Apparaten oder Entnahmearmaturen wie frostsichere Gartenventile, Balkonventile, Steamer, Foodcenter, in Wohnungen aufgestellte Waschmaschinen, abgelegene Anschlüsse usw. ist durch folgende Massnahmen eine Trinkwassererneuerung alle 72 Stunden sicherzustellen: Betrifft Waschautomat im Keller",
+        "Verbindung mit einem täglich genutzten Endverbraucher",
+        "Verbindung mit einer automatischen Wasserbezugseinrichtung",
+        "Apparat/Entnahmearmatur mit automatischer Auslösung verwenden",
+        "Apparat/Entnahmearmatur über die Verteilleitung einschlaufen",
+        "Apparat/Entnahmearmatur über Strömungsverteiler an die Verteilleitung anschliessen",
+        "Anschlüsse auf Wasserentnahmestellen, welche für einen späteren Ausbau vorgesehen werden, dürfen nicht am Wasserverteilnetz angeschlossen werden oder sind so in die Trinkwasserinstallation zu integrieren, dass kein stagnierendes Wasser entsteht.",
+        "Reserveanschlüsse Waschmaschinen EG + 1. OG",
+        "Folgende Leitungsteile sind zur Vermeidung von Trinkwasserstagnation so kurz wie möglich zu halten und beträgt maximal 4 x ID der nicht durchströmten Leitung: Anschluss Systemtrenngerät Typ CA oder BA",
+        "Vor jedem Wassererwärmer sind in die Kaltwasser-Anschlussleitung folgende Armaturen einzubauen: Absperrarmatur, Rückflussverhinderer, Sicherheitsventil, Verschraubung und eine Entleerung",
+        "Bei Badewannen mit Exafill-Wanneneinläufen sind Rohrunterbrecher einzubauen, sofern diese nicht in den Mischern integriert sind",
+        "Die Rohrweiten sind nach der zur Installation passenden Methode zu bestimmen. Die Kontrolle der Rohrweiten, Druckverluste, Hydraulik und Fliessgeschwindigkeiten sind nicht Bestandteil unseres Leistungsumfanges. Wir haben diese nicht kontrolliert. Bemerkung: Kaltwasserleitungen (PE-X-Leitungen), die über den Rohboden geführt werden, sind gegen eine ungewollte Erwärmung durch die Fussbodenheizung zu schützen. Es ist eine ausreichende thermische Trennung sicherzustellen, um eine unerwünschte Temperaturerhöhung des Kaltwassers zu vermeiden. Die Ausführung hat gemäss den anerkannten Regeln der Technik und den einschlägigen Normen zu erfolgen."
+      ],
+      "anzahl": 18
+    },
+    "W-008": {
+      "id": "W-008",
+      "findings": [
+        "Die Grössenbestimmung des Sicherheitsventils erfolgt aufgrund des Wasservolumens und/oder der Wärmeleistung des Wassererwärmers. Zur Beurteilung fehlen folgende Angaben: Inhalt und Leistung des Wassererwärmers",
+        "An folgenden Orten ist ein Probeentnahmeventil in jedem Fall, unabhängig von der Objektgrösse, erforderlich: Beim Wassereintritt in das Gebäude (nach dem Wasserzähler)",
+        "Beim Austritt aus dem Wassererwärmer",
+        "In der Warmwasserzirkulation, vor dem Eintritt zurück in den Speicher",
+        "Folgende Leitungsteile sind zur Vermeidung von Trinkwasserstagnation so kurz wie möglich zu halten und beträgt maximal 4 x ID der nicht durchströmten Leitung: Abgang Netzdruck",
+        "Bei Badewannen mit Exafill-Wanneneinläufen sind Rohrunterbrecher einzubauen, sofern diese nicht in den Mischern integriert sind",
+        "Die Rohrweiten sind nach der zur Installation passenden Methode zu bestimmen. Die Kontrolle der Rohrweiten, Druckverluste, Hydraulik und Fliessgeschwindigkeiten sind nicht Bestandteil unseres Leistungsumfanges. Wir haben diese nicht kontrolliert. Bemerkung: Kaltwasserleitungen (PE-X-Leitungen), die über den Rohboden geführt werden, sind gegen eine ungewollte Erwärmung durch die Fussbodenheizung zu schützen. Es ist eine ausreichende thermische Trennung sicherzustellen, um eine unerwünschte Temperaturerhöhung des Kaltwassers zu vermeiden. Die Ausführung hat gemäss den anerkannten Regeln der Technik und den einschlägigen Normen zu erfolgen."
+      ],
+      "anzahl": 7
+    },
+    "W-009": {
+      "id": "W-009",
+      "findings": [
+        "Der bestehende Wasserzähler muss von ewl an den geänderten Spitzenvolumenstrom angepasst werden. Für die Disposition und den Ausführungstermin ist mit uns rechtzeitig Kontakt aufzunehmen.",
+        "Die Grössenbestimmung des Sicherheitsventils erfolgt aufgrund des Wasservolumens und/oder der Wärmeleistung des Wassererwärmers. Zur Beurteilung fehlen folgende Angaben: Inhalt und Leistung des Wassererwärmers",
+        "Bei nicht bestimmungsgemässem Betrieb von Apparaten oder Entnahmearmaturen wie Steamer, Foodcenter, abgelegene Anschlüsse usw. ist durch folgende Massnahmen eine Trinkwassererneuerung alle 72 Stunden sicherzustellen: Verbindung mit einem täglich genutzten Endverbraucher",
+        "Verbindung mit einer automatischen Wasserbezugseinrichtung",
+        "Apparat/Entnahmearmatur mit automatischer Auslösung verwenden",
+        "Apparat/Entnahmearmatur über die Verteilleitung einschlaufen",
+        "Apparat/Entnahmearmatur über Strömungsverteiler an die Verteilleitung anschliessen",
+        "Beim Anschluss der einzelnen Apparate und Geräte sind die Anschlussbedingungen (siehe SVGW Zertifizierungsverzeichnis Wasser, Index-Tabelle) zu beachten.",
+        "Kaffeemaschine",
+        "Steamer",
+        "Bei Badewannen mit Exafill-Wanneneinläufen sind Rohrunterbrecher einzubauen, sofern diese nicht in den Mischern integriert sind",
+        "Die Rohrweiten sind nach der zur Installation passenden Methode zu bestimmen. Die Kontrolle der Rohrweiten, Druckverluste, Hydraulik und Fliessgeschwindigkeiten sind nicht Bestandteil unseres Leistungsumfanges. Wir haben diese nicht kontrolliert."
+      ],
+      "anzahl": 12
+    },
+    "W-010": {
+      "id": "W-010",
+      "findings": [
+        "Die Grössenbestimmung des Sicherheitsventils erfolgt aufgrund des Wasservolumens und/oder der Wärmeleistung des Wassererwärmers. Zur Beurteilung fehlen folgende Angaben: Inhalt und Leistung des Wassererwärmers",
+        "Anschlüsse auf Wasserentnahmestellen, welche für einen späteren Ausbau vorgesehen werden, dürfen nicht am Wasserverteilnetz angeschlossen werden oder sind so in die Trinkwasserinstallation zu integrieren, dass kein stagnierendes Wasser entsteht.",
+        "Reserveanschlüsse KW+WW Dachgeschoss Abgang C",
+        "Folgende Leitungsteile sind zur Vermeidung von Trinkwasserstagnation so kurz wie möglich zu halten und beträgt maximal 4 x ID der nicht durchströmten Leitung: Steigzone vom Obergeschoss in das Dachgeschoss. Zuleitung zu Abgang C",
+        "Bei Badewannen mit Exafill-Wanneneinläufen sind Rohrunterbrecher einzubauen, sofern diese nicht in den Mischern integriert, sind",
+        "Die Rohrweiten sind nach der zur Installation passenden Methode zu bestimmen. Die Kontrolle der Rohrweiten, Druckverluste, Hydraulik und Fliessgeschwindigkeiten sind nicht Bestandteil unseres Leistungsumfanges. Wir haben diese nicht kontrolliert."
+      ],
+      "anzahl": 6
+    }
+  }
+}

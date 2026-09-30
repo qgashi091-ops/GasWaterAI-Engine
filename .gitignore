@@ -23,3 +23,8 @@ data/dev_plans_v04/annotation_dataset/_worker_*.tmp.json
 # freeze_manifest.json (the SHA-256 + holdout audit) and
 # phaseC_score_report.json (the full scoring detail) are small and kept.
 data/dev_plans_v04/legend_structural_benchmark/predictions.json
+
+# Golden holdout (W-001..W-010): real client reference plans, same privacy
+# category as data/dev_plans_v04/raw/ -- never committed. See
+# tests/golden_holdout/__init__.py and docs/v1-golden-holdout-import-report.md.
+tests/golden_holdout/plans/
