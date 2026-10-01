@@ -17,15 +17,19 @@ optional, explicitly-configured vision fallback (see app/vision_fallback/);
 """
 from __future__ import annotations
 
+import hmac
+import os
 import time
 
-from fastapi import FastAPI, File, HTTPException, UploadFile
+from fastapi import Depends, FastAPI, File, Header, HTTPException, UploadFile
 from fastapi.responses import JSONResponse
 
 from .fingerprint import document_fingerprint
+from .multi_agent_v1.base44_provider import Base44AgentModelProvider
+from .multi_agent_v1.base44_provider import GATEWAY_URL_ENV_VAR as BASE44_AI_GATEWAY_URL_ENV_VAR
 from .multi_agent_v1.pipeline import ENGINE_VERSION as MULTI_AGENT_V1_ENGINE_VERSION
 from .multi_agent_v1.pipeline import run_multi_agent_v1
-from .multi_agent_v1.provider import AnthropicAgentModelProvider
+from .multi_agent_v1.provider import AgentModelProvider, AnthropicAgentModelProvider
 from .plan_analysis.canonical_inventory import build_canonical_inventory
 from .plan_analysis.component_evidence import build_component_evidence
 from .plan_analysis.component_facts import build_component_facts
@@ -38,6 +42,41 @@ from .rules.water_rules import ALL_RULES
 ENGINE_VERSION = "1.0.0"
 
 app = FastAPI(title="GasWaterAI Engine", version=ENGINE_VERSION)
+
+# ---------------------------------------------------------------------------
+# /multi_agent_v1/analyze access control.
+#
+# Shared-secret check, prepared but not forced on: if GASWATERAI_MULTI_AGENT_
+# API_KEY is unset (today's default, and every existing test's environment),
+# the endpoint stays exactly as open as it is right now -- deploying this
+# unchanged would not lock anyone out. Setting that variable on the hosting
+# platform is what activates enforcement; nothing in code needs to change
+# again to turn it on. /analyze and /check are completely untouched -- no
+# dependency is attached to either.
+# ---------------------------------------------------------------------------
+MULTI_AGENT_API_KEY_ENV_VAR = "GASWATERAI_MULTI_AGENT_API_KEY"
+
+
+def _verify_multi_agent_api_key(x_api_key: str | None = Header(default=None, alias="X-API-Key")) -> None:
+    expected = os.environ.get(MULTI_AGENT_API_KEY_ENV_VAR)
+    if not expected:
+        return
+    if not x_api_key or not hmac.compare_digest(x_api_key, expected):
+        raise HTTPException(status_code=401, detail="Missing or invalid X-API-Key.")
+
+
+def _select_agent_model_provider() -> AgentModelProvider:
+    """Base44AgentModelProvider is preferred whenever Base44's AI Gateway is
+    configured (BASE44_AI_GATEWAY_URL set) -- this is what lets model-
+    dependent agents run WITHOUT a separately-paid Anthropic API key for
+    product operation. AnthropicAgentModelProvider remains the fallback
+    (e.g. local development with a personal key, or before Base44's gateway
+    exists) and is exactly what ran before this change -- with neither
+    configured, behavior is unchanged from before: every model call reports
+    `available: false` honestly, nothing fails."""
+    if os.environ.get(BASE44_AI_GATEWAY_URL_ENV_VAR):
+        return Base44AgentModelProvider()
+    return AnthropicAgentModelProvider()
 
 
 @app.get("/health")
@@ -163,7 +202,7 @@ async def check(file: UploadFile = File(...)) -> JSONResponse:
     })
 
 
-@app.post("/multi_agent_v1/analyze")
+@app.post("/multi_agent_v1/analyze", dependencies=[Depends(_verify_multi_agent_api_key)])
 async def multi_agent_v1_analyze(file: UploadFile = File(...)) -> JSONResponse:
     """SEPARATE, additive test path for the Multi-Agent Architecture v1
     (see app/multi_agent_v1/) -- does not touch /analyze or /check's
@@ -171,13 +210,15 @@ async def multi_agent_v1_analyze(file: UploadFile = File(...)) -> JSONResponse:
     step exactly as /check does (same analyze_pdf_bytes, plan_facts,
     legend_intelligence, component_evidence, canonical_inventory, rule
     checks) and additionally runs the 12-agent pipeline on top, via
-    AnthropicAgentModelProvider -- which, absent a configured
-    GASWATERAI_VISION_API_KEY (none exists in this build/deployment
-    environment), reports each model call as unavailable rather than
-    failing the request; every deterministic-first agent path (plan-area
-    keyword/legend detection, medium/category/circulation text patterns,
-    the two model-free reconciliation agents) still runs and still produces
-    real observations with zero calls."""
+    whichever AgentModelProvider `_select_agent_model_provider()` picks
+    (Base44's AI Gateway when configured, else the direct Anthropic path).
+    Absent BOTH, every model call reports unavailable rather than failing
+    the request; every deterministic-first agent path (plan-area keyword/
+    legend detection, medium/category/circulation text patterns, the agents
+    that never call a model at all) still runs and still produces real
+    observations with zero calls. Protected by `_verify_multi_agent_api_key`
+    (X-API-Key header) once GASWATERAI_MULTI_AGENT_API_KEY is configured;
+    /analyze and /check carry no such dependency and are unaffected."""
     pdf_bytes = await file.read()
     if not pdf_bytes.startswith(b"%PDF"):
         raise HTTPException(status_code=400, detail="Uploaded file is not a PDF.")
@@ -206,7 +247,7 @@ async def multi_agent_v1_analyze(file: UploadFile = File(...)) -> JSONResponse:
 
     t1 = time.perf_counter()
     result = run_multi_agent_v1(
-        doc=doc, provider=AnthropicAgentModelProvider(), pdf_bytes=pdf_bytes, plan_facts=plan_facts,
+        doc=doc, provider=_select_agent_model_provider(), pdf_bytes=pdf_bytes, plan_facts=plan_facts,
         component_evidence=component_evidence.get("evidence", []), inventory=inventory["inventory"],
         rule_checks=check_results["checks"],
     )

@@ -4,6 +4,12 @@ __pycache__/
 .venv/
 *.egg-info/
 
+# Local secrets (GASWATERAI_VISION_API_KEY, GASWATERAI_MULTI_AGENT_API_KEY,
+# BASE44_AI_GATEWAY_URL/API_KEY, ...) -- never committed. No .env file exists
+# in this repo yet; this is preventive, before one is created for local dev.
+.env
+.env.*
+
 # v0.4 real-plan dataset: raw customer PDFs and the pseudonym<->filename
 # mapping are never committed (title blocks carry real names/addresses/
 # companies) -- only the derived, pseudonymous annotation_dataset/ is.

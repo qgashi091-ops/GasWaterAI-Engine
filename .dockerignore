@@ -1,0 +1,47 @@
+# GasWaterAI Engine -- build-context exclusions, so dev datasets, benchmark
+# crops, and annotation tooling output never reach the production image.
+#
+# NOTE: data/dev_plans_v04/detector_v1/ is NOT listed here -- it is the one
+# directory under data/ the running service actually reads at runtime
+# (app/detector/infer.py loads model.joblib + training_config.json from it),
+# and the Dockerfile COPYs exactly those two files from it explicitly.
+# Every OTHER data/dev_plans_v04/ subdirectory below is dev-only and never
+# read by the running service -- verified by a repo-wide search for
+# `data/dev_plans_v04` path references (see docs/deployment.md).
+
+# -- version control / tooling --
+.git/
+.github/
+.gitignore
+.dockerignore
+.pytest_cache/
+__pycache__/
+*.pyc
+.venv/
+*.egg-info/
+
+# -- dev datasets, benchmarks, annotation tooling output (NOT detector_v1) --
+data/dev_plans_v04/raw/
+data/dev_plans_v04/annotation_dataset/
+data/dev_plans_v04/annotation_web_export/
+data/dev_plans_v04/legend_symbol_dataset/
+data/dev_plans_v04/legend_structural_benchmark/
+data/dev_plans_v04/detector_v2_candidates/
+data/dev_plans_v04/microagent_poc/
+data/dev_plans_v04/symbol_reid_experiment/
+data/dev_plans_v04/gartenventil_targeted/
+data/dev_plans_v04/id_mapping.LOCAL_ONLY.json
+
+# -- real client PDFs, never shipped anywhere (see tests/golden_holdout/__init__.py) --
+tests/golden_holdout/plans/
+
+# -- not needed inside the running container --
+tests/
+docs/
+scripts/
+README.md
+requirements-dev.txt
+
+# -- local secrets, never baked into an image --
+.env
+.env.*
