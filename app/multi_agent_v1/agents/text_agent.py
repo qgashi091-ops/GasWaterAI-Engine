@@ -19,10 +19,12 @@ from __future__ import annotations
 
 from app.microagents.hashing import hash_text
 
-from ..base_agent import BaseAgent
+from ..base_agent import BaseAgent, BatchSubjectInput, get_batch_size
 from ..context import PlanAgentContext
-from ..provider import AgentModelRequest
 from ..schema import AgentObservation
+
+# Small crops, short label-association decision -> the full 8-image cap.
+DEFAULT_BATCH_SIZE = 8
 
 SYSTEM_PROMPT = (
     "You look at a small cropped region of a technical plumbing plan "
@@ -56,29 +58,46 @@ class TextAgent(BaseAgent):
     def associate(
         self, context: PlanAgentContext, subject_id: str, page_number: int, text_bbox: tuple, text: str,
     ) -> AgentObservation:
-        crop = context.render_crop_png(page_number, text_bbox, margin_fraction=1.5)
+        return self.associate_batch(context, [(subject_id, page_number, text_bbox, text)])[subject_id]
+
+    def associate_batch(
+        self, context: PlanAgentContext, subjects: list[tuple[str, int, tuple, str]],
+    ) -> dict[str, AgentObservation]:
+        results: dict[str, AgentObservation] = {}
         prompt_hash = hash_text(SYSTEM_PROMPT)
-        if crop is None:
-            return self._observation(
-                "label_association", subject_id, {"target_type": "unassigned", "target_id": None},
-                confidence="uncertain", evidence=["could not render surrounding crop"], prompt_hash=prompt_hash,
-            )
-        request = AgentModelRequest(
-            system_prompt=SYSTEM_PROMPT, tool_name=TOOL_NAME, tool_schema=_TOOL_SCHEMA,
-            text=f"The text in question: {text!r}", images=[crop],
-        )
-        response = self.call_model(request)
-        if not response.available:
-            return self._observation(
-                "label_association", subject_id, {"target_type": "unassigned", "target_id": None},
-                confidence=None, available=False, error=response.error, model=response.model,
-                prompt_hash=prompt_hash,
-            )
-        parsed = response.tool_input or {}
-        return self._observation(
-            "label_association", subject_id,
-            {"target_type": parsed.get("target_type", "unassigned"), "target_id": None},
-            confidence=parsed.get("confidence"), evidence=list(parsed.get("evidence") or []),
-            model=response.model, prompt_hash=prompt_hash, raw_response_id=response.raw_response_id,
-            latency_ms=response.latency_ms, detail={"page": page_number, "text": text},
-        )
+        batch_subjects: list[BatchSubjectInput] = []
+        meta: dict[str, tuple[int, str]] = {}
+        for subject_id, page_number, text_bbox, text in subjects:
+            crop = context.render_crop_png(page_number, text_bbox, margin_fraction=1.5)
+            if crop is None:
+                results[subject_id] = self._observation(
+                    "label_association", subject_id, {"target_type": "unassigned", "target_id": None},
+                    confidence="uncertain", evidence=["could not render surrounding crop"], prompt_hash=prompt_hash,
+                )
+                continue
+            meta[subject_id] = (page_number, text)
+            batch_subjects.append(BatchSubjectInput(
+                subject_id=subject_id, images=[crop], text=f"The text in question: {text!r}",
+            ))
+
+        if batch_subjects:
+            batch_size = get_batch_size(self.agent_id, DEFAULT_BATCH_SIZE)
+            outcomes = self.run_batched(batch_subjects, TOOL_NAME, _TOOL_SCHEMA, SYSTEM_PROMPT, batch_size=batch_size)
+            for subject_id, (page_number, text) in meta.items():
+                outcome = outcomes[subject_id]
+                if not outcome.available:
+                    results[subject_id] = self._observation(
+                        "label_association", subject_id, {"target_type": "unassigned", "target_id": None},
+                        confidence=None, available=False, error=outcome.error, model=outcome.model,
+                        prompt_hash=prompt_hash,
+                    )
+                    continue
+                parsed = outcome.tool_input or {}
+                results[subject_id] = self._observation(
+                    "label_association", subject_id,
+                    {"target_type": parsed.get("target_type", "unassigned"), "target_id": None},
+                    confidence=parsed.get("confidence"), evidence=list(parsed.get("evidence") or []),
+                    model=outcome.model, prompt_hash=prompt_hash, raw_response_id=outcome.raw_response_id,
+                    latency_ms=outcome.latency_ms, cached=outcome.cached, detail={"page": page_number, "text": text},
+                )
+        return results

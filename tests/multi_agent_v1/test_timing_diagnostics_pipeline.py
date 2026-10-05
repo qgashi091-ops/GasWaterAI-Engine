@@ -63,7 +63,8 @@ def test_diagnostics_on_logs_every_requested_phase_and_all_twelve_agents(monkeyp
     assert len(caplog.records) == 1
     payload = json.loads(caplog.records[0].message[len("multi_agent_v1_timing "):])
 
-    assert payload["execution_mode"] == "serial"
+    assert payload["execution_mode"] == "staged-concurrent"
+    assert payload["max_concurrency"] >= 1
     assert payload["total_duration_ms"] > 0
 
     for required_phase in ("deterministic_preprocessing", "router", "evidence_merger", "canonical_output"):
@@ -85,17 +86,34 @@ def test_diagnostics_on_logs_every_requested_phase_and_all_twelve_agents(monkeyp
             assert a["model_calls"] == 0
 
 
+def _strip_nondeterministic_fields(observations: list[dict]) -> list[dict]:
+    """`raw_response_id` is FixtureAgentModelProvider's own
+    `f"fixture-{len(self.calls)}"` call counter -- under Stage A's real
+    concurrency (performance-optimization epic), which agent's thread
+    happens to call the fixture provider first/second/... is scheduling-
+    dependent, so this ONE diagnostic-only id can legitimately differ
+    between two runs (or between diagnostics on/off) without that being a
+    fachlich regression. It carries no meaning in production either (the
+    real Base44/Anthropic providers set it from the model API's own
+    response id, never from a local counter). Every fachlich field
+    (value, resolution, confidence, evidence, claim_type, subject_id,
+    agent_id, available, error, cached, model) is left untouched -- a
+    change in ANY of those still fails this test."""
+    return [{k: v for k, v in obs.items() if k != "raw_response_id"} for obs in observations]
+
+
 def test_diagnostics_do_not_change_the_pipeline_result(monkeypatch, legend_and_riser_pdf_bytes):
     """Requirement: 'bestehende Ergebnisse unveraendert' -- the exact same
-    inputs produce the exact same CanonicalPlanUnderstanding whether
-    diagnostics are on or off."""
+    inputs produce the exact same CanonicalPlanUnderstanding (and the same
+    fachlich observation content) whether diagnostics are on or off."""
     monkeypatch.delenv(td.TIMING_DIAGNOSTICS_ENV_VAR, raising=False)
     result_off = _run_pipeline(legend_and_riser_pdf_bytes)
 
     monkeypatch.setenv(td.TIMING_DIAGNOSTICS_ENV_VAR, "1")
     result_on = _run_pipeline(legend_and_riser_pdf_bytes)
 
-    assert result_off.to_dict() == result_on.to_dict()
+    assert result_off.canonical_plan_understanding == result_on.canonical_plan_understanding
+    assert _strip_nondeterministic_fields(result_off.observations) == _strip_nondeterministic_fields(result_on.observations)
 
 
 def test_logged_payload_never_contains_subject_ids_or_component_text(monkeypatch, caplog, legend_and_riser_pdf_bytes):

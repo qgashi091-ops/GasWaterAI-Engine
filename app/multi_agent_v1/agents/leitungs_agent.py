@@ -19,10 +19,14 @@ import re
 
 from app.microagents.hashing import hash_bytes, hash_text
 
-from ..base_agent import BaseAgent
+from .. import timing_diagnostics
+from ..base_agent import BaseAgent, BatchSubjectInput, get_batch_size
 from ..context import PlanAgentContext
-from ..provider import AgentModelRequest
 from ..schema import AgentObservation
+
+# Live baseline: 54 LeitungsAgent model calls on the first real plan --
+# the single biggest contributor to total runtime. Full 8-image cap.
+DEFAULT_BATCH_SIZE = 8
 
 MEDIUM_VALUES = ("KW", "WW", "Zirkulation", "UNKNOWN")
 
@@ -66,38 +70,70 @@ class LeitungsAgent(BaseAgent):
     def classify_medium(
         self, context: PlanAgentContext, subject_id: str, page_number: int, edge_bbox: tuple,
     ) -> AgentObservation:
-        nearby = context.nearby_text(page_number, edge_bbox, margin_pt=40.0)
-        joined = "\n".join(nearby)
-        for medium, pattern in _PATTERNS.items():
-            if pattern.search(joined):
-                return self._observation(
-                    "leitung_medium", subject_id, medium, confidence="supported",
-                    evidence=[f"nearby text matches {medium!r} pattern"], detail={"method": "text_pattern", "nearby_text": nearby},
-                )
+        return self.classify_media_batch(context, [(subject_id, page_number, edge_bbox)])[subject_id]
 
-        crop = context.render_crop_png(page_number, edge_bbox, margin_fraction=0.8)
-        prompt_hash = hash_text(SYSTEM_PROMPT)
-        if crop is None:
-            return self._observation(
-                "leitung_medium", subject_id, "UNKNOWN", confidence="uncertain",
-                evidence=["no nearby text match and no crop could be rendered"], prompt_hash=prompt_hash,
-            )
-        input_hash = hash_bytes(crop)
-        request = AgentModelRequest(
-            system_prompt=SYSTEM_PROMPT, tool_name=TOOL_NAME, tool_schema=_TOOL_SCHEMA,
-            text="Classify the medium of the highlighted pipe segment.", images=[crop],
-        )
-        response = self.call_model(request)
-        if not response.available:
-            return self._observation(
-                "leitung_medium", subject_id, "UNKNOWN", confidence=None, available=False,
-                error=response.error, model=response.model, prompt_hash=prompt_hash, input_hash=input_hash,
-            )
-        parsed = response.tool_input or {}
-        return self._observation(
-            "leitung_medium", subject_id, parsed.get("medium", "UNKNOWN"),
-            confidence=parsed.get("confidence"), evidence=list(parsed.get("evidence") or []),
-            model=response.model, prompt_hash=prompt_hash, input_hash=input_hash,
-            raw_response_id=response.raw_response_id, latency_ms=response.latency_ms,
-            detail={"method": "model"},
-        )
+    def classify_media_batch(
+        self, context: PlanAgentContext, subjects: list[tuple[str, int, tuple]],
+    ) -> dict[str, AgentObservation]:
+        """Section 7 (PlanFacts-Vorrang/deterministic-first): the
+        text-pattern tier below is UNCHANGED and runs for every subject
+        BEFORE any batching decision -- a subject resolved by nearby text
+        never enters a batch or consumes a model call at all."""
+        results: dict[str, AgentObservation] = {}
+        batch_subjects: list[BatchSubjectInput] = []
+        meta: dict[str, tuple[int, bytes]] = {}
+        deterministic_skip = 0
+        for subject_id, page_number, edge_bbox in subjects:
+            nearby = context.nearby_text(page_number, edge_bbox, margin_pt=40.0)
+            joined = "\n".join(nearby)
+            matched_medium = None
+            for medium, pattern in _PATTERNS.items():
+                if pattern.search(joined):
+                    matched_medium = medium
+                    break
+            if matched_medium is not None:
+                results[subject_id] = self._observation(
+                    "leitung_medium", subject_id, matched_medium, confidence="supported",
+                    evidence=[f"nearby text matches {matched_medium!r} pattern"],
+                    detail={"method": "text_pattern", "nearby_text": nearby},
+                )
+                deterministic_skip += 1
+                continue
+
+            crop = context.render_crop_png(page_number, edge_bbox, margin_fraction=0.8)
+            prompt_hash = hash_text(SYSTEM_PROMPT)
+            if crop is None:
+                results[subject_id] = self._observation(
+                    "leitung_medium", subject_id, "UNKNOWN", confidence="uncertain",
+                    evidence=["no nearby text match and no crop could be rendered"], prompt_hash=prompt_hash,
+                )
+                continue
+            meta[subject_id] = (page_number, crop)
+            batch_subjects.append(BatchSubjectInput(
+                subject_id=subject_id, images=[crop], text="Classify the medium of the highlighted pipe segment.",
+            ))
+
+        if deterministic_skip:
+            timing_diagnostics.record_subjects_deterministic_skip(self.agent_id, deterministic_skip)
+        if batch_subjects:
+            batch_size = get_batch_size(self.agent_id, DEFAULT_BATCH_SIZE)
+            outcomes = self.run_batched(batch_subjects, TOOL_NAME, _TOOL_SCHEMA, SYSTEM_PROMPT, batch_size=batch_size)
+            for subject_id, (page_number, crop) in meta.items():
+                outcome = outcomes[subject_id]
+                prompt_hash = hash_text(SYSTEM_PROMPT)
+                input_hash = hash_bytes(crop)
+                if not outcome.available:
+                    results[subject_id] = self._observation(
+                        "leitung_medium", subject_id, "UNKNOWN", confidence=None, available=False,
+                        error=outcome.error, model=outcome.model, prompt_hash=prompt_hash, input_hash=input_hash,
+                    )
+                    continue
+                parsed = outcome.tool_input or {}
+                results[subject_id] = self._observation(
+                    "leitung_medium", subject_id, parsed.get("medium", "UNKNOWN"),
+                    confidence=parsed.get("confidence"), evidence=list(parsed.get("evidence") or []),
+                    model=outcome.model, prompt_hash=prompt_hash, input_hash=input_hash,
+                    raw_response_id=outcome.raw_response_id, latency_ms=outcome.latency_ms,
+                    cached=outcome.cached, detail={"method": "model"},
+                )
+        return results

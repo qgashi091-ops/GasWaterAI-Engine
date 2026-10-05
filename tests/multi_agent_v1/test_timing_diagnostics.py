@@ -96,7 +96,7 @@ def test_enabled_logs_exactly_one_structured_line(monkeypatch, caplog):
     assert message.startswith("multi_agent_v1_timing ")
     payload = json.loads(message[len("multi_agent_v1_timing "):])
 
-    assert payload["execution_mode"] == "serial"
+    assert payload["execution_mode"] == "staged-concurrent"
     assert isinstance(payload["correlation_id"], str) and payload["correlation_id"]
     assert payload["phases_ms"]["router"] >= 0
 
@@ -182,11 +182,16 @@ def test_logged_payload_never_carries_subject_or_content_fields(monkeypatch, cap
         td.end_request(token)
 
     payload = json.loads(caplog.records[0].message[len("multi_agent_v1_timing "):])
-    allowed_top_level = {"correlation_id", "execution_mode", "total_duration_ms", "phases_ms", "agents"}
+    allowed_top_level = {
+        "correlation_id", "execution_mode", "max_concurrency", "total_duration_ms",
+        "phases_ms", "agents", "dropped_extra_batch_results",
+    }
     assert set(payload.keys()) == allowed_top_level
     allowed_agent_keys = {
         "agent_id", "run", "start_ms", "end_ms", "duration_ms",
-        "model_calls", "images", "provider_duration_ms_per_call", "status",
+        "subjects_total", "subjects_deterministic_skip", "subjects_model",
+        "batch_count", "batch_sizes", "model_calls", "cache_hits",
+        "images", "provider_duration_ms_per_call", "errors", "timeouts", "status",
     }
     for agent_entry in payload["agents"]:
         assert set(agent_entry.keys()) == allowed_agent_keys

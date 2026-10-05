@@ -18,10 +18,12 @@ import re
 
 from app.microagents.hashing import hash_bytes, hash_text
 
-from ..base_agent import BaseAgent
+from .. import timing_diagnostics
+from ..base_agent import BaseAgent, BatchSubjectInput, get_batch_size
 from ..context import PlanAgentContext
-from ..provider import AgentModelRequest
 from ..schema import AgentObservation
+
+DEFAULT_BATCH_SIZE = 6
 
 CLASSIFICATION_VALUES = ("CIRCULATION_SYSTEM", "HEAT_TRACING_SYSTEM", "UNRESOLVED")
 
@@ -64,42 +66,69 @@ class ZirkulationsHydraulikAgent(BaseAgent):
     def classify(
         self, context: PlanAgentContext, subject_id: str, page_number: int, bbox: tuple,
     ) -> AgentObservation:
-        nearby = context.nearby_text(page_number, bbox, margin_pt=60.0)
-        joined = "\n".join(nearby)
-        if _HEAT_TRACING_PATTERN.search(joined):
-            return self._observation(
-                "zirkulation_classification", subject_id, "HEAT_TRACING_SYSTEM", confidence="supported",
-                evidence=["nearby text names Heizband/Begleitheizung"], detail={"method": "text_pattern"},
-            )
-        if _CIRCULATION_PATTERN.search(joined):
-            return self._observation(
-                "zirkulation_classification", subject_id, "CIRCULATION_SYSTEM", confidence="supported",
-                evidence=["nearby text names a circulation pump/valve/hydraulic balancing"],
-                detail={"method": "text_pattern"},
-            )
+        return self.classify_batch(context, [(subject_id, page_number, bbox)])[subject_id]
 
-        crop = context.render_crop_png(page_number, bbox, margin_fraction=0.9)
-        prompt_hash = hash_text(SYSTEM_PROMPT)
-        if crop is None:
-            return self._observation(
-                "zirkulation_classification", subject_id, "UNRESOLVED", confidence="uncertain",
-                evidence=["no nearby text match and no crop could be rendered"], prompt_hash=prompt_hash,
-            )
-        input_hash = hash_bytes(crop)
-        request = AgentModelRequest(
-            system_prompt=SYSTEM_PROMPT, tool_name=TOOL_NAME, tool_schema=_TOOL_SCHEMA,
-            text="Classify this circulation-relevant drawing (never assess temperature).", images=[crop],
-        )
-        response = self.call_model(request)
-        if not response.available:
-            return self._observation(
-                "zirkulation_classification", subject_id, "UNRESOLVED", confidence=None, available=False,
-                error=response.error, model=response.model, prompt_hash=prompt_hash, input_hash=input_hash,
-            )
-        parsed = response.tool_input or {}
-        return self._observation(
-            "zirkulation_classification", subject_id, parsed.get("classification", "UNRESOLVED"),
-            confidence=parsed.get("confidence"), evidence=list(parsed.get("evidence") or []),
-            model=response.model, prompt_hash=prompt_hash, input_hash=input_hash,
-            raw_response_id=response.raw_response_id, latency_ms=response.latency_ms, detail={"method": "model"},
-        )
+    def classify_batch(
+        self, context: PlanAgentContext, subjects: list[tuple[str, int, tuple]],
+    ) -> dict[str, AgentObservation]:
+        results: dict[str, AgentObservation] = {}
+        batch_subjects: list[BatchSubjectInput] = []
+        crops: dict[str, bytes] = {}
+        deterministic_skip = 0
+        for subject_id, page_number, bbox in subjects:
+            nearby = context.nearby_text(page_number, bbox, margin_pt=60.0)
+            joined = "\n".join(nearby)
+            if _HEAT_TRACING_PATTERN.search(joined):
+                results[subject_id] = self._observation(
+                    "zirkulation_classification", subject_id, "HEAT_TRACING_SYSTEM", confidence="supported",
+                    evidence=["nearby text names Heizband/Begleitheizung"], detail={"method": "text_pattern"},
+                )
+                deterministic_skip += 1
+                continue
+            if _CIRCULATION_PATTERN.search(joined):
+                results[subject_id] = self._observation(
+                    "zirkulation_classification", subject_id, "CIRCULATION_SYSTEM", confidence="supported",
+                    evidence=["nearby text names a circulation pump/valve/hydraulic balancing"],
+                    detail={"method": "text_pattern"},
+                )
+                deterministic_skip += 1
+                continue
+
+            crop = context.render_crop_png(page_number, bbox, margin_fraction=0.9)
+            prompt_hash = hash_text(SYSTEM_PROMPT)
+            if crop is None:
+                results[subject_id] = self._observation(
+                    "zirkulation_classification", subject_id, "UNRESOLVED", confidence="uncertain",
+                    evidence=["no nearby text match and no crop could be rendered"], prompt_hash=prompt_hash,
+                )
+                continue
+            crops[subject_id] = crop
+            batch_subjects.append(BatchSubjectInput(
+                subject_id=subject_id, images=[crop],
+                text="Classify this circulation-relevant drawing (never assess temperature).",
+            ))
+
+        if deterministic_skip:
+            timing_diagnostics.record_subjects_deterministic_skip(self.agent_id, deterministic_skip)
+        if batch_subjects:
+            batch_size = get_batch_size(self.agent_id, DEFAULT_BATCH_SIZE)
+            outcomes = self.run_batched(batch_subjects, TOOL_NAME, _TOOL_SCHEMA, SYSTEM_PROMPT, batch_size=batch_size)
+            for subject_id, crop in crops.items():
+                outcome = outcomes[subject_id]
+                prompt_hash = hash_text(SYSTEM_PROMPT)
+                input_hash = hash_bytes(crop)
+                if not outcome.available:
+                    results[subject_id] = self._observation(
+                        "zirkulation_classification", subject_id, "UNRESOLVED", confidence=None, available=False,
+                        error=outcome.error, model=outcome.model, prompt_hash=prompt_hash, input_hash=input_hash,
+                    )
+                    continue
+                parsed = outcome.tool_input or {}
+                results[subject_id] = self._observation(
+                    "zirkulation_classification", subject_id, parsed.get("classification", "UNRESOLVED"),
+                    confidence=parsed.get("confidence"), evidence=list(parsed.get("evidence") or []),
+                    model=outcome.model, prompt_hash=prompt_hash, input_hash=input_hash,
+                    raw_response_id=outcome.raw_response_id, latency_ms=outcome.latency_ms,
+                    cached=outcome.cached, detail={"method": "model"},
+                )
+        return results

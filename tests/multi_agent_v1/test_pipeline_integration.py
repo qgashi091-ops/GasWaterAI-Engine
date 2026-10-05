@@ -77,8 +77,9 @@ def test_sicherung_category_is_read_from_plan_text_not_guessed(legend_and_riser_
     claim = next(c for c in sicherung if c["subject_id"] == "INV-SICHERUNG")
     assert claim["value"]["liquid_category"] == 2
     assert claim["value"]["category_source"] == "explicit_text_on_plan"
-    # position/zuordnung came from the fixture model call, category did not
-    assert any(r.tool_name == "classify_position" for r in provider.calls)
+    # position/zuordnung came from the fixture model call, category did not --
+    # batching (performance-optimization epic) sends "classify_position_batch".
+    assert any(r.tool_name == "classify_position_batch" for r in provider.calls)
 
 
 def test_rueckfluss_is_not_assessable_never_fabricated(legend_and_riser_pdf_bytes):

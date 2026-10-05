@@ -23,6 +23,7 @@ import contextvars
 import json
 import logging
 import os
+import threading
 import time
 import uuid
 from contextlib import contextmanager
@@ -64,14 +65,29 @@ if not logger.handlers:
     logger.addHandler(_handler)
 
 TIMING_DIAGNOSTICS_ENV_VAR = "GASWATERAI_TIMING_DIAGNOSTICS"
+MAX_CONCURRENCY_ENV_VAR = "GASWATERAI_AGENT_MAX_CONCURRENCY"
+DEFAULT_MAX_CONCURRENCY = 3
 
-# pipeline.py calls every agent, and every subject within an agent, from one
-# single top-to-bottom Python for-loop -- there is no thread pool, asyncio
-# gather, or other concurrency anywhere in that module. This is a static
-# fact about the existing code, not something measured per request, but it
-# is included in every logged line so a reader never has to go re-check
-# pipeline.py to answer "serial or parallel".
-EXECUTION_MODE = "serial"
+# Performance-optimization epic: pipeline.py now runs Stage A's 10
+# mutually-independent agents' batch calls concurrently, bounded by
+# GASWATERAI_AGENT_MAX_CONCURRENCY (see pipeline.py's module docstring for
+# the exact, code-derived dependency analysis -- RueckflussAgent needs
+# SicherungsAgent's same-run output (Stage B), NachweisAgent needs every
+# other agent's full observation list (Stage C), every other agent reads
+# only already-computed deterministic context/inventory/plan_facts and is
+# therefore independent of every other agent's output). Logged so a reader
+# never has to go re-check pipeline.py to answer "serial or parallel", and
+# so a run with GASWATERAI_AGENT_MAX_CONCURRENCY=1 is visibly distinct from
+# true single-threaded execution.
+EXECUTION_MODE = "staged-concurrent"
+
+
+def max_concurrency() -> int:
+    try:
+        value = int(os.environ.get(MAX_CONCURRENCY_ENV_VAR, DEFAULT_MAX_CONCURRENCY))
+    except (TypeError, ValueError):
+        return DEFAULT_MAX_CONCURRENCY
+    return value if value >= 1 else DEFAULT_MAX_CONCURRENCY
 
 
 def enabled() -> bool:
@@ -109,6 +125,12 @@ class AgentTiming:
     end_ms: Optional[float] = None
     duration_ms: Optional[float] = None
     model_calls: list = field(default_factory=list)  # list[ModelCallTiming]
+    subjects_total: int = 0
+    subjects_deterministic_skip: int = 0  # resolved by a text-pattern/legend/keyword/PlanFacts-skip shortcut, never entered a batch
+    subjects_model: int = 0               # subjects that actually needed a model call (cache hit or not)
+    batch_count: int = 0
+    batch_sizes: list = field(default_factory=list)  # list[int], one entry per provider call made
+    cache_hits: int = 0
 
     def to_dict(self) -> dict:
         statuses = [c.status for c in self.model_calls]
@@ -126,9 +148,17 @@ class AgentTiming:
             "start_ms": round(self.start_ms, 2) if self.start_ms is not None else None,
             "end_ms": round(self.end_ms, 2) if self.end_ms is not None else None,
             "duration_ms": round(self.duration_ms, 2) if self.duration_ms is not None else None,
+            "subjects_total": self.subjects_total,
+            "subjects_deterministic_skip": self.subjects_deterministic_skip,
+            "subjects_model": self.subjects_model,
+            "batch_count": self.batch_count,
+            "batch_sizes": list(self.batch_sizes),
             "model_calls": len(self.model_calls),
+            "cache_hits": self.cache_hits,
             "images": sum(c.images for c in self.model_calls),
             "provider_duration_ms_per_call": [round(c.duration_ms, 2) for c in self.model_calls],
+            "errors": sum(1 for s in statuses if s == "ERROR"),
+            "timeouts": sum(1 for s in statuses if s == "TIMEOUT"),
             "status": status,
         }
 
@@ -136,15 +166,23 @@ class AgentTiming:
 class TimingRecorder:
     def __init__(self, correlation_id: str):
         self.correlation_id = correlation_id
+        self.max_concurrency = max_concurrency()
         self._request_start = time.perf_counter()
         self.phases_ms: dict[str, float] = {}
         self.agents: dict[str, AgentTiming] = {}
         self._agent_order: list[str] = []
+        self._dropped_extra_results: int = 0
+        # Guards every mutation below -- Stage A dispatches multiple
+        # agents' batch calls onto a shared ThreadPoolExecutor
+        # (pipeline.py), so several worker threads can call record_*
+        # concurrently for different agents at once.
+        self._lock = threading.Lock()
 
     def add_phase_ms(self, name: str, extra_ms: float) -> None:
-        self.phases_ms[name] = self.phases_ms.get(name, 0.0) + extra_ms
+        with self._lock:
+            self.phases_ms[name] = self.phases_ms.get(name, 0.0) + extra_ms
 
-    def _agent_timing(self, agent_id: str, run: bool) -> AgentTiming:
+    def _agent_timing_locked(self, agent_id: str, run: bool) -> AgentTiming:
         timing = self.agents.get(agent_id)
         if timing is None:
             timing = AgentTiming(agent_id=agent_id, run=run)
@@ -152,35 +190,85 @@ class TimingRecorder:
             self._agent_order.append(agent_id)
         return timing
 
+    def begin_agent(self, agent_id: str, run: bool, subjects_total: int = 0) -> None:
+        """Explicit start, paired with `end_agent()` -- used instead of the
+        `agent_scope()` context manager when an agent's actual work is
+        dispatched to a thread pool and must stay "open" across a stage
+        barrier rather than closing when the submitting code returns."""
+        with self._lock:
+            timing = self._agent_timing_locked(agent_id, run)
+            timing.run = run
+            timing.subjects_total = subjects_total
+            if run:
+                timing.start_ms = (time.perf_counter() - self._request_start) * 1000
+
+    def end_agent(self, agent_id: str) -> None:
+        with self._lock:
+            timing = self.agents.get(agent_id)
+            if timing is None or not timing.run or timing.start_ms is None:
+                return
+            timing.end_ms = (time.perf_counter() - self._request_start) * 1000
+            timing.duration_ms = timing.end_ms - timing.start_ms
+
     @contextmanager
     def agent_scope(self, agent_id: str, run: bool):
-        timing = self._agent_timing(agent_id, run)
-        timing.run = run
-        if not run:
-            yield timing
-            return
-        timing.start_ms = (time.perf_counter() - self._request_start) * 1000
-        t0 = time.perf_counter()
+        """Simple synchronous sibling of begin_agent/end_agent, for a
+        single agent whose own work is NOT split across a concurrency
+        barrier (Stage B/C, and every unit test that still calls one
+        agent directly)."""
+        self.begin_agent(agent_id, run)
         try:
-            yield timing
+            yield self.agents.get(agent_id)
         finally:
-            timing.duration_ms = (time.perf_counter() - t0) * 1000
-            timing.end_ms = (time.perf_counter() - self._request_start) * 1000
+            self.end_agent(agent_id)
 
     def record_model_call(self, agent_id: str, duration_ms: float, images: int, status: str) -> None:
-        timing = self._agent_timing(agent_id, run=True)
-        timing.model_calls.append(ModelCallTiming(duration_ms=duration_ms, images=images, status=status))
+        with self._lock:
+            timing = self._agent_timing_locked(agent_id, run=True)
+            timing.model_calls.append(ModelCallTiming(duration_ms=duration_ms, images=images, status=status))
+
+    def record_subjects_deterministic_skip(self, agent_id: str, count: int) -> None:
+        with self._lock:
+            timing = self._agent_timing_locked(agent_id, run=True)
+            timing.subjects_deterministic_skip += count
+
+    def record_subjects_model(self, agent_id: str, count: int) -> None:
+        with self._lock:
+            timing = self._agent_timing_locked(agent_id, run=True)
+            timing.subjects_model += count
+
+    def record_cache_hit(self, agent_id: str, count: int = 1) -> None:
+        with self._lock:
+            timing = self._agent_timing_locked(agent_id, run=True)
+            timing.cache_hits += count
+
+    def record_batch_plan(self, agent_id: str, batch_count: int, batch_sizes: list) -> None:
+        with self._lock:
+            timing = self._agent_timing_locked(agent_id, run=True)
+            timing.batch_count += batch_count
+            timing.batch_sizes.extend(batch_sizes)
+
+    def record_dropped_extra_results(self, agent_id: str, count: int) -> None:
+        with self._lock:
+            self._dropped_extra_results += count
 
     def total_duration_ms(self) -> float:
         return (time.perf_counter() - self._request_start) * 1000
 
     def to_dict(self) -> dict:
+        with self._lock:
+            agent_order = list(self._agent_order)
+            agents_dict = {k: v for k, v in self.agents.items()}
+            phases = dict(self.phases_ms)
+            dropped = self._dropped_extra_results
         return {
             "correlation_id": self.correlation_id,
             "execution_mode": EXECUTION_MODE,
+            "max_concurrency": self.max_concurrency,
             "total_duration_ms": round(self.total_duration_ms(), 2),
-            "phases_ms": {k: round(v, 2) for k, v in self.phases_ms.items()},
-            "agents": [self.agents[a].to_dict() for a in self._agent_order],
+            "phases_ms": {k: round(v, 2) for k, v in phases.items()},
+            "agents": [agents_dict[a].to_dict() for a in agent_order],
+            "dropped_extra_batch_results": dropped,
         }
 
 
@@ -231,12 +319,83 @@ def agent_scope(agent_id: str, run: bool):
         yield timing
 
 
+def begin_agent(agent_id: str, run: bool, subjects_total: int = 0) -> None:
+    """No-op when diagnostics are disabled or no request is active. Pair
+    with `end_agent()` -- see TimingRecorder.begin_agent's docstring for
+    when to use this instead of `agent_scope()`."""
+    recorder = current()
+    if recorder is None:
+        return
+    recorder.begin_agent(agent_id, run, subjects_total=subjects_total)
+
+
+def end_agent(agent_id: str) -> None:
+    recorder = current()
+    if recorder is None:
+        return
+    recorder.end_agent(agent_id)
+
+
 def record_model_call(agent_id: str, duration_ms: float, images: int, status: str) -> None:
     """No-op when diagnostics are disabled or no request is active."""
     recorder = current()
     if recorder is None:
         return
     recorder.record_model_call(agent_id, duration_ms, images, status)
+
+
+def record_subjects_deterministic_skip(agent_id: str, count: int) -> None:
+    recorder = current()
+    if recorder is None:
+        return
+    recorder.record_subjects_deterministic_skip(agent_id, count)
+
+
+def record_subjects_model(agent_id: str, count: int) -> None:
+    recorder = current()
+    if recorder is None:
+        return
+    recorder.record_subjects_model(agent_id, count)
+
+
+def record_cache_hit(agent_id: str, count: int = 1) -> None:
+    recorder = current()
+    if recorder is None:
+        return
+    recorder.record_cache_hit(agent_id, count)
+
+
+def record_batch_plan(agent_id: str, batch_count: int, batch_sizes: list) -> None:
+    recorder = current()
+    if recorder is None:
+        return
+    recorder.record_batch_plan(agent_id, batch_count, batch_sizes)
+
+
+def record_dropped_extra_results(agent_id: str, count: int) -> None:
+    recorder = current()
+    if recorder is None:
+        return
+    recorder.record_dropped_extra_results(agent_id, count)
+
+
+def run_in_current_context(fn, /, *args, **kwargs):
+    """Wraps `fn` so that, when invoked from a DIFFERENT thread (as
+    ThreadPoolExecutor does), it runs with THIS thread's contextvars --
+    specifically, the active TimingRecorder (and GASWATERAI_TIMING_
+    DIAGNOSTICS's resolved state). Python does not propagate contextvars
+    into a new thread automatically; `concurrent.futures.ThreadPoolExecutor
+    .submit()` does not copy the caller's context either. Without this,
+    every timing call made from a worker thread would silently see
+    `current() is None` and record nothing, even with diagnostics
+    enabled -- pipeline.py's Stage-A executor uses this for every
+    submitted callable."""
+    ctx = contextvars.copy_context()
+
+    def _runner():
+        return ctx.run(fn, *args, **kwargs)
+
+    return _runner
 
 
 def finish_and_log() -> None:

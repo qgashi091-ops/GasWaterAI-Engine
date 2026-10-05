@@ -25,10 +25,13 @@ import re
 
 from app.microagents.hashing import hash_bytes, hash_text
 
-from ..base_agent import BaseAgent
+from ..base_agent import BaseAgent, BatchSubjectInput, get_batch_size
 from ..context import PlanAgentContext
-from ..provider import AgentModelRequest
 from ..schema import AgentObservation
+
+# Position/zuordnung is a slightly richer per-subject answer than a bare
+# enum -- conservative batch size.
+DEFAULT_BATCH_SIZE = 5
 
 POSITION_VALUES = ("UPSTREAM_OF_CONSUMER", "AT_DISTRIBUTOR", "AT_CONNECTION_POINT", "UNKNOWN")
 
@@ -83,40 +86,62 @@ class SicherungsAgent(BaseAgent):
         self, context: PlanAgentContext, subject_id: str, page_number: int, bbox: tuple,
         nearby_text: list[str], component_type: str | None,
     ) -> AgentObservation:
-        category, category_source = extract_explicit_category(nearby_text)
+        return self.assess_batch(context, [(subject_id, page_number, bbox, nearby_text, component_type)])[subject_id]
 
-        crop = context.render_crop_png(page_number, bbox, margin_fraction=1.0)
+    def assess_batch(
+        self, context: PlanAgentContext,
+        subjects: list[tuple[str, int, tuple, list[str], str | None]],
+    ) -> dict[str, AgentObservation]:
+        results: dict[str, AgentObservation] = {}
         prompt_hash = hash_text(SYSTEM_PROMPT)
-        base_value = {
-            "device_type": component_type, "liquid_category": category, "category_source": category_source,
-            "position": "UNKNOWN", "zuordnung": None,
-        }
-        if crop is None:
-            return self._observation(
-                "sicherungseinrichtung", subject_id, base_value, confidence="uncertain",
-                evidence=["could not render a crop for position/zuordnung"], prompt_hash=prompt_hash,
-                detail={"category_source": category_source},
-            )
-        input_hash = hash_bytes(crop)
-        request = AgentModelRequest(
-            system_prompt=SYSTEM_PROMPT, tool_name=TOOL_NAME, tool_schema=_TOOL_SCHEMA,
-            text=f"Known device type: {component_type or 'unknown'}.", images=[crop],
-        )
-        response = self.call_model(request)
-        if not response.available:
-            return self._observation(
-                "sicherungseinrichtung", subject_id, base_value, confidence=None, available=False,
-                error=response.error, model=response.model, prompt_hash=prompt_hash, input_hash=input_hash,
-                detail={"category_source": category_source},
-            )
-        parsed = response.tool_input or {}
-        value = {
-            "device_type": component_type, "liquid_category": category, "category_source": category_source,
-            "position": parsed.get("position", "UNKNOWN"), "zuordnung": parsed.get("zuordnung"),
-        }
-        return self._observation(
-            "sicherungseinrichtung", subject_id, value, confidence=parsed.get("confidence"),
-            evidence=list(parsed.get("evidence") or []), model=response.model, prompt_hash=prompt_hash,
-            input_hash=input_hash, raw_response_id=response.raw_response_id, latency_ms=response.latency_ms,
-            detail={"category_source": category_source},
-        )
+        batch_subjects: list[BatchSubjectInput] = []
+        meta: dict[str, tuple[bytes, int | None, str, str | None]] = {}  # subject_id -> (crop, category, category_source, component_type)
+        for subject_id, page_number, bbox, nearby_text, component_type in subjects:
+            category, category_source = extract_explicit_category(nearby_text)
+            crop = context.render_crop_png(page_number, bbox, margin_fraction=1.0)
+            base_value = {
+                "device_type": component_type, "liquid_category": category, "category_source": category_source,
+                "position": "UNKNOWN", "zuordnung": None,
+            }
+            if crop is None:
+                results[subject_id] = self._observation(
+                    "sicherungseinrichtung", subject_id, base_value, confidence="uncertain",
+                    evidence=["could not render a crop for position/zuordnung"], prompt_hash=prompt_hash,
+                    detail={"category_source": category_source},
+                )
+                continue
+            meta[subject_id] = (crop, category, category_source, component_type)
+            batch_subjects.append(BatchSubjectInput(
+                subject_id=subject_id, images=[crop],
+                text=f"Known device type: {component_type or 'unknown'}.",
+            ))
+
+        if batch_subjects:
+            batch_size = get_batch_size(self.agent_id, DEFAULT_BATCH_SIZE)
+            outcomes = self.run_batched(batch_subjects, TOOL_NAME, _TOOL_SCHEMA, SYSTEM_PROMPT, batch_size=batch_size)
+            for subject_id, (crop, category, category_source, component_type) in meta.items():
+                outcome = outcomes[subject_id]
+                input_hash = hash_bytes(crop)
+                base_value = {
+                    "device_type": component_type, "liquid_category": category, "category_source": category_source,
+                    "position": "UNKNOWN", "zuordnung": None,
+                }
+                if not outcome.available:
+                    results[subject_id] = self._observation(
+                        "sicherungseinrichtung", subject_id, base_value, confidence=None, available=False,
+                        error=outcome.error, model=outcome.model, prompt_hash=prompt_hash, input_hash=input_hash,
+                        detail={"category_source": category_source},
+                    )
+                    continue
+                parsed = outcome.tool_input or {}
+                value = {
+                    "device_type": component_type, "liquid_category": category, "category_source": category_source,
+                    "position": parsed.get("position", "UNKNOWN"), "zuordnung": parsed.get("zuordnung"),
+                }
+                results[subject_id] = self._observation(
+                    "sicherungseinrichtung", subject_id, value, confidence=parsed.get("confidence"),
+                    evidence=list(parsed.get("evidence") or []), model=outcome.model, prompt_hash=prompt_hash,
+                    input_hash=input_hash, raw_response_id=outcome.raw_response_id, latency_ms=outcome.latency_ms,
+                    cached=outcome.cached, detail={"category_source": category_source},
+                )
+        return results

@@ -26,6 +26,8 @@ from __future__ import annotations
 
 import json
 import os
+import re
+import threading
 import time
 import urllib.error
 import urllib.request
@@ -134,34 +136,77 @@ class AnthropicAgentModelProvider(AgentModelProvider):
             return AgentModelResponse(available=False, tool_input=None, model=model, error=f"Could not parse response: {exc}")
 
 
+_BATCH_SUBJECT_ID_PATTERN = re.compile(r"=== subject_id: (.*?) ===")
+
+
 class FixtureAgentModelProvider(AgentModelProvider):
     """Deterministic, no-network provider for tests and credential-free
     pipeline runs. `responses` maps `tool_name` -> either a fixed dict
     (always returned) or a callable `(request) -> dict | None` (None means
     "simulate unavailable", matching how the real provider behaves with no
     key). Every call is logged in `.calls` for test assertions (call count
-    == cost diagnostics correctness)."""
+    == cost diagnostics correctness).
+
+    Batch-aware (performance-optimization epic): `base_agent.py`'s
+    `run_batched()` sends `tool_name="<original>_batch"` and expects a
+    `{"results": [{"subject_id": ..., **fields}, ...]}` tool_input back.
+    This fixture understands that WITHOUT requiring any existing test to
+    change its `responses={...}` registration -- it still registers under
+    the original (non-"_batch") tool name, and this provider: (1) strips
+    the "_batch" suffix to look the handler up, (2) recovers which
+    subject_ids were actually asked about from `request.text`'s
+    `=== subject_id: <id> ===` markers (the exact, stable convention
+    `run_batched()` always uses to compose a chunk's combined text), and
+    (3) applies the SAME registered handler to every one of those
+    subject_ids (calling a callable handler once per subject_id, so a
+    test that needs per-subject variation still can)."""
 
     def __init__(self, responses: Optional[dict] = None, model: str = "fixture-model"):
         self.responses = responses or {}
         self.model = model
         self.calls: list[AgentModelRequest] = []
+        # Stage A (performance-optimization epic) dispatches several
+        # agents' calls onto a thread pool, so this fixture -- like the
+        # real providers -- must tolerate concurrent `.call()` invocations
+        # without corrupting `self.calls` or its length-derived id.
+        self._lock = threading.Lock()
 
     def call(self, request: AgentModelRequest) -> AgentModelResponse:
-        self.calls.append(request)
-        handler = self.responses.get(request.tool_name)
+        with self._lock:
+            self.calls.append(request)
+            call_index = len(self.calls)
+        is_batch = request.tool_name.endswith("_batch")
+        lookup_name = request.tool_name[: -len("_batch")] if is_batch else request.tool_name
+        handler = self.responses.get(lookup_name)
         if handler is None:
             return AgentModelResponse(
                 available=False, tool_input=None, model=request.model or self.model,
-                error=f"FixtureAgentModelProvider has no response registered for tool {request.tool_name!r}.",
+                error=f"FixtureAgentModelProvider has no response registered for tool {lookup_name!r}.",
             )
-        tool_input = handler(request) if callable(handler) else handler
-        if tool_input is None:
+
+        if not is_batch:
+            tool_input = handler(request) if callable(handler) else handler
+            if tool_input is None:
+                return AgentModelResponse(
+                    available=False, tool_input=None, model=request.model or self.model,
+                    error="Fixture simulated an unavailable model call.",
+                )
             return AgentModelResponse(
-                available=False, tool_input=None, model=request.model or self.model,
-                error="Fixture simulated an unavailable model call.",
+                available=True, tool_input=tool_input, model=request.model or self.model,
+                raw_response_id=f"fixture-{call_index}", latency_ms=0.0,
             )
+
+        subject_ids = _BATCH_SUBJECT_ID_PATTERN.findall(request.text)
+        results = []
+        for subject_id in subject_ids:
+            piece = handler(request) if callable(handler) else handler
+            if piece is None:
+                return AgentModelResponse(
+                    available=False, tool_input=None, model=request.model or self.model,
+                    error="Fixture simulated an unavailable model call.",
+                )
+            results.append({"subject_id": subject_id, **piece})
         return AgentModelResponse(
-            available=True, tool_input=tool_input, model=request.model or self.model,
-            raw_response_id=f"fixture-{len(self.calls)}", latency_ms=0.0,
+            available=True, tool_input={"results": results}, model=request.model or self.model,
+            raw_response_id=f"fixture-{call_index}", latency_ms=0.0,
         )
