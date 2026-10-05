@@ -33,6 +33,36 @@ from .provider import AgentModelResponse
 
 logger = logging.getLogger("gaswaterai.timing_diagnostics")
 
+# Root cause of the live symptom (Render shows the uvicorn access line for
+# /multi_agent_v1/analyze, never a timing line): `logging.getLogger(name)`
+# creates a logger at level NOTSET, which defers to its parent's effective
+# level -- and nothing in this process ever configures the root logger
+# (no `logging.basicConfig()`/`dictConfig()` anywhere in app/, confirmed by
+# inspection). Python's hardcoded root level is WARNING, so every
+# `logger.info(...)` call below was being dropped by the standard level
+# check before a handler, propagation, or Render's log capture ever entered
+# the picture -- GASWATERAI_TIMING_DIAGNOSTICS=1 was read correctly and the
+# log call was reached, it just never passed the level gate. Uvicorn's own
+# default logging config (uvicorn.config.LOGGING_CONFIG) only configures
+# its OWN "uvicorn"/"uvicorn.access"/"uvicorn.error" loggers, explicitly
+# leaves `disable_existing_loggers: False`, and never touches the root
+# logger or any application logger -- so it neither breaks nor fixes this.
+#
+# Fix: this module owns and configures ONLY its own named logger (never
+# `logging.basicConfig()`, never root) -- an explicit level and a
+# `StreamHandler` (stderr, matching the stream Render already captures for
+# every other log line, including uvicorn's own default/error handler) so
+# emission never depends on whatever the hosting process did or didn't
+# configure elsewhere. `propagate` stays at its default (True): if the
+# process ever gains its own root handler later, the line is still seen
+# there too, exactly once (this handler never touches, replaces, or
+# silences anything else).
+logger.setLevel(logging.INFO)
+if not logger.handlers:
+    _handler = logging.StreamHandler()
+    _handler.setLevel(logging.INFO)
+    logger.addHandler(_handler)
+
 TIMING_DIAGNOSTICS_ENV_VAR = "GASWATERAI_TIMING_DIAGNOSTICS"
 
 # pipeline.py calls every agent, and every subject within an agent, from one

@@ -14,6 +14,38 @@ from app.multi_agent_v1 import timing_diagnostics as td
 from app.multi_agent_v1.provider import AgentModelResponse
 
 
+def test_logger_emits_info_using_only_its_own_module_level_configuration():
+    """Regression test for the live Render symptom: the uvicorn access
+    line for /multi_agent_v1/analyze appeared, but no timing line ever
+    did, even with GASWATERAI_TIMING_DIAGNOSTICS=1 set. Root cause:
+    `logging.getLogger(name)` defaults to NOTSET (deferring to the root
+    logger's hardcoded default of WARNING), and nothing in this process
+    ever configures the root logger -- so `logger.info(...)` was silently
+    dropped by the standard level check before any handler or Render's
+    log capture ever saw it. This test deliberately does NOT use
+    `caplog.at_level(...)` (which would itself force the logger's level
+    and attach its own handler, masking exactly this bug) -- it only
+    relies on the module's own baked-in configuration, attaching a plain
+    collector handler the same way any real log aggregator would."""
+    assert td.logger.getEffectiveLevel() <= logging.INFO
+    assert any(isinstance(h, logging.StreamHandler) and h.level <= logging.INFO for h in td.logger.handlers)
+
+    records: list[logging.LogRecord] = []
+
+    class _Collector(logging.Handler):
+        def emit(self, record: logging.LogRecord) -> None:
+            records.append(record)
+
+    collector = _Collector()
+    td.logger.addHandler(collector)
+    try:
+        td.logger.info("probe-line-%s", "x")
+    finally:
+        td.logger.removeHandler(collector)
+
+    assert any(r.getMessage() == "probe-line-x" for r in records)
+
+
 def test_disabled_by_default_and_every_helper_is_a_safe_no_op(monkeypatch):
     monkeypatch.delenv(td.TIMING_DIAGNOSTICS_ENV_VAR, raising=False)
     assert td.enabled() is False
