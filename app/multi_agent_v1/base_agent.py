@@ -11,9 +11,11 @@ literally cannot emit outside its declared responsibility, it is not just a
 convention."""
 from __future__ import annotations
 
+import time
 from abc import ABC
 from typing import Optional
 
+from . import timing_diagnostics
 from .provider import AgentModelProvider, AgentModelRequest, AgentModelResponse
 from .schema import AgentObservation, Confidence
 
@@ -30,7 +32,23 @@ class BaseAgent(ABC):
         self.provider = provider
 
     def call_model(self, request: AgentModelRequest) -> AgentModelResponse:
-        return self.provider.call(request)
+        """Every agent's only path to a model call -- the one central
+        point that can time it (GASWATERAI_TIMING_DIAGNOSTICS=1 only) and
+        attribute it to `self.agent_id`, without touching any agent's own
+        logic, retry behavior, or the provider itself. When diagnostics
+        are disabled, `timing_diagnostics.current()` is None and this is
+        exactly `return self.provider.call(request)` -- same call, same
+        count, same timeout, nothing added."""
+        if timing_diagnostics.current() is None:
+            return self.provider.call(request)
+        t0 = time.perf_counter()
+        response = self.provider.call(request)
+        duration_ms = (time.perf_counter() - t0) * 1000
+        timing_diagnostics.record_model_call(
+            agent_id=self.agent_id, duration_ms=duration_ms,
+            images=len(request.images), status=timing_diagnostics.classify_status(response),
+        )
+        return response
 
     def _observation(
         self, claim_type: str, subject_id: str, value: object,
