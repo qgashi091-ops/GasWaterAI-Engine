@@ -12,6 +12,7 @@ from unittest import mock
 from app.multi_agent_v1.base44_provider import (
     GATEWAY_API_KEY_ENV_VAR,
     GATEWAY_URL_ENV_VAR,
+    REQUEST_USER_AGENT,
     Base44AgentModelProvider,
 )
 from app.multi_agent_v1.provider import AgentModelRequest
@@ -100,6 +101,38 @@ def test_base44_gateway_api_key_is_sent_exactly_as_x_gateway_secret_header(monke
         provider.call(_REQUEST)
 
     assert captured_headers.get("X-gateway-secret") == "live-secret-value"
+
+
+def test_sends_a_fixed_non_default_user_agent_not_python_urllib():
+    """Live-confirmed root cause of the Render -> Base44 403: Cloudflare's
+    edge blocks the Python urllib default User-Agent ("Python-urllib/3.x")
+    with HTTP 403 / error 1010 before the request reaches aiGateway at all.
+    A plain, static User-Agent gets through (confirmed: a 401 "invalid
+    shared secret" response FROM Base44 itself). x-gateway-secret must still
+    be sent exactly as before -- this changes only the User-Agent header."""
+    provider = Base44AgentModelProvider(gateway_url="https://base44.example/ai-gateway", api_key="secret-key")
+    captured_headers = {}
+
+    class _FakeResp:
+        def __enter__(self):
+            return self
+        def __exit__(self, *a):
+            return False
+        def read(self):
+            return json.dumps({"available": True, "tool_input": {}, "model": "m"}).encode("utf-8")
+
+    def _fake_urlopen(req, timeout=None):
+        captured_headers.update(req.header_items())
+        return _FakeResp()
+
+    with mock.patch("urllib.request.urlopen", side_effect=_fake_urlopen):
+        provider.call(_REQUEST)
+
+    sent_user_agent = captured_headers.get("User-agent")
+    assert sent_user_agent == REQUEST_USER_AGENT
+    assert sent_user_agent is not None
+    assert not sent_user_agent.lower().startswith("python-urllib")
+    assert captured_headers.get("X-gateway-secret") == "secret-key"
 
 
 def test_parses_unavailable_response_from_gateway():

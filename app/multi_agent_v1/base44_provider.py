@@ -52,6 +52,15 @@ GATEWAY_URL_ENV_VAR = "BASE44_AI_GATEWAY_URL"
 GATEWAY_API_KEY_ENV_VAR = "BASE44_AI_GATEWAY_API_KEY"
 REQUEST_TIMEOUT_SECONDS = 30
 
+# Live-confirmed root cause (Render -> Base44 diagnostic probe, HTML_EDGE_WAF
+# classification): Cloudflare's edge in front of Base44 blocks the Python
+# urllib default User-Agent ("Python-urllib/3.x") with HTTP 403 / error 1010
+# before the request ever reaches aiGateway. A normal, static User-Agent
+# reaches the function (confirmed: HTTP 401 "invalid shared secret" from
+# Base44 itself, not Cloudflare). This is transport-only -- it changes
+# nothing about the request body, auth header, or retry behavior.
+REQUEST_USER_AGENT = "Mozilla/5.0 (compatible; GasWaterAI-Engine/1.0; +https://gaswaterai.ch)"
+
 
 class Base44AgentModelProvider(AgentModelProvider):
     def __init__(self, gateway_url: str | None = None, api_key: str | None = None):
@@ -80,7 +89,11 @@ class Base44AgentModelProvider(AgentModelProvider):
         }
         req = urllib.request.Request(
             self.gateway_url, data=json.dumps(body).encode("utf-8"), method="POST",
-            headers={"content-type": "application/json", "x-gateway-secret": self.api_key},
+            headers={
+                "content-type": "application/json",
+                "x-gateway-secret": self.api_key,
+                "user-agent": REQUEST_USER_AGENT,
+            },
         )
         t0 = time.perf_counter()
         try:
