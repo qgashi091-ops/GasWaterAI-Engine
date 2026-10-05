@@ -45,9 +45,9 @@ Body (every field always present; `images` may be an empty list):
   "system_prompt": "string — the agent's system prompt, verbatim",
   "tool_name": "string — the name of the single tool the model must call",
   "tool_schema": {
-    "name": "string, equal to tool_name",
-    "description": "string",
-    "input_schema": { "...": "a JSON Schema object (Anthropic tool-schema shape)" }
+    "type": "object",
+    "properties": { "...": "one entry per expected output field" },
+    "required": ["...the required output field names..."]
   },
   "text": "string — the agent's user-turn text content",
   "images": ["string, ... — each a base64-encoded PNG, no data: URI prefix"],
@@ -63,7 +63,7 @@ Field meanings map 1:1 to `AgentModelRequest` (`provider.py`):
 |---|---|---|
 | `system_prompt` | string | Never modify — these prompts are the product's reviewed behavior. |
 | `tool_name` | string | The gateway must force the underlying model to call exactly this tool (e.g. Anthropic's `tool_choice: {"type": "tool", "name": tool_name}`), not answer in free text. |
-| `tool_schema` | object | A single Anthropic-style tool definition. Pass through unmodified to whatever model Base44's gateway calls. |
+| `tool_schema` | object | A raw JSON Schema, root `"type": "object"` with `"properties"` (and `"required"` where applicable) -- live-confirmed Base44 requirement (HTTP 400: `"tool_schema" muss vom Typ "object" sein (JSON-Schema-Root)`), used as Base44's structured-output schema. Every agent still builds its tool definition in Anthropic's `{"name", "description", "input_schema"}` shape (needed unchanged for `AnthropicAgentModelProvider`'s `tools` parameter); `Base44AgentModelProvider` unwraps `input_schema` before sending (`_to_base44_json_schema` in `base44_provider.py`), never the agent or `AgentModelRequest` itself. |
 | `text` | string | Plain text content, appended after any images in the user turn. |
 | `images` | array of base64 strings | Each one PNG image. Order matters (if present, decode and pass as `image` content blocks in the same order, before the text block). |
 | `model` | string \| null | A hint, not a requirement — Base44 may substitute its own default model if `null` or if it chooses to route differently. |
@@ -133,7 +133,7 @@ POST /functions/aiGateway
   body = parse JSON
   result = call_underlying_model(
       system=body.system_prompt,
-      tools=[body.tool_schema],
+      tools=[{ name: body.tool_name, input_schema: body.tool_schema }],
       tool_choice=body.tool_name,
       temperature=body.temperature,
       max_tokens=body.max_tokens,

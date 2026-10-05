@@ -137,6 +137,62 @@ def test_sends_a_fixed_non_default_user_agent_not_python_urllib():
     assert captured_headers.get("X-gateway-secret") == "secret-key"
 
 
+def test_call_sends_unwrapped_json_schema_for_a_real_anthropic_shaped_tool_schema():
+    """End-to-end at the provider boundary (not just the helper function):
+    a real agent-shaped tool_schema (Anthropic wrapper with name/
+    description/input_schema, input_schema rooted "type": "object") must
+    arrive at Base44 as the bare input_schema, root type object, with
+    every property intact -- this is the live-confirmed fix for the HTTP
+    400 "tool_schema muss vom Typ object sein (JSON-Schema-Root)"."""
+    anthropic_shaped_request = AgentModelRequest(
+        system_prompt="sys", tool_name="classify_medium",
+        tool_schema={
+            "name": "classify_medium",
+            "description": "Classify which medium a drawn pipe segment carries.",
+            "input_schema": {
+                "type": "object",
+                "properties": {
+                    "medium": {"type": "string", "enum": ["TRINKWASSER_KALT", "TRINKWASSER_WARM"]},
+                    "evidence": {"type": "array", "items": {"type": "string"}},
+                    "confidence": {"type": "string", "enum": ["supported", "uncertain"]},
+                },
+                "required": ["medium", "evidence", "confidence"],
+            },
+        },
+        text="hello", images=[], model=None, temperature=0.0, max_tokens=300,
+    )
+    provider = Base44AgentModelProvider(gateway_url="https://base44.example/ai-gateway", api_key="secret-key")
+    captured = {}
+
+    class _FakeResp:
+        def __enter__(self):
+            return self
+        def __exit__(self, *a):
+            return False
+        def read(self):
+            return json.dumps({"available": True, "tool_input": {}, "model": "m"}).encode("utf-8")
+
+    def _fake_urlopen(req, timeout=None):
+        captured["body"] = json.loads(req.data.decode("utf-8"))
+        return _FakeResp()
+
+    with mock.patch("urllib.request.urlopen", side_effect=_fake_urlopen):
+        provider.call(anthropic_shaped_request)
+
+    sent_schema = captured["body"]["tool_schema"]
+    assert sent_schema == {
+        "type": "object",
+        "properties": {
+            "medium": {"type": "string", "enum": ["TRINKWASSER_KALT", "TRINKWASSER_WARM"]},
+            "evidence": {"type": "array", "items": {"type": "string"}},
+            "confidence": {"type": "string", "enum": ["supported", "uncertain"]},
+        },
+        "required": ["medium", "evidence", "confidence"],
+    }
+    assert "name" not in sent_schema
+    assert "input_schema" not in sent_schema
+
+
 def test_parses_unavailable_response_from_gateway():
     provider = Base44AgentModelProvider(gateway_url="https://base44.example/ai-gateway", api_key="secret-key")
     fake_payload = {"available": False, "tool_input": None, "model": "claude-test", "error": "upstream model refused"}

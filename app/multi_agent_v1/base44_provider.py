@@ -85,6 +85,32 @@ def _redact_long_base64_runs(text: str) -> str:
     return _LONG_BASE64_RUN.sub("[IMAGE_DATA_REDACTED]", text)
 
 
+def _to_base44_json_schema(tool_schema: dict) -> dict:
+    """Live-confirmed root cause of the next Base44 400 (after the
+    Cloudflare/User-Agent fix): Base44's aiGateway validates `tool_schema`
+    as a raw JSON Schema whose ROOT must itself be
+    {"type": "object", "properties": {...}} -- exact error: 'tool_schema'
+    muss vom Typ 'object' sein (JSON-Schema-Root).
+
+    Every one of the 9 model-dependent agents builds its tool_schema in the
+    ANTHROPIC tool-definition shape -- {"name", "description",
+    "input_schema": <the actual JSON Schema, already {"type": "object",
+    "properties": ..., "required": ...}>} -- because
+    AnthropicAgentModelProvider needs exactly that wrapper for Anthropic's
+    `tools` parameter (provider.py: `"tools": [request.tool_schema]`). That
+    shape is unchanged, still required there, and still what every agent
+    builds -- this function only unwraps it for the Base44 transport: the
+    JSON Schema Base44 wants was already present one level down
+    (`tool_schema["input_schema"]`) for every current agent, so nothing
+    here invents a schema or wraps anything blindly. If a future
+    `tool_schema` is ever passed already as a bare JSON Schema (no
+    `input_schema` key), it is sent through unchanged."""
+    input_schema = tool_schema.get("input_schema")
+    if isinstance(input_schema, dict) and input_schema.get("type") == "object":
+        return input_schema
+    return tool_schema
+
+
 def _safe_http_error_detail(exc: urllib.error.HTTPError, secret: str | None) -> str:
     """Safely describes an HTTPError's response for diagnostics: status is
     read by the caller from `exc.code`; this returns a bounded, secret- and
@@ -133,7 +159,7 @@ class Base44AgentModelProvider(AgentModelProvider):
         body = {
             "system_prompt": request.system_prompt,
             "tool_name": request.tool_name,
-            "tool_schema": request.tool_schema,
+            "tool_schema": _to_base44_json_schema(request.tool_schema),
             "text": request.text,
             "images": [base64.b64encode(img).decode("ascii") for img in request.images],
             "model": request.model,
