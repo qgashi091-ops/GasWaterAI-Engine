@@ -12,14 +12,16 @@ TRANSPORT for the same request/response contract, selected by configuration
 REQUIRED CONFIGURATION (read from the environment, never hardcoded, never
 committed -- same discipline as GASWATERAI_VISION_API_KEY):
   BASE44_AI_GATEWAY_URL      -- the full HTTPS endpoint Base44 exposes for
-                                 this purpose (this engine's own URL/path
-                                 choice is Base44's to decide; nothing here
-                                 assumes a specific path shape).
-  BASE44_AI_GATEWAY_API_KEY  -- a bearer credential this engine presents TO
-                                 Base44 (sent as `Authorization: Bearer
-                                 <key>`) so Base44's gateway can authenticate
-                                 the caller. This is the OPPOSITE direction
-                                 from GASWATERAI_MULTI_AGENT_API_KEY (app/
+                                 this purpose (confirmed live:
+                                 https://gaswaterai.base44.app/functions/aiGateway).
+  BASE44_AI_GATEWAY_API_KEY  -- the shared secret this engine presents TO
+                                 Base44, sent as the `x-gateway-secret`
+                                 header (confirmed against Base44's live,
+                                 tested endpoint -- NOT an Authorization
+                                 bearer token) so Base44's gateway can
+                                 authenticate the caller. This is the
+                                 OPPOSITE direction from
+                                 GASWATERAI_MULTI_AGENT_API_KEY (app/
                                  main.py), which protects calls INTO this
                                  engine from Base44.
 
@@ -78,7 +80,7 @@ class Base44AgentModelProvider(AgentModelProvider):
         }
         req = urllib.request.Request(
             self.gateway_url, data=json.dumps(body).encode("utf-8"), method="POST",
-            headers={"content-type": "application/json", "authorization": f"Bearer {self.api_key}"},
+            headers={"content-type": "application/json", "x-gateway-secret": self.api_key},
         )
         t0 = time.perf_counter()
         try:

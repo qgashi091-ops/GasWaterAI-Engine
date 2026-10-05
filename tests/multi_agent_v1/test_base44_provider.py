@@ -38,7 +38,7 @@ def test_unavailable_with_only_url_set(monkeypatch):
     assert provider.call(_REQUEST).available is False
 
 
-def test_sends_the_documented_request_shape_and_bearer_header():
+def test_sends_the_documented_request_shape_and_gateway_secret_header():
     provider = Base44AgentModelProvider(gateway_url="https://base44.example/ai-gateway", api_key="secret-key")
     fake_payload = {"available": True, "tool_input": {"value": 1}, "model": "claude-test", "raw_response_id": "r1", "error": None}
     captured = {}
@@ -63,12 +63,43 @@ def test_sends_the_documented_request_shape_and_bearer_header():
     assert response.available is True
     assert response.tool_input == {"value": 1}
     assert captured["url"] == "https://base44.example/ai-gateway"
-    assert captured["headers"]["Authorization"] == "Bearer secret-key"
+    assert captured["headers"]["X-gateway-secret"] == "secret-key"
+    assert "Authorization" not in captured["headers"]
     assert captured["body"] == {
         "system_prompt": "sys", "tool_name": "do_thing", "tool_schema": {"name": "do_thing", "input_schema": {}},
         "text": "hello", "images": ["ZmFrZS1wbmctYnl0ZXM="], "model": "claude-test",
         "temperature": 0.0, "max_tokens": 300,
     }
+
+
+def test_base44_gateway_api_key_is_sent_exactly_as_x_gateway_secret_header(monkeypatch):
+    """Exact, narrow regression test for the live-confirmed Base44 contract:
+    BASE44_AI_GATEWAY_API_KEY -> the `x-gateway-secret` header, verbatim,
+    with no Bearer/Authorization wrapping. This is the root cause the live
+    403 ("Base44 AI Gateway request failed: HTTP Error 403: Forbidden")
+    traced back to -- the provider previously sent
+    `Authorization: Bearer <key>` instead."""
+    monkeypatch.setenv(GATEWAY_URL_ENV_VAR, "https://gaswaterai.base44.app/functions/aiGateway")
+    monkeypatch.setenv(GATEWAY_API_KEY_ENV_VAR, "live-secret-value")
+    provider = Base44AgentModelProvider()
+    captured_headers = {}
+
+    class _FakeResp:
+        def __enter__(self):
+            return self
+        def __exit__(self, *a):
+            return False
+        def read(self):
+            return json.dumps({"available": True, "tool_input": {}, "model": "m"}).encode("utf-8")
+
+    def _fake_urlopen(req, timeout=None):
+        captured_headers.update(req.header_items())
+        return _FakeResp()
+
+    with mock.patch("urllib.request.urlopen", side_effect=_fake_urlopen):
+        provider.call(_REQUEST)
+
+    assert captured_headers.get("X-gateway-secret") == "live-secret-value"
 
 
 def test_parses_unavailable_response_from_gateway():

@@ -21,8 +21,8 @@ that same request/response shape carried over HTTP+JSON, field for field.
 
 | Environment variable | Meaning |
 |---|---|
-| `BASE44_AI_GATEWAY_URL` | The full HTTPS endpoint Base44 exposes. This engine makes no assumption about its path — Base44 decides the URL. |
-| `BASE44_AI_GATEWAY_API_KEY` | The bearer credential this engine presents **to** Base44, sent as `Authorization: Bearer <key>`. |
+| `BASE44_AI_GATEWAY_URL` | The full HTTPS endpoint Base44 exposes (confirmed live: `https://gaswaterai.base44.app/functions/aiGateway`). |
+| `BASE44_AI_GATEWAY_API_KEY` | The shared secret this engine presents **to** Base44, sent as the `x-gateway-secret` header (confirmed against Base44's live, tested endpoint). |
 
 Both must be set (as platform secrets, never committed) for this engine to
 prefer Base44's gateway over the direct Anthropic path; with neither set,
@@ -35,7 +35,7 @@ Headers:
 
 ```
 Content-Type: application/json
-Authorization: Bearer <BASE44_AI_GATEWAY_API_KEY>
+x-gateway-secret: <BASE44_AI_GATEWAY_API_KEY>
 ```
 
 Body (every field always present; `images` may be an empty list):
@@ -128,8 +128,8 @@ message — it never raises an exception into the calling agent (see
 ## Example: a minimal reference implementation sketch (Base44 side, pseudocode)
 
 ```text
-POST /ai-gateway
-  verify Authorization: Bearer === configured secret, else 401
+POST /functions/aiGateway
+  verify x-gateway-secret header === configured secret, else 401
   body = parse JSON
   result = call_underlying_model(
       system=body.system_prompt,
