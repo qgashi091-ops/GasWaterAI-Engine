@@ -42,6 +42,7 @@ from __future__ import annotations
 import base64
 import json
 import os
+import re
 import time
 import urllib.error
 import urllib.request
@@ -60,6 +61,58 @@ REQUEST_TIMEOUT_SECONDS = 30
 # Base44 itself, not Cloudflare). This is transport-only -- it changes
 # nothing about the request body, auth header, or retry behavior.
 REQUEST_USER_AGENT = "Mozilla/5.0 (compatible; GasWaterAI-Engine/1.0; +https://gaswaterai.ch)"
+
+# Error-diagnostics bounds, for the next live incident (currently: HTTP 400
+# from Base44 itself, now that the Cloudflare/User-Agent block is fixed).
+# Keeps the captured response body short and scrubbed -- long enough to see
+# a real validation message, never long enough to carry back a whole
+# echoed request payload.
+MAX_HTTP_ERROR_BODY_CHARS = 500
+_LONG_BASE64_RUN = re.compile(r"[A-Za-z0-9+/]{100,}={0,2}")
+
+
+def _redact_secret(text: str, secret: str | None) -> str:
+    if secret and secret in text:
+        return text.replace(secret, "[REDACTED]")
+    return text
+
+
+def _redact_long_base64_runs(text: str) -> str:
+    """Defensive scrub for a Base44 error response that echoes back part of
+    the request it rejected -- this engine's own images are base64-encoded
+    PNGs (see `body["images"]` below), so any sufficiently long base64-like
+    run is treated as image/plan data and never logged."""
+    return _LONG_BASE64_RUN.sub("[IMAGE_DATA_REDACTED]", text)
+
+
+def _safe_http_error_detail(exc: urllib.error.HTTPError, secret: str | None) -> str:
+    """Safely describes an HTTPError's response for diagnostics: status is
+    read by the caller from `exc.code`; this returns a bounded, secret- and
+    image-data-redacted summary of Content-Type + body. Reads only Base44's
+    own RESPONSE (never the request this engine sent), and never raises --
+    a body that can't be read or decoded degrades to a short placeholder
+    rather than losing the HTTP status this error is reporting."""
+    try:
+        raw = exc.read() if hasattr(exc, "read") else b""
+    except Exception:  # noqa: BLE001
+        raw = b""
+
+    content_type = ""
+    if exc.headers:
+        content_type = exc.headers.get("Content-Type") or exc.headers.get("content-type") or ""
+
+    body_text = raw.decode("utf-8", errors="replace")
+    body_text = _redact_secret(body_text, secret)
+    body_text = _redact_long_base64_runs(body_text)
+    body_text = body_text.strip()[:MAX_HTTP_ERROR_BODY_CHARS]
+
+    if body_text and content_type:
+        return f"{content_type}: {body_text}"
+    if body_text:
+        return body_text
+    if content_type:
+        return f"{content_type} (empty body)"
+    return "no response body"
 
 
 class Base44AgentModelProvider(AgentModelProvider):
@@ -99,7 +152,13 @@ class Base44AgentModelProvider(AgentModelProvider):
         try:
             with urllib.request.urlopen(req, timeout=REQUEST_TIMEOUT_SECONDS) as resp:
                 raw_body = resp.read()
-        except (urllib.error.URLError, urllib.error.HTTPError, TimeoutError) as exc:
+        except urllib.error.HTTPError as exc:
+            detail = _safe_http_error_detail(exc, self.api_key)
+            return AgentModelResponse(
+                available=False, tool_input=None, model=request.model or "base44-ai-gateway",
+                error=f"Base44 AI Gateway request failed: HTTP {exc.code}: {detail}",
+            )
+        except (urllib.error.URLError, TimeoutError) as exc:
             return AgentModelResponse(
                 available=False, tool_input=None, model=request.model or "base44-ai-gateway",
                 error=f"Base44 AI Gateway request failed: {exc}",

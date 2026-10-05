@@ -6,6 +6,8 @@ as test_provider.py's AnthropicAgentModelProvider tests (no live Base44
 endpoint exists yet)."""
 from __future__ import annotations
 
+import base64
+import io
 import json
 from unittest import mock
 
@@ -161,6 +163,72 @@ def test_handles_request_failure():
         response = provider.call(_REQUEST)
     assert response.available is False
     assert "Base44 AI Gateway request failed" in response.error
+
+
+def test_http_error_captures_status_content_type_and_safe_body():
+    """Live incident, next step: after the User-Agent fix, Render's real
+    /multi_agent_v1/analyze run got HTTP 400 from Base44 instead of 403.
+    The provider must surface Base44's actual error body so the 400 can be
+    diagnosed, not just the bare status code."""
+    import urllib.error
+
+    provider = Base44AgentModelProvider(gateway_url="https://base44.example/ai-gateway", api_key="secret-key")
+    body = json.dumps({"available": False, "error": "invalid tool_schema: missing 'name'"}).encode("utf-8")
+
+    def _raise(req, timeout=None):
+        raise urllib.error.HTTPError(
+            "https://base44.example/ai-gateway", 400, "Bad Request",
+            {"Content-Type": "application/json"}, io.BytesIO(body),
+        )
+
+    with mock.patch("urllib.request.urlopen", side_effect=_raise):
+        response = provider.call(_REQUEST)
+
+    assert response.available is False
+    assert "HTTP 400" in response.error
+    assert "application/json" in response.error
+    assert "invalid tool_schema" in response.error
+
+
+def test_http_error_body_never_leaks_gateway_secret():
+    import urllib.error
+
+    secret = "super-secret-live-value"
+    provider = Base44AgentModelProvider(gateway_url="https://base44.example/ai-gateway", api_key=secret)
+    body = f'{{"error": "rejected request signed with {secret}"}}'.encode("utf-8")
+
+    def _raise(req, timeout=None):
+        raise urllib.error.HTTPError(
+            "https://base44.example/ai-gateway", 400, "Bad Request",
+            {"Content-Type": "application/json"}, io.BytesIO(body),
+        )
+
+    with mock.patch("urllib.request.urlopen", side_effect=_raise):
+        response = provider.call(_REQUEST)
+
+    assert secret not in response.error
+    assert "[REDACTED]" in response.error
+
+
+def test_http_error_body_strips_base64_image_payloads():
+    import urllib.error
+
+    provider = Base44AgentModelProvider(gateway_url="https://base44.example/ai-gateway", api_key="secret-key")
+    fake_image_b64 = base64.b64encode(b"fake-png-bytes" * 20).decode("ascii")
+    assert len(fake_image_b64) > 100
+    body = json.dumps({"error": f"could not decode images[0]: {fake_image_b64}"}).encode("utf-8")
+
+    def _raise(req, timeout=None):
+        raise urllib.error.HTTPError(
+            "https://base44.example/ai-gateway", 400, "Bad Request",
+            {"Content-Type": "application/json"}, io.BytesIO(body),
+        )
+
+    with mock.patch("urllib.request.urlopen", side_effect=_raise):
+        response = provider.call(_REQUEST)
+
+    assert fake_image_b64 not in response.error
+    assert "[IMAGE_DATA_REDACTED]" in response.error
 
 
 def test_handles_malformed_response_payload():
