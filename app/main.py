@@ -25,6 +25,7 @@ from fastapi import Depends, FastAPI, File, Header, HTTPException, UploadFile
 from fastapi.responses import JSONResponse
 
 from .fingerprint import document_fingerprint
+from .multi_agent_v1.base44_gateway_diagnostics import run_diagnostics as run_base44_gateway_diagnostics
 from .multi_agent_v1.base44_provider import Base44AgentModelProvider
 from .multi_agent_v1.base44_provider import GATEWAY_URL_ENV_VAR as BASE44_AI_GATEWAY_URL_ENV_VAR
 from .multi_agent_v1.pipeline import ENGINE_VERSION as MULTI_AGENT_V1_ENGINE_VERSION
@@ -61,6 +62,20 @@ def _verify_multi_agent_api_key(x_api_key: str | None = Header(default=None, ali
     expected = os.environ.get(MULTI_AGENT_API_KEY_ENV_VAR)
     if not expected:
         return
+    if not x_api_key or not hmac.compare_digest(x_api_key, expected):
+        raise HTTPException(status_code=401, detail="Missing or invalid X-API-Key.")
+
+
+def _require_multi_agent_api_key(x_api_key: str | None = Header(default=None, alias="X-API-Key")) -> None:
+    """Stricter sibling of `_verify_multi_agent_api_key`, for
+    /diagnostics/base44-gateway only: same env var, same X-API-Key header,
+    same constant-time comparison -- but never fails open. That lenient
+    endpoint intentionally stays as open as before until someone configures
+    GASWATERAI_MULTI_AGENT_API_KEY; this diagnostic probe must refuse to run
+    at all without a valid key, configured or not."""
+    expected = os.environ.get(MULTI_AGENT_API_KEY_ENV_VAR)
+    if not expected:
+        raise HTTPException(status_code=503, detail=f"{MULTI_AGENT_API_KEY_ENV_VAR} is not configured.")
     if not x_api_key or not hmac.compare_digest(x_api_key, expected):
         raise HTTPException(status_code=401, detail="Missing or invalid X-API-Key.")
 
@@ -262,3 +277,18 @@ async def multi_agent_v1_analyze(file: UploadFile = File(...)) -> JSONResponse:
             "timing_ms": {"parse": parse_ms, "agents": agents_ms, "total": parse_ms + agents_ms},
         },
     })
+
+
+@app.post("/diagnostics/base44-gateway", dependencies=[Depends(_require_multi_agent_api_key)])
+async def diagnostics_base44_gateway() -> JSONResponse:
+    """TEMPORARY -- diagnoses the live Render -> Base44 AI Gateway 403 from
+    inside the actual running engine (see
+    app/multi_agent_v1/base44_gateway_diagnostics.py for the full probe).
+    Runs no plan check, no agent, no further model call beyond the single
+    direct HTTP probe(s) it sends to Base44 (at most 2, never a retry loop).
+    Requires a valid X-API-Key even if GASWATERAI_MULTI_AGENT_API_KEY is
+    unset (`_require_multi_agent_api_key`, stricter than
+    `_verify_multi_agent_api_key`) -- no diagnosis runs without one. DELETE
+    this route (and base44_gateway_diagnostics.py) once the incident is
+    resolved."""
+    return JSONResponse(run_base44_gateway_diagnostics())
