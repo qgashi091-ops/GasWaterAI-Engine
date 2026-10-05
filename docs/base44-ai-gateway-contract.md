@@ -70,6 +70,71 @@ Field meanings map 1:1 to `AgentModelRequest` (`provider.py`):
 | `temperature` | number | Always `0.0` from every current agent (determinism) — pass through. |
 | `max_tokens` | integer | Upper bound on the model's response size. |
 
+## Image attachment handling inside aiGateway (live fix: "Invalid file attachment")
+
+Live-confirmed symptom: after the `tool_schema` fix, model-dependent agents
+that send a crop (SymbolAgent, AnschlussAgent, LeitungsAgent's vision
+fallback, ...) get `available: false, error: "Invalid file attachment"` from
+Base44's `InvokeLLM`. Root cause: `InvokeLLM` (Base44's
+`integrations.Core.InvokeLLM`) does **not** accept inline image data of any
+kind -- not raw bytes, not base64, not a `data:` URI. It accepts only
+`file_urls`: an array of URLs pointing at files Base44 already has in its
+own storage. This is confirmed, not assumed -- every existing, working
+`InvokeLLM` call in this product's own Base44 app (`planpruefung`,
+`visualFirstPoc`, `richtlinienChat`, `extractDocumentText`,
+`verifyCorrection`) uses exactly this pattern and none of them ever passes
+image/file bytes directly:
+
+```js
+const { signed_url } = await base44.asServiceRole.integrations.Core.CreateFileSignedUrl({
+  file_uri, expires_in: 300,
+});
+const res = await base44.asServiceRole.integrations.Core.InvokeLLM({
+  prompt, file_urls: [signed_url, ...], response_json_schema,
+});
+```
+
+This engine's side of the contract does **not** change: `images` stays an
+array of base64-encoded PNGs, no `data:` prefix, exactly as documented
+above -- `Base44AgentModelProvider` and every agent stay exactly as they
+are. **aiGateway** is the only place that needs to change: it must turn
+each incoming base64 image into a short-lived, private file Base44's
+`InvokeLLM` can reference by URL, before calling `InvokeLLM`. No agent, and
+no part of this engine, needs to know this happens.
+
+Required aiGateway-side steps per request that carries `images`:
+
+1. For each base64 string in `body.images`, decode it to raw bytes and wrap
+   it as a `File` (PNG, matching this engine's actual output --
+   `new File([bytes], \`attachment-${i}.png\`, { type: "image/png" })`).
+2. Upload each as a **private, temporary** file -- never a permanent public
+   one, never written to any product entity (no `PlanCheck`, no
+   `PlanInventory`, no customer/document entity -- this file exists solely
+   to let `InvokeLLM` see the crop for this one call). Use whichever of
+   Base44's own upload primitives yields a **private** reference rather
+   than a public URL (the existing `feedbackPlanUrl`/`planAnalyseExtern`
+   functions already treat `file_uri` as the private form, in contrast to
+   the public `file_url` `UploadFile` can also return -- prefer that
+   private path here, consistent with those).
+3. Obtain a short-lived signed URL for each uploaded file via
+   `CreateFileSignedUrl({ file_uri, expires_in: 300 })` -- the same 300s
+   expiry every existing InvokeLLM-with-attachments call in this app
+   already uses. No longer-lived or permanent link is needed; the URL only
+   has to survive the single `InvokeLLM` call that follows immediately.
+4. Pass the resulting signed URLs as `file_urls` to the single `InvokeLLM`
+   call this request makes -- never more than one `InvokeLLM` call per
+   gateway request, matching the existing no-retry-loop behavior.
+5. Never log `body.images`, the decoded bytes, the uploaded file's
+   contents, or the signed URL itself (a signed URL is a bearer credential
+   for that file) -- log at most a count (`images.length`) and the HTTP
+   outcome, the same discipline `Base44AgentModelProvider`'s own error
+   logging already follows on this engine's side.
+6. A request with an empty `images` array (every current text-only agent
+   path, and the deterministic-only agents that never call a model at all)
+   must skip all of the above and call `InvokeLLM` exactly as it does
+   today, with no `file_urls` -- this fix only adds a step, it must not
+   change behavior for a request with no images.
+
 ## Response — 200 OK, JSON body
 
 ```json
@@ -127,22 +192,56 @@ message — it never raises an exception into the calling agent (see
 
 ## Example: a minimal reference implementation sketch (Base44 side, pseudocode)
 
-```text
-POST /functions/aiGateway
-  verify x-gateway-secret header === configured secret, else 401
-  body = parse JSON
-  result = call_underlying_model(
-      system=body.system_prompt,
-      tools=[{ name: body.tool_name, input_schema: body.tool_schema }],
-      tool_choice=body.tool_name,
-      temperature=body.temperature,
-      max_tokens=body.max_tokens,
-      content=[*decode_images(body.images), {type: text, text: body.text}],
-  )
-  if result.ok:
-      return 200 { available: true, tool_input: result.tool_call.input,
-                   model: result.model_used, raw_response_id: result.id }
-  else:
-      return 200 { available: false, tool_input: null,
-                   model: body.model, error: result.failure_reason }
+Concrete to Base44's own `integrations.Core` API (the shape every other
+function in this app's own codebase already uses), including the
+image-attachment fix above:
+
+```js
+export default async function (req) {
+  const secret = req.headers.get('x-gateway-secret');
+  if (!secret || secret !== Deno.env.get('GATEWAY_SHARED_SECRET')) {
+    return Response.json({ error: 'unauthorized' }, { status: 401 });
+  }
+  const body = await req.json();
+
+  let fileUrls = [];
+  if (Array.isArray(body.images) && body.images.length > 0) {
+    fileUrls = await Promise.all(body.images.map(async (b64, i) => {
+      const bytes = Uint8Array.from(atob(b64), (c) => c.charCodeAt(0));
+      const file = new File([bytes], `attachment-${i}.png`, { type: 'image/png' });
+      // private upload -- never a permanent public file_url, never an entity write
+      const { file_uri } = await base44.asServiceRole.integrations.Core.UploadFile({ file, private: true });
+      const { signed_url } = await base44.asServiceRole.integrations.Core.CreateFileSignedUrl({
+        file_uri, expires_in: 300,
+      });
+      return signed_url;
+    }));
+  }
+
+  let result, error = null;
+  try {
+    result = await base44.asServiceRole.integrations.Core.InvokeLLM({
+      prompt: body.system_prompt + '\n\n' + body.text,
+      file_urls: fileUrls,
+      response_json_schema: body.tool_schema,
+    });
+  } catch (e) {
+    error = e.message || String(e);
+  }
+
+  if (error) {
+    return Response.json({ available: false, tool_input: null, model: body.model, error }, { status: 200 });
+  }
+  return Response.json({ available: true, tool_input: result, model: body.model, raw_response_id: null });
+}
 ```
+
+Notes on this sketch: `UploadFile({ file, private: true })` stands in for
+whichever of Base44's own upload primitives yields a private file
+reference rather than a permanent public `file_url` -- the exact call
+shape needs confirming against Base44's current `integrations.Core` API
+surface (not independently verified in this epic, since aiGateway's actual
+source is not in any repository this engine's own development has access
+to). The `response_json_schema: body.tool_schema` line relies on the
+`tool_schema` fix above (a bare JSON-Schema-root object, not the Anthropic
+tool-definition wrapper).
