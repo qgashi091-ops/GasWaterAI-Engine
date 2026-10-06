@@ -28,8 +28,9 @@ from .fingerprint import document_fingerprint
 from .multi_agent_v1.base44_gateway_diagnostics import run_diagnostics as run_base44_gateway_diagnostics
 from .multi_agent_v1.base44_provider import Base44AgentModelProvider
 from .multi_agent_v1.base44_provider import GATEWAY_URL_ENV_VAR as BASE44_AI_GATEWAY_URL_ENV_VAR
-from .multi_agent_v1.pipeline import ENGINE_VERSION as MULTI_AGENT_V1_ENGINE_VERSION
-from .multi_agent_v1.pipeline import run_multi_agent_v1
+from .multi_agent_v1.job_manager import QueueFullError, get_job_manager
+from .multi_agent_v1.job_runner import InvalidPdfError, PdfAnalysisError, run_multi_agent_v1_analysis
+from .multi_agent_v1.job_store import COMPLETED, FAILED, QUEUED
 from .multi_agent_v1.provider import AgentModelProvider, AnthropicAgentModelProvider
 from .multi_agent_v1 import timing_diagnostics
 from .plan_analysis.canonical_inventory import build_canonical_inventory
@@ -234,58 +235,114 @@ async def multi_agent_v1_analyze(file: UploadFile = File(...)) -> JSONResponse:
     that never call a model at all) still runs and still produces real
     observations with zero calls. Protected by `_verify_multi_agent_api_key`
     (X-API-Key header) once GASWATERAI_MULTI_AGENT_API_KEY is configured;
-    /analyze and /check carry no such dependency and are unaffected."""
+    /analyze and /check carry no such dependency and are unaffected.
+    SEPARATE from the asynchronous POST/GET /multi_agent_v1/jobs pair below
+    -- both call the identical `run_multi_agent_v1_analysis()` helper
+    (see job_runner.py), so this route's behavior/response shape is
+    completely unchanged by the job-mode addition; it remains the
+    diagnosis/development path (section 3 of the job-mode spec)."""
     timing_token = timing_diagnostics.start_request()
     try:
         pdf_bytes = await file.read()
-        if not pdf_bytes.startswith(b"%PDF"):
-            raise HTTPException(status_code=400, detail="Uploaded file is not a PDF.")
-
-        t0 = time.perf_counter()
-        with timing_diagnostics.phase("pdf_parsing"):
-            try:
-                doc = analyze_pdf_bytes(pdf_bytes, filename=file.filename or "upload.pdf")
-            except Exception as exc:  # noqa: BLE001
-                raise HTTPException(status_code=422, detail=f"PDF analysis failed: {exc}") from exc
-        parse_ms = (time.perf_counter() - t0) * 1000
-
-        with timing_diagnostics.phase("deterministic_preprocessing"):
-            plan_facts = build_document_facts(doc)
-
-            try:
-                legend_intelligence = build_legend_intelligence(pdf_bytes, doc)
-            except Exception as exc:  # noqa: BLE001
-                legend_intelligence = {"legend_candidates": [], "legend_entries": [], "component_facts": [], "stats": {"error": str(exc)}}
-
-            try:
-                component_evidence = build_component_evidence(pdf_bytes, doc, legend_intelligence, vision_provider=None)
-            except Exception as exc:  # noqa: BLE001
-                component_evidence = {"evidence": [], "stats": {"error": str(exc)}}
-
-            inventory = build_canonical_inventory(doc, plan_facts, component_evidence)
-            check_results = run_checks(inventory["inventory"], ALL_RULES)
-
-        t1 = time.perf_counter()
-        result = run_multi_agent_v1(
-            doc=doc, provider=_select_agent_model_provider(), pdf_bytes=pdf_bytes, plan_facts=plan_facts,
-            component_evidence=component_evidence.get("evidence", []), inventory=inventory["inventory"],
-            rule_checks=check_results["checks"],
-        )
-        agents_ms = (time.perf_counter() - t1) * 1000
+        try:
+            result_dict = run_multi_agent_v1_analysis(pdf_bytes, _select_agent_model_provider(), filename=file.filename)
+        except InvalidPdfError as exc:
+            raise HTTPException(status_code=400, detail=str(exc)) from exc
+        except PdfAnalysisError as exc:
+            raise HTTPException(status_code=422, detail=str(exc)) from exc
 
         timing_diagnostics.finish_and_log()
-
-        return JSONResponse({
-            "engine_version": MULTI_AGENT_V1_ENGINE_VERSION,
-            "document_fingerprint": document_fingerprint(pdf_bytes),
-            **result.to_dict(),
-            "diagnostics": {
-                "filename": file.filename, "page_count": doc.page_count, "warnings": doc.warnings,
-                "timing_ms": {"parse": parse_ms, "agents": agents_ms, "total": parse_ms + agents_ms},
-            },
-        })
+        return JSONResponse(result_dict)
     finally:
         timing_diagnostics.end_request(timing_token)
+
+
+JOB_MAX_UPLOAD_BYTES_ENV_VAR = "GASWATERAI_JOB_MAX_UPLOAD_BYTES"
+DEFAULT_JOB_MAX_UPLOAD_BYTES = 25 * 1024 * 1024  # 25 MB
+
+
+def _job_max_upload_bytes() -> int:
+    try:
+        value = int(os.environ.get(JOB_MAX_UPLOAD_BYTES_ENV_VAR, DEFAULT_JOB_MAX_UPLOAD_BYTES))
+    except (TypeError, ValueError):
+        return DEFAULT_JOB_MAX_UPLOAD_BYTES
+    return value if value >= 1 else DEFAULT_JOB_MAX_UPLOAD_BYTES
+
+
+def _job_status_dict(record) -> dict:
+    def _iso(dt):
+        return dt.isoformat(timespec="milliseconds").replace("+00:00", "Z") if dt is not None else None
+
+    return {
+        "job_id": record.job_id,
+        "status": record.status,
+        "created_at": _iso(record.created_at),
+        "started_at": _iso(record.started_at),
+        "completed_at": _iso(record.completed_at),
+        "result": record.result if record.status == COMPLETED else None,
+        "error": record.error if record.status == FAILED else None,
+    }
+
+
+@app.post("/multi_agent_v1/jobs", status_code=202, dependencies=[Depends(_verify_multi_agent_api_key)])
+async def multi_agent_v1_submit_job(file: UploadFile = File(...)) -> JSONResponse:
+    """Asynchronous entry point for the Multi-Agent v1 analysis (job-mode
+    epic): accepts the identical PDF upload as POST /multi_agent_v1/analyze
+    but does NOT wait for the analysis -- it enqueues the EXACT SAME
+    pipeline (via `run_multi_agent_v1_analysis()`, see job_runner.py) onto
+    a bounded background worker pool (see job_manager.py) and returns
+    immediately with 202. This exists because a full plan analysis can
+    take several minutes, far longer than Base44's own ~120s request
+    timeout -- see docs/multi-agent-v1-job-mode-contract.md for the full
+    polling contract a caller must follow.
+
+    Protected by the SAME `_verify_multi_agent_api_key` dependency as
+    POST /multi_agent_v1/analyze (fails open until
+    GASWATERAI_MULTI_AGENT_API_KEY is configured). Idempotent on input:
+    submitting the identical PDF bytes while a job for them is already
+    queued/processing returns that job's id instead of starting a second,
+    costly analysis (document_fingerprint-based, see job_manager.py)."""
+    pdf_bytes = await file.read()
+    max_bytes = _job_max_upload_bytes()
+    if len(pdf_bytes) > max_bytes:
+        raise HTTPException(
+            status_code=413,
+            detail=f"Uploaded file exceeds the job endpoint's {max_bytes} byte limit.",
+        )
+    if not pdf_bytes.startswith(b"%PDF"):
+        raise HTTPException(status_code=400, detail="Uploaded file is not a PDF.")
+
+    manager = get_job_manager()
+    fingerprint = document_fingerprint(pdf_bytes)
+    try:
+        job_id, _created = manager.submit(
+            pdf_bytes, _select_agent_model_provider(), fingerprint, filename=file.filename,
+        )
+    except QueueFullError as exc:
+        raise HTTPException(status_code=503, detail=str(exc)) from exc
+
+    # On an idempotent hit (section 7: an identical input already has a job
+    # in flight) the returned job may already be PROCESSING, not QUEUED --
+    # report its REAL current status rather than always claiming "queued".
+    record = manager.get(job_id)
+    status_value = record.status if record is not None else QUEUED
+    return JSONResponse(status_code=202, content={"job_id": job_id, "status": status_value})
+
+
+@app.get("/multi_agent_v1/jobs/{job_id}", dependencies=[Depends(_verify_multi_agent_api_key)])
+async def multi_agent_v1_get_job(job_id: str) -> JSONResponse:
+    """Status/result poll for a job created by POST /multi_agent_v1/jobs.
+    Same X-API-Key protection. Status is exclusively one of queued,
+    processing, completed, failed -- see job_store.py. `result` is
+    populated only once `completed` (the identical body
+    POST /multi_agent_v1/analyze would have returned for the same input);
+    `error` is populated only once `failed`, and is always a technical
+    message, never plan content or a secret."""
+    manager = get_job_manager()
+    record = manager.get(job_id)
+    if record is None:
+        raise HTTPException(status_code=404, detail="Unknown job_id.")
+    return JSONResponse(_job_status_dict(record))
 
 
 @app.post("/diagnostics/base44-gateway", dependencies=[Depends(_require_multi_agent_api_key)])
